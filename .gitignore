@@ -1,0 +1,41 @@
+# SMM Documentation Tracking System
+# Generated files and logs
+_dev/docs/.tracking.log
+_dev/docs/.alerts.json
+_dev/docs/dashboard.html
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables
+.env
+.env.local
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+/tmp/
+*.tmp
+*.temp
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Node modules (if needed in future)
+node_modules/
+
+# Logs
+*.log
+logs/
