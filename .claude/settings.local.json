@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php:*)",
+      "Read(//c/xampp/htdocs/**)",
+      "Bash(dir)",
+      "Bash(dir:*)",
+      "Bash(vendor\\bin\\phpstan.bat:*)",
+      "Bash(powershell:*)",
+      "Bash(composer run phpstan:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(cmd /c \"xcopy /Y /I C:\\xampp\\htdocs\\mtegmsmm_old\\20250912_0631\\public\\img\\*.* C:\\xampp\\htdocs\\mtegmsmm\\public\\img\\ 2>&1\")",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(awk:*)",
+      "Bash(cmd /c:*)",
+      "Read(//c/Users/proje-bap/Desktop/output/config.php/**)",
+      "Read(//c/Users/proje-bap/Desktop/output/web.config/**)",
+      "Read(//c/Users/proje-bap/Desktop/output/database.php/**)",
+      "Read(//c/Users/proje-bap/Desktop/output/index.php/**)",
+      "Read(//c/Users/proje-bap/Desktop/ayse.hoca/smmeylem/config/**)",
+      "Read(//c/Users/proje-bap/Desktop/ayse.hoca/smmeylem/Remote Yedek/Web/config/**)",
+      "Read(//c/Users/proje-bap/Desktop/**)",
+      "Bash(xcopy:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "outputStyle": "Explanatory"
+}

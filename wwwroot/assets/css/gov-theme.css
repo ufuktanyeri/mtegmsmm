@@ -1,0 +1,241 @@
+/* Global Government Theme Overrides */
+:root {
+    --gov-primary: #0b5cab;
+    --gov-primary-dark: #094b8c;
+    --gov-accent: #e53935;
+    --gov-bg: #f5f7fa;
+    --gov-surface: #ffffff;
+    --gov-border: #dde3ea;
+    --gov-radius: 10px;
+    --gov-shadow: 0 2px 4px rgba(0, 0, 0, 0.06), 0 6px 18px -6px rgba(0, 0, 0, 0.08);
+    --gov-gradient: linear-gradient(135deg, #0b5cab, #1372d1 40%, #1990ff);
+    --gov-focus: 0 0 0 3px rgba(25, 144, 255, 0.35);
+    --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { font-size: .78rem; line-height:1.35; margin:0; color:#516272; background: var(--gov-bg); }
+.gov-card {
+    background: var(--gov-surface);
+    border: 1px solid var(--gov-border);
+    border-radius: 14px;
+    box-shadow: var(--gov-shadow);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.gov-card:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,.08), 0 10px 30px -10px rgba(0,0,0,.15); }
+
+/* Stat cards */
+.gov-stat-card { padding:.85rem .95rem; border-radius:14px; position:relative; overflow:hidden; background:#fff; border:1px solid var(--gov-border); box-shadow:var(--gov-shadow); }
+.gov-stat-card .stat-bg { position:absolute; inset:0; opacity:.9; }
+.gov-stat-card .stat-icon { width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff;font-size:1rem;box-shadow:0 3px 6px -2px rgba(0,0,0,.3); }
+.gov-stat-card .stat-label { font-size:.58rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#334b61;margin:0; }
+.gov-stat-card .stat-val { font-size:1.45rem;font-weight:700;letter-spacing:-1px;line-height:1;margin-top:.15rem; }
+
+.gov-card .gov-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--gov-gradient);
+    color: #fff;
+    font-size: 1.1rem;
+    box-shadow: 0 3px 6px -2px rgba(0, 0, 0, 0.25);
+}
+.gov-card a.primary-link {
+    margin-top: auto;
+    align-self: flex-start;
+    background: var(--gov-primary);
+    color: #fff;
+    padding: 0.45rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    display: inline-flex;
+    gap: 0.45rem;
+    align-items: center;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.25);
+}
+.gov-card a.primary-link:hover {
+    background: var(--gov-primary-dark);
+    text-decoration: none;
+}
+.gov-card a.primary-link:focus {
+    box-shadow: var(--gov-focus);
+}
+
+/* Grid */
+.gov-grid {
+    display: grid;
+    gap: 1.05rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+@media (max-width: 1050px) {
+    .gov-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+}
+@media (max-width: 700px) {
+    .gov-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 0.85rem;
+    }
+}
+
+/* KPI */
+.kpi-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.1rem;
+}
+.kpi {
+    position: relative;
+    padding: 0.7rem 0.85rem 0.75rem;
+    background: var(--gov-surface);
+    border: 1px solid var(--gov-border);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    box-shadow: var(--gov-shadow);
+    overflow: hidden;
+}
+.kpi:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(130deg, rgba(11, 92, 171, 0.08), rgba(11, 92, 171, 0));
+}
+.kpi h4 {
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #4d6278;
+    margin: 0;
+}
+.kpi .val {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0b5cab;
+    letter-spacing: -0.5px;
+}
+.kpi small {
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: #60788f;
+}
+
+/* Toolbar */
+.filter-toolbar {
+    background: var(--gov-surface);
+    border: 1px solid var(--gov-border);
+    padding: 0.65rem;
+    border-radius: 12px;
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    position: relative;
+    box-shadow: var(--gov-shadow);
+}
+.filter-toolbar button {
+    background: #fff;
+    border: 1px solid var(--gov-border);
+    padding: 0.45rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #334b61;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: var(--transition);
+}
+.filter-toolbar button:hover {
+    background: var(--gov-primary);
+    color: #fff;
+    border-color: var(--gov-primary);
+}
+.filter-toolbar button.active {
+    background: var(--gov-primary);
+    color: #fff;
+    box-shadow:
+        0 0 0 1px var(--gov-primary-dark),
+        0 0 0 4px rgba(11, 92, 171, 0.35);
+}
+.filter-toolbar button:focus {
+    outline: none;
+    box-shadow: var(--gov-focus);
+}
+
+/* Legacy small-box adapt */
+.small-box {
+    border-radius: 12px !important;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gov-border);
+    background: linear-gradient(165deg, #fff, #f1f6fb);
+    box-shadow: var(--gov-shadow);
+}
+.small-box .icon {
+    opacity: 0.2 !important;
+    top: 8px !important;
+    right: 8px !important;
+}
+.small-box .small-box-footer {
+    background: rgba(0, 0, 0, 0.05) !important;
+}
+.small-box:hover {
+    transform: translateY(-3px) !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--gov-primary);
+    border-color: var(--gov-primary);
+}
+.btn-primary:hover {
+    background: var(--gov-primary-dark);
+    border-color: var(--gov-primary-dark);
+}
+.btn:focus {
+    box-shadow: var(--gov-focus);
+}
+
+/* Forms */
+.form-control:focus {
+    border-color: var(--gov-primary);
+    box-shadow: var(--gov-focus);
+}
+
+/* Tables */
+.table thead th {
+    background: #0b5cab;
+    color: #fff;
+    border-color: #0b5cab;
+}
+.table-bordered {
+    border-color: var(--gov-border);
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background: #f2f7fb;
+}
+
+/* Animations preference */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Dark / contrast theme sınıfları kaldırıldı */

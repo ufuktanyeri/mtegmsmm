@@ -1,0 +1,26 @@
+{
+  "name": "mtegmsmm-portal",
+  "version": "2.0.0",
+  "description": "MTEGM SMM Portal Asset Management",
+  "scripts": {
+    "minify": "php minify-assets.php",
+    "minify:force": "php minify-assets.php --force",
+    "watch": "echo 'Watching for file changes...' && php watch-assets.php",
+    "build": "npm run minify",
+    "build:prod": "npm run minify:force"
+  },
+  "keywords": [
+    "mtegm",
+    "smm",
+    "portal",
+    "education"
+  ],
+  "author": "MTEGM Development Team",
+  "license": "MIT",
+  "devDependencies": {
+    "comment": "NPM packages can be added here for advanced minification"
+  },
+  "engines": {
+    "php": ">=7.4"
+  }
+}

@@ -1,0 +1,38 @@
+parameters:
+    level: 5
+    paths:
+        - app
+    excludePaths:
+        - app/lib/*
+        - app/fonts/*
+        - app/views/components/test/*
+        - app/views/**/*_backup.php
+        - app/views/**/*_old.php
+        - app/views/**/*.bak
+    scanFiles:
+        - app/views/layouts/unified.php
+        - app/views/user/main.php
+        - app/views/user/login.php
+        - app/views/user/haberlist.php
+        - app/views/action/index.php
+        - app/views/components/navbar.php
+    scanDirectories:
+        - app
+        - includes
+    treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: false
+    universalObjectCratesClasses:
+        - stdClass
+    dynamicConstantNames:
+        - BASE_URL
+        - APP_ENV
+        - SESSION_LIFETIME
+    earlyTerminatingMethodCalls:
+        BaseController:
+            - redirect
+            - jsonError
+            - jsonSuccess
+    pro:
+        dnsServers:
+            - '1.1.1.1'
+            - '8.8.8.8'

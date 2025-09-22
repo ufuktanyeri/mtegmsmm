@@ -1,0 +1,92 @@
+# Development Directory - NOT FOR PRODUCTION
+/_dev/
+_dev/
+
+# Deployment packages
+/_deploy_*/
+deploy_*.zip
+deploy_*.tar.gz
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.tmp
+*~
+
+# Test files
+*test*.php
+test/
+tests/
+
+# IDE directories
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+/logs/*
+!/logs/.gitkeep
+error_log
+access_log
+
+# Cache
+/cache/*
+!/cache/.gitkeep
+
+# Uploaded files (keep directory structure)
+/public/uploads/*
+!/public/uploads/.gitkeep
+
+# Dependency directories
+/vendor/
+/node_modules/
+
+# Build artifacts
+/dist/
+/build/
+*.min.js.map
+*.min.css.map
+
+# PHP tools
+phpstan.phar
+php-cs-fixer.phar
+composer.phar
+
+# Documentation builds
+/docs/_build/
+/docs/site/
+
+# Session files
+/sessions/*
+!/sessions/.gitkeep
+
+# Temporary files
+*.pid
+*.seed
+*.pid.lock
+
+# Database dumps
+*.sql
+*.sqlite
+*.db
+
+# Archive files (except required)
+*.zip
+*.tar.gz
+*.rar
+!required-assets.zip

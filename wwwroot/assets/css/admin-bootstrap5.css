@@ -1,0 +1,361 @@
+/* Bootstrap 5 Custom Admin Theme */
+/* Replaces AdminLTE styling with Bootstrap 5 equivalent */
+
+:root {
+  --bs-primary: #007bff;
+  --bs-secondary: #6c757d;
+  --bs-success: #28a745;
+  --bs-info: #17a2b8;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #343a40;
+  --admin-sidebar-width: 250px;
+  --admin-navbar-height: 56px;
+}
+
+/* Layout Structure */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main Header/Navbar */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  height: var(--admin-navbar-height);
+}
+
+/* Sidebar */
+.main-sidebar {
+  position: fixed;
+  top: var(--admin-navbar-height);
+  left: 0;
+  width: var(--admin-sidebar-width);
+  height: calc(100vh - var(--admin-navbar-height));
+  overflow-y: auto;
+  background: #343a40;
+  z-index: 1025;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-light-primary {
+  background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+  border-right: 1px solid #dee2e6;
+}
+
+.sidebar-dark-primary {
+  background: linear-gradient(180deg, #343a40 0%, #2c3034 100%);
+}
+
+/* Brand Logo */
+.brand-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-light-primary .brand-link {
+  color: #495057;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.sidebar-light-primary .brand-link:hover {
+  color: #007bff;
+}
+
+.brand-link:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.brand-image {
+  width: 33px;
+  height: 33px;
+  margin-right: 0.75rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.brand-text {
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+/* User Panel */
+.user-panel {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.user-panel .image img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+
+.user-panel .info a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+}
+
+/* Navigation */
+.nav-sidebar {
+  padding: 0;
+}
+
+.nav-sidebar .nav-item {
+  margin-bottom: 0;
+}
+
+.nav-sidebar .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+.nav-sidebar .nav-link:hover {
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.nav-sidebar .nav-link.active {
+  background-color: var(--bs-primary);
+  color: white;
+}
+
+.nav-icon {
+  margin-right: 0.75rem;
+  width: 16px;
+  text-align: center;
+}
+
+.nav-header {
+  padding: 0.75rem 1rem 0.25rem;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-light-primary .nav-header {
+  color: #6c757d;
+}
+
+.sidebar-light-primary .nav-sidebar .nav-link {
+  color: #495057;
+}
+
+.sidebar-light-primary .nav-sidebar .nav-link:hover {
+  background-color: rgba(0,123,255,0.1);
+  color: #007bff;
+}
+
+.sidebar-light-primary .nav-sidebar .nav-link.active {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  margin-left: var(--admin-sidebar-width);
+  margin-top: var(--admin-navbar-height);
+  min-height: calc(100vh - var(--admin-navbar-height));
+  background-color: #f4f4f4;
+}
+
+/* Content Header */
+.content-header {
+  padding: 1.5rem 1.25rem;
+  background: white;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.content-header h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+  color: #6c757d;
+}
+
+/* Main Content */
+.content {
+  padding: 1.25rem;
+}
+
+/* Footer */
+.main-footer {
+  margin-left: var(--admin-sidebar-width);
+  background: white;
+  border-top: 1px solid #dee2e6;
+  padding: 1rem 1.25rem;
+  color: #6c757d;
+  font-size: 0.875rem;
+}
+
+/* Cards */
+.card {
+  border-radius: 0.375rem;
+  box-shadow: 0 0 1px rgba(0,0,0,.125), 0 1px 3px rgba(0,0,0,.2);
+  border: none;
+}
+
+.card-header {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  padding: 0.75rem 1rem;
+}
+
+/* Forms */
+.form-control {
+  border-radius: 0.375rem;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 0.375rem;
+}
+
+/* Quick Theme Toggle */
+.quick-theme-toggle {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+  z-index: 1020;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.quick-theme-toggle button {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #dee2e6;
+  background: white;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-theme-toggle button:hover {
+  background-color: var(--bs-primary);
+  color: white;
+  border-color: var(--bs-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .main-sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+  
+  .content-wrapper {
+    margin-left: 0;
+  }
+  
+  .main-footer {
+    margin-left: 0;
+  }
+  
+  .quick-theme-toggle {
+    display: none;
+  }
+}
+
+/* Sidebar Toggle */
+.sidebar-collapse .main-sidebar {
+  transform: translateX(-100%);
+}
+
+.sidebar-collapse .content-wrapper,
+.sidebar-collapse .main-footer {
+  margin-left: 0;
+}
+
+/* Government UI Theme Integration */
+.gov-ui {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.gov-ui .main-header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+}
+
+.gov-ui .brand-link {
+  background: rgba(0,0,0,0.1);
+}
+
+/* Elevation classes (AdminLTE equivalent) */
+.elevation-1 { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+.elevation-2 { box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); }
+.elevation-3 { box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); }
+.elevation-4 { box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); }
+
+/* Custom utilities */
+.text-sm { font-size: 0.875rem; }
+.text-xs { font-size: 0.75rem; }
+.font-weight-light { font-weight: 300; }
+.font-weight-normal { font-weight: 400; }
+.font-weight-bold { font-weight: 700; }
+
+/* Layout fixes for hold-transition */
+.hold-transition * {
+  transition: none !important;
+}
+
+body.hold-transition.layout-fixed.sidebar-mini {
+  overflow-x: hidden;
+}
+
+/* Data widget compatibility */
+[data-widget="pushmenu"] {
+  cursor: pointer;
+}
+
+/* TreeView menu styles */
+.nav-treeview {
+  padding-left: 2rem;
+}
+
+.nav-treeview .nav-link {
+  padding-left: 2.5rem;
+  font-size: 0.875rem;
+}
