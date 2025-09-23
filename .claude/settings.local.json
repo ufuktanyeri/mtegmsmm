@@ -28,7 +28,9 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(git pull:*)",
-      "Bash(composer update:*)"
+      "Bash(composer update:*)",
+      "Bash(composer:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []
