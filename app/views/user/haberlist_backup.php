@@ -138,7 +138,7 @@ $additionalCss = '
             <div class="container">
                 <!-- Brand -->
                 <a href="https://meb.gov.tr/" class="navbar-brand d-flex align-items-center me-4">
-                    <img src="<?php echo BASE_URL; ?>img/MEB_Logo.svg" alt="MEB" style="height: 55px; width: auto;" class="me-3">
+                    <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg" alt="MEB" style="height: 55px; width: auto;" class="me-3">
                     <div class="d-none d-lg-block">
                         <div class="fw-bold text-primary" style="font-size: 1.1rem; line-height: 1.2;">
                             T.C. Milli Eğitim Bakanlığı
@@ -178,7 +178,7 @@ $additionalCss = '
                     <!-- Right Side -->
                     <div class="d-flex align-items-center">
                         <div class="me-3 d-none d-lg-block">
-                            <img src="<?php echo BASE_URL; ?>img/turkiye.svg" alt="Türkiye 100. Yıl" style="height: 45px;" class="rounded shadow-sm">
+                            <img src="<?php echo BASE_URL; ?>wwwroot/img/turkiye.svg" alt="Türkiye 100. Yıl" style="height: 45px;" class="rounded shadow-sm">
                         </div>
                         <a href="<?php echo BASE_URL; ?>index.php?url=user/login" class="btn btn-primary btn-sm rounded-pill px-4">
                             <i class="fas fa-sign-in-alt me-2"></i>SMM Portal

@@ -297,7 +297,10 @@ class ActionController extends BaseController {
                     ];
                 }
                 // Tarayıcı konsolu için header ekle
-                header('X-Debug-AdminCalendar: '.substr(json_encode($perCenter),0,950));
+                $jsonData = json_encode($perCenter);
+                if ($jsonData !== false) {
+                    header('X-Debug-AdminCalendar: '.substr($jsonData, 0, 950));
+                }
             }
         }
         

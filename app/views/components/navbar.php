@@ -218,7 +218,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
         <!-- Brand - MEB Logo Only -->
         <a href="https://www.meb.gov.tr" class="navbar-brand d-flex align-items-center me-3" target="_blank"
            title="T.C. Milli Eğitim Bakanlığı" rel="noopener noreferrer">
-            <img src="<?php echo BASE_URL; ?>img/MEB_Logo.svg"
+            <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg"
                  alt="T.C. Milli Eğitim Bakanlığı"
                  style="height: 45px; width: auto;"
                  class="meb-logo">
@@ -367,7 +367,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
             <!-- Right Side -->
             <div class="d-flex align-items-center">
                 <div class="me-3 d-none d-lg-block">
-                    <img src="<?php echo BASE_URL; ?>assets/img/turkiye.svg" alt="Türkiye 100. Yıl" style="height: 45px;" class="rounded shadow-sm">
+                    <img src="<?php echo BASE_URL; ?>wwwroot/img/turkiye.svg" alt="Türkiye 100. Yıl" style="height: 45px;" class="rounded shadow-sm">
                 </div>
 
                 <?php if (!$isLoggedIn): ?>
@@ -382,7 +382,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                                     <img src="<?php echo BASE_URL; ?>uploads/profiles/<?php echo htmlspecialchars($_SESSION['profile_photo']); ?>"
                                         alt="Profil Fotoğrafı">
                                 <?php else: ?>
-                                    <img src="<?php echo BASE_URL; ?>img/default-avatar.svg" alt="Varsayılan Profil">
+                                    <img src="<?php echo BASE_URL; ?>wwwroot/img/default-avatar.svg" alt="Varsayılan Profil">
                                 <?php endif; ?>
                             </div>
                             <div class="d-none d-md-block text-start">

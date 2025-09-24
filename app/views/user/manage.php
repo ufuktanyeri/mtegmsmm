@@ -11,7 +11,7 @@ $breadcrumb = [
 AssetManager::addBundle('datatables');
 ob_start();
 ?>
-        <?php if ($error <> ""): ?>
+        <?php if (isset($error) && $error <> ""): ?>
             <div class="alert alert-danger alert-dismissible" role="alert">
                 <div class="d-flex">
                     <div>

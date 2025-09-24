@@ -8,8 +8,10 @@ header("Content-Security-Policy: frame-ancestors 'self'");
 
 // Load header component
 include __DIR__ . '/../components/header.php';
-include __DIR__ . '/../components/navbar.php';
 ?>
+
+<div class="wrapper">
+    <?php include __DIR__ . '/../components/navbar.php'; ?>
 
 <style>
     /* Page specific styles for news detail */
@@ -114,10 +116,8 @@ include __DIR__ . '/../components/navbar.php';
             </div>
         </div>
     <?php endif; ?>
+
+    <?php include __DIR__ . '/../components/footer.php'; ?>
 </div>
 
-<?php
-// Load footer and scripts components
-include __DIR__ . '/../components/footer.php';
-include __DIR__ . '/../components/scripts.php';
-?>
+<?php include __DIR__ . '/../components/scripts.php'; ?>

@@ -35,7 +35,7 @@ ob_start();
     
                   <div class="form-group">
                     <label for="inputName">Alan Adı</label>
-                    <input type="text" class="form-control" name="name" id="name" value="<?php echo htmlspecialchars($field->getName()); ?>" placeholder="Alan adını giriniz">
+                    <input type="text" class="form-control" name="name" id="name" value="<?php echo htmlspecialchars($field->getFieldName()); ?>" placeholder="Alan adını giriniz">
                   </div>                 
                 
                 </div>

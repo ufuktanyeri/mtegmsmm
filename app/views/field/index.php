@@ -28,11 +28,11 @@ ob_start();
                     foreach ($fields as $field): ?>
                         <tr>
                             <td><?php echo $lineNumber; ?></td>
-                            <td><?php echo htmlspecialchars($field->getName()); ?></td>
+                            <td><?php echo htmlspecialchars($field->getFieldName()); ?></td>
                             <td>
                                 <a href="index.php?url=field/edit&id=<?php echo $field->getId(); ?>">Düzenle</a>
                                 |
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?php echo $field->getId(); ?>" data-name="<?php echo htmlspecialchars($field->getName()); ?>">Sil</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?php echo $field->getId(); ?>" data-name="<?php echo htmlspecialchars($field->getFieldName()); ?>">Sil</a>
                             </td>
                         </tr>
                     <?php 

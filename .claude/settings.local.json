@@ -30,7 +30,13 @@
       "Bash(git pull:*)",
       "Bash(composer update:*)",
       "Bash(composer:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(mv:*)",
+      "Bash(git config:*)",
+      "Bash(git mv:*)",
+      "Bash(git log:*)",
+      "Bash(find:*)",
+      "Read(//c/Users/proje-bap/.claude/**)"
     ],
     "deny": [],
     "ask": []

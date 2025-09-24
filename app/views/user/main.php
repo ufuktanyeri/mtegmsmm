@@ -13,33 +13,21 @@ $isLoggedIn = isset($_SESSION['username']);
 // Additional page-specific styles
 $additionalCss = '
     /* Homepage specific styles */
-    .hero-section {
-        min-height: 60vh;
-        position: relative;
-        overflow: hidden;
-        background: var(--meb-gradient);
-        color: white;
-        margin-top: 95px;
+    .main-hero {
+        padding-bottom: 5rem !important; /* Extra padding for buttons */
     }
 
-    .hero-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
-        z-index: 0;
+    .action-buttons-section {
+        margin-bottom: 3rem;
     }
 
-    .hero-content {
-        position: relative;
-        z-index: 1;
+    .action-buttons-section .btn {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .min-vh-50 {
-        min-height: 50vh;
+    .action-buttons-section .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
     }
 
     /* News carousel improvements */
@@ -204,36 +192,35 @@ include __DIR__ . '/../components/header.php';
 <div class="wrapper">
     <?php include __DIR__ . '/../components/navbar.php'; ?>
 
-    <!-- Hero Section -->
-    <section class="hero-section text-white py-5">
+    <?php
+    // Hero section configuration
+    $heroConfig = [
+        'title' => 'Milli Eğitim Bakanlığı<br>Mesleki ve Teknik Eğitim Genel Müdürlüğü',
+        'subtitle' => 'Sektörel Mükemmeliyet Merkezleri ile nitelikli iş gücü yetiştiriyoruz.<br>Modern eğitim anlayışı ve sektör işbirliği ile geleceği şekillendiriyoruz.',
+        'icon' => '',  // No icon for main page
+        'gradient' => true,
+        'type' => 'section',
+        'classes' => 'main-hero'
+    ];
+    include __DIR__ . '/../components/hero.php';
+    ?>
+
+    <!-- Action Buttons Section -->
+    <section class="action-buttons-section" style="margin-top: -50px; position: relative; z-index: 10;">
         <div class="container">
-            <div class="row align-items-center min-vh-50">
-                <div class="col-lg-8 col-md-10 mx-auto text-center">
-                    <div class="hero-content py-5">
-                        <h1 class="display-4 fw-bold mb-4 text-white">
-                            Milli Eğitim Bakanlığı<br>
-                            Mesleki ve Teknik Eğitim Genel Müdürlüğü
-                        </h1>
-                        <p class="lead mb-4 text-white opacity-90">
-                            Sektörel Mükemmeliyet Merkezleri ile nitelikli iş gücü yetiştiriyoruz.<br>
-                            Modern eğitim anlayışı ve sektör işbirliği ile geleceği şekillendiriyoruz.
-                        </p>
-                        <div class="d-flex flex-wrap justify-content-center gap-3">
-                            <a href="#haberSlayt" class="btn btn-light btn-lg px-4 rounded-pill">
-                                <i class="fas fa-newspaper me-2"></i>Haberler
-                            </a>
-                            <?php if ($isLoggedIn): ?>
-                                <a href="<?php echo BASE_URL; ?>index.php" class="btn btn-outline-light btn-lg px-4 rounded-pill">
-                                    <i class="fas fa-tachometer-alt me-2"></i>Yönetim Paneli
-                                </a>
-                            <?php else: ?>
-                                <a href="<?php echo BASE_URL; ?>index.php?url=user/login" class="btn btn-outline-light btn-lg px-4 rounded-pill">
-                                    <i class="fas fa-sign-in-alt me-2"></i>SMM Portal
-                                </a>
-                            <?php endif; ?>
-                        </div>
-                    </div>
-                </div>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#haberSlayt" class="btn btn-light btn-lg px-4 rounded-pill shadow">
+                    <i class="fas fa-newspaper me-2"></i>Haberler
+                </a>
+                <?php if ($isLoggedIn): ?>
+                    <a href="<?php echo BASE_URL; ?>index.php" class="btn btn-primary btn-lg px-4 rounded-pill shadow">
+                        <i class="fas fa-tachometer-alt me-2"></i>Yönetim Paneli
+                    </a>
+                <?php else: ?>
+                    <a href="<?php echo BASE_URL; ?>index.php?url=user/login" class="btn btn-primary btn-lg px-4 rounded-pill shadow">
+                        <i class="fas fa-sign-in-alt me-2"></i>SMM Portal
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -268,7 +255,11 @@ include __DIR__ . '/../components/header.php';
                                             <img src="<?php echo htmlspecialchars($haber->getFrontpageImage()); ?>"
                                                 class="img-fluid rounded shadow-sm"
                                                 style="max-height: 300px; object-fit: cover;"
-                                                alt="Haber Görseli">
+                                                alt="<?php echo htmlspecialchars($haber->getTitle()); ?>">
+                                        <?php else: ?>
+                                            <div class="d-flex align-items-center justify-content-center" style="height: 300px; width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px;">
+                                                <i class="fas fa-newspaper text-white" style="font-size: 4rem; opacity: 0.8;"></i>
+                                            </div>
                                         <?php endif; ?>
                                     </div>
                                     <div class="col-md-6 d-flex flex-column justify-content-center">

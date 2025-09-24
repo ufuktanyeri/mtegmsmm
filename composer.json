@@ -9,7 +9,9 @@
         "ext-json": "*",
         "vlucas/phpdotenv": "^5.5",
         "monolog/monolog": "^3.0",
-        "respect/validation": "^2.2"
+        "respect/validation": "^2.2",
+        "dompdf/dompdf": "^2.0",
+        "phpoffice/phpword": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0"
@@ -19,6 +21,9 @@
             "App\\": "app/",
             "AppNew\\": "app_new/"
         },
+        "classmap": [
+            "app/lib/"
+        ],
         "files": [
             "app/helpers/functions.php"
         ]

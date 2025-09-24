@@ -38,7 +38,7 @@ if ($isProduction) {
 
 } else {
     // DEVELOPMENT SETTINGS
-    define('BASE_URL', 'http://localhost/mtegmsmm/wwwroot/');
+    define('BASE_URL', 'http://localhost/mtegmsmm/');
     define('APP_ENV', 'development');
     define('APP_DEBUG', true);
 

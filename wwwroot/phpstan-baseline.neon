@@ -1,0 +1,955 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to method loadHtml\(\) on an unknown class Dompdf\\Dompdf\.$#'
+			identifier: class.notFound
+			count: 2
+			path: ../app/controllers/AimController.php
+
+		-
+			message: '#^Call to method render\(\) on an unknown class Dompdf\\Dompdf\.$#'
+			identifier: class.notFound
+			count: 2
+			path: ../app/controllers/AimController.php
+
+		-
+			message: '#^Call to method set\(\) on an unknown class Dompdf\\Options\.$#'
+			identifier: class.notFound
+			count: 4
+			path: ../app/controllers/AimController.php
+
+		-
+			message: '#^Call to method setPaper\(\) on an unknown class Dompdf\\Dompdf\.$#'
+			identifier: class.notFound
+			count: 2
+			path: ../app/controllers/AimController.php
+
+		-
+			message: '#^Call to method set_paper\(\) on an unknown class Dompdf\\Dompdf\.$#'
+			identifier: class.notFound
+			count: 2
+			path: ../app/controllers/AimController.php
+
+		-
+			message: '#^Call to method stream\(\) on an unknown class Dompdf\\Dompdf\.$#'
+			identifier: class.notFound
+			count: 2
+			path: ../app/controllers/AimController.php
+
+		-
+			message: '#^Call to static method register\(\) on an unknown class PhpOffice\\PhpWord\\Autoloader\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/controllers/AimController.php
+
+		-
+			message: '#^If condition is always true\.$#'
+			identifier: if.alwaysTrue
+			count: 1
+			path: ../app/controllers/AimController.php
+
+		-
+			message: '#^Instantiated class Dompdf\\Dompdf not found\.$#'
+			identifier: class.notFound
+			count: 2
+			path: ../app/controllers/AimController.php
+
+		-
+			message: '#^Instantiated class Dompdf\\Options not found\.$#'
+			identifier: class.notFound
+			count: 2
+			path: ../app/controllers/AimController.php
+
+		-
+			message: '#^Method IndicatorModel\:\:getIndicatorsByCoveId\(\) invoked with 3 parameters, 1 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: ../app/controllers/AimController.php
+
+		-
+			message: '#^PHPDoc tag @var for variable \$dompdf contains unknown class Dompdf\\Dompdf\.$#'
+			identifier: class.notFound
+			count: 2
+			path: ../app/controllers/AimController.php
+
+		-
+			message: '#^PHPDoc tag @var for variable \$options contains unknown class Dompdf\\Options\.$#'
+			identifier: class.notFound
+			count: 2
+			path: ../app/controllers/AimController.php
+
+		-
+			message: '#^Access to an undefined property AuthController\:\:\$db\.$#'
+			identifier: property.notFound
+			count: 7
+			path: ../app/controllers/AuthController.php
+
+		-
+			message: '#^Call to an undefined method AuthController\:\:view\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: ../app/controllers/AuthController.php
+
+		-
+			message: '#^Call to an undefined static method BaseController\:\:__construct\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: ../app/controllers/AuthController.php
+
+		-
+			message: '#^Call to static method destroy\(\) on an unknown class SessionHelper\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/controllers/AuthController.php
+
+		-
+			message: '#^Call to static method get\(\) on an unknown class SessionHelper\.$#'
+			identifier: class.notFound
+			count: 2
+			path: ../app/controllers/AuthController.php
+
+		-
+			message: '#^Call to static method isLoggedIn\(\) on an unknown class SessionHelper\.$#'
+			identifier: class.notFound
+			count: 2
+			path: ../app/controllers/AuthController.php
+
+		-
+			message: '#^Call to static method loadUserPermissions\(\) on an unknown class PermissionHelper\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/controllers/AuthController.php
+
+		-
+			message: '#^Call to static method set\(\) on an unknown class SessionHelper\.$#'
+			identifier: class.notFound
+			count: 9
+			path: ../app/controllers/AuthController.php
+
+		-
+			message: '#^Method BaseController\:\:validateCSRFToken\(\) invoked with 0 parameters, 1 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: ../app/controllers/AuthController.php
+
+		-
+			message: '#^Parameter \#2 \$code of method BaseController\:\:handleError\(\) expects int, string given\.$#'
+			identifier: argument.type
+			count: 2
+			path: ../app/controllers/AuthController.php
+
+		-
+			message: '#^Unreachable statement \- code above always terminates\.$#'
+			identifier: deadCode.unreachable
+			count: 16
+			path: ../app/controllers/AuthController.php
+
+		-
+			message: '#^Call to method setContext\(\) on an unknown class Sentry\\State\\Scope\.$#'
+			identifier: class.notFound
+			count: 3
+			path: ../app/controllers/BaseController.php
+
+		-
+			message: '#^Call to method setLevel\(\) on an unknown class Sentry\\State\\Scope\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/controllers/BaseController.php
+
+		-
+			message: '#^Call to method setTag\(\) on an unknown class Sentry\\State\\Scope\.$#'
+			identifier: class.notFound
+			count: 11
+			path: ../app/controllers/BaseController.php
+
+		-
+			message: '#^Call to method setUser\(\) on an unknown class Sentry\\State\\Scope\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/controllers/BaseController.php
+
+		-
+			message: '#^Call to static method error\(\) on an unknown class Sentry\\Severity\.$#'
+			identifier: class.notFound
+			count: 2
+			path: ../app/controllers/BaseController.php
+
+		-
+			message: '#^Call to static method info\(\) on an unknown class Sentry\\Severity\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/controllers/BaseController.php
+
+		-
+			message: '#^Function Sentry\\captureException not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: ../app/controllers/BaseController.php
+
+		-
+			message: '#^Function Sentry\\captureMessage not found\.$#'
+			identifier: function.notFound
+			count: 2
+			path: ../app/controllers/BaseController.php
+
+		-
+			message: '#^Function Sentry\\withScope not found\.$#'
+			identifier: function.notFound
+			count: 3
+			path: ../app/controllers/BaseController.php
+
+		-
+			message: '#^Parameter \$scope of anonymous function has invalid type Sentry\\State\\Scope\.$#'
+			identifier: class.notFound
+			count: 3
+			path: ../app/controllers/BaseController.php
+
+		-
+			message: '#^Parameter \$scope of method BaseController\:\:addSentryUserContext\(\) has invalid type Sentry\\State\\Scope\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/controllers/BaseController.php
+
+		-
+			message: '#^Variable \$pdo might not be defined\.$#'
+			identifier: variable.undefined
+			count: 2
+			path: ../app/controllers/HealthController.php
+
+		-
+			message: '#^If condition is always true\.$#'
+			identifier: if.alwaysTrue
+			count: 4
+			path: ../app/controllers/IndicatorController.php
+
+		-
+			message: '#^Negated boolean expression is always false\.$#'
+			identifier: booleanNot.alwaysFalse
+			count: 1
+			path: ../app/controllers/IndicatorController.php
+
+		-
+			message: '#^Property IndicatorController\:\:\$aimModel is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: ../app/controllers/IndicatorController.php
+
+		-
+			message: '#^Result of && is always false\.$#'
+			identifier: booleanAnd.alwaysFalse
+			count: 1
+			path: ../app/controllers/IndicatorController.php
+
+		-
+			message: '#^Negated boolean expression is always true\.$#'
+			identifier: booleanNot.alwaysTrue
+			count: 1
+			path: ../app/controllers/NewsController.php
+
+		-
+			message: '#^Property ObjectiveController\:\:\$coveModel is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: ../app/controllers/ObjectiveController.php
+
+		-
+			message: '#^Left side of && is always true\.$#'
+			identifier: booleanAnd.leftAlwaysTrue
+			count: 1
+			path: ../app/controllers/RegulationController.php
+
+		-
+			message: '#^Unreachable statement \- code above always terminates\.$#'
+			identifier: deadCode.unreachable
+			count: 1
+			path: ../app/controllers/RegulationController.php
+
+		-
+			message: '#^Variable \$db might not be defined\.$#'
+			identifier: variable.undefined
+			count: 2
+			path: ../app/controllers/UserController.php
+
+		-
+			message: '#^Expression "\$this\-\>role" on a separate line does not do anything\.$#'
+			identifier: expr.resultUnused
+			count: 1
+			path: ../app/entities/Permission.php
+
+		-
+			message: '#^Expression "\$this\-\>cove" on a separate line does not do anything\.$#'
+			identifier: expr.resultUnused
+			count: 1
+			path: ../app/entities/User.php
+
+		-
+			message: '#^Expression "\$this\-\>role" on a separate line does not do anything\.$#'
+			identifier: expr.resultUnused
+			count: 1
+			path: ../app/entities/User.php
+
+		-
+			message: '#^Method AssetLoader\:\:version\(\) should return string but returns int\<0, max\>\|false\.$#'
+			identifier: return.type
+			count: 1
+			path: ../app/helpers/AssetLoader.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between mixed and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: ../app/helpers/MenuHelper.php
+
+		-
+			message: '#^Function getDbConnection not found\.$#'
+			identifier: function.notFound
+			count: 1
+			path: ../app/services/NavbarService.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between '''' and ''dropdown'' will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: ../app/services/NavbarService.php
+
+		-
+			message: '#^Call to method getActionsByCoveIdByAimId\(\) on an unknown class App\\Models\\ActionModel\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/services/ReportService.php
+
+		-
+			message: '#^Call to method getAimsForReport\(\) on an unknown class App\\Models\\AimModel\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/services/ReportService.php
+
+		-
+			message: '#^Call to method getAllCoves\(\) on an unknown class App\\Models\\CoveModel\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/services/ReportService.php
+
+		-
+			message: '#^Call to method getCoveById\(\) on an unknown class App\\Models\\CoveModel\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/services/ReportService.php
+
+		-
+			message: '#^Call to method getIndicatorsByCoveId\(\) on an unknown class App\\Models\\IndicatorModel\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/services/ReportService.php
+
+		-
+			message: '#^Instantiated class App\\Models\\ActionModel not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/services/ReportService.php
+
+		-
+			message: '#^Instantiated class App\\Models\\AimModel not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/services/ReportService.php
+
+		-
+			message: '#^Instantiated class App\\Models\\CoveModel not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/services/ReportService.php
+
+		-
+			message: '#^Instantiated class App\\Models\\IndicatorModel not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/services/ReportService.php
+
+		-
+			message: '#^Property App\\Services\\ReportService\:\:\$actionModel has unknown class App\\Models\\ActionModel as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/services/ReportService.php
+
+		-
+			message: '#^Property App\\Services\\ReportService\:\:\$aimModel has unknown class App\\Models\\AimModel as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/services/ReportService.php
+
+		-
+			message: '#^Property App\\Services\\ReportService\:\:\$coveModel has unknown class App\\Models\\CoveModel as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/services/ReportService.php
+
+		-
+			message: '#^Property App\\Services\\ReportService\:\:\$indicatorModel has unknown class App\\Models\\IndicatorModel as its type\.$#'
+			identifier: class.notFound
+			count: 1
+			path: ../app/services/ReportService.php
+
+		-
+			message: '#^Static property App\\Services\\TemplateService\:\:\$components is never read, only written\.$#'
+			identifier: property.onlyWritten
+			count: 1
+			path: ../app/services/TemplateService.php
+
+		-
+			message: '#^Variable \$aimid might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/action/create.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/action/create.php
+
+		-
+			message: '#^Variable \$objectives might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/action/create.php
+
+		-
+			message: '#^Variable \$action might not be defined\.$#'
+			identifier: variable.undefined
+			count: 18
+			path: ../app/views/action/edit.php
+
+		-
+			message: '#^Variable \$aimid might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/action/edit.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/action/edit.php
+
+		-
+			message: '#^Variable \$objectives might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/action/edit.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/aim/create.php
+
+		-
+			message: '#^Variable \$regulations might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/aim/create.php
+
+		-
+			message: '#^Variable \$aim might not be defined\.$#'
+			identifier: variable.undefined
+			count: 7
+			path: ../app/views/aim/edit.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/aim/edit.php
+
+		-
+			message: '#^Variable \$regulations might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/aim/edit.php
+
+		-
+			message: '#^Dead catch \- Exception is never thrown in the try block\.$#'
+			identifier: catch.neverThrown
+			count: 1
+			path: ../app/views/aim/getRegulations.php
+
+		-
+			message: '#^Variable \$aims might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/aim/index.php
+
+		-
+			message: '#^Variable \$error might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/aim/index.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/cove/create.php
+
+		-
+			message: '#^Variable \$fields might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/cove/create.php
+
+		-
+			message: '#^File ends with a trailing whitespace\. This may cause problems when running the code in the web browser\. Remove the closing \?\> mark or remove the whitespace\.$#'
+			identifier: whitespace.fileEnd
+			count: 1
+			path: ../app/views/cove/edit.php
+
+		-
+			message: '#^Variable \$cove might not be defined\.$#'
+			identifier: variable.undefined
+			count: 4
+			path: ../app/views/cove/edit.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/cove/edit.php
+
+		-
+			message: '#^Variable \$fields might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/cove/edit.php
+
+		-
+			message: '#^Variable \$selectedFields might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/cove/edit.php
+
+		-
+			message: '#^Variable \$coves might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/cove/index.php
+
+		-
+			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, int\<1, max\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: ../app/views/detailedlog/index.php
+
+		-
+			message: '#^Variable \$detailedLogs might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/detailedlog/index.php
+
+		-
+			message: '#^Variable \$strategy might not be defined\.$#'
+			identifier: variable.undefined
+			count: 2
+			path: ../app/views/documentStrategy/edit.php
+
+		-
+			message: '#^Variable \$strategies might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/documentStrategy/index.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/field/create.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/field/edit.php
+
+		-
+			message: '#^Variable \$field might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/field/edit.php
+
+		-
+			message: '#^Variable \$fields might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/field/index.php
+
+		-
+			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, int\<1, max\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: ../app/views/indicator/adminReport.php
+
+		-
+			message: '#^Variable \$selectedTypeId might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/indicator/adminReport.php
+
+		-
+			message: '#^Variable \$totals might not be defined\.$#'
+			identifier: variable.undefined
+			count: 4
+			path: ../app/views/indicator/adminReport.php
+
+		-
+			message: '#^Variable \$indicator might not be defined\.$#'
+			identifier: variable.undefined
+			count: 9
+			path: ../app/views/indicator/edit.php
+
+		-
+			message: '#^Variable \$aimid might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/indicator/index.php
+
+		-
+			message: '#^Variable \$error might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/indicator/index.php
+
+		-
+			message: '#^Variable \$indicators might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/indicator/index.php
+
+		-
+			message: '#^Variable \$activeMenu might not be defined\.$#'
+			identifier: variable.undefined
+			count: 9
+			path: ../app/views/layouts/main.php
+
+		-
+			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, int\<1, max\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: ../app/views/log/index.php
+
+		-
+			message: '#^Variable \$logs might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/log/index.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/news/create.php
+
+		-
+			message: '#^Variable \$news might not be defined\.$#'
+			identifier: variable.undefined
+			count: 8
+			path: ../app/views/news/details.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/news/edit.php
+
+		-
+			message: '#^Variable \$news might not be defined\.$#'
+			identifier: variable.undefined
+			count: 8
+			path: ../app/views/news/edit.php
+
+		-
+			message: '#^Variable \$news might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/news/index.php
+
+		-
+			message: '#^Variable \$aimid might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/objective/create.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/objective/create.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/objective/edit.php
+
+		-
+			message: '#^Variable \$objective might not be defined\.$#'
+			identifier: variable.undefined
+			count: 4
+			path: ../app/views/objective/edit.php
+
+		-
+			message: '#^Variable \$objectives might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/objective/index.php
+
+		-
+			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, int\<1, max\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: ../app/views/objective/list.php
+
+		-
+			message: '#^Variable \$aimid might not be defined\.$#'
+			identifier: variable.undefined
+			count: 4
+			path: ../app/views/objective/list.php
+
+		-
+			message: '#^Variable \$objectives might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/objective/list.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/regulation/create.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/regulation/edit.php
+
+		-
+			message: '#^Variable \$regulation might not be defined\.$#'
+			identifier: variable.undefined
+			count: 3
+			path: ../app/views/regulation/edit.php
+
+		-
+			message: '#^Variable \$error might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/regulation/index.php
+
+		-
+			message: '#^Variable \$isAdmin might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/regulation/index.php
+
+		-
+			message: '#^Variable \$regulations might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/regulation/index.php
+
+		-
+			message: '#^Variable \$userCoveId might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/regulation/index.php
+
+		-
+			message: '#^Variable \$coves might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/create.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/create.php
+
+		-
+			message: '#^Variable \$roles might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/create.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/createPermission.php
+
+		-
+			message: '#^Variable \$roles might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/createPermission.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/createRole.php
+
+		-
+			message: '#^Variable \$roles might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/createRole.php
+
+		-
+			message: '#^Variable \$user might not be defined\.$#'
+			identifier: variable.undefined
+			count: 5
+			path: ../app/views/user/delete.php
+
+		-
+			message: '#^Variable \$coves might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/edit.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/edit.php
+
+		-
+			message: '#^Variable \$roles might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/edit.php
+
+		-
+			message: '#^Variable \$user might not be defined\.$#'
+			identifier: variable.undefined
+			count: 9
+			path: ../app/views/user/edit.php
+
+		-
+			message: '#^Variable \$assignedRoleId might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/editPermission.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/editPermission.php
+
+		-
+			message: '#^Variable \$permission might not be defined\.$#'
+			identifier: variable.undefined
+			count: 2
+			path: ../app/views/user/editPermission.php
+
+		-
+			message: '#^Variable \$roles might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/editPermission.php
+
+		-
+			message: '#^Expression in empty\(\) is not falsy\.$#'
+			identifier: empty.expr
+			count: 1
+			path: ../app/views/user/editProfile.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/editProfile.php
+
+		-
+			message: '#^Variable \$user might not be defined\.$#'
+			identifier: variable.undefined
+			count: 7
+			path: ../app/views/user/editProfile.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/editRole.php
+
+		-
+			message: '#^Variable \$role might not be defined\.$#'
+			identifier: variable.undefined
+			count: 3
+			path: ../app/views/user/editRole.php
+
+		-
+			message: '#^Variable \$roles might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/editRole.php
+
+		-
+			message: '#^Variable \$gallery in empty\(\) always exists and is not falsy\.$#'
+			identifier: empty.variable
+			count: 1
+			path: ../app/views/user/haberler.php
+
+		-
+			message: '#^Variable \$gallery might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/haberler.php
+
+		-
+			message: '#^Variable \$news might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/haberler.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/manage.php
+
+		-
+			message: '#^Variable \$error might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/manage.php
+
+		-
+			message: '#^Variable \$users might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/manage.php
+
+		-
+			message: '#^Variable \$permissions might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/permissions.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/register.php
+
+		-
+			message: '#^Variable \$csrfToken might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/roles.php
+
+		-
+			message: '#^Variable \$roles might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: ../app/views/user/roles.php

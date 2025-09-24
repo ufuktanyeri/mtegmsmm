@@ -26,7 +26,7 @@ $currentUrl = $_GET['url'] ?? '';
     <title><?php echo htmlspecialchars($pageTitle); ?> - Milli Eğitim Bakanlığı</title>
 
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="<?php echo BASE_URL; ?>img/MEB_Logo.svg">
+    <link rel="icon" type="image/svg+xml" href="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg">
     <link rel="alternate icon" href="<?php echo BASE_URL; ?>favicon.ico">
     
     <!-- Font Awesome -->

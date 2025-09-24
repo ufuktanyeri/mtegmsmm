@@ -78,7 +78,7 @@
             <!-- Left Column - Info -->
             <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                 <div class="d-flex align-items-center mb-3">
-                    <img src="<?php echo BASE_URL; ?>img/MEB_Logo.svg" alt="MEB Logo" class="footer-logo me-3" style="height: 50px;">
+                    <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg" alt="MEB Logo" class="footer-logo me-3" style="height: 50px;">
                     <div>
                         <h5 class="mb-1 fw-bold">MTEGM</h5>
                         <p class="mb-0 small">Sektörel Mükemmeliyet Merkezleri</p>

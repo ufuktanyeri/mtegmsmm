@@ -27,23 +27,19 @@ include __DIR__ . '/../components/header.php';
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
 
+    <?php
+    // Hero section configuration
+    $heroConfig = [
+        'title' => 'Türkiye Cumhuriyeti Milli Eğitim Bakanlığı',
+        'subtitle' => 'Mesleki ve Teknik Eğitim Genel Müdürlüğü<br>Sektörel Mükemmeliyet Merkezleri',
+        'icon' => 'fas fa-map-marked-alt',
+        'gradient' => true,
+        'type' => 'section'  // Changed from card to section for consistency
+    ];
+    include __DIR__ . '/../components/hero.php';
+    ?>
+
 <div class="container py-4">
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                <div class="card-body text-white p-4">
-                    <h1 class="h3 mb-3 text-white text-center">
-                        <i class="fas fa-map-marked-alt me-2"></i>
-                        Türkiye Cumhuriyeti Milli Eğitim Bakanlığı
-                    </h1>
-                    <h2 class="h4 text-white text-center mb-0">
-                        Mesleki ve Teknik Eğitim Genel Müdürlüğü<br>
-                        Sektörel Mükemmeliyet Merkezleri
-                    </h2>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="row mb-4">
         <div class="col-md-4">

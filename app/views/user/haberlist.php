@@ -172,13 +172,17 @@ include __DIR__ . '/../components/header.php';
 <div class="wrapper">
     <?php include __DIR__ . '/../components/navbar.php'; ?>
 
-    <!-- News Hero Section -->
-    <section class="news-hero text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold mb-3">Haberler</h1>
-            <p class="lead opacity-90">Sektörel Mükemmeliyet Merkezlerinden son haberler ve güncellemeler</p>
-        </div>
-    </section>
+    <?php
+    // Hero section configuration
+    $heroConfig = [
+        'title' => 'Haberler',
+        'subtitle' => 'Sektörel Mükemmeliyet Merkezlerinden son haberler ve güncellemeler',
+        'icon' => 'fas fa-newspaper',
+        'gradient' => true,
+        'type' => 'section'
+    ];
+    include __DIR__ . '/../components/hero.php';
+    ?>
 
     <!-- Main Content -->
     <div class="container py-4">

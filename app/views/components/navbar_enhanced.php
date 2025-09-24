@@ -395,7 +395,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
 
         <!-- Brand -->
         <a href="<?php echo BASE_URL; ?>" class="navbar-brand d-flex align-items-center">
-            <img src="<?php echo BASE_URL; ?>assets/img/MEB_Logo.svg" alt="MEB" style="height: 40px;" class="me-2">
+            <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg" alt="MEB" style="height: 40px;" class="me-2">
             <div class="brand-text">
                 <div class="fw-bold text-primary" style="font-size: 1rem; line-height: 1.1;">
                     SMM Portal

@@ -365,8 +365,8 @@ class AimController extends BaseController
                             <td>' . $indicatornumber . '</td>
                             <td class="long-text">' . htmlspecialchars($indicatorTitle) . '</td>
                             <td class="long-text">' . htmlspecialchars($indicatorDesc) . '</td>
-                            <td style="text-align: center;">' . htmlspecialchars($target) . '</td>
-                            <td style="text-align: center;">' . htmlspecialchars($completed) . '</td>
+                            <td style="text-align: center;">' . htmlspecialchars((string)$target) . '</td>
+                            <td style="text-align: center;">' . htmlspecialchars((string)$completed) . '</td>
                             <td style="text-align: center;">' . $statusIcon . '</td>
                         </tr>';
                         $indicatornumber++;

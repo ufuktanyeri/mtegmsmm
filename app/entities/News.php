@@ -45,16 +45,16 @@ class News {
 
     public function getFrontpageImage() {
         // BASE_URL'i kullan (production ve development için otomatik uyum)
-        $baseUrl = defined('BASE_URL') ? rtrim(BASE_URL, '/') . '/' : '/mtegmsmm/wwwroot/';
+        $baseUrl = defined('BASE_URL') ? rtrim(BASE_URL, '/') . '/' : '/mtegmsmm/';
 
         // Eğer görüntü yoksa veya boşsa placeholder döndür
         if (empty($this->frontpage_image)) {
-            return $baseUrl . 'uploads/news/placeholder.svg';
+            return $baseUrl . 'wwwroot/img/news/placeholder.svg';
         }
 
         // Placeholder için özel kontrol
         if ($this->frontpage_image === 'placeholder.svg') {
-            return $baseUrl . 'uploads/news/placeholder.svg';
+            return $baseUrl . 'wwwroot/img/news/placeholder.svg';
         }
 
         // Eğer tam URL ise direkt döndür
@@ -67,13 +67,20 @@ class News {
             return $this->frontpage_image;
         }
 
-        // Eğer zaten uploads/ ile başlıyorsa
+        // Eğer zaten img/news/ ile başlıyorsa
+        if (strpos($this->frontpage_image, 'img/news/') === 0) {
+            return $baseUrl . 'wwwroot/' . $this->frontpage_image;
+        }
+
+        // Eğer zaten uploads/ ile başlıyorsa (eski format için uyumluluk)
         if (strpos($this->frontpage_image, 'uploads/') === 0) {
-            return $baseUrl . $this->frontpage_image;
+            // uploads/news/ kısmını wwwroot/img/news/ ile değiştir
+            $imagePath = str_replace('uploads/news/', 'wwwroot/img/news/', $this->frontpage_image);
+            return $baseUrl . $imagePath;
         }
 
         // Diğer durumlarda tam path oluştur (sadece dosya adı varsa)
-        return $baseUrl . 'uploads/news/' . $this->frontpage_image;
+        return $baseUrl . 'wwwroot/img/news/' . $this->frontpage_image;
     }
 
     public function getCreatedDate() {

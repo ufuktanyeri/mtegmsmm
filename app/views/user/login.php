@@ -23,7 +23,7 @@ $additionalCss = '
         align-items: center;
         margin: 0 auto;
         padding: 2rem 20px;
-        margin-top: 100px;
+        margin-top: 2rem; /* Reduced because hero section is now above */
     }
 
     .brand-section {
@@ -32,21 +32,17 @@ $additionalCss = '
     }
 
     .brand-logo {
-        max-width: 120px;
+        max-width: 80px;
         height: auto;
-        margin-bottom: 1.5rem;
     }
 
-    .brand-title {
-        font-size: 3.5rem;
-        font-weight: 700;
+    .brand-section h2 {
+        font-weight: 600;
         color: #1c1e21;
-        line-height: 1.2;
-        margin-bottom: 1rem;
     }
 
     .brand-subtitle {
-        font-size: 1.75rem;
+        font-size: 1.1rem;
         font-weight: 400;
         color: #606770;
         line-height: 1.34;
@@ -277,16 +273,30 @@ include __DIR__ . '/../components/header.php';
 <div class="wrapper">
     <?php include __DIR__ . '/../components/navbar.php'; ?>
 
+    <?php
+    // Hero section configuration for login page
+    $heroConfig = [
+        'title' => 'SMM Portal',
+        'subtitle' => 'Sektörel Mükemmeliyet Merkezi ile geleceği şekillendirin',
+        'icon' => 'fas fa-sign-in-alt',
+        'gradient' => true,
+        'type' => 'section'
+    ];
+    include __DIR__ . '/../components/hero.php';
+    ?>
+
     <div class="login-container">
-        <!-- Brand Section -->
+        <!-- Brand Section - Updated -->
         <div class="brand-section">
-            <img src="<?php echo BASE_URL; ?>img/MEB_Logo.svg" alt="MEB Logo" class="brand-logo">
-            <h1 class="brand-title">SMM Portal</h1>
-            <p class="brand-subtitle">Sektörel Mükemmeliyet Merkezi ile geleceği şekillendirin</p>
+            <div class="d-flex align-items-center mb-3">
+                <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg" alt="MEB Logo" class="brand-logo me-3">
+                <div>
+                    <h2 class="h4 mb-0">Milli Eğitim Bakanlığı</h2>
+                    <p class="text-muted mb-0">Mesleki ve Teknik Eğitim Genel Müdürlüğü</p>
+                </div>
+            </div>
             <div class="brand-description">
-                <p>Milli Eğitim Bakanlığı Mesleki ve Teknik Eğitim Genel Müdürlüğü bünyesindeki
-                    Sektörel Mükemmeliyet Merkezleri ile nitelikli iş gücü yetiştirme misyonuna
-                    katılın.</p>
+                <p>Sektörel Mükemmeliyet Merkezleri ile nitelikli iş gücü yetiştirme misyonuna katılın.</p>
             </div>
         </div>
 

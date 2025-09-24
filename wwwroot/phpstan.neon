@@ -1,24 +1,27 @@
+includes:
+    - phpstan-baseline.neon
+
 parameters:
     level: 5
     paths:
-        - app
+        - ../app
     excludePaths:
-        - app/lib/*
-        - app/fonts/*
-        - app/views/components/test/*
-        - app/views/**/*_backup.php
-        - app/views/**/*_old.php
-        - app/views/**/*.bak
+        - ../app/lib/*
+        - ../app/fonts/*
+        - ../app/views/components/test/*
+        - ../app/views/**/*_backup.php
+        - ../app/views/**/*_old.php
+        - ../app/views/**/*.bak
     scanFiles:
-        - app/views/layouts/unified.php
-        - app/views/user/main.php
-        - app/views/user/login.php
-        - app/views/user/haberlist.php
-        - app/views/action/index.php
-        - app/views/components/navbar.php
+        - ../app/views/layouts/unified.php
+        - ../app/views/user/main.php
+        - ../app/views/user/login.php
+        - ../app/views/user/haberlist.php
+        - ../app/views/action/index.php
+        - ../app/views/components/navbar.php
     scanDirectories:
-        - app
-        - includes
+        - ../app
+        - ../includes
     treatPhpDocTypesAsCertain: false
     reportUnmatchedIgnoredErrors: false
     universalObjectCratesClasses:
