@@ -93,15 +93,21 @@ article:has(:hover, :focus) {
   gap: 24px;
 }
 
+/* Container query setup with progressive enhancement */
 @media screen and (max-width: 960px) {
-  article {
-    container: card/inline-size;
+  /* Modern browsers: Use container queries */
+  @supports (container-type: inline-size) {
+    article {
+      container: card/inline-size;
+    }
   }
+
   .article-body p {
     display: none;
   }
 }
 
+/* Container query for modern browsers */
 @container card (min-width: 380px) {
   .article-wrapper {
     display: grid;
@@ -120,6 +126,31 @@ article:has(:hover, :focus) {
     height: 100%;
     aspect-ratio: 1;
     object-fit: cover;
+  }
+}
+
+/* Fallback for browsers without container query support */
+@supports not (container-type: inline-size) {
+  /* Use media queries as fallback */
+  @media screen and (min-width: 380px) and (max-width: 960px) {
+    .article-wrapper {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 16px;
+    }
+    .article-body {
+      padding-left: 0;
+    }
+    figure {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    figure img {
+      height: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
   }
 }
 

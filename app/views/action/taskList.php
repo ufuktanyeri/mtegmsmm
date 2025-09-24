@@ -70,7 +70,7 @@ ob_start();
             <div class="card-body">
                 <div class="stats-icon text-primary"><i class="fas fa-list-ol fa-2x"></i></div>
                 <h5 class="text-primary mb-1"><?= $totalLocal ?></h5>
-                <p class="text-muted mb-0 small">Toplam Görev</p>
+                <p class="text-body-secondary mb-0 small">Toplam Görev</p>
             </div>
         </div>
     </div>
@@ -79,7 +79,7 @@ ob_start();
             <div class="card-body">
                 <div class="stats-icon text-success"><i class="fas fa-check-circle fa-2x"></i></div>
                 <h5 class="text-success mb-1"><?= $completedLocal ?></h5>
-                <p class="text-muted mb-0 small">Tamamlanan</p>
+                <p class="text-body-secondary mb-0 small">Tamamlanan</p>
             </div>
         </div>
     </div>
@@ -88,7 +88,7 @@ ob_start();
             <div class="card-body">
                 <div class="stats-icon text-danger"><i class="fas fa-exclamation-triangle fa-2x"></i></div>
                 <h5 class="text-danger mb-1"><?= $overdueLocal ?></h5>
-                <p class="text-muted mb-0 small">Geciken</p>
+                <p class="text-body-secondary mb-0 small">Geciken</p>
             </div>
         </div>
     </div>
@@ -97,7 +97,7 @@ ob_start();
             <div class="card-body">
                 <div class="stats-icon text-warning"><i class="fas fa-fire fa-2x"></i></div>
                 <h5 class="text-warning mb-1"><?= $urgentLocal ?></h5>
-                <p class="text-muted mb-0 small">Acil</p>
+                <p class="text-body-secondary mb-0 small">Acil</p>
             </div>
         </div>
     </div>
@@ -167,9 +167,9 @@ ob_start();
                         }
                         ?>
                         
-                        <i class="<?= $emptyIcon ?> fa-5x text-muted mb-4 empty-icon"></i>
-                        <h4 class="text-muted mb-3"><?= $emptyTitle ?></h4>
-                        <p class="text-muted mb-4"><?= $emptyMessage ?></p>
+                        <i class="<?= $emptyIcon ?> fa-5x text-body-secondary mb-4 empty-icon"></i>
+                        <h4 class="text-body-secondary mb-3"><?= $emptyTitle ?></h4>
+                        <p class="text-body-secondary mb-4"><?= $emptyMessage ?></p>
                         <div class="empty-actions">
                             <a href="index.php?url=action/calendar" class="btn btn-primary">
                                 <i class="fas fa-calendar-alt"></i> Takvime Dön
@@ -270,7 +270,7 @@ ob_start();
                         <!-- Açıklama -->
                         <?php if(!empty($actionDesc)): ?>
                             <div class="mb-3">
-                                <p class="text-muted mb-0 task-description">
+                                <p class="text-body-secondary mb-0 task-description">
                                     <?= htmlspecialchars(mb_substr($actionDesc, 0, 120)) ?>
                                     <?= mb_strlen($actionDesc) > 120 ? '...' : '' ?>
                                 </p>
@@ -282,7 +282,7 @@ ob_start();
                             <div class="mb-3 project-info">
                                 <?php if(!empty($aimTitle)): ?>
                                     <div class="mb-1">
-                                        <small class="text-muted">
+                                        <small class="text-body-secondary">
                                             <i class="fas fa-bullseye text-primary me-1"></i>
                                             <strong>Amaç:</strong> <?= htmlspecialchars($aimTitle) ?>
                                         </small>
@@ -290,7 +290,7 @@ ob_start();
                                 <?php endif; ?>
                                 <?php if(!empty($objectiveTitle)): ?>
                                     <div class="mb-1">
-                                        <small class="text-muted">
+                                        <small class="text-body-secondary">
                                             <i class="fas fa-target text-info me-1"></i>
                                             <strong>Hedef:</strong> <?= htmlspecialchars($objectiveTitle) ?>
                                         </small>
@@ -302,7 +302,7 @@ ob_start();
                         <!-- Sorumlu Bilgisi -->
                         <?php if(!empty($actionResponsible)): ?>
                             <div class="mb-3">
-                                <small class="text-muted">
+                                <small class="text-body-secondary">
                                     <i class="fas fa-user text-secondary me-1"></i>
                                     <strong>Sorumlu:</strong> <?= htmlspecialchars($actionResponsible) ?>
                                 </small>
@@ -312,24 +312,24 @@ ob_start();
                         <!-- Tarih Bilgileri -->
                         <div class="row mb-3 date-info">
                             <div class="col-6">
-                                <small class="text-muted">
+                                <small class="text-body-secondary">
                                     <i class="fas fa-play-circle text-success me-1"></i>
                                     <strong>Başlangıç:</strong><br>
                                     <?php if($dateStart): ?>
                                         <?= date('d.m.Y', strtotime($dateStart)) ?>
                                     <?php else: ?>
-                                        <span class="text-muted">Belirtilmemiş</span>
+                                        <span class="text-body-secondary">Belirtilmemiş</span>
                                     <?php endif; ?>
                                 </small>
                             </div>
                             <div class="col-6">
-                                <small class="text-muted">
+                                <small class="text-body-secondary">
                                     <i class="fas fa-flag-checkered text-danger me-1"></i>
                                     <strong>Bitiş:</strong><br>
                                     <?php if($dateEnd): ?>
                                         <?= date('d.m.Y', strtotime($dateEnd)) ?>
                                     <?php else: ?>
-                                        <span class="text-muted">Belirtilmemiş</span>
+                                        <span class="text-body-secondary">Belirtilmemiş</span>
                                     <?php endif; ?>
                                 </small>
                             </div>
@@ -340,7 +340,7 @@ ob_start();
                             <div class="mb-3 flex-grow-1 d-flex flex-column justify-content-end">
                                 <div class="progress-section">
                                     <div class="d-flex justify-content-between align-items-center mb-1">
-                                        <small class="text-muted"><strong>İlerleme:</strong></small>
+                                        <small class="text-body-secondary"><strong>İlerleme:</strong></small>
                                         <small class="text-<?= $alertClass ?> font-weight-bold"><?= htmlspecialchars($statusText) ?></small>
                                     </div>
                                     
@@ -388,10 +388,10 @@ ob_start();
                                     </div>
                                     
                                     <div class="d-flex justify-content-between mt-1">
-                                        <small class="text-muted">
+                                        <small class="text-body-secondary">
                                             <?= number_format($safePercentage, 1) ?>% tamamlandı
                                         </small>
-                                        <small class="text-muted">
+                                        <small class="text-body-secondary">
                                             <?= $safePassedDays ?>/<?= $safeTotalDays ?> gün
                                         </small>
                                     </div>
@@ -406,7 +406,7 @@ ob_start();
                     <!-- Kart Footer -->
                     <div class="card-footer bg-light border-top-0">
                         <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">
+                            <small class="text-body-secondary">
                                 <i class="fas fa-calendar-plus me-1"></i>
                                 <?php if($createdAt): ?>
                                     <?= date('d.m.Y H:i', strtotime($createdAt)) ?>
@@ -442,7 +442,7 @@ ob_start();
     <div class="col-12">
         <div class="card bg-light">
             <div class="card-body text-center">
-                <small class="text-muted">
+                <small class="text-body-secondary">
                     <i class="fas fa-info-circle me-1"></i>
                     <strong><?= count($actions) ?></strong> görev listelendi
                     <?php if(($type ?? 'all') !== 'all'): ?>

@@ -66,7 +66,7 @@ ob_start();
             </div>
             <div class="card-body border-bottom py-3">
                 <div class="d-flex">
-                    <div class="text-muted">
+                    <div class="text-body-secondary">
                         Toplam <?php echo count($aims ?? []); ?> amaç
                     </div>
                 </div>
@@ -160,7 +160,7 @@ ob_start();
             </div>
             <div class="modal-body">
                 <ul id="regulationsList" class="list-unstyled">
-                    <li class="text-center text-muted">
+                    <li class="text-center text-body-secondary">
                         <div class="spinner-border spinner-border-sm me-2" role="status"></div>
                         Yükleniyor...
                     </li>
@@ -184,7 +184,7 @@ $additionalJs = '
         const list = modal.querySelector("#regulationsList");
         
         // Show loading
-        list.innerHTML = `<li class="text-center text-muted">
+        list.innerHTML = `<li class="text-center text-body-secondary">
             <div class="spinner-border spinner-border-sm me-2" role="status"></div>
             Yükleniyor...
         </li>`;
@@ -198,11 +198,11 @@ $additionalJs = '
                     data.forEach(function(r) {
                         const li = document.createElement("li");
                         li.className = "mb-2";
-                        li.innerHTML = `<i class="fas fa-file-text me-2 text-muted"></i>${r.regulationSourceNo} - ${r.regulationDesc}`;
+                        li.innerHTML = `<i class="fas fa-file-text me-2 text-body-secondary"></i>${r.regulationSourceNo} - ${r.regulationDesc}`;
                         list.appendChild(li);
                     });
                 } else {
-                    list.innerHTML = `<li class="text-center text-muted">Henüz dayanak mevzuat eklenmemiş.</li>`;
+                    list.innerHTML = `<li class="text-center text-body-secondary">Henüz dayanak mevzuat eklenmemiş.</li>`;
                 }
             })
             .catch(error => {

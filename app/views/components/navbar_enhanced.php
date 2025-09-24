@@ -400,7 +400,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                 <div class="fw-bold text-primary" style="font-size: 1rem; line-height: 1.1;">
                     SMM Portal
                 </div>
-                <div class="text-muted" style="font-size: 0.7rem;">
+                <div class="text-body-secondary" style="font-size: 0.7rem;">
                     MTEGM - Mesleki ve Teknik Eğitim Genel Müdürlüğü
                 </div>
             </div>
@@ -493,10 +493,10 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                                                     <h6 class="mb-1" style="font-size: 14px;">
                                                         <?php echo htmlspecialchars($notification['title']); ?>
                                                     </h6>
-                                                    <p class="mb-1 text-muted" style="font-size: 12px;">
+                                                    <p class="mb-1 text-body-secondary" style="font-size: 12px;">
                                                         <?php echo htmlspecialchars($notification['message']); ?>
                                                     </p>
-                                                    <small class="text-muted">
+                                                    <small class="text-body-secondary">
                                                         <?php echo htmlspecialchars($notification['time']); ?>
                                                     </small>
                                                 </div>
@@ -546,7 +546,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                                 <div class="fw-semibold text-dark" style="font-size: 14px;">
                                     <?php echo htmlspecialchars($_SESSION['realname'] ?? $_SESSION['username']); ?>
                                 </div>
-                                <div class="text-muted" style="font-size: 12px;">
+                                <div class="text-body-secondary" style="font-size: 12px;">
                                     <?php echo htmlspecialchars($_SESSION['role'] ?? 'Kullanıcı'); ?>
                                 </div>
                             </div>

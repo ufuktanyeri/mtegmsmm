@@ -68,7 +68,7 @@ $form = isset($form) ? $form : [];
                     <div class="form-group">
                         <label for="gallery">Görseller (En fazla 3 resim)</label>
                         <input type="file" class="form-control" id="gallery" name="gallery[]" multiple accept="image/*" onchange="previewImages(this)">
-                        <small class="text-muted">Lütfen en fazla 3 resim seçin.</small>
+                        <small class="text-body-secondary">Lütfen en fazla 3 resim seçin.</small>
                     </div>
                     
                     <div class="form-group">

@@ -193,8 +193,8 @@ ob_start();
                                 </div>
                                 <input type="file" id="profilePhotoInput" name="profile_photo" accept="image/*" style="display: none;" onchange="previewProfilePhoto(this)">
                                 <div class="mt-3">
-                                    <small class="text-muted">Fotoğrafı değiştirmek için tıklayın</small><br>
-                                    <small class="text-muted">JPG, PNG (Max: 5MB)</small>
+                                    <small class="text-body-secondary">Fotoğrafı değiştirmek için tıklayın</small><br>
+                                    <small class="text-body-secondary">JPG, PNG (Max: 5MB)</small>
                                 </div>
 
                                 <!-- Profile Stats -->

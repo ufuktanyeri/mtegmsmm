@@ -48,7 +48,7 @@ ob_start();
                             </div>
                         </div>
                         <div class="flex-grow-1 ms-3">
-                            <h6 class="text-muted mb-1">SMM Merkezleri</h6>
+                            <h6 class="text-body-secondary mb-1">SMM Merkezleri</h6>
                             <h3 class="mb-0">15</h3>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ ob_start();
                             </div>
                         </div>
                         <div class="flex-grow-1 ms-3">
-                            <h6 class="text-muted mb-1">Göstergeler</h6>
+                            <h6 class="text-body-secondary mb-1">Göstergeler</h6>
                             <h3 class="mb-0">48</h3>
                         </div>
                     </div>
@@ -82,7 +82,7 @@ ob_start();
                             </div>
                         </div>
                         <div class="flex-grow-1 ms-3">
-                            <h6 class="text-muted mb-1">Aktif Görevler</h6>
+                            <h6 class="text-body-secondary mb-1">Aktif Görevler</h6>
                             <h3 class="mb-0">23</h3>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ ob_start();
                             </div>
                         </div>
                         <div class="flex-grow-1 ms-3">
-                            <h6 class="text-muted mb-1">Kullanıcılar</h6>
+                            <h6 class="text-body-secondary mb-1">Kullanıcılar</h6>
                             <h3 class="mb-0">127</h3>
                         </div>
                     </div>
@@ -288,7 +288,7 @@ ob_start();
                                 </div>
                             </div>
                             <div class="flex-grow-1 ms-3">
-                                <small class="text-muted">5 dakika önce</small>
+                                <small class="text-body-secondary">5 dakika önce</small>
                                 <p class="mb-0">Yeni kullanıcı eklendi</p>
                             </div>
                         </div>
@@ -299,7 +299,7 @@ ob_start();
                                 </div>
                             </div>
                             <div class="flex-grow-1 ms-3">
-                                <small class="text-muted">1 saat önce</small>
+                                <small class="text-body-secondary">1 saat önce</small>
                                 <p class="mb-0">Görev tamamlandı</p>
                             </div>
                         </div>
@@ -310,7 +310,7 @@ ob_start();
                                 </div>
                             </div>
                             <div class="flex-grow-1 ms-3">
-                                <small class="text-muted">2 saat önce</small>
+                                <small class="text-body-secondary">2 saat önce</small>
                                 <p class="mb-0">Yeni rapor oluşturuldu</p>
                             </div>
                         </div>

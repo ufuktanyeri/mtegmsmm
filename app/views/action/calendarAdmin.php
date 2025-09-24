@@ -90,7 +90,7 @@ use App\Helpers\AssetManager; \App\Helpers\AssetManager::addBundle('fullcalendar
         <button type="button" class="btn btn-primary" id="btnShowCalendar"><i class="far fa-calendar-alt"></i> Takvim</button>
         <button type="button" class="btn btn-outline-primary" id="btnShowCards"><i class="fas fa-th"></i> Kartlar</button>
     </div>
-    <div class="small text-muted"><i class="fas fa-info-circle"></i> Kart görünümünde görevler ızgara halinde listelenir.</div>
+    <div class="small text-body-secondary"><i class="fas fa-info-circle"></i> Kart görünümünde görevler ızgara halinde listelenir.</div>
 </div>
 
 <!-- Takvim Alanı -->
@@ -135,11 +135,11 @@ use App\Helpers\AssetManager; \App\Helpers\AssetManager::addBundle('fullcalendar
         <div class="col-lg-6 col-xl-4 mb-3">
             <div class="card task-card-mini h-100 border-left-4 border-left-<?= $cls ?>" style="animation-delay:<?= $idx*0.05 ?>s">
                 <div class="card-header bg-white py-2 d-flex justify-content-between align-items-start">
-                    <h6 class="mb-0 text-<?= $cls ?>" style="font-size:.8rem;line-height:1.2"><i class="<?= $icon ?> mr-1"></i><?= htmlspecialchars($actionTitle) ?></h6>
+                    <h6 class="mb-0 text-<?= $cls ?>" style="font-size:.8rem;line-height:1.2"><i class="<?= $icon ?> me-1"></i><?= htmlspecialchars($actionTitle) ?></h6>
                     <span class="badge badge-<?= $cls ?> badge-pill" style="font-size:.55rem;"><?= htmlspecialchars($statusText) ?></span>
                 </div>
                 <div class="card-body p-2 d-flex flex-column">
-                    <?php if($actionDesc): ?><p class="text-muted mb-2" style="font-size:.65rem;line-height:1.2;max-height:3.1em;overflow:hidden;"><?= htmlspecialchars(mb_substr($actionDesc,0,160)) ?><?= mb_strlen($actionDesc)>160?'...':'' ?></p><?php endif; ?>
+                    <?php if($actionDesc): ?><p class="text-body-secondary mb-2" style="font-size:.65rem;line-height:1.2;max-height:3.1em;overflow:hidden;"><?= htmlspecialchars(mb_substr($actionDesc,0,160)) ?><?= mb_strlen($actionDesc)>160?'...':'' ?></p><?php endif; ?>
                     <div class="mt-auto">
                         <div class="d-flex justify-content-between" style="font-size:.6rem;color:#666;">
                             <div><i class="fas fa-play text-success"></i> <?= $dateStart?date('d.m',strtotime($dateStart)):'-' ?></div>
@@ -147,13 +147,13 @@ use App\Helpers\AssetManager; \App\Helpers\AssetManager::addBundle('fullcalendar
                         </div>
                     </div>
                 </div>
-                <div class="card-footer py-1 text-right bg-white">
+                <div class="card-footer py-1 text-end bg-white">
                     <a class="btn btn-xs btn-outline-primary" style="font-size:.55rem;padding:.2rem .4rem;" href="index.php?url=action/edit&id=<?= $actionId ?>&objectiveId=<?= $objectiveId ?>"><i class="fas fa-edit"></i> Düzenle</a>
                 </div>
             </div>
         </div>
         <?php $idx++; endforeach; else: ?>
-            <div class="col-12 text-center text-muted py-5"><i class="fas fa-info-circle"></i> Görev bulunamadı.</div>
+            <div class="col-12 text-center text-body-secondary py-5"><i class="fas fa-info-circle"></i> Görev bulunamadı.</div>
         <?php endif; ?>
     </div>
 </div>
@@ -319,22 +319,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="row">
                   <div class="col-md-8"><h5 class="text-primary"><i class="fas fa-tasks"></i> ${info.event.title}</h5></div>
-                  <div class="col-md-4 text-right">
+                  <div class="col-md-4 text-end">
                     <span class="badge badge-${statusClass} badge-lg"><i class="fas fa-${p.status==1?'check-circle':'clock'}"></i> ${statusText}</span>
                   </div>
                 </div>
                 <hr/>
                 <div class="row">
-                  <div class="col-md-6"><div class="info-item"><i class="fas fa-calendar-plus text-success"></i><strong> Başlangıç:</strong><br><span class="text-muted">${moment(info.event.start).format('DD MMMM YYYY, dddd')}</span></div></div>
-                  <div class="col-md-6"><div class="info-item"><i class="fas fa-calendar-check text-danger"></i><strong> Bitiş:</strong><br><span class="text-muted">${moment(info.event.end).format('DD MMMM YYYY, dddd')}</span></div></div>
+                  <div class="col-md-6"><div class="info-item"><i class="fas fa-calendar-plus text-success"></i><strong> Başlangıç:</strong><br><span class="text-body-secondary">${moment(info.event.start).format('DD MMMM YYYY, dddd')}</span></div></div>
+                  <div class="col-md-6"><div class="info-item"><i class="fas fa-calendar-check text-danger"></i><strong> Bitiş:</strong><br><span class="text-body-secondary">${moment(info.event.end).format('DD MMMM YYYY, dddd')}</span></div></div>
                 </div>
                 <div class="row mt-3">
-                  <div class="col-md-6"><div class="info-item"><i class="fas fa-building text-primary"></i><strong> Merkez:</strong><br><span class="text-muted">${p.cityDistrict||'Belirtilmemiş'} - ${p.coveName||'Bilinmeyen'}</span></div></div>
-                  <div class="col-md-6"><div class="info-item"><i class="fas fa-user text-info"></i><strong> Sorumlu:</strong><br><span class="text-muted">${p.responsible||'Belirtilmemiş'}</span></div></div>
+                  <div class="col-md-6"><div class="info-item"><i class="fas fa-building text-primary"></i><strong> Merkez:</strong><br><span class="text-body-secondary">${p.cityDistrict||'Belirtilmemiş'} - ${p.coveName||'Bilinmeyen'}</span></div></div>
+                  <div class="col-md-6"><div class="info-item"><i class="fas fa-user text-info"></i><strong> Sorumlu:</strong><br><span class="text-body-secondary">${p.responsible||'Belirtilmemiş'}</span></div></div>
                 </div>
-                ${p.description?`<div class='row mt-3'><div class='col-12'><div class='info-item'><i class='fas fa-align-left text-secondary'></i><strong> Açıklama:</strong><br><span class='text-muted'>${p.description}</span></div></div></div>`:''}
-                ${p.aimTitle?`<div class='row mt-3'><div class='col-12'><div class='info-item'><i class='fas fa-bullseye text-warning'></i><strong> Amaç:</strong><br><span class='text-muted'>${p.aimTitle}</span></div></div></div>`:''}
-                ${p.objectiveTitle?`<div class='row mt-3'><div class='col-12'><div class='info-item'><i class='fas fa-target text-success'></i><strong> Hedef:</strong><br><span class='text-muted'>${p.objectiveTitle}</span></div></div></div>`:''}
+                ${p.description?`<div class='row mt-3'><div class='col-12'><div class='info-item'><i class='fas fa-align-left text-secondary'></i><strong> Açıklama:</strong><br><span class='text-body-secondary'>${p.description}</span></div></div></div>`:''}
+                ${p.aimTitle?`<div class='row mt-3'><div class='col-12'><div class='info-item'><i class='fas fa-bullseye text-warning'></i><strong> Amaç:</strong><br><span class='text-body-secondary'>${p.aimTitle}</span></div></div></div>`:''}
+                ${p.objectiveTitle?`<div class='row mt-3'><div class='col-12'><div class='info-item'><i class='fas fa-target text-success'></i><strong> Hedef:</strong><br><span class='text-body-secondary'>${p.objectiveTitle}</span></div></div></div>`:''}
                 ${p.isPeriodic?`<div class='row mt-3'><div class='col-12'><div class='alert alert-info'><i class='fas fa-sync-alt'></i> Periyodik Görev (haftalık)</div></div></div>`:''}
             `;
             document.getElementById('actionDetailContent').innerHTML = modalContent;
@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function(){
             var harness = document.querySelector('#calendar .fc-view-harness');
             if(!harness) return;
-            harness.insertAdjacentHTML('beforeend', `<div class="text-center p-5"><i class="fas fa-calendar-times fa-4x text-muted mb-3"></i><h5 class="text-muted">Görev Bulunamadı</h5><p class="text-muted"><?php echo (($selectedCoveId ?? 0) > 0) ? 'Seçili merkez için' : 'Sistemde'; ?> henüz tanımlanmış bir görev bulunmuyor.</p></div>`);
+            harness.insertAdjacentHTML('beforeend', `<div class="text-center p-5"><i class="fas fa-calendar-times fa-4x text-body-secondary mb-3"></i><h5 class="text-body-secondary">Görev Bulunamadı</h5><p class="text-body-secondary"><?php echo (($selectedCoveId ?? 0) > 0) ? 'Seçili merkez için' : 'Sistemde'; ?> henüz tanımlanmış bir görev bulunmuyor.</p></div>`);
         }, 800);
     }
 

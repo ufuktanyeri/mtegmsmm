@@ -102,7 +102,7 @@ ob_start();
                         </div>
                         <div>
                             <h5 class="mb-0">Toplam Göstergeler</h5>
-                            <span class="text-muted"><?php echo count($indicators ?? []); ?> kayıt</span>
+                            <span class="text-body-secondary"><?php echo count($indicators ?? []); ?> kayıt</span>
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,7 @@ ob_start();
                                         <td class="align-middle">
                                             <div>
                                                 <h6 class="mb-1"><?php echo htmlspecialchars($indicator->getIndicatorTitle()); ?></h6>
-                                                <div class="text-muted small">
+                                                <div class="text-body-secondary small">
                                                     <div><strong>Hedef:</strong> <?php echo htmlspecialchars($indicator->getObjectiveTitle()); ?></div>
                                                     <div><strong>Tarih:</strong> <?php echo htmlspecialchars($indicator->getCreatedAt()); ?></div>
                                                 </div>
@@ -162,7 +162,7 @@ ob_start();
                                             <span class="badge bg-info"><?php echo htmlspecialchars($indicator->getIndicatorTypeTitle()); ?></span>
                                         </td>
                                         <td class="align-middle">
-                                            <small class="text-muted"><?php echo htmlspecialchars($indicator->getFieldName()); ?></small>
+                                            <small class="text-body-secondary"><?php echo htmlspecialchars($indicator->getFieldName()); ?></small>
                                         </td>
                                         <td class="align-middle text-center">
                                             <strong><?php echo htmlspecialchars($indicator->getTarget()); ?></strong>
@@ -223,7 +223,7 @@ ob_start();
                     <div class="mb-3">
                         <i class="fas fa-trash-alt text-danger" style="font-size: 3rem;"></i>
                     </div>
-                    <p id="deleteMessage" class="fs-6 text-muted"></p>
+                    <p id="deleteMessage" class="fs-6 text-body-secondary"></p>
                 </div>
             </div>
             <div class="modal-footer border-0">
@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <div class="progress-bar ${progressClass}" style="width: ${percentage}%"></div>
                             </div>
                         </div>
-                        <div class="ms-2 text-muted small">
+                        <div class="ms-2 text-body-secondary small">
                             ${completed}/${target}
                         </div>
                     </div>

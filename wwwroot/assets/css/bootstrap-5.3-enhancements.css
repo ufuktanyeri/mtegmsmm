@@ -1,0 +1,495 @@
+/**
+ * Bootstrap 5.3 Enhancements
+ * Modern CSS features with dark mode support and accessibility improvements
+ */
+
+/* ========================================
+   CSS Variables & Theme Configuration
+   ======================================== */
+:root {
+    /* Color system with RGB values for alpha transparency */
+    --bs-primary-rgb: 13, 110, 253;
+    --bs-secondary-rgb: 108, 117, 125;
+    --bs-success-rgb: 25, 135, 84;
+    --bs-info-rgb: 13, 202, 240;
+    --bs-warning-rgb: 255, 193, 7;
+    --bs-danger-rgb: 220, 53, 69;
+
+    /* Gradient definitions for light mode */
+    --gradient-primary-start: 102, 126, 234;
+    --gradient-primary-end: 118, 75, 162;
+    --gradient-secondary-start: 240, 147, 251;
+    --gradient-secondary-end: 245, 87, 108;
+    --gradient-accent-start: 79, 172, 254;
+    --gradient-accent-end: 0, 242, 254;
+
+    /* Dynamic gradient CSS variables */
+    --gradient-primary: linear-gradient(135deg,
+        rgba(var(--gradient-primary-start), 1) 0%,
+        rgba(var(--gradient-primary-end), 1) 100%);
+    --gradient-secondary: linear-gradient(135deg,
+        rgba(var(--gradient-secondary-start), 1) 0%,
+        rgba(var(--gradient-secondary-end), 1) 100%);
+    --gradient-accent: linear-gradient(135deg,
+        rgba(var(--gradient-accent-start), 1) 0%,
+        rgba(var(--gradient-accent-end), 1) 100%);
+
+    /* Spacing and sizing */
+    --bs-focus-ring-width: 0.25rem;
+    --bs-focus-ring-opacity: 0.25;
+    --bs-focus-ring-color: rgba(var(--bs-primary-rgb), var(--bs-focus-ring-opacity));
+
+    /* Animation durations */
+    --animation-duration: 0.3s;
+    --animation-duration-slow: 0.6s;
+}
+
+/* Dark mode theme overrides */
+[data-bs-theme="dark"] {
+    /* Dark mode gradient variations */
+    --gradient-primary-start: 67, 56, 202;
+    --gradient-primary-end: 94, 114, 228;
+    --gradient-secondary-start: 129, 140, 248;
+    --gradient-secondary-end: 167, 139, 250;
+    --gradient-accent-start: 34, 211, 238;
+    --gradient-accent-end: 6, 182, 212;
+
+    /* Enhanced dark mode colors */
+    --bs-body-bg: #121212;
+    --bs-body-bg-rgb: 18, 18, 18;
+    --bs-secondary-bg: #1e1e1e;
+    --bs-tertiary-bg: #2d2d30;
+    --bs-emphasis-color: #fff;
+    --bs-border-color: #495057;
+    --bs-border-color-translucent: rgba(255, 255, 255, 0.15);
+}
+
+/* ========================================
+   Focus Visible Accessibility Styles
+   ======================================== */
+.btn:focus-visible,
+.form-control:focus-visible,
+.form-select:focus-visible,
+.form-check-input:focus-visible,
+.sidebar-menu a:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
+    border-radius: var(--bs-border-radius);
+}
+
+/* Remove default focus for mouse users */
+.btn:focus:not(:focus-visible),
+.form-control:focus:not(:focus-visible),
+.form-select:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Enhanced button focus states */
+.btn-primary:focus-visible {
+    outline-color: var(--bs-primary);
+    box-shadow: 0 0 0 var(--bs-focus-ring-width) var(--bs-focus-ring-color);
+}
+
+.btn-secondary:focus-visible {
+    outline-color: var(--bs-secondary);
+}
+
+.btn-success:focus-visible {
+    outline-color: var(--bs-success);
+}
+
+.btn-danger:focus-visible {
+    outline-color: var(--bs-danger);
+}
+
+/* ========================================
+   Form Control CSS Variables Integration
+   ======================================== */
+.form-control,
+.form-select {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border-color: var(--bs-border-color);
+    transition: border-color var(--animation-duration) ease,
+                box-shadow var(--animation-duration) ease,
+                background-color var(--animation-duration) ease;
+}
+
+.form-control:hover:not(:disabled):not(:focus),
+.form-select:hover:not(:disabled):not(:focus) {
+    border-color: rgba(var(--bs-primary-rgb), 0.4);
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: var(--bs-body-bg);
+    border-color: rgba(var(--bs-primary-rgb), 0.8);
+    box-shadow: 0 0 0 var(--bs-focus-ring-width) var(--bs-focus-ring-color);
+}
+
+/* Dark mode form adjustments */
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select {
+    background-color: var(--bs-secondary-bg);
+    border-color: var(--bs-border-color-translucent);
+}
+
+[data-bs-theme="dark"] .form-control:focus,
+[data-bs-theme="dark"] .form-select:focus {
+    background-color: var(--bs-tertiary-bg);
+}
+
+/* ========================================
+   Enhanced Responsive Utilities
+   ======================================== */
+
+/* More specific breakpoint utilities */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    .d-md-only-block {
+        display: block !important;
+    }
+    .d-md-only-none {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .d-xl-flex {
+        display: flex !important;
+    }
+    .d-xl-grid {
+        display: grid !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .d-xxl-flex {
+        display: flex !important;
+    }
+    .d-xxl-grid {
+        display: grid !important;
+    }
+}
+
+/* Container queries for component-level responsiveness */
+@container (min-width: 400px) {
+    .container-sm-flex {
+        display: flex;
+    }
+    .container-sm-grid {
+        display: grid;
+    }
+}
+
+@container (min-width: 600px) {
+    .container-md-flex {
+        display: flex;
+    }
+    .container-md-2col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================
+   New Bootstrap 5.3 Utility Classes
+   ======================================== */
+
+/* Z-index utilities */
+.z-0 { z-index: 0 !important; }
+.z-1 { z-index: 1 !important; }
+.z-2 { z-index: 2 !important; }
+.z-3 { z-index: 3 !important; }
+.z-n1 { z-index: -1 !important; }
+
+/* Object-fit utilities */
+.object-fit-contain { object-fit: contain !important; }
+.object-fit-cover { object-fit: cover !important; }
+.object-fit-fill { object-fit: fill !important; }
+.object-fit-scale { object-fit: scale-down !important; }
+.object-fit-none { object-fit: none !important; }
+
+/* Object-position utilities */
+.object-position-center { object-position: center !important; }
+.object-position-top { object-position: top !important; }
+.object-position-bottom { object-position: bottom !important; }
+.object-position-left { object-position: left !important; }
+.object-position-right { object-position: right !important; }
+
+/* Enhanced text utilities */
+.lh-1 { line-height: 1 !important; }
+.lh-sm { line-height: 1.25 !important; }
+.lh-base { line-height: 1.5 !important; }
+.lh-lg { line-height: 2 !important; }
+
+.fw-lighter { font-weight: lighter !important; }
+.fw-light { font-weight: 300 !important; }
+.fw-normal { font-weight: 400 !important; }
+.fw-medium { font-weight: 500 !important; }
+.fw-semibold { font-weight: 600 !important; }
+.fw-bold { font-weight: 700 !important; }
+.fw-bolder { font-weight: bolder !important; }
+
+/* Text decoration utilities */
+.text-decoration-underline { text-decoration: underline !important; }
+.text-decoration-line-through { text-decoration: line-through !important; }
+
+/* ========================================
+   Progress Bar Bootstrap 5.3 Structure
+   ======================================== */
+.progress {
+    --bs-progress-height: 1rem;
+    --bs-progress-font-size: 0.75rem;
+    --bs-progress-bg: var(--bs-secondary-bg);
+    --bs-progress-border-radius: var(--bs-border-radius);
+    --bs-progress-box-shadow: var(--bs-box-shadow-inset);
+    --bs-progress-bar-color: #fff;
+    --bs-progress-bar-bg: var(--bs-primary);
+    --bs-progress-bar-transition: width 0.6s ease;
+
+    display: flex;
+    height: var(--bs-progress-height);
+    overflow: hidden;
+    font-size: var(--bs-progress-font-size);
+    background-color: var(--bs-progress-bg);
+    border-radius: var(--bs-progress-border-radius);
+}
+
+.progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--bs-progress-bar-color);
+    text-align: center;
+    white-space: nowrap;
+    background-color: var(--bs-progress-bar-bg);
+    transition: var(--bs-progress-bar-transition);
+}
+
+/* Striped and animated progress bars */
+.progress-bar-striped {
+    background-image: linear-gradient(45deg,
+        rgba(255, 255, 255, 0.15) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0.15) 75%,
+        transparent 75%,
+        transparent);
+    background-size: var(--bs-progress-height) var(--bs-progress-height);
+}
+
+.progress-bar-animated {
+    animation: progress-bar-stripes 1s linear infinite;
+}
+
+/* ========================================
+   Gradient Components with CSS Variables
+   ======================================== */
+.gradient-card {
+    background: var(--gradient-primary);
+    border-radius: var(--bs-border-radius-lg);
+    padding: 1.5rem;
+    color: white;
+    transition: transform var(--animation-duration) ease,
+                box-shadow var(--animation-duration) ease;
+}
+
+.gradient-card-secondary {
+    background: var(--gradient-secondary);
+}
+
+.gradient-card-accent {
+    background: var(--gradient-accent);
+}
+
+.gradient-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient text effect */
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ========================================
+   Prefers Reduced Motion Support
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .progress-bar {
+        transition: none;
+    }
+
+    .gradient-card {
+        transition: none;
+    }
+
+    /* Disable parallax effects */
+    .parallax {
+        transform: none !important;
+    }
+}
+
+/* ========================================
+   Enhanced Offcanvas for Dashboard
+   ======================================== */
+.offcanvas-dashboard {
+    --bs-offcanvas-width: 280px;
+    --bs-offcanvas-bg: var(--bs-body-bg);
+    --bs-offcanvas-border-width: 1px;
+    --bs-offcanvas-border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .offcanvas-dashboard {
+    --bs-offcanvas-bg: var(--bs-secondary-bg);
+    --bs-offcanvas-border-color: var(--bs-border-color-translucent);
+}
+
+.offcanvas-dashboard .offcanvas-header {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.offcanvas-dashboard .nav-link {
+    color: var(--bs-body-color);
+    padding: 0.75rem 1rem;
+    border-radius: var(--bs-border-radius);
+    transition: background-color var(--animation-duration) ease,
+                color var(--animation-duration) ease;
+}
+
+.offcanvas-dashboard .nav-link:hover {
+    background-color: var(--bs-tertiary-bg);
+    color: var(--bs-primary);
+}
+
+.offcanvas-dashboard .nav-link.active {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+/* ========================================
+   Container Query Patterns
+   ======================================== */
+.responsive-container {
+    container-type: inline-size;
+}
+
+@container (min-width: 320px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@container (min-width: 640px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@container (min-width: 960px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ========================================
+   Animations with Reduced Motion Support
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes progress-bar-stripes {
+    0% {
+        background-position: var(--bs-progress-height) 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn var(--animation-duration) ease-out;
+}
+
+.animate-slideIn {
+    animation: slideIn var(--animation-duration) ease-out;
+}
+
+/* ========================================
+   Custom Scrollbar Styling
+   ======================================== */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bs-secondary-bg);
+    border-radius: var(--bs-border-radius);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bs-tertiary-bg);
+    border-radius: var(--bs-border-radius);
+    border: 2px solid var(--bs-secondary-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bs-primary);
+}
+
+[data-bs-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--bs-tertiary-bg);
+}
+
+[data-bs-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--bs-border-color);
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+@media print {
+    .gradient-card {
+        background: none !important;
+        border: 1px solid #dee2e6;
+        color: black !important;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+}

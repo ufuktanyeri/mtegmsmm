@@ -90,15 +90,15 @@ ob_start();
         <div class="card card-primary">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h3 class="card-title mb-0">
-                    <i class="fas fa-calendar-alt mr-2"></i>
+                    <i class="fas fa-calendar-alt me-2"></i>
                     <?php echo isset($isAdmin) && $isAdmin ? 'Admin ' : ''; ?>Faaliyet Takvimi
                 </h3>
-                <div class="d-none d-md-flex align-items-center small text-muted">
-                    <span class="mr-2"><span class="badge badge-danger">&nbsp;</span> Geciken</span>
-                    <span class="mr-2"><span class="badge badge-warning">&nbsp;</span> Acil</span>
-                    <span class="mr-2"><span class="badge badge-info">&nbsp;</span> Yaklaşan</span>
-                    <span class="mr-2"><span class="badge badge-success">&nbsp;</span> Tamamlanan</span>
-                    <span class="mr-2"><span class="badge badge-primary">&nbsp;</span> Normal</span>
+                <div class="d-none d-md-flex align-items-center small text-body-secondary">
+                    <span class="me-2"><span class="badge badge-danger">&nbsp;</span> Geciken</span>
+                    <span class="me-2"><span class="badge badge-warning">&nbsp;</span> Acil</span>
+                    <span class="me-2"><span class="badge badge-info">&nbsp;</span> Yaklaşan</span>
+                    <span class="me-2"><span class="badge badge-success">&nbsp;</span> Tamamlanan</span>
+                    <span class="me-2"><span class="badge badge-primary">&nbsp;</span> Normal</span>
                 </div>
                 <?php if (isset($isAdmin) && $isAdmin): ?>
                 <div class="card-tools">
@@ -283,7 +283,7 @@ $(function () {
 });
 </script>
 <?php if(empty($actions)): ?>
-<div class="mt-3 text-center text-muted small">
+<div class="mt-3 text-center text-body-secondary small">
     <i class="fas fa-info-circle"></i> Henüz tanımlanmış bir görev yok.
 </div>
 <?php endif; ?>

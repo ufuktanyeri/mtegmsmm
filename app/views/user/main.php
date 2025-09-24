@@ -263,7 +263,7 @@ include __DIR__ . '/../components/header.php';
                                         <?php endif; ?>
                                     </div>
                                     <div class="col-md-6 d-flex flex-column justify-content-center">
-                                        <p class="text-muted mb-4" style="line-height: 1.7;">
+                                        <p class="text-body-secondary mb-4" style="line-height: 1.7;">
                                             <?php echo nl2br(htmlspecialchars($haber->getDetails())); ?>
                                         </p>
                                         <div>
@@ -281,8 +281,8 @@ include __DIR__ . '/../components/header.php';
                 <?php else: ?>
                     <div class="carousel-item active p-4">
                         <div class="container-fluid text-center py-5">
-                            <h2 class="fw-bold text-muted mb-3">Hoş Geldiniz</h2>
-                            <p class="text-muted">Yakında güncel haberlerimizle sizlerle olacağız.</p>
+                            <h2 class="fw-bold text-body-secondary mb-3">Hoş Geldiniz</h2>
+                            <p class="text-body-secondary">Yakında güncel haberlerimizle sizlerle olacağız.</p>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -321,7 +321,7 @@ include __DIR__ . '/../components/header.php';
                                     <span class="badge bg-primary">Yönerge</span>
                                 </div>
                             </div>
-                            <p class="card-text text-muted mb-4">
+                            <p class="card-text text-body-secondary mb-4">
                                 Sektörel Mükemmeliyet Merkezlerinin kuruluşundan işleyişine kadar birçok kritik düzenlemeyi
                                 içeren önemli yönerge. Mesleki ve teknik eğitimde kaliteyi artırmayı ve sektörlerle güçlü
                                 entegrasyon sağlamayı hedefliyor.
@@ -345,7 +345,7 @@ include __DIR__ . '/../components/header.php';
                                     <span class="badge bg-success">Strateji</span>
                                 </div>
                             </div>
-                            <p class="card-text text-muted mb-4">
+                            <p class="card-text text-body-secondary mb-4">
                                 Mesleki ve Teknik Eğitimin kalitesinin artırılmasına yönelik stratejik hedefler ve uygulanacak
                                 faaliyetleri içeren kapsamlı politika belgesi.
                             </p>
@@ -392,25 +392,25 @@ include __DIR__ . '/../components/header.php';
                         <div class="col-6">
                             <div class="stats-card">
                                 <div class="stats-number">15</div>
-                                <small class="text-muted fw-semibold">SMM Merkezi</small>
+                                <small class="text-body-secondary fw-semibold">SMM Merkezi</small>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="stats-card">
                                 <div class="stats-number">25</div>
-                                <small class="text-muted fw-semibold">Pilot Mesleki Alan</small>
+                                <small class="text-body-secondary fw-semibold">Pilot Mesleki Alan</small>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="stats-card">
                                 <div class="stats-number">3000</div>
-                                <small class="text-muted fw-semibold">Öğretmen İşbaşı Eğitimi</small>
+                                <small class="text-body-secondary fw-semibold">Öğretmen İşbaşı Eğitimi</small>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="stats-card">
                                 <div class="stats-number">22</div>
-                                <small class="text-muted fw-semibold">Milyon € Proje Bütçesi</small>
+                                <small class="text-body-secondary fw-semibold">Milyon € Proje Bütçesi</small>
                             </div>
                         </div>
                     </div>

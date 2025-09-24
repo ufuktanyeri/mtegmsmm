@@ -54,24 +54,24 @@ ob_start();
                         
                         <?php if (isset($field)): ?>
                         <div class="mb-3">
-                            <p class="text-muted mb-2">Silinecek SMM Alanı:</p>
+                            <p class="text-body-secondary mb-2">Silinecek SMM Alanı:</p>
                             <div class="d-flex align-items-center">
                                 <span class="avatar avatar-sm me-2" style="background-color: #dc3545; color: white;">
                                     <i class="ti ti-th"></i>
                                 </span>
                                 <div>
                                     <div class="fw-bold"><?php echo htmlspecialchars($field->getFieldName()); ?></div>
-                                    <div class="text-muted small"><?php echo htmlspecialchars($field->getFieldDesc()); ?></div>
+                                    <div class="text-body-secondary small"><?php echo htmlspecialchars($field->getFieldDesc()); ?></div>
                                 </div>
                             </div>
                         </div>
 
-                        <p class="text-muted">
+                        <p class="text-body-secondary">
                             <strong>"<?php echo htmlspecialchars($field->getFieldName()); ?>"</strong> SMM alanını 
                             silmek istediğinizden emin misiniz?
                         </p>
                         <?php else: ?>
-                        <p class="text-muted">SMM alanı bulunamadı.</p>
+                        <p class="text-body-secondary">SMM alanı bulunamadı.</p>
                         <?php endif; ?>
                     </div>
                     

@@ -38,7 +38,7 @@ ob_start();
                                 <option value="<?php echo htmlspecialchars($user->getRealname()); ?>" selected><?php echo htmlspecialchars($user->getRealname()); ?> (Mevcut)</option>
                             <?php endif; ?>
                         </select>
-                        <small class="form-text text-muted">Listede yoksa önce kullanıcı oluşturma ekranından ekleyin.</small>
+                        <small class="form-text text-body-secondary">Listede yoksa önce kullanıcı oluşturma ekranından ekleyin.</small>
                     </div>
 
                     <div class="form-group">

@@ -292,7 +292,7 @@ include __DIR__ . '/../components/header.php';
                 <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg" alt="MEB Logo" class="brand-logo me-3">
                 <div>
                     <h2 class="h4 mb-0">Milli Eğitim Bakanlığı</h2>
-                    <p class="text-muted mb-0">Mesleki ve Teknik Eğitim Genel Müdürlüğü</p>
+                    <p class="text-body-secondary mb-0">Mesleki ve Teknik Eğitim Genel Müdürlüğü</p>
                 </div>
             </div>
             <div class="brand-description">

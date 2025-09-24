@@ -53,19 +53,19 @@ ob_start();
                         </div>
                         
                         <div class="mb-3">
-                            <p class="text-muted mb-2">Silinecek kullanıcı:</p>
+                            <p class="text-body-secondary mb-2">Silinecek kullanıcı:</p>
                             <div class="d-flex align-items-center">
                                 <span class="avatar avatar-sm me-2" style="background-color: #dc3545; color: white;">
                                     <?php echo strtoupper(substr($user->getUsername(), 0, 2)); ?>
                                 </span>
                                 <div>
                                     <div class="fw-bold"><?php echo htmlspecialchars($user->getRealname() ?? $user->getUsername()); ?></div>
-                                    <div class="text-muted small"><?php echo htmlspecialchars($user->getUsername()); ?></div>
+                                    <div class="text-body-secondary small"><?php echo htmlspecialchars($user->getUsername()); ?></div>
                                 </div>
                             </div>
                         </div>
 
-                        <p class="text-muted">
+                        <p class="text-body-secondary">
                             <strong>"<?php echo htmlspecialchars($user->getUsername()); ?>"</strong> kullanıcısını 
                             silmek istediğinizden emin misiniz?
                         </p>

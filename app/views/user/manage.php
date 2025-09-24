@@ -116,7 +116,7 @@ ob_start();
             </div>
             <div class="card-body border-bottom py-3">
                 <div class="d-flex">
-                    <div class="text-muted">
+                    <div class="text-body-secondary">
                         Toplam <?php echo count($users ?? []); ?> kullanıcı
                     </div>
                 </div>
@@ -159,7 +159,7 @@ ob_start();
                                 <span class="badge bg-primary"><?php echo htmlspecialchars($user->getRole()->getRoleName()); ?></span>
                             </td>
                             <td class="align-middle">
-                                <span class="text-muted"><?php echo htmlspecialchars($user->getCove()->getName()); ?></span>
+                                <span class="text-body-secondary"><?php echo htmlspecialchars($user->getCove()->getName()); ?></span>
                             </td>
                             <td class="align-middle">
                                 <div class="btn-group" role="group">

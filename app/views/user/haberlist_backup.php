@@ -143,7 +143,7 @@ $additionalCss = '
                         <div class="fw-bold text-primary" style="font-size: 1.1rem; line-height: 1.2;">
                             T.C. Milli Eğitim Bakanlığı
                         </div>
-                        <div class="text-muted" style="font-size: 0.85rem;">
+                        <div class="text-body-secondary" style="font-size: 0.85rem;">
                             Mesleki ve Teknik Eğitim Genel Müdürlüğü
                         </div>
                     </div>

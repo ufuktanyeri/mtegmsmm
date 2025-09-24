@@ -34,7 +34,7 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
         <div class="card bg-<?= $currentFilter['color'] ?>">
             <div class="card-body text-white">
                 <div class="d-flex align-items-center">
-                    <i class="<?= $currentFilter['icon'] ?> fa-3x mr-3 opacity-75"></i>
+                    <i class="<?= $currentFilter['icon'] ?> fa-3x me-3 opacity-75"></i>
                     <div>
                         <h3 class="mb-1"><?= $currentFilter['title'] ?></h3>
                         <p class="mb-0 opacity-75">Sistem genelindeki tüm merkezlerin görevlerini yönetin</p>
@@ -56,7 +56,7 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
                            class="btn btn-<?= $filter === 'all' ? 'primary' : 'outline-primary' ?>">
                             <i class="fas fa-list"></i> Tümü
                             <?php if(isset($allCount)): ?>
-                                <span class="badge badge-light ml-1"><?= $allCount ?></span>
+                                <span class="badge badge-light ms-1"><?= $allCount ?></span>
                             <?php endif; ?>
                         </a>
                         
@@ -64,7 +64,7 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
                            class="btn btn-<?= $filter === 'overdue' ? 'danger' : 'outline-danger' ?>">
                             <i class="fas fa-exclamation-triangle"></i> Geciken
                             <?php if(isset($overdueCount) && $overdueCount > 0): ?>
-                                <span class="badge badge-light ml-1"><?= $overdueCount ?></span>
+                                <span class="badge badge-light ms-1"><?= $overdueCount ?></span>
                             <?php endif; ?>
                         </a>
                         
@@ -72,7 +72,7 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
                            class="btn btn-<?= $filter === 'urgent' ? 'warning' : 'outline-warning' ?>">
                             <i class="fas fa-fire"></i> Acil
                             <?php if(isset($urgentCount) && $urgentCount > 0): ?>
-                                <span class="badge badge-light ml-1"><?= $urgentCount ?></span>
+                                <span class="badge badge-light ms-1"><?= $urgentCount ?></span>
                             <?php endif; ?>
                         </a>
                         
@@ -80,7 +80,7 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
                            class="btn btn-<?= $filter === 'upcoming' ? 'info' : 'outline-info' ?>">
                             <i class="fas fa-clock"></i> Yaklaşan
                             <?php if(isset($upcomingCount) && $upcomingCount > 0): ?>
-                                <span class="badge badge-light ml-1"><?= $upcomingCount ?></span>
+                                <span class="badge badge-light ms-1"><?= $upcomingCount ?></span>
                             <?php endif; ?>
                         </a>
                         
@@ -88,7 +88,7 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
                            class="btn btn-<?= $filter === 'completed' ? 'success' : 'outline-success' ?>">
                             <i class="fas fa-check-circle"></i> Tamamlanan
                             <?php if(isset($completedCount) && $completedCount > 0): ?>
-                                <span class="badge badge-light ml-1"><?= $completedCount ?></span>
+                                <span class="badge badge-light ms-1"><?= $completedCount ?></span>
                             <?php endif; ?>
                         </a>
                     </div>
@@ -164,7 +164,7 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
                             <i class="fas fa-building"></i>
                             <strong><?= htmlspecialchars($coveName, ENT_QUOTES,'UTF-8') ?></strong>
                             <?php if($cityDistrict): ?>
-                                <br><small class="text-muted"><?= htmlspecialchars($cityDistrict, ENT_QUOTES,'UTF-8') ?></small>
+                                <br><small class="text-body-secondary"><?= htmlspecialchars($cityDistrict, ENT_QUOTES,'UTF-8') ?></small>
                             <?php endif; ?>
                         </div>
                         <div class="task-badges">
@@ -179,13 +179,13 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
                     <div class="card-body d-flex flex-column">
                         <!-- Görev Başlığı -->
                         <h6 class="card-title text-<?= $alertClass ?> mb-3">
-                            <i class="<?= $alertIcon ?> mr-2"></i>
+                            <i class="<?= $alertIcon ?> me-2"></i>
                             <?= $actionTitleSafe ?>
                         </h6>
                         
                         <!-- Görev Açıklaması -->
             <?php if($actionDescRaw): ?>
-                            <p class="card-text text-sm text-muted mb-3">
+                            <p class="card-text text-sm text-body-secondary mb-3">
                 <?= $actionDescSafe ?>
                 <?= mb_strlen($actionDescRaw) > 120 ? '...' : '' ?>
                             </p>
@@ -195,14 +195,14 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
                         <?php if(!empty($action->objectiveTitle) || !empty($action->aimTitle)): ?>
                             <div class="mb-3">
                 <?php if($aimTitleSafe): ?>
-                                    <small class="d-block text-muted">
-                                        <i class="fas fa-bullseye mr-1"></i>
+                                    <small class="d-block text-body-secondary">
+                                        <i class="fas fa-bullseye me-1"></i>
                     <strong>Amaç:</strong> <?= $aimTitleSafe ?>
                                     </small>
                                 <?php endif; ?>
                 <?php if($objectiveTitleSafe): ?>
-                                    <small class="d-block text-muted">
-                                        <i class="fas fa-target mr-1"></i>
+                                    <small class="d-block text-body-secondary">
+                                        <i class="fas fa-target me-1"></i>
                     <strong>Hedef:</strong> <?= $objectiveTitleSafe ?>
                                     </small>
                                 <?php endif; ?>
@@ -212,8 +212,8 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
                         <!-- Sorumlu -->
                         <?php if($responsibleSafe): ?>
                             <div class="mb-3">
-                                <small class="text-muted">
-                                    <i class="fas fa-user mr-1"></i>
+                                <small class="text-body-secondary">
+                                    <i class="fas fa-user me-1"></i>
                                     <strong>Sorumlu:</strong> <?= $responsibleSafe ?>
                                 </small>
                             </div>
@@ -226,15 +226,15 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
                         <div class="mt-auto">
                             <div class="row text-sm">
                                 <div class="col-6">
-                                    <small class="text-muted">
-                                        <i class="fas fa-calendar-plus mr-1"></i>
+                                    <small class="text-body-secondary">
+                                        <i class="fas fa-calendar-plus me-1"></i>
                                         <strong>Başlangıç:</strong><br>
                                         <?= $dateStartRaw ? date('d.m.Y', strtotime($dateStartRaw)) : '-' ?>
                                     </small>
                                 </div>
                                 <div class="col-6">
-                                    <small class="text-muted">
-                                        <i class="fas fa-calendar-check mr-1"></i>
+                                    <small class="text-body-secondary">
+                                        <i class="fas fa-calendar-check me-1"></i>
                                         <strong>Bitiş:</strong><br>
                                         <?= $dateEndRaw ? date('d.m.Y', strtotime($dateEndRaw)) : '-' ?>
                                     </small>
@@ -244,7 +244,7 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
                             <!-- Durum Bar -->
                             <div class="mt-3">
                                 <div class="d-flex justify-content-between align-items-center mb-1">
-                                    <small class="text-muted">Durum</small>
+                                    <small class="text-body-secondary">Durum</small>
                                     <small class="text-<?= $alertClass ?> font-weight-bold">
                                         <?= $daysText ?>
                                     </small>
@@ -277,8 +277,8 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
                     
                     <!-- Kart Footer -->
                     <div class="card-footer bg-light text-center">
-                        <small class="text-muted">
-                            <i class="fas fa-clock mr-1"></i>
+                        <small class="text-body-secondary">
+                            <i class="fas fa-clock me-1"></i>
                             Oluşturulma: <?= ($createdAtRaw ? date('d.m.Y H:i', strtotime($createdAtRaw)) : '-') ?>
                         </small>
                     </div>
@@ -291,8 +291,8 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
             <div class="card">
                 <div class="card-body text-center empty-state">
                     <i class="<?= $currentFilter['icon'] ?> fa-5x text-<?= $currentFilter['color'] ?> mb-3"></i>
-                    <h4 class="text-muted">Henüz <?= strtolower($currentFilter['title']) ?> bulunmuyor</h4>
-                    <p class="text-muted">
+                    <h4 class="text-body-secondary">Henüz <?= strtolower($currentFilter['title']) ?> bulunmuyor</h4>
+                    <p class="text-body-secondary">
                         <?php if($filter === 'all'): ?>
                             Sistemde henüz hiç görev tanımlanmamış.
                         <?php elseif($filter === 'overdue'): ?>
@@ -308,7 +308,7 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
                     
                     <?php if($filter !== 'all'): ?>
                         <a href="?url=action/adminTaskList&filter=all" class="btn btn-outline-primary">
-                            <i class="fas fa-list mr-2"></i>
+                            <i class="fas fa-list me-2"></i>
                             Tüm Görevleri Görüntüle
                         </a>
                     <?php endif; ?>
@@ -324,7 +324,7 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
     <div class="col-12 text-center">
         <div class="card">
             <div class="card-body">
-                <h6 class="text-muted mb-0">
+                <h6 class="text-body-secondary mb-0">
                     <i class="fas fa-info-circle"></i>
                     Toplam <?= count($actions) ?> görev gösteriliyor
                     <?php if($filter !== 'all'): ?>

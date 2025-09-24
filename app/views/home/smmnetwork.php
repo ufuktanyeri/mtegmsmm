@@ -89,19 +89,19 @@ include __DIR__ . '/../components/header.php';
                     <div class="row text-center">
                         <div class="col-md-3">
                             <h4 class="text-primary mb-0">15</h4>
-                            <small class="text-muted">SMM Merkezi</small>
+                            <small class="text-body-secondary">SMM Merkezi</small>
                         </div>
                         <div class="col-md-3">
                             <h4 class="text-success mb-0">6</h4>
-                            <small class="text-muted">Şehir</small>
+                            <small class="text-body-secondary">Şehir</small>
                         </div>
                         <div class="col-md-3">
                             <h4 class="text-warning mb-0">28</h4>
-                            <small class="text-muted">Alan</small>
+                            <small class="text-body-secondary">Alan</small>
                         </div>
                         <div class="col-md-3">
                             <h4 class="text-info mb-0">3000+</h4>
-                            <small class="text-muted">Öğretmen</small>
+                            <small class="text-body-secondary">Öğretmen</small>
                         </div>
                     </div>
                 </div>

@@ -192,7 +192,7 @@ include __DIR__ . '/../components/header.php';
                 <div class="col-md-6">
                     <div class="input-group">
                         <span class="input-group-text bg-white border-end-0">
-                            <i class="fas fa-search text-muted"></i>
+                            <i class="fas fa-search text-body-secondary"></i>
                         </span>
                         <input type="text" class="form-control search-input border-start-0"
                                placeholder="Haberler içinde ara..." id="newsSearch">
@@ -235,7 +235,7 @@ include __DIR__ . '/../components/header.php';
                     </div>
                 </div>
                 <div class="col-md-3 text-md-end mt-3 mt-md-0">
-                    <small class="text-muted">
+                    <small class="text-body-secondary">
                         <?php echo count($newsList ?? []); ?> haber bulundu
                     </small>
                 </div>
@@ -276,7 +276,7 @@ include __DIR__ . '/../components/header.php';
                                             </a>
                                         </h5>
 
-                                        <p class="card-text news-excerpt text-muted">
+                                        <p class="card-text news-excerpt text-body-secondary">
                                             <?php
                                             $details = strip_tags($news->getDetails());
                                             echo htmlspecialchars(mb_substr($details, 0, 150) . (mb_strlen($details) > 150 ? '...' : ''));
@@ -287,7 +287,7 @@ include __DIR__ . '/../components/header.php';
                                             <span class="btn btn-outline-primary btn-sm rounded-pill">
                                                 Devamını Oku <i class="fas fa-arrow-right ms-1"></i>
                                             </span>
-                                            <small class="text-muted">
+                                            <small class="text-body-secondary">
                                                 <i class="fas fa-tag me-1"></i>
                                                 <?php echo $news->getHeadline() ? 'Manşet' : 'Haber'; ?>
                                             </small>
@@ -337,7 +337,7 @@ include __DIR__ . '/../components/header.php';
                                     </a>
                                 </h5>
 
-                                <p class="card-text news-excerpt text-muted">
+                                <p class="card-text news-excerpt text-body-secondary">
                                     <?php
                                     $details = strip_tags($news->getDetails());
                                     echo htmlspecialchars(mb_substr($details, 0, 150) . (mb_strlen($details) > 150 ? '...' : ''));
@@ -348,7 +348,7 @@ include __DIR__ . '/../components/header.php';
                                     <span class="btn btn-outline-primary btn-sm rounded-pill">
                                         Devamını Oku <i class="fas fa-arrow-right ms-1"></i>
                                     </span>
-                                    <small class="text-muted">
+                                    <small class="text-body-secondary">
                                         <i class="fas fa-tag me-1"></i>
                                         <?php echo $news->getHeadline() ? 'Manşet' : 'Haber'; ?>
                                     </small>
@@ -360,9 +360,9 @@ include __DIR__ . '/../components/header.php';
             <?php else: ?>
                 <div class="col-12">
                     <div class="text-center py-5">
-                        <i class="fas fa-newspaper fa-4x text-muted mb-3"></i>
-                        <h4 class="text-muted">Henüz haber bulunmuyor</h4>
-                        <p class="text-muted">Yakında güncel haberlerimizle sizlerle olacağız.</p>
+                        <i class="fas fa-newspaper fa-4x text-body-secondary mb-3"></i>
+                        <h4 class="text-body-secondary">Henüz haber bulunmuyor</h4>
+                        <p class="text-body-secondary">Yakında güncel haberlerimizle sizlerle olacağız.</p>
                     </div>
                 </div>
             <?php endif; ?>
@@ -437,7 +437,7 @@ include __DIR__ . '/../components/header.php';
 
             <!-- Page Info -->
             <div class="text-center mt-3">
-                <small class="text-muted">
+                <small class="text-body-secondary">
                     Sayfa <?php echo $currentPage; ?> / <?php echo $totalPages; ?>
                     (Toplam <?php echo $totalNews ?? 0; ?> haber)
                 </small>

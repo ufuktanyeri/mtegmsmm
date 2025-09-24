@@ -57,7 +57,7 @@ include __DIR__ . '/../components/header.php';
                         <div class="news-meta mb-4">
                             <div class="row align-items-center">
                                 <div class="col-md-6">
-                                    <small class="text-muted">
+                                    <small class="text-body-secondary">
                                         <i class="fas fa-calendar-alt me-2"></i>
                                         <?php echo htmlspecialchars($news->getCreatedDate()); ?>
                                     </small>
@@ -106,8 +106,8 @@ include __DIR__ . '/../components/header.php';
                 <div class="card border-0 shadow-sm">
                     <div class="card-body py-5">
                         <i class="fas fa-exclamation-triangle text-warning display-1 mb-3"></i>
-                        <h3 class="text-muted">Haber Bulunamadı</h3>
-                        <p class="text-muted">Aradığınız haber mevcut değil veya kaldırılmış olabilir.</p>
+                        <h3 class="text-body-secondary">Haber Bulunamadı</h3>
+                        <p class="text-body-secondary">Aradığınız haber mevcut değil veya kaldırılmış olabilir.</p>
                         <a href="<?php echo BASE_URL; ?>index.php?url=user/haberlist" class="btn btn-primary">
                             <i class="fas fa-arrow-left me-2"></i>Haberlere Dön
                         </a>

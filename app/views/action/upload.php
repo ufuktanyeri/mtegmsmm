@@ -11,7 +11,7 @@ ob_start();
 ?>
 <div class="container mt-4 upload-wrap">
     <h2 class="mb-3"><i class="fas fa-cloud-upload-alt"></i> Görev Dosyası Yükle</h2>
-    <p class="text-muted small mb-4">Dosyalar <code>wwwroot/uploads/tasks</code> dizinine kaydedilir. İzin verilen türler: pdf, doc(x), xls(x), ppt(x), jpg, jpeg, png, gif, txt. Maksimum boyut 10MB.</p>
+    <p class="text-body-secondary small mb-4">Dosyalar <code>wwwroot/uploads/tasks</code> dizinine kaydedilir. İzin verilen türler: pdf, doc(x), xls(x), ppt(x), jpg, jpeg, png, gif, txt. Maksimum boyut 10MB.</p>
     <?php if (!empty($success)): ?>
             <div class="alert alert-success"><?php echo $success; ?></div>
     <?php elseif (!empty($error)): ?>

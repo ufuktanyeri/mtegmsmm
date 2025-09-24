@@ -54,24 +54,24 @@ ob_start();
                         
                         <?php if (isset($document)): ?>
                         <div class="mb-3">
-                            <p class="text-muted mb-2">Silinecek Belge:</p>
+                            <p class="text-body-secondary mb-2">Silinecek Belge:</p>
                             <div class="d-flex align-items-center">
                                 <span class="avatar avatar-sm me-2" style="background-color: #dc3545; color: white;">
                                     <i class="ti ti-file-pdf"></i>
                                 </span>
                                 <div>
                                     <div class="fw-bold"><?php echo htmlspecialchars($document->getDocumentTitle()); ?></div>
-                                    <div class="text-muted small"><?php echo htmlspecialchars($document->getDocumentDesc()); ?></div>
+                                    <div class="text-body-secondary small"><?php echo htmlspecialchars($document->getDocumentDesc()); ?></div>
                                 </div>
                             </div>
                         </div>
 
-                        <p class="text-muted">
+                        <p class="text-body-secondary">
                             <strong>"<?php echo htmlspecialchars($document->getDocumentTitle()); ?>"</strong> belgesini 
                             silmek istediğinizden emin misiniz?
                         </p>
                         <?php else: ?>
-                        <p class="text-muted">Belge bulunamadı.</p>
+                        <p class="text-body-secondary">Belge bulunamadı.</p>
                         <?php endif; ?>
                     </div>
                     

@@ -1,0 +1,434 @@
+/**
+ * Container Query Design Patterns with Fallbacks
+ * Modern CSS with progressive enhancement for broader browser support
+ *
+ * Browser Support:
+ * - Container Queries: Chrome 105+, Firefox 110+, Safari 16+
+ * - Fallback: All modern browsers via media queries
+ */
+
+/* ========================================
+   1. BASIC CONTAINER QUERY PATTERN
+   ======================================== */
+
+/* Setup container */
+.responsive-container {
+  container-type: inline-size;
+  container-name: main-container;
+}
+
+/* Container query styles */
+@container main-container (min-width: 400px) {
+  .responsive-element {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+@container main-container (min-width: 600px) {
+  .responsive-element {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+  }
+}
+
+/* Fallback for browsers without container query support */
+@supports not (container-type: inline-size) {
+  /* Approximate with viewport-based media queries */
+  @media (min-width: 400px) {
+    .responsive-container .responsive-element {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .responsive-container .responsive-element {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+    }
+  }
+}
+
+/* ========================================
+   2. CARD COMPONENT PATTERN
+   ======================================== */
+
+/* Card container with progressive enhancement */
+.card-container {
+  /* Only apply container queries if supported */
+  @supports (container-type: inline-size) {
+    container-type: inline-size;
+    container-name: card;
+  }
+}
+
+/* Small card layout */
+@container card (max-width: 300px) {
+  .card-content {
+    flex-direction: column;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 150px;
+  }
+
+  .card-text {
+    padding: 1rem;
+  }
+}
+
+/* Medium card layout */
+@container card (min-width: 301px) and (max-width: 500px) {
+  .card-content {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .card-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .card-text {
+    flex: 1;
+    padding: 0.75rem;
+  }
+}
+
+/* Large card layout */
+@container card (min-width: 501px) {
+  .card-content {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1.5rem;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .card-text {
+    padding: 1rem;
+  }
+}
+
+/* Fallback using data attributes and media queries */
+@supports not (container-type: inline-size) {
+  /* Small screens */
+  @media (max-width: 768px) {
+    .card-container .card-content {
+      flex-direction: column;
+    }
+
+    .card-container .card-image {
+      width: 100%;
+      height: 150px;
+    }
+
+    .card-container .card-text {
+      padding: 1rem;
+    }
+  }
+
+  /* Medium screens */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .card-container .card-content {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .card-container .card-image {
+      width: 120px;
+      height: 120px;
+    }
+
+    .card-container .card-text {
+      flex: 1;
+      padding: 0.75rem;
+    }
+  }
+
+  /* Large screens */
+  @media (min-width: 1025px) {
+    .card-container .card-content {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 1.5rem;
+    }
+
+    .card-container .card-image {
+      width: 100%;
+      height: 200px;
+    }
+
+    .card-container .card-text {
+      padding: 1rem;
+    }
+  }
+}
+
+/* ========================================
+   3. SIDEBAR LAYOUT PATTERN
+   ======================================== */
+
+.layout-container {
+  /* Feature detection */
+  @supports (container-type: inline-size) {
+    container-type: inline-size;
+    container-name: layout;
+  }
+}
+
+/* Stacked layout for small containers */
+@container layout (max-width: 600px) {
+  .sidebar-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-bottom: 1px solid var(--bs-border-color);
+    border-right: none;
+  }
+
+  .main-content {
+    width: 100%;
+  }
+}
+
+/* Side-by-side layout for larger containers */
+@container layout (min-width: 601px) {
+  .sidebar-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 1rem;
+  }
+
+  .sidebar {
+    border-right: 1px solid var(--bs-border-color);
+    border-bottom: none;
+  }
+}
+
+/* Fallback for older browsers */
+@supports not (container-type: inline-size) {
+  @media (max-width: 768px) {
+    .layout-container .sidebar-layout {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .layout-container .sidebar {
+      width: 100%;
+      border-bottom: 1px solid var(--bs-border-color);
+      border-right: none;
+    }
+
+    .layout-container .main-content {
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .layout-container .sidebar-layout {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      gap: 1rem;
+    }
+
+    .layout-container .sidebar {
+      border-right: 1px solid var(--bs-border-color);
+      border-bottom: none;
+    }
+  }
+}
+
+/* ========================================
+   4. TEXT CONTENT PATTERN
+   ======================================== */
+
+.text-container {
+  @supports (container-type: inline-size) {
+    container-type: inline-size;
+    container-name: text;
+  }
+}
+
+/* Responsive typography based on container size */
+@container text (min-width: 300px) {
+  .responsive-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .responsive-text {
+    font-size: 1rem;
+    columns: 1;
+  }
+}
+
+@container text (min-width: 500px) {
+  .responsive-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .responsive-text {
+    font-size: 1.1rem;
+    columns: 2;
+    column-gap: 2rem;
+  }
+}
+
+@container text (min-width: 800px) {
+  .responsive-title {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+
+  .responsive-text {
+    font-size: 1.2rem;
+    columns: 3;
+    column-gap: 2.5rem;
+  }
+}
+
+/* Fallback typography */
+@supports not (container-type: inline-size) {
+  @media (min-width: 576px) {
+    .text-container .responsive-title {
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .text-container .responsive-text {
+      font-size: 1rem;
+      columns: 1;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .text-container .responsive-title {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .text-container .responsive-text {
+      font-size: 1.1rem;
+      columns: 2;
+      column-gap: 2rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .text-container .responsive-title {
+      font-size: 2.5rem;
+      line-height: 1.1;
+    }
+
+    .text-container .responsive-text {
+      font-size: 1.2rem;
+      columns: 3;
+      column-gap: 2.5rem;
+    }
+  }
+}
+
+/* ========================================
+   5. UTILITY CLASSES
+   ======================================== */
+
+/* Hide/show based on container size with fallback */
+@container (max-width: 400px) {
+  .container-hide-sm {
+    display: none !important;
+  }
+}
+
+@container (min-width: 401px) and (max-width: 800px) {
+  .container-hide-md {
+    display: none !important;
+  }
+}
+
+@container (min-width: 801px) {
+  .container-hide-lg {
+    display: none !important;
+  }
+}
+
+/* Fallback utilities */
+@supports not (container-type: inline-size) {
+  @media (max-width: 576px) {
+    .container-hide-sm {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 577px) and (max-width: 992px) {
+    .container-hide-md {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 993px) {
+    .container-hide-lg {
+      display: none !important;
+    }
+  }
+}
+
+/* ========================================
+   BROWSER SUPPORT DETECTION
+   ======================================== */
+
+/* Add a class to indicate container query support */
+@supports (container-type: inline-size) {
+  :root {
+    --container-queries-supported: 1;
+  }
+
+  body::before {
+    content: "✓ Container Queries Supported";
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 9999;
+    display: none; /* Hidden by default, show only in dev mode */
+  }
+
+  body.dev-mode::before {
+    display: block;
+  }
+}
+
+@supports not (container-type: inline-size) {
+  body::before {
+    content: "⚠ Using Media Query Fallbacks";
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background: #ffc107;
+    color: #212529;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 9999;
+    display: none; /* Hidden by default, show only in dev mode */
+  }
+
+  body.dev-mode::before {
+    display: block;
+  }
+}

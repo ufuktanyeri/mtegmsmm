@@ -187,7 +187,7 @@ $additionalCss = '
             <div class="fw-bold text-primary" style="font-size: 1.1rem; line-height: 1.2;">
               T.C. Milli Eğitim Bakanlığı
             </div>
-            <div class="text-muted" style="font-size: 0.85rem;">
+            <div class="text-body-secondary" style="font-size: 0.85rem;">
               Mesleki ve Teknik Eğitim Genel Müdürlüğü
             </div>
           </div>
@@ -291,7 +291,7 @@ $additionalCss = '
                       <?php endif; ?>
                     </div>
                     <div class="col-md-6 d-flex flex-column justify-content-center">
-                      <p class="text-muted mb-4" style="line-height: 1.6;">
+                      <p class="text-body-secondary mb-4" style="line-height: 1.6;">
                         <?php echo nl2br(htmlspecialchars($haber->getDetails())); ?>
                       </p>
                       <div>
@@ -382,7 +382,7 @@ $additionalCss = '
           <div class="row">
             <div class="col-12 text-center mb-5">
               <h2 class="fw-bold text-primary">Önemli Belgeler</h2>
-              <p class="text-muted">Mesleki ve teknik eğitimde kalite ve standartları belirleyen temel düzenlemeler</p>
+              <p class="text-body-secondary">Mesleki ve teknik eğitimde kalite ve standartları belirleyen temel düzenlemeler</p>
             </div>
           </div>
           <div class="row g-4">
@@ -395,7 +395,7 @@ $additionalCss = '
                     </div>
                     <h4 class="card-title mb-0 text-primary">SMM Çalışma Yönergesi</h4>
                   </div>
-                  <p class="card-text text-muted">
+                  <p class="card-text text-body-secondary">
                     Sektörel Mükemmeliyet Merkezlerinin kuruluşundan işleyişine kadar birçok kritik düzenlemeyi
                     içeren önemli yönerge. Mesleki ve teknik eğitimde kaliteyi artırmayı ve sektörlerle güçlü
                     entegrasyon sağlamayı hedefliyor.
@@ -416,7 +416,7 @@ $additionalCss = '
                     </div>
                     <h4 class="card-title mb-0 text-success">Politika Belgesi</h4>
                   </div>
-                  <p class="card-text text-muted">
+                  <p class="card-text text-body-secondary">
                     Mesleki ve Teknik Eğitimin kalitesinin artırılmasına yönelik stratejik hedefler ve uygulanacak
                     faaliyetleri içeren kapsamlı politika belgesi.
                   </p>
@@ -437,7 +437,7 @@ $additionalCss = '
           <div class="row">
             <div class="col-12 text-center mb-5">
               <h2 class="fw-bold text-primary">Hakkımızda</h2>
-              <p class="text-muted">Mesleki ve Teknik Eğitimde Mükemmelliğin Adresi</p>
+              <p class="text-body-secondary">Mesleki ve Teknik Eğitimde Mükemmelliğin Adresi</p>
             </div>
           </div>
           <div class="row align-items-center">
@@ -462,25 +462,25 @@ $additionalCss = '
                 <div class="col-6">
                   <div class="text-center p-3 bg-light rounded shadow-sm">
                     <h4 class="fw-bold text-primary mb-1">15</h4>
-                    <small class="text-muted fw-semibold">SMM Merkezi</small>
+                    <small class="text-body-secondary fw-semibold">SMM Merkezi</small>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="text-center p-3 bg-light rounded shadow-sm">
                     <h4 class="fw-bold text-success mb-1">25</h4>
-                    <small class="text-muted fw-semibold">Pilot Mesleki Alan</small>
+                    <small class="text-body-secondary fw-semibold">Pilot Mesleki Alan</small>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="text-center p-3 bg-light rounded shadow-sm">
                     <h4 class="fw-bold text-info mb-1">3.000</h4>
-                    <small class="text-muted fw-semibold">Öğretmen İşbaşı Eğitimi</small>
+                    <small class="text-body-secondary fw-semibold">Öğretmen İşbaşı Eğitimi</small>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="text-center p-3 bg-light rounded shadow-sm">
                     <h4 class="fw-bold text-warning mb-1">22M €</h4>
-                    <small class="text-muted fw-semibold">Proje Bütçesi</small>
+                    <small class="text-body-secondary fw-semibold">Proje Bütçesi</small>
                   </div>
                 </div>
               </div>

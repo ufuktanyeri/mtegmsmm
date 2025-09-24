@@ -273,13 +273,22 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                         <i class="fas fa-map-marked-alt me-2"></i>SMM Haritası
                     </a>
                 </li>
+                <?php
+                // Test menüsünü sadece development ortamında göster
+                // Production'da gizlemek için APP_ENV değişkenini kontrol et
+                $isDevelopment = (isset($_ENV['APP_ENV']) && $_ENV['APP_ENV'] === 'development')
+                                || (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'localhost') !== false)
+                                || (isset($_SERVER['SERVER_NAME']) && $_SERVER['SERVER_NAME'] === 'localhost');
+                ?>
+                <?php if ($isDevelopment): ?>
                 <li class="nav-item">
                     <a class="nav-link <?php echo strpos($currentUrl, 'test/') === 0 ? 'active' : ''; ?> px-3 py-2 rounded-pill"
                         href="<?php echo BASE_URL; ?>index.php?url=test/index"
-                        title="Semantic HTML5 Layout Test">
+                        title="Development Test Pages">
                         <i class="fas fa-flask me-2"></i>Test
                     </a>
                 </li>
+                <?php endif; ?>
 
                 <?php if ($isLoggedIn): ?>
                     <!-- Admin Panel for Logged-in Users -->
@@ -422,7 +431,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                                 <div class="fw-semibold text-dark" style="font-size: 0.9rem;">
                                     Hoşgeldiniz, <?php echo htmlspecialchars($_SESSION['realname'] ?? $_SESSION['username']); ?>
                                 </div>
-                                <div class="small text-muted"><?php echo htmlspecialchars($_SESSION['role'] ?? 'Kullanıcı'); ?></div>
+                                <div class="small text-body-secondary"><?php echo htmlspecialchars($_SESSION['role'] ?? 'Kullanıcı'); ?></div>
                             </div>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end shadow border-0">

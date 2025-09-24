@@ -188,7 +188,7 @@
                     <hr class="my-4">
 
                     <div class="text-center">
-                        <a href="#" class="text-muted small">Şifremi Unuttum</a>
+                        <a href="#" class="text-body-secondary small">Şifremi Unuttum</a>
                     </div>
                 </form>
             </div>

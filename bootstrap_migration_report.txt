@@ -1,0 +1,69 @@
+Bootstrap 5.3.6 Migration Report
+Generated: 2025-09-24 19:55:12
+=====================================
+
+Replacement Mappings Applied:
+• text-muted → text-body-secondary
+• ml-0 → ms-0
+• ml-1 → ms-1
+• ml-2 → ms-2
+• ml-3 → ms-3
+• ml-4 → ms-4
+• ml-5 → ms-5
+• ml-auto → ms-auto
+• mr-0 → me-0
+• mr-1 → me-1
+• mr-2 → me-2
+• mr-3 → me-3
+• mr-4 → me-4
+• mr-5 → me-5
+• mr-auto → me-auto
+• pl-0 → ps-0
+• pl-1 → ps-1
+• pl-2 → ps-2
+• pl-3 → ps-3
+• pl-4 → ps-4
+• pl-5 → ps-5
+• pr-0 → pe-0
+• pr-1 → pe-1
+• pr-2 → pe-2
+• pr-3 → pe-3
+• pr-4 → pe-4
+• pr-5 → pe-5
+• float-left → float-start
+• float-right → float-end
+• text-left → text-start
+• text-right → text-end
+
+Files Updated:
+• app/views\action\adminTaskList.php (26 replacements)
+• app/views\action\calendar.php (8 replacements)
+• app/views\action\calendarAdmin.php (16 replacements)
+• app/views\action\taskList.php (20 replacements)
+• app/views\action\upload.php (1 replacements)
+• app/views\aim\index.php (5 replacements)
+• app/views\auth\login.php (1 replacements)
+• app/views\components\navbar_enhanced.php (4 replacements)
+• app/views\documentStrategy\delete.php (4 replacements)
+• app/views\field\delete.php (4 replacements)
+• app/views\home\index.php (7 replacements)
+• app/views\home\smmnetwork.php (4 replacements)
+• app/views\indicator\index.php (5 replacements)
+• app/views\news\create.php (1 replacements)
+• app/views\news\edit.php (1 replacements)
+• app/views\test\component_test.php (1 replacements)
+• app/views\user\delete.php (3 replacements)
+• app/views\user\edit.php (1 replacements)
+• app/views\user\editProfile.php (2 replacements)
+• app/views\user\haberler.php (3 replacements)
+• app/views\user\haberlist.php (10 replacements)
+• app/views\user\haberlist_backup.php (1 replacements)
+• app/views\user\login.php (1 replacements)
+• app/views\user\main.php (9 replacements)
+• app/views\user\main_backup.php (10 replacements)
+• app/views\user\manage.php (2 replacements)
+
+Summary:
+• Total files updated: 26
+• Total replacements: 150
+• Execution time: 0.16 seconds
