@@ -10,7 +10,8 @@ use App\Services\TemplateService;
 
 <!-- Core Scripts -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- Bootstrap 5.3.6 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- AssetManager JS -->
 <?php
@@ -26,6 +27,16 @@ if (class_exists('App\Helpers\AssetManager')) {
 
 <!-- Page-specific JavaScript -->
 <script>
+// Theme Management
+function initThemeToggle() {
+    // Load saved theme on page load
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-bs-theme', savedTheme);
+}
+
+// Initialize theme immediately (before DOM ready)
+initThemeToggle();
+
 // Additional page-specific initialization
 document.addEventListener('DOMContentLoaded', function() {
     // Custom page logic here

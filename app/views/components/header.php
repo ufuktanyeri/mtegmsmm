@@ -9,7 +9,7 @@ $pageDescription = $description ?? 'Milli Eğitim Bakanlığı Sektörel Mükemm
 $currentUrl = $_GET['url'] ?? '';
 ?>
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,8 +31,8 @@ $currentUrl = $_GET['url'] ?? '';
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap 5.3.6 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Swiper CSS for Carousel -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?v=<?php echo time(); ?>">
     
@@ -52,7 +52,7 @@ $currentUrl = $_GET['url'] ?? '';
     <!-- Common Bootstrap 5 Styles -->
     <style>
         :root {
-            --bs-primary: #0d6efd;
+            --bs-primary: #003C7D;
             --bs-secondary: #6c757d;
             --bs-success: #198754;
             --bs-info: #0dcaf0;
@@ -60,10 +60,18 @@ $currentUrl = $_GET['url'] ?? '';
             --bs-danger: #dc3545;
             --bs-light: #f8f9fa;
             --bs-dark: #212529;
-            
-            --meb-primary: #4f46e5;
-            --meb-secondary: #7c3aed;
+
+            --meb-primary: #003C7D;
+            --meb-secondary: #0056B3;
             --meb-gradient: linear-gradient(135deg, var(--meb-primary) 0%, var(--meb-secondary) 100%);
+        }
+
+        [data-bs-theme="dark"] {
+            --bs-body-bg: #1a1d20;
+            --bs-body-color: #dee2e6;
+            --bs-dark: #1a1d20;
+            --bs-light: #dee2e6;
+            --bs-border-color: #495057;
         }
 
         /* Common component styles */

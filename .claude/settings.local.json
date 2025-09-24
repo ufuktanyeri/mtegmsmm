@@ -36,7 +36,10 @@
       "Bash(git mv:*)",
       "Bash(git log:*)",
       "Bash(find:*)",
-      "Read(//c/Users/proje-bap/.claude/**)"
+      "Read(//c/Users/proje-bap/.claude/**)",
+      "Bash(echo:*)",
+      "Bash(mkdir:*)",
+      "Bash(tree:*)"
     ],
     "deny": [],
     "ask": []

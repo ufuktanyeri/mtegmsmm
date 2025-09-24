@@ -24,8 +24,21 @@ $gradient = $heroConfig['gradient'] ?? true;
 $type = $heroConfig['type'] ?? 'section';
 $additionalClasses = $heroConfig['classes'] ?? '';
 
-// Gradient style
-$gradientStyle = $gradient ? 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);' : '';
+// Gradient style - MEB colors
+$gradientStyle = $gradient ? 'background: linear-gradient(135deg, var(--bs-primary, #003C7D) 0%, var(--meb-secondary, #0056B3) 100%);' : '';
+
+// Add styles for dark mode support
+?>
+<style>
+    [data-bs-theme="dark"] .hero-section {
+        background: linear-gradient(135deg, #002855 0%, #003d7a 100%) !important;
+    }
+
+    [data-bs-theme="dark"] .card.hero-card {
+        background: linear-gradient(135deg, #002855 0%, #003d7a 100%) !important;
+    }
+</style>
+<?php
 
 if ($type === 'section'): ?>
     <!-- Hero Section -->
@@ -53,7 +66,7 @@ if ($type === 'section'): ?>
     <div class="container py-4" style="margin-top: 100px;">
         <div class="row mb-4">
             <div class="col-12">
-                <div class="card border-0 shadow-sm <?php echo $additionalClasses; ?>" style="<?php echo $gradientStyle; ?>">
+                <div class="card border-0 shadow-sm hero-card <?php echo $additionalClasses; ?>" style="<?php echo $gradientStyle; ?>">
                     <div class="card-body text-white p-4">
                         <h1 class="h3 mb-3 text-white text-center">
                             <?php if($icon): ?><i class="<?php echo htmlspecialchars($icon); ?> me-2"></i><?php endif; ?>

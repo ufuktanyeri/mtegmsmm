@@ -34,6 +34,11 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
         transition: all 0.3s ease;
     }
 
+    /* Dark mode navbar adjustments */
+    [data-bs-theme="dark"] .navbar {
+        background: linear-gradient(135deg, #1a1d20 0%, #212529 100%) !important;
+    }
+
     .navbar-brand {
         transition: transform 0.3s ease;
         padding: 0.5rem 0;
@@ -53,7 +58,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
 
     .nav-link {
         font-weight: 500;
-        color: #495057 !important;
+        color: var(--bs-body-color) !important;
         transition: all 0.3s ease;
         margin: 0 0.1rem;
         position: relative;
@@ -62,15 +67,20 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
     }
 
     .nav-link:hover {
-        color: var(--meb-primary) !important;
+        color: var(--bs-primary) !important;
         transform: translateY(-1px);
     }
 
     .nav-link.active {
-        color: var(--meb-primary) !important;
-        background-color: rgba(79, 70, 229, 0.1);
+        color: var(--bs-primary) !important;
+        background-color: rgba(0, 60, 125, 0.1);
         font-weight: 600;
         border-radius: 20px;
+    }
+
+    [data-bs-theme="dark"] .nav-link.active {
+        background-color: rgba(0, 86, 179, 0.2);
+        color: #4da3ff !important;
     }
 
     .nav-link.active::after {
@@ -91,6 +101,12 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         padding: 0.5rem 0;
         margin-top: 0.5rem;
+        background: var(--bs-body-bg);
+    }
+
+    [data-bs-theme="dark"] .dropdown-menu {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        border: 1px solid var(--bs-border-color);
     }
 
     .dropdown-item {
@@ -98,12 +114,17 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
         border-radius: 8px;
         margin: 0 0.5rem;
         padding: 0.5rem 1rem;
+        color: var(--bs-body-color);
     }
 
     .dropdown-item:hover {
-        background-color: rgba(79, 70, 229, 0.1);
-        color: var(--meb-primary);
+        background-color: rgba(0, 60, 125, 0.1);
+        color: var(--bs-primary);
         transform: translateX(5px);
+    }
+
+    [data-bs-theme="dark"] .dropdown-item:hover {
+        background-color: rgba(0, 86, 179, 0.2);
     }
 
     /* Navbar scrolled state */
@@ -252,6 +273,13 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                         <i class="fas fa-map-marked-alt me-2"></i>SMM Haritası
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php echo strpos($currentUrl, 'test/') === 0 ? 'active' : ''; ?> px-3 py-2 rounded-pill"
+                        href="<?php echo BASE_URL; ?>index.php?url=test/index"
+                        title="Semantic HTML5 Layout Test">
+                        <i class="fas fa-flask me-2"></i>Test
+                    </a>
+                </li>
 
                 <?php if ($isLoggedIn): ?>
                     <!-- Admin Panel for Logged-in Users -->
@@ -366,6 +394,11 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
 
             <!-- Right Side -->
             <div class="d-flex align-items-center">
+                <!-- Theme Toggle Button -->
+                <button class="btn btn-link text-decoration-none me-2" id="themeToggle" title="Tema Değiştir">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+
                 <div class="me-3 d-none d-lg-block">
                     <img src="<?php echo BASE_URL; ?>wwwroot/img/turkiye.svg" alt="Türkiye 100. Yıl" style="height: 45px;" class="rounded shadow-sm">
                 </div>
@@ -409,3 +442,54 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
         </div>
     </div>
 </nav>
+
+<script>
+// Theme Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlElement = document.documentElement;
+
+    // Check current theme
+    function updateThemeIcon() {
+        const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        if (currentTheme === 'dark') {
+            themeIcon.className = 'fas fa-sun text-warning';
+        } else {
+            themeIcon.className = 'fas fa-moon';
+        }
+    }
+
+    // Initial icon update
+    updateThemeIcon();
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        htmlElement.setAttribute('data-bs-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon();
+    });
+});
+</script>
+
+<style>
+    /* Theme Toggle Button Styles */
+    #themeToggle {
+        font-size: 1.2rem;
+        color: var(--bs-body-color);
+        opacity: 0.8;
+        transition: all 0.3s ease;
+    }
+
+    #themeToggle:hover {
+        opacity: 1;
+        transform: rotate(20deg);
+    }
+
+    [data-bs-theme="dark"] #themeToggle {
+        color: #ffc107;
+    }
+</style>

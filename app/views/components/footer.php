@@ -6,11 +6,18 @@
 ?>
 
 <style>
+    /* Light mode footer */
     .footer {
         background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
         color: white;
         position: relative;
         overflow: hidden;
+    }
+
+    /* Dark mode footer - lighter background for contrast */
+    [data-bs-theme="dark"] .footer {
+        background: linear-gradient(135deg, #495057 0%, #6c757d 100%);
+        color: #f8f9fa;
     }
 
     .footer::before {
@@ -20,11 +27,11 @@
         left: 0;
         right: 0;
         height: 4px;
-        background: var(--meb-gradient);
+        background: var(--meb-gradient, linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%));
     }
 
     .footer .btn-link {
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(255, 255, 255, 0.9);
         text-decoration: none;
         transition: all 0.3s ease;
         font-weight: 500;
@@ -35,6 +42,15 @@
         transform: translateY(-1px);
     }
 
+    /* Better contrast in dark mode */
+    [data-bs-theme="dark"] .footer .btn-link {
+        color: rgba(248, 249, 250, 0.95);
+    }
+
+    [data-bs-theme="dark"] .footer .btn-link:hover {
+        color: white;
+    }
+
     .footer .social-links a {
         display: inline-flex;
         align-items: center;
@@ -43,9 +59,14 @@
         height: 40px;
         background: rgba(255, 255, 255, 0.1);
         border-radius: 50%;
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(255, 255, 255, 0.9);
         transition: all 0.3s ease;
         margin: 0 0.25rem;
+    }
+
+    [data-bs-theme="dark"] .footer .social-links a {
+        background: rgba(255, 255, 255, 0.15);
+        color: #f8f9fa;
     }
 
     .footer .social-links a:hover {
@@ -54,20 +75,37 @@
         transform: translateY(-2px);
     }
 
+    [data-bs-theme="dark"] .footer .social-links a:hover {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
     .footer-divider {
         height: 1px;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.2);
         margin: 2rem 0 1rem 0;
+    }
+
+    [data-bs-theme="dark"] .footer-divider {
+        background: rgba(255, 255, 255, 0.3);
     }
 
     .footer-logo {
         filter: brightness(0) invert(1);
-        opacity: 0.8;
+        opacity: 0.9;
         transition: opacity 0.3s ease;
     }
 
     .footer-logo:hover {
         opacity: 1;
+    }
+
+    /* Text visibility improvements */
+    .footer .opacity-75 {
+        opacity: 0.85 !important;
+    }
+
+    [data-bs-theme="dark"] .footer .opacity-75 {
+        opacity: 0.95 !important;
     }
 </style>
 
@@ -199,10 +237,23 @@
 </footer>
 
 <!-- Back to Top Button -->
-<button id="backToTop" class="btn btn-primary rounded-circle position-fixed d-none" 
+<button id="backToTop" class="btn btn-primary rounded-circle position-fixed d-none shadow-lg"
         style="bottom: 20px; right: 20px; z-index: 1050; width: 50px; height: 50px;">
     <i class="fas fa-arrow-up"></i>
 </button>
+
+<style>
+    /* Back to top button dark mode support */
+    [data-bs-theme="dark"] #backToTop {
+        background-color: var(--bs-primary) !important;
+        border-color: var(--bs-primary) !important;
+    }
+
+    #backToTop:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 60, 125, 0.3) !important;
+    }
+</style>
 
 <script>
 // Back to top functionality

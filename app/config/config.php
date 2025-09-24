@@ -3,8 +3,9 @@
  * MTEGM SMM Portal Configuration
  * Production-ready configuration with environment detection
  *
- * @version 2.0
- * @date 2025-01-21
+ * @version 2.1
+ * @date 2025-01-24
+ * @bootstrap 5.3.6
  */
 
 // Load environment variables
@@ -62,7 +63,10 @@ if ($isProduction) {
 
 // Application Settings
 define('APP_NAME', Environment::get('APP_NAME', 'MTEGM SMM Portal'));
-define('APP_VERSION', Environment::get('APP_VERSION', '2.0.0'));
+define('APP_VERSION', Environment::get('APP_VERSION', '2.1.0'));
+define('BOOTSTRAP_VERSION', '5.3.6');
+define('JQUERY_VERSION', '3.7.1');
+define('FONTAWESOME_VERSION', '6.4.0');
 define('APP_TIMEZONE', Environment::get('APP_TIMEZONE', 'Europe/Istanbul'));
 
 // Path Settings
