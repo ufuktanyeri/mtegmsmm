@@ -39,7 +39,8 @@
       "Read(//c/Users/proje-bap/.claude/**)",
       "Bash(echo:*)",
       "Bash(mkdir:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(clear)"
     ],
     "deny": [],
     "ask": []

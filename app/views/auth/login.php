@@ -12,133 +12,24 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
-    <style>
-        :root {
-            --meb-primary: #1e3c72;
-            --meb-secondary: #2a5298;
-        }
-
-        html, body {
-            height: 100%;
-        }
-
-        body {
-            display: flex;
-            align-items: center;
-            padding-top: 40px;
-            padding-bottom: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .form-signin {
-            max-width: 400px;
-            padding: 15px;
-            margin: auto;
-        }
-
-        .form-signin .card {
-            border: none;
-            border-radius: 1rem;
-            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-        }
-
-        .form-signin .card-body {
-            padding: 2rem;
-        }
-
-        .form-signin .form-floating:focus-within {
-            z-index: 2;
-        }
-
-        .form-signin input[type="text"] {
-            margin-bottom: -1px;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-
-        .form-signin input[type="password"] {
-            margin-bottom: 10px;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-        }
-
-        .logo-container {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .logo {
-            width: 80px;
-            height: 80px;
-            background: var(--meb-primary);
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-
-        .logo i {
-            font-size: 2.5rem;
-            color: white;
-        }
-
-        .btn-login {
-            background: linear-gradient(135deg, var(--meb-primary) 0%, var(--meb-secondary) 100%);
-            border: none;
-            font-weight: 500;
-            padding: 0.75rem;
-            font-size: 1rem;
-        }
-
-        .btn-login:hover {
-            background: linear-gradient(135deg, var(--meb-secondary) 0%, var(--meb-primary) 100%);
-        }
-
-        .form-control:focus {
-            border-color: var(--meb-primary);
-            box-shadow: 0 0 0 0.2rem rgba(30, 60, 114, 0.25);
-        }
-
-        .alert {
-            border-radius: 0.5rem;
-        }
-
-        .copyright {
-            color: #6c757d;
-            font-size: 0.875rem;
-        }
-
-        .meb-title {
-            color: var(--meb-primary);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .meb-subtitle {
-            color: #6c757d;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-        }
-    </style>
 </head>
-<body>
-    <main class="form-signin w-100 m-auto">
-        <div class="card">
-            <div class="card-body">
+<body class="d-flex align-items-center py-5 bg-gradient" style="min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <main class="w-100 m-auto" style="max-width: 400px;">
+        <div class="card border-0 rounded-3 shadow-lg">
+            <div class="card-body p-4">
                 <form action="/auth/doLogin" method="POST">
                     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?? ''; ?>">
 
-                    <div class="logo-container">
-                        <div class="logo">
-                            <i class="bi bi-mortarboard-fill"></i>
+                    <div class="text-center mb-4">
+                        <div class="rounded-circle bg-primary d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="bi bi-mortarboard-fill text-white fs-1"></i>
                         </div>
-                        <h1 class="h3 meb-title">MTEGM SMM Portal</h1>
-                        <p class="meb-subtitle">Milli Eğitim Bakanlığı<br>Mesleki ve Teknik Eğitim Genel Müdürlüğü</p>
+                        <h1 class="h3 text-primary fw-bold mb-2">MTEGM SMM Portal</h1>
+                        <p class="text-secondary small mb-4">Milli Eğitim Bakanlığı<br>Mesleki ve Teknik Eğitim Genel Müdürlüğü</p>
                     </div>
 
                     <?php if (isset($_SESSION['logout_message'])): ?>
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-success rounded-3" role="alert">
                             <i class="bi bi-check-circle me-2"></i>
                             <?php
                                 echo $_SESSION['logout_message'];
@@ -148,7 +39,7 @@
                     <?php endif; ?>
 
                     <?php if (isset($error) || isset($_SESSION['login_error'])): ?>
-                        <div class="alert alert-danger" role="alert">
+                        <div class="alert alert-danger rounded-3" role="alert">
                             <i class="bi bi-exclamation-triangle me-2"></i>
                             <?php
                                 echo $error ?? $_SESSION['login_error'] ?? 'Giriş hatası';
@@ -180,7 +71,7 @@
                         </label>
                     </div>
 
-                    <button class="w-100 btn btn-lg btn-primary btn-login" type="submit">
+                    <button class="w-100 btn btn-lg btn-primary py-3 fw-medium" type="submit">
                         <i class="bi bi-box-arrow-in-right me-2"></i>
                         Giriş Yap
                     </button>
@@ -194,7 +85,7 @@
             </div>
         </div>
 
-        <p class="mt-4 text-center copyright text-white">
+        <p class="mt-4 text-center text-white-50 small">
             &copy; <?php echo date('Y'); ?> T.C. Milli Eğitim Bakanlığı
         </p>
     </main>
