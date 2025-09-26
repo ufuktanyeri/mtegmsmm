@@ -38,21 +38,7 @@ class CoveController extends BaseController {
         exit();
     }
 
-    /**
-     * CSRF token üret.
-     */
-    protected function generateCsrfToken(): string {
-        $token = bin2hex(random_bytes(32));
-        $_SESSION['csrf_token'] = $token;
-        return $token;
-    }
 
-    /**
-     * CSRF token doğrula.
-     */
-    private function validateCsrfToken($token): bool {
-        return $token && isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
-    }
 
     /**
      * Listeleme.

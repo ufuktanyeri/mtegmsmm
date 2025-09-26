@@ -21,6 +21,7 @@ class HealthController extends BaseController {
         $results = [ 'status' => 'ok', 'timestamp' => date('c'), 'php_version' => PHP_VERSION, 'checks' => [] ];
         // DB bağlantısı
         $dbCheck = [ 'ok' => false ];
+        $pdo = null;
         try {
             require_once __DIR__ . '/../../config/config.php';
             $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4';
@@ -32,7 +33,7 @@ class HealthController extends BaseController {
         // Tablolar
         $requiredTables = ['users','aims','objectives','actions','indicators'];
         $tablesCheck = [];
-        if (!empty($dbCheck['ok'])) {
+        if (!empty($dbCheck['ok']) && $pdo !== null) {
             try { $stmt = $pdo->query('SHOW TABLES'); $existing = array_map('current',$stmt->fetchAll(PDO::FETCH_NUM));
                 foreach($requiredTables as $tbl){ $present = in_array($tbl,$existing,true); $tablesCheck[$tbl] = $present? 'present':'missing'; if(!$present) $results['status']='degraded'; }
             } catch (Exception $e){ $tablesCheck['error']=$e->getMessage(); $results['status']='degraded'; }
@@ -40,7 +41,7 @@ class HealthController extends BaseController {
         $results['checks']['tables'] = $tablesCheck;
         // Sayım
         $modelChecks = [];
-        if (!empty($dbCheck['ok'])) {
+        if (!empty($dbCheck['ok']) && $pdo !== null) {
             $simpleCounts = [ 'users'=>'SELECT COUNT(*) FROM users','aims'=>'SELECT COUNT(*) FROM aims','objectives'=>'SELECT COUNT(*) FROM objectives','actions'=>'SELECT COUNT(*) FROM actions','indicators'=>'SELECT COUNT(*) FROM indicators' ];
             foreach($simpleCounts as $name=>$sql){ if(isset($tablesCheck[$name]) && $tablesCheck[$name] !== 'present'){ $modelChecks[$name]='skipped'; continue; }
                 try { $c0=microtime(true); $val=(int)$pdo->query($sql)->fetchColumn(); $modelChecks[$name]=['count'=>$val,'latency_ms'=>round((microtime(true)-$c0)*1000,2)]; }

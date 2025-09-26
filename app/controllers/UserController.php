@@ -160,7 +160,7 @@ class UserController extends BaseController
     {
         // Check if user is already logged in
         if (isset($_SESSION['user_id'])) {
-            header('Location: index.php');
+            header('Location: index.php?url=home');
             exit();
         }
 
@@ -318,7 +318,7 @@ class UserController extends BaseController
                 }
 
                 // Redirect to the homepage
-                header('Location: index.php');
+                header('Location: index.php?url=home');
                 exit();
                 
             } else {
@@ -347,7 +347,19 @@ class UserController extends BaseController
         } else {
             // Generate a CSRF token for GET request
             $csrfToken = $this->getCSRFToken();
-            $this->render('user/login', ['title' => htmlspecialchars('Giriş Yap'), 'csrfToken' => $csrfToken]);
+            $errors = [];
+
+            // Check for login errors from AuthController
+            if (isset($_SESSION['login_error'])) {
+                $errors[] = $_SESSION['login_error'];
+                unset($_SESSION['login_error']);
+            }
+
+            $this->render('user/login', [
+                'title' => htmlspecialchars('Giriş Yap'),
+                'csrfToken' => $csrfToken,
+                'errors' => $errors
+            ]);
         }
     }
 
@@ -437,12 +449,11 @@ class UserController extends BaseController
                 $pepper = new Pepper();
                 $hashedPassword = $pepper->hashPassword($password);
 
+                $userModel = new UserModel();
+                $db = $userModel->getDb();
+
                 try {
-
-                    $userModel = new UserModel();
-
                     // Transaction başlat
-                    $db = $userModel->getDb();
                     $db->beginTransaction();
 
 
@@ -509,9 +520,10 @@ class UserController extends BaseController
             $roleId = filter_input(INPUT_POST, 'role', FILTER_SANITIZE_NUMBER_INT);
 
             if ($realname && $username && $email && $coveId && $roleId) {
+                $db = $userModel->getDb();
+
                 try {
                     // Transaction başlat
-                    $db = $userModel->getDb();
                     $db->beginTransaction();
 
                     if ($password != '') {
