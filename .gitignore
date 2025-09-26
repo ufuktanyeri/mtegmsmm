@@ -90,3 +90,16 @@ composer.phar
 *.tar.gz
 *.rar
 !required-assets.zip
+
+# Windows system files
+nul
+NUL
+
+# Production config files (sensitive)
+wwwroot/production_safe_config.php
+production_config.php
+*_production.php
+
+# Empty or temporary config directories
+config/
+/config/
