@@ -1,0 +1,240 @@
+================================================================================
+                    MTEGM SMM PORTAL - PROJE DİZİN YAPISI
+                    Turkish Ministry of Education Strategic Management System
+================================================================================
+
+[KÖK DİZİN]
+│
+├── 📁 .claude/                    # Claude AI yapılandırma dosyaları
+│   ├── agents/                    # Agent yapılandırmaları
+│   └── settings.local.json        # Lokal ayarlar
+│
+├── 📁 .vscode/                    # VS Code IDE ayarları
+│
+├── 📁 app/                        # ⭐ ANA UYGULAMA DİZİNİ - MVC Yapısı
+│   ├── 📁 config/                # Uygulama yapılandırma dosyaları
+│   │   ├── config.php             # Ana yapılandırma (DB, URL, ENV)
+│   │   └── database.php           # Veritabanı bağlantı ayarları
+│   │
+│   ├── 📁 controllers/            # ⚡ MVC Controller'lar - İş Mantığı
+│   │   ├── ActionController.php      # Faaliyet yönetimi
+│   │   ├── AimController.php          # Amaç yönetimi
+│   │   ├── AuthController.php        # Kimlik doğrulama işlemleri
+│   │   ├── BaseController.php        # Temel controller sınıfı
+│   │   ├── ContactController.php     # İletişim modülü
+│   │   ├── CoveController.php        # COVE (Kurum) yönetimi
+│   │   ├── DetailedLogController.php # Detaylı log kayıtları
+│   │   ├── DocumentStrategyController.php # Stratejik doküman yönetimi
+│   │   ├── FieldController.php       # Alan yönetimi
+│   │   ├── HealthController.php      # Sistem sağlık kontrolü
+│   │   ├── HelpController.php        # Yardım ve destek modülü
+│   │   ├── HomeController.php        # Ana sayfa işlemleri
+│   │   ├── IndicatorController.php   # Performans göstergeleri
+│   │   ├── LogController.php         # Log yönetimi
+│   │   ├── NewsController.php        # Haber/Duyuru modülü
+│   │   ├── ObjectiveController.php   # Hedef yönetimi
+│   │   ├── RegulationController.php  # Yönetmelik modülü
+│   │   └── UserController.php        # Kullanıcı yönetimi
+│   │
+│   ├── 📁 entities/               # 📊 Veri Varlıkları (Entity sınıfları)
+│   │   └── User.php               # Kullanıcı entity modeli
+│   │
+│   ├── 📁 fonts/                  # Font dosyaları (PDF oluşturma için)
+│   │
+│   ├── 📁 helpers/                # 🔧 Yardımcı Fonksiyonlar
+│   │   ├── functions.php          # Genel yardımcı fonksiyonlar
+│   │   └── MenuHelper.php         # Menü oluşturma yardımcısı
+│   │
+│   ├── 📁 lib/                    # 📚 3. Parti Kütüphaneler (Legacy)
+│   │   ├── dompdf/                # PDF oluşturma kütüphanesi
+│   │   └── PHPWord/               # Word dosyası işleme kütüphanesi
+│   │
+│   ├── 📁 models/                 # 💾 Veritabanı Model Sınıfları
+│   │   ├── ActionModel.php           # Faaliyet veritabanı işlemleri
+│   │   ├── AimModel.php               # Amaç veritabanı işlemleri
+│   │   ├── BaseModel.php             # Temel model sınıfı
+│   │   ├── ContactModel.php          # İletişim veritabanı işlemleri
+│   │   ├── CoveModel.php             # COVE veritabanı işlemleri
+│   │   ├── DetailedLogModel.php      # Detaylı log veritabanı işlemleri
+│   │   ├── DocumentStrategyModel.php # Doküman veritabanı işlemleri
+│   │   ├── FieldModel.php            # Alan veritabanı işlemleri
+│   │   ├── HelpModel.php             # Yardım veritabanı işlemleri
+│   │   ├── IndicatorModel.php        # Gösterge veritabanı işlemleri
+│   │   ├── LogModel.php              # Log veritabanı işlemleri
+│   │   ├── NewsModel.php             # Haber veritabanı işlemleri
+│   │   ├── ObjectiveModel.php        # Hedef veritabanı işlemleri
+│   │   ├── RegulationModel.php       # Yönetmelik veritabanı işlemleri
+│   │   └── UserModel.php             # Kullanıcı veritabanı işlemleri
+│   │
+│   ├── 📁 services/               # 🎯 İş Mantığı Servisleri
+│   │   ├── AuthService.php           # Kimlik doğrulama servisi
+│   │   ├── CacheService.php          # Önbellek yönetim servisi
+│   │   ├── EmailService.php          # E-posta gönderim servisi
+│   │   ├── FileUploadService.php     # Dosya yükleme servisi
+│   │   ├── NavbarService.php         # Navigasyon menü servisi
+│   │   ├── PermissionService.php     # Yetkilendirme servisi
+│   │   ├── SessionService.php        # Oturum yönetim servisi
+│   │   └── UnifiedViewService.php    # Birleşik görünüm servisi
+│   │
+│   ├── 📁 validators/             # ✅ Veri Doğrulama Sınıfları
+│   │   └── UserValidator.php         # Kullanıcı veri doğrulama
+│   │
+│   ├── 📁 views/                  # 🎨 Görünüm Dosyaları (Templates)
+│   │   ├── action/                   # Faaliyet modülü görünümleri
+│   │   │   ├── adminTaskList.php    ├── calendar.php        ├── calendarAdmin.php
+│   │   │   ├── create.php           ├── edit.php            ├── index.php
+│   │   │   ├── taskList.php         └── upload.php
+│   │   │
+│   │   ├── aim/                      # Amaç modülü görünümleri
+│   │   │   ├── create.php           ├── edit.php            └── index.php
+│   │   │
+│   │   ├── auth/                     # Kimlik doğrulama görünümleri
+│   │   │   ├── login.php             ├── logout.php          └── unauthorized.php
+│   │   │
+│   │   ├── components/               # ⚙️ Tekrar Kullanılabilir Bileşenler
+│   │   │   ├── footer.php               # Alt bilgi bileşeni
+│   │   │   ├── header.php               # Üst bilgi bileşeni
+│   │   │   ├── navbar.php               # Navigasyon çubuğu
+│   │   │   ├── navbar_with_sidebar.php  # Yan menülü navigasyon
+│   │   │   ├── scripts.php              # JavaScript dosyaları
+│   │   │   └── sidebar_menu.php         # Yan menü bileşeni
+│   │   │
+│   │   ├── contact/               # İletişim modülü görünümleri
+│   │   ├── cove/                  # COVE modülü görünümleri
+│   │   ├── detailedlog/           # Detaylı log görünümleri
+│   │   ├── documentStrategy/      # Doküman stratejisi görünümleri
+│   │   ├── field/                 # Alan yönetimi görünümleri
+│   │   ├── help/                  # Yardım modülü görünümleri
+│   │   ├── home/                  # Ana sayfa görünümleri
+│   │   ├── indicator/             # Gösterge modülü görünümleri
+│   │   ├── layouts/               # 🏗️ Sayfa Düzenleri
+│   │   │   ├── admin_sidebar.php     # Admin panel yan menü
+│   │   │   ├── public.php            # Herkese açık sayfa düzeni
+│   │   │   └── unified_main.php      # Birleşik ana düzen
+│   │   │
+│   │   ├── log/                   # Log görünümleri
+│   │   ├── news/                  # Haber modülü görünümleri
+│   │   ├── objective/             # Hedef modülü görünümleri
+│   │   ├── regulation/            # Yönetmelik görünümleri
+│   │   └── user/                  # Kullanıcı yönetimi görünümleri
+│   │
+│   └── router.php                 # 🚦 URL Yönlendirme Sistemi
+│
+├── 📁 cache/                      # 💾 Önbellek Dosyaları
+│   └── queries/                   # Sorgu önbellekleri
+│
+├── 📁 config/                     # ⚙️ Proje Yapılandırma Dosyaları
+│
+├── 📁 database/                   # 🗄️ Veritabanı Dosyaları
+│   ├── migrations/                # Veritabanı migration dosyaları
+│   └── seeds/                     # Veritabanı seed dosyaları
+│
+├── 📁 includes/                   # 🔐 Temel Sistem Sınıfları
+│   ├── AssetManager.php          # CSS/JS varlık yönetimi
+│   ├── Database.php               # PDO veritabanı bağlantı sınıfı
+│   ├── Environment.php            # Ortam değişkenleri yönetimi
+│   ├── Recaptcha.php              # Google reCAPTCHA entegrasyonu
+│   └── Security.php               # Güvenlik fonksiyonları (CSRF, XSS)
+│
+├── 📁 logs/                       # 📝 Sistem Log Dosyaları
+│
+├── 📁 vendor/                     # 📦 Composer Bağımlılıkları
+│   ├── bin/                       # Çalıştırılabilir dosyalar
+│   ├── composer/                  # Composer autoloader
+│   ├── dompdf/dompdf/             # PDF oluşturma kütüphanesi
+│   ├── monolog/monolog/           # Loglama kütüphanesi
+│   ├── phpoffice/phpword/         # Word dosyası işleme
+│   ├── phpunit/phpunit/           # Unit test framework
+│   ├── respect/validation/        # Veri doğrulama kütüphanesi
+│   ├── symfony/polyfill-*/        # PHP polyfill kütüphaneleri
+│   └── vlucas/phpdotenv/          # .env dosya yönetimi
+│
+├── 📁 wwwroot/                    # 🌐 WEB KÖKÜ (Public Dizin)
+│   ├── 📁 assets/                # Statik varlıklar
+│   │   ├── bootstrap/             # Bootstrap framework dosyaları
+│   │   ├── css/                   # Stil dosyaları
+│   │   ├── fonts/                 # Font dosyaları
+│   │   ├── img/                   # Görsel dosyalar
+│   │   └── js/                    # JavaScript dosyaları
+│   │
+│   ├── 📁 img/                    # Genel görseller
+│   │   └── news/                  # Haber görselleri
+│   │
+│   ├── 📁 js/                     # JavaScript dosyaları
+│   │
+│   ├── 📁 uploads/                # Kullanıcı yüklemeleri
+│   │   └── news/                  # Haber ekleri
+│   │
+│   ├── .htaccess                  # Apache yönlendirme kuralları
+│   └── index.php                  # ⭐ ANA GİRİŞ NOKTASI
+│
+├── 📁 _dev/                       # 🔧 GELİŞTİRME ARAÇLARI
+│   ├── backups/                   # Yedekleme dosyaları
+│   ├── benchmarks/                # Performans test dosyaları
+│   ├── config-backups/            # Yapılandırma yedekleri
+│   ├── conversations/             # Claude AI konuşma logları
+│   ├── database/                  # Veritabanı araçları
+│   ├── debug-tools/               # Hata ayıklama araçları
+│   ├── docs/                      # Proje dokümantasyonu
+│   ├── modernization/             # Modernizasyon dosyaları
+│   ├── scripts/                   # Yardımcı scriptler
+│   ├── server-tests/              # Sunucu test dosyaları
+│   ├── test-archive/              # Test arşivi
+│   ├── tests/                     # Test dosyaları
+│   └── tools/                     # Geliştirme araçları
+│
+├── 📄 YAPILAN DOSYALAR (Kök Dizin)
+│   ├── .env                       # Ortam değişkenleri
+│   ├── .env.example               # Ortam değişkenleri örneği
+│   ├── .gitignore                 # Git ignore listesi
+│   ├── .htaccess                  # Apache ana yönlendirmeler
+│   ├── .htaccess.localhost        # Localhost htaccess
+│   ├── .htaccess.production       # Production htaccess
+│   ├── CLAUDE.md                  # Claude AI proje talimatları
+│   ├── composer.json              # PHP bağımlılık tanımları
+│   ├── composer.lock              # Kilitlenmiş bağımlılık versiyonları
+│   ├── DEPLOYMENT_CHECKLIST.md    # Yayınlama kontrol listesi
+│   ├── index.php                  # Alternatif giriş noktası
+│   ├── package.json               # NPM paket tanımları
+│   ├── phpstan.neon               # PHPStan yapılandırması
+│   └── readme.md                  # Proje açıklama dosyası
+
+================================================================================
+                               ÖNEMLI NOTLAR
+================================================================================
+
+📌 MVC MİMARİSİ:
+   • Model: Veritabanı işlemleri (app/models/)
+   • View: Kullanıcı arayüzü (app/views/)
+   • Controller: İş mantığı (app/controllers/)
+   • Router: URL yönlendirme (app/router.php)
+
+🔒 GÜVENLİK:
+   • CSRF koruması tüm formlarda aktif
+   • XSS koruması output filtreleme ile sağlanır
+   • SQL Injection koruması PDO prepared statements ile
+   • Oturum güvenliği HTTP-only cookies ile
+
+🎯 MULTI-TENANT YAPI:
+   • Her kurum (COVE) için ayrı veri izolasyonu
+   • cove_id ile filtreleme zorunlu
+   • SuperAdmin tüm COVE'lere erişebilir
+
+🚀 PERFORMANS:
+   • Query cache sistemi (cache/queries/)
+   • Asset minification (composer run minify)
+   • Autoloader optimizasyonu aktif
+
+📊 VERİTABANI:
+   • PDO ile bağlantı
+   • UTF-8 karakter seti
+   • Transaction desteği
+   • Migration sistemi hazır
+
+🛠️ DEVELOPMENT:
+   • PHPStan Level 2 statik analiz
+   • PHPUnit test framework
+   • Composer autoloading
+   • .env dosyası ile yapılandırma
+
+================================================================================
