@@ -1,7 +1,5 @@
 <?php
-$title = 'Haber Detayı';
-$page_title = 'Haber Detayı';
-ob_start();
+$pageTitle = 'Haber Detayı';
 ?>
 
 <div class="row">
@@ -54,6 +52,4 @@ ob_start();
 </div>
 
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>

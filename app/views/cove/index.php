@@ -1,10 +1,8 @@
 <?php
 require_once __DIR__ . "/../../../includes/AssetManager.php";
 use App\Helpers\AssetManager;
-$title = 'SMM Merkezleri';
-$page_title = 'SMM Merkezleri';
+$pageTitle = 'SMM Merkezleri';
 AssetManager::addBundle('datatables');
-ob_start();
 ?>
 
 <div class="row">
@@ -90,8 +88,6 @@ ob_start();
 </div>
 
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 <script>
     // Delete modal handling (DataTable init handled globally)

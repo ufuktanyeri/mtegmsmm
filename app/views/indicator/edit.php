@@ -1,7 +1,5 @@
 <?php
-$title = 'Gösterge Düzenle';
-$page_title = 'Gösterge Düzenle';
-$hidePageHeader = true;
+$pageTitle = 'Gösterge Düzenle';
 $objectives = $objectives ?? [];
 $indicatorTypes = $indicatorTypes ?? [];
 $fields = $fields ?? [];
@@ -13,7 +11,6 @@ $breadcrumb = [
         'title' => 'Göstergeler'
     ],
 ];
-ob_start();
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -99,6 +96,4 @@ ob_start();
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>

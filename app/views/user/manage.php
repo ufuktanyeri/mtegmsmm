@@ -2,14 +2,12 @@
 require_once __DIR__ . "/../../../includes/AssetManager.php";
 require_once __DIR__ . "/../../../includes/PermissionHelper.php";
 use App\Helpers\AssetManager;
-$title = 'Kullanıcılar';
-$page_title = 'Kullanıcılar';
+$pageTitle = 'Kullanıcılar';
 $breadcrumb = [
     ['title' => 'Sistem Yönetimi'],
     ['title' => 'Kullanıcılar']
 ];
 AssetManager::addBundle('datatables');
-ob_start();
 ?>
         <?php if (isset($error) && $error <> ""): ?>
             <div class="alert alert-danger alert-dismissible" role="alert">
@@ -220,8 +218,6 @@ ob_start();
 </div>
 
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 <script>
 // Delete modal handling

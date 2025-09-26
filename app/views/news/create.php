@@ -1,8 +1,7 @@
 <?php
 require_once __DIR__ . "/../../../includes/AssetManager.php";
 use App\Helpers\AssetManager;
-$title = 'Yeni Haber';
-$page_title = 'Yeni Haber';
+$pageTitle = 'Yeni Haber';
 $breadcrumb = [    
     [
         'url' => 'index.php?url=news/index',
@@ -10,7 +9,6 @@ $breadcrumb = [
     ],
 ];
 AssetManager::addBundle('summernote');
-ob_start();
 ?>
 
 
@@ -103,8 +101,6 @@ $form = isset($form) ? $form : [];
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 <script>
     // Image preview helpers (Summernote init handled globally)

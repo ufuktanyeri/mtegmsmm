@@ -1,12 +1,9 @@
 <?php
 require_once __DIR__ . "/../../../includes/AssetManager.php";
 use App\Helpers\AssetManager;
-$title = 'Yönetim Raporu';
-$page_title = 'Yönetim Raporu';
-$hidePageHeader = true;
+$pageTitle = 'Yönetim Raporu';
 AssetManager::addBundle('datatables');
 AssetManager::addBundle('chartjs');
-ob_start();
 ?>
 
 <!-- Page Header -->
@@ -257,8 +254,6 @@ ob_start();
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 <!-- Chart.js bundle yüklendi (AssetManager) -->
 <script>

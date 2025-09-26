@@ -2,14 +2,12 @@
 // filepath: c:\xampp\htdocs\mtegmsmm\app\Views\action\calendarAdmin.php
 require_once __DIR__ . '/../../../includes/AssetManager.php';
 
-$title = 'Admin Faaliyet Takvimi';
-$page_title = 'Admin Faaliyet Takvimi';
+$pageTitle = 'Admin Faaliyet Takvimi';
 $breadcrumb = [
     ['name' => 'Ana Sayfa', 'url' => 'index.php?url=home'],
     ['name' => 'Admin Panel', 'url' => 'index.php?url=admin'],
     ['name' => 'Faaliyet Takvimi', 'url' => '']
 ];
-ob_start();
 use App\Helpers\AssetManager; \App\Helpers\AssetManager::addBundle('fullcalendar');
 ?>
 
@@ -402,7 +400,5 @@ body.dark-mode .gradient-inner { background:#1f2933; }
 </style>
 
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 return; // güvenlik
 

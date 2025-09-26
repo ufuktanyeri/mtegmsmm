@@ -1,9 +1,8 @@
 <?php
 require_once __DIR__ . "/../../../includes/AssetManager.php";
 use App\Helpers\AssetManager;
-$title = 'Haber Düzenle';
-$page_title = 'Haber Düzenle';
-$hidePageHeader = true; // Üst başlık tekrarını engelle
+$pageTitle = 'Haber Düzenle';
+// Üst başlık tekrarını engelle
 $breadcrumb = [    
     [
         'url' => 'index.php?url=news/index',
@@ -11,7 +10,6 @@ $breadcrumb = [
     ],
 ];
 AssetManager::addBundle('summernote');
-ob_start();
 ?>
 
 
@@ -136,8 +134,6 @@ ob_start();
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 <script>
  // Summernote handled globally; remaining image preview & gallery delete logic

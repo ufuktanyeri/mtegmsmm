@@ -1,11 +1,9 @@
 <?php
 require_once __DIR__ . "/../../../includes/AssetManager.php";
 use App\Helpers\AssetManager;
-$title = 'Haberler';
-$page_title = 'Haberler';
-$hidePageHeader = true; // Kart başlığı zaten var
+$pageTitle = 'Haberler';
+// Kart başlığı zaten var
 AssetManager::addBundle('datatables');
-ob_start();
 ?>
 
 <div class="row">
@@ -82,8 +80,6 @@ ob_start();
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 <script>
 $(function () {

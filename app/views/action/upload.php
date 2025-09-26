@@ -1,13 +1,11 @@
 <?php
-$title = 'Görev Dosyası Yükle';
-$page_title = 'Görev Dosyası Yükle';
-$hidePageHeader = true; // Layout başlığını gizle, içerikte h2 var
+$pageTitle = 'Görev Dosyası Yükle';
+// Layout başlığını gizle, içerikte h2 var
 if (session_status() === PHP_SESSION_NONE) session_start();
 // CSRF token üret
 if (empty($_SESSION['csrf_token'])) {
         $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
-ob_start();
 ?>
 <div class="container mt-4 upload-wrap">
     <h2 class="mb-3"><i class="fas fa-cloud-upload-alt"></i> Görev Dosyası Yükle</h2>
@@ -69,6 +67,4 @@ ob_start();
 })();
 </script>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>

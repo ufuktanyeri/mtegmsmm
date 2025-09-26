@@ -1,10 +1,7 @@
 <?php
 // filepath: c:\xampp\htdocs\mtegmsmm\app\Views\objective\index.php
-$title = 'Hedefler';
-$page_title = $title;
-$hidePageHeader = true; // Sayfa içi özel header kullanılıyor
-ob_start();
-
+$pageTitle = 'Hedefler';
+// Sayfa içi özel header kullanılıyor
 // Yardımcı: Amaç başlığı çek
 function _findAimTitle($aims,$aimId){
         if (empty($aims)) return 'Bilinmiyor';
@@ -105,6 +102,4 @@ function filterObjectives(){
 </script>
 
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>

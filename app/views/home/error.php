@@ -1,8 +1,5 @@
 <?php
-$title = 'Hata Sayfası';
-$page_title = 'Hata Sayfası';
-
-ob_start();
+$pageTitle = 'Hata Sayfası';
 ?>
  <div class="error-page">
         <h2 class="headline text-warning"> 404</h2>
@@ -30,6 +27,4 @@ ob_start();
       </div>
         
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>

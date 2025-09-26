@@ -2,10 +2,7 @@
 require_once __DIR__ . '/../../../includes/AssetManager.php';
 require_once __DIR__ . '/../../../includes/PermissionHelper.php';
 
-$title = 'SMM Portal - Yönetim Paneli';
-$page_title = 'Yönetim Paneli';
-$hidePageHeader = true;
-
+$pageTitle = 'SMM Portal - Yönetim Paneli';
 \App\Helpers\AssetManager::addBundle('home');
 
 // Check permissions
@@ -14,7 +11,6 @@ $hasAimsManage = hasPermission('aims.manage');
 $hasIndicatorsManage = hasPermission('indicators.manage');
 $hasActionsManage = hasPermission('actions.manage');
 
-ob_start();
 ?>
 
 <!-- Dashboard Welcome Section -->
@@ -322,6 +318,4 @@ ob_start();
 </div>
 
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>

@@ -1,13 +1,11 @@
 <?php
-$title = 'Yeni SMM Ekle';
-$page_title = 'Yeni SMM Ekle';
+$pageTitle = 'Yeni SMM Ekle';
 $breadcrumb = [    
     [
         'url' => 'index.php?url=cove/index',
         'title' => 'Merkezler'
     ],
 ];
-ob_start();
 ?>
 <div class=row>
 
@@ -70,7 +68,4 @@ ob_start();
 </div>
 
                 <?php
-$content = ob_get_clean();
-
-include __DIR__ . '/../layouts/unified.php';
 ?>

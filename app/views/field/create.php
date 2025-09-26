@@ -1,13 +1,11 @@
 <?php
-$title = 'Yeni Alan Ekle';
-$page_title = 'Yeni Alan Ekle';
+$pageTitle = 'Yeni Alan Ekle';
 $breadcrumb = [    
     [
         'url' => 'index.php?url=field/index',
         'title' => 'SMM Alanları'
     ],
 ];
-ob_start();
 ?>
 
 <div class="row">
@@ -52,7 +50,4 @@ ob_start();
                 </div>
 
                 <?php
-$content = ob_get_clean();
-
-include __DIR__ . '/../layouts/unified.php';
 ?>

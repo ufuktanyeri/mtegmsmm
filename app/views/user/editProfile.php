@@ -1,383 +1,715 @@
 <?php
-$title = 'Profil Düzenle';
-$page_title = 'Profil Düzenle';
+$pageTitle = 'Hesap Ayarları';
+$breadcrumb = [
+    ['url' => 'index.php', 'title' => 'Ana Sayfa'],
+    ['url' => '#', 'title' => 'Hesap Ayarları']
+];
 
-// Additional page-specific styles
-$additionalCss = '
-    .profile-upload-container {
-        position: relative;
-        display: inline-block;
-    }
-    
-    .profile-photo {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid #e9ecef;
-        transition: all 0.3s ease;
-    }
-    
-    .profile-photo:hover {
-        border-color: var(--meb-primary);
-    }
-    
-    .profile-upload-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        cursor: pointer;
-        color: white;
-        font-size: 2rem;
-    }
-    
-    .profile-upload-container:hover .profile-upload-overlay {
-        opacity: 1;
-    }
-    
-    .profile-card {
-        background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-        border: none;
-        border-radius: 20px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-    }
-    
-    .profile-header {
-        background: var(--meb-gradient);
-        color: white;
-        padding: 2rem;
-        text-align: center;
-        position: relative;
-    }
-    
-    .profile-header::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 20px;
-        background: white;
-        border-radius: 20px 20px 0 0;
-    }
-    
-    .form-control:focus {
-        border-color: var(--meb-primary);
-        box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.25);
-    }
-    
-    .btn-update {
-        background: var(--meb-gradient);
-        border: none;
-        border-radius: 25px;
-        padding: 0.75rem 2rem;
-        font-weight: 600;
-        color: white;
-        transition: all 0.3s ease;
-    }
-    
-    .btn-update:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
-        color: white;
-    }
-    
-    .btn-logout {
-        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
-        border: none;
-        border-radius: 25px;
-        padding: 0.75rem 2rem;
-        font-weight: 600;
-        color: white;
-        transition: all 0.3s ease;
-    }
-    
-    .btn-logout:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
-        color: white;
-    }
-    
-    .input-group {
-        margin-bottom: 1.5rem;
-    }
-    
-    .input-group-text {
-        background: rgba(79, 70, 229, 0.1);
-        border-color: rgba(79, 70, 229, 0.2);
-        color: var(--meb-primary);
-    }
-    
-    .profile-stats {
-        background: #f8f9fa;
-        border-radius: 15px;
-        padding: 1.5rem;
-        margin: 1rem 0;
-    }
-    
-    .stat-item {
-        text-align: center;
-        padding: 1rem;
-    }
-    
-    .stat-number {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--meb-primary);
-    }
-    
-    .stat-label {
-        font-size: 0.9rem;
-        color: #6c757d;
-        margin-top: 0.5rem;
-    }
-';
-
-ob_start();
+// Get user data (mock data for now - replace with actual user data)
+$user = $_SESSION['user'] ?? [
+    'name' => $_SESSION['username'] ?? '',
+    'email' => 'kullanici@meb.gov.tr',
+    'phone' => '+90 555 123 4567',
+    'cove' => 'Gazi SMM',
+    'role' => $_SESSION['role'] ?? 'User',
+    'bio' => 'Mesleki ve teknik eğitimde kaliteyi artırmak için çalışıyoruz.'
+];
 ?>
-<div class="container py-4">
-    <div class="row justify-content-center">
-        <div class="col-xl-8 col-lg-10">
-            <div class="profile-card">
-                <!-- Profile Header -->
-                <div class="profile-header">
-                    <h2 class="mb-0">Profil Düzenle</h2>
-                    <p class="opacity-75 mb-0">Hesap bilgilerinizi güncelleyin</p>
-                </div>
 
-                <!-- Profile Form -->
-                <div class="p-4">
-                    <?php if (isset($errors) && !empty($errors)): ?>
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <i class="fas fa-exclamation-triangle me-2"></i>
-                            <strong>Hata!</strong> Lütfen aşağıdaki sorunları düzeltin:
-                            <ul class="mt-2 mb-0">
-                                <?php foreach ($errors as $error): ?>
-                                    <li><?php echo htmlspecialchars($error); ?></li>
-                                <?php endforeach; ?>
-                            </ul>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+<style>
+/* Account Settings Styles */
+.account-settings-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.settings-header {
+    margin-bottom: 2rem;
+}
+
+.settings-header h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.settings-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.settings-content {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Sidebar Navigation */
+.settings-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.settings-nav {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.nav-tabs {
+    flex-direction: column;
+    border: none;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.25rem;
+    color: #475569;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s;
+}
+
+.nav-tabs .nav-link:hover {
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+.nav-tabs .nav-link.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.nav-tabs .nav-link i {
+    width: 20px;
+    text-align: center;
+}
+
+/* Main Content Area */
+.settings-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.tab-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.tab-pane {
+    padding: 2rem;
+}
+
+/* Profile Section */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 2rem;
+}
+
+.profile-avatar-section {
+    position: relative;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 3px solid #e2e8f0;
+}
+
+.avatar-upload-btn {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.avatar-upload-btn:hover {
+    transform: scale(1.1);
+}
+
+.profile-info h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+}
+
+.profile-info p {
+    color: #64748b;
+    margin-bottom: 0.5rem;
+}
+
+.profile-badges {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.badge-custom {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.badge-role {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.badge-cove {
+    background: #dcfce7;
+    color: #166534;
+}
+
+/* Form Styles */
+.form-section {
+    margin-bottom: 2rem;
+}
+
+.form-section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #475569;
+}
+
+.form-label .required {
+    color: #ef4444;
+    margin-left: 2px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-control:disabled {
+    background: #f8fafc;
+    cursor: not-allowed;
+}
+
+.form-text {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-top: 0.25rem;
+}
+
+/* Action Buttons */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.btn-save {
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-cancel {
+    padding: 0.75rem 2rem;
+    background: white;
+    color: #475569;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+/* Security Section */
+.security-item {
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.security-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+}
+
+.security-info p {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.btn-action {
+    padding: 0.5rem 1rem;
+    background: white;
+    color: #6366f1;
+    border: 1.5px solid #6366f1;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-action:hover {
+    background: #6366f1;
+    color: white;
+}
+
+/* Notifications Section */
+.notification-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-info h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+}
+
+.notification-info p {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.form-switch {
+    position: relative;
+}
+
+.form-switch .form-check-input {
+    width: 3rem;
+    height: 1.5rem;
+    background-color: #cbd5e1;
+    border: none;
+    cursor: pointer;
+}
+
+.form-switch .form-check-input:checked {
+    background-color: #6366f1;
+}
+
+/* Alert Messages */
+.alert-custom {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.alert-success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.alert-danger {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .settings-content {
+        flex-direction: column;
+    }
+
+    .settings-sidebar {
+        width: 100%;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-save, .btn-cancel {
+        width: 100%;
+    }
+}
+</style>
+
+<div class="account-settings-container">
+    <!-- Header -->
+    <div class="settings-header">
+        <h1>Hesap Ayarları</h1>
+        <p>Profil bilgilerinizi ve güvenlik ayarlarınızı yönetin</p>
+    </div>
+
+    <!-- Settings Content -->
+    <div class="settings-content">
+        <!-- Sidebar -->
+        <aside class="settings-sidebar">
+            <nav class="settings-nav">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab">
+                            <i class="fas fa-user"></i>
+                            Profil Bilgileri
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#security" type="button" role="tab">
+                            <i class="fas fa-lock"></i>
+                            Güvenlik
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#notifications" type="button" role="tab">
+                            <i class="fas fa-bell"></i>
+                            Bildirimler
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#preferences" type="button" role="tab">
+                            <i class="fas fa-cog"></i>
+                            Tercihler
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="settings-main">
+            <div class="tab-content">
+                <!-- Profile Tab -->
+                <div class="tab-pane fade show active" id="profile" role="tabpanel">
+                    <form method="POST" action="<?php echo BASE_URL; ?>index.php?url=user/updateProfile" enctype="multipart/form-data">
+                        <!-- Profile Header -->
+                        <div class="profile-header">
+                            <div class="profile-avatar-section">
+                                <img src="<?php echo BASE_URL; ?>wwwroot/img/default-avatar.svg" alt="Profile" class="profile-avatar">
+                                <label for="avatar-upload" class="avatar-upload-btn">
+                                    <i class="fas fa-camera"></i>
+                                </label>
+                                <input type="file" id="avatar-upload" name="avatar" accept="image/*" style="display: none;">
+                            </div>
+                            <div class="profile-info">
+                                <h3><?php echo htmlspecialchars($user['name']); ?></h3>
+                                <p><?php echo htmlspecialchars($user['email']); ?></p>
+                                <div class="profile-badges">
+                                    <span class="badge-custom badge-role"><?php echo htmlspecialchars($user['role']); ?></span>
+                                    <span class="badge-custom badge-cove"><?php echo htmlspecialchars($user['cove']); ?></span>
+                                </div>
+                            </div>
                         </div>
-                    <?php endif; ?>
 
-                    <?php if (isset($success) && $success): ?>
-                        <div class="alert alert-success alert-dismissible fade show" role="alert" data-auto-dismiss="true">
-                            <i class="fas fa-check-circle me-2"></i>
-                            <strong>Başarılı!</strong> Profil bilgileriniz güncellendi.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    <?php endif; ?>
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">Kişisel Bilgiler</h3>
 
-                    <form method="post" action="<?php echo BASE_URL; ?>index.php?url=user/editprofile" enctype="multipart/form-data" class="needs-validation" novalidate>
-                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($csrfToken); ?>">
-                        
-                        <div class="row">
-                            <!-- Profile Photo Section -->
-                            <div class="col-md-4 text-center mb-4">
-                                <div class="profile-upload-container mx-auto">
-                                    <img src="<?php echo ($user->getProfilePhoto() && !empty($user->getProfilePhoto())) ? BASE_URL . 'uploads/profiles/' . htmlspecialchars($user->getProfilePhoto()) : BASE_URL . 'img/default-avatar.svg'; ?>" 
-                                         alt="Profil Fotoğrafı" class="profile-photo" id="profilePreview">
-                                    <div class="profile-upload-overlay" onclick="document.getElementById('profilePhotoInput').click();">
-                                        <i class="fas fa-camera"></i>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Ad Soyad <span class="required">*</span>
+                                        </label>
+                                        <input type="text"
+                                               class="form-control"
+                                               name="name"
+                                               value="<?php echo htmlspecialchars($user['name']); ?>"
+                                               required>
                                     </div>
                                 </div>
-                                <input type="file" id="profilePhotoInput" name="profile_photo" accept="image/*" style="display: none;" onchange="previewProfilePhoto(this)">
-                                <div class="mt-3">
-                                    <small class="text-body-secondary">Fotoğrafı değiştirmek için tıklayın</small><br>
-                                    <small class="text-body-secondary">JPG, PNG (Max: 5MB)</small>
-                                </div>
-
-                                <!-- Profile Stats -->
-                                <div class="profile-stats mt-4">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="stat-item">
-                                                <div class="stat-number"><?php echo htmlspecialchars($_SESSION['role'] ?? 'Kullanıcı'); ?></div>
-                                                <div class="stat-label">Rol</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="stat-item">
-                                                <div class="stat-number"><?php echo htmlspecialchars($_SESSION['cove_name'] ?? 'Genel'); ?></div>
-                                                <div class="stat-label">Birim</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="stat-item">
-                                                <div class="stat-number"><?php echo date('d.m.Y', strtotime($user->getCreatedAt())); ?></div>
-                                                <div class="stat-label">Üyelik Tarihi</div>
-                                            </div>
-                                        </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Kullanıcı Adı <span class="required">*</span>
+                                        </label>
+                                        <input type="text"
+                                               class="form-control"
+                                               value="<?php echo htmlspecialchars($_SESSION['username'] ?? ''); ?>"
+                                               disabled>
+                                        <small class="form-text">Kullanıcı adı değiştirilemez</small>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Form Fields -->
-                            <div class="col-md-8">
-                                <!-- Real Name -->
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-user"></i>
-                                    </span>
-                                    <input type="text" class="form-control" id="realname" name="realname" 
-                                           value="<?php echo htmlspecialchars($user->getRealname()); ?>" 
-                                           placeholder="Gerçek isminiz" required>
-                                    <div class="invalid-feedback">Gerçek isim gereklidir.</div>
-                                </div>
-
-                                <!-- Username -->
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-at"></i>
-                                    </span>
-                                    <input type="text" class="form-control" id="username" name="username" 
-                                           value="<?php echo htmlspecialchars($user->getUsername()); ?>" 
-                                           placeholder="Kullanıcı adınız" required>
-                                    <div class="invalid-feedback">Kullanıcı adı gereklidir.</div>
-                                </div>
-
-                                <!-- Email -->
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-envelope"></i>
-                                    </span>
-                                    <input type="email" class="form-control" id="email" name="email" 
-                                           value="<?php echo htmlspecialchars($user->getEmail()); ?>" 
-                                           placeholder="E-posta adresiniz" required>
-                                    <div class="invalid-feedback">Geçerli bir e-posta adresi gereklidir.</div>
-                                </div>
-
-                                <!-- Password -->
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-lock"></i>
-                                    </span>
-                                    <input type="password" class="form-control" id="password" name="password" 
-                                           placeholder="Yeni parola (değiştirmek istemiyorsanız boş bırakın)">
-                                    <button class="btn btn-outline-secondary" type="button" onclick="togglePassword()">
-                                        <i class="fas fa-eye" id="passwordToggleIcon"></i>
-                                    </button>
-                                </div>
-
-                                <!-- Confirm Password -->
-                                <div class="input-group" id="confirmPasswordGroup" style="display: none;">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-lock"></i>
-                                    </span>
-                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password" 
-                                           placeholder="Parolayı tekrar girin">
-                                    <div class="invalid-feedback">Parolalar eşleşmiyor.</div>
-                                </div>
-
-                                <!-- Action Buttons -->
-                                <div class="row mt-4">
-                                    <div class="col-sm-6 mb-3">
-                                        <button type="submit" class="btn btn-update w-100" data-loading="Güncelleniyor...">
-                                            <i class="fas fa-save me-2"></i>Profili Güncelle
-                                        </button>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            E-posta <span class="required">*</span>
+                                        </label>
+                                        <input type="email"
+                                               class="form-control"
+                                               name="email"
+                                               value="<?php echo htmlspecialchars($user['email']); ?>"
+                                               required>
                                     </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <a href="<?php echo BASE_URL; ?>index.php?url=user/logout" 
-                                           class="btn btn-logout w-100" 
-                                           data-confirm="Oturumu kapatmak istediğinizden emin misiniz?">
-                                            <i class="fas fa-sign-out-alt me-2"></i>Oturumu Kapat
-                                        </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Telefon</label>
+                                        <input type="tel"
+                                               class="form-control"
+                                               name="phone"
+                                               value="<?php echo htmlspecialchars($user['phone']); ?>"
+                                               placeholder="+90 5XX XXX XX XX">
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Hakkımda</label>
+                                <textarea class="form-control"
+                                          name="bio"
+                                          rows="4"
+                                          placeholder="Kendiniz hakkında birkaç cümle yazın..."><?php echo htmlspecialchars($user['bio']); ?></textarea>
+                                <small class="form-text">Maksimum 500 karakter</small>
+                            </div>
+                        </div>
+
+                        <!-- Organization Information -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">Kurum Bilgileri</h3>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">SMM</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               value="<?php echo htmlspecialchars($user['cove']); ?>"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Rol</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               value="<?php echo htmlspecialchars($user['role']); ?>"
+                                               disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="form-actions">
+                            <button type="button" class="btn-cancel">İptal</button>
+                            <button type="submit" class="btn-save">
+                                <i class="fas fa-save me-2"></i>Değişiklikleri Kaydet
+                            </button>
                         </div>
                     </form>
                 </div>
+
+                <!-- Security Tab -->
+                <div class="tab-pane fade" id="security" role="tabpanel">
+                    <div class="form-section">
+                        <h3 class="form-section-title">Güvenlik Ayarları</h3>
+
+                        <div class="security-item">
+                            <div class="security-info">
+                                <h4>Şifre Değiştir</h4>
+                                <p>Son değişiklik: 30 gün önce</p>
+                            </div>
+                            <button class="btn-action">Şifreyi Değiştir</button>
+                        </div>
+
+                        <div class="security-item">
+                            <div class="security-info">
+                                <h4>İki Faktörlü Doğrulama</h4>
+                                <p>Hesabınızı daha güvenli hale getirin</p>
+                            </div>
+                            <button class="btn-action">Aktifleştir</button>
+                        </div>
+
+                        <div class="security-item">
+                            <div class="security-info">
+                                <h4>Aktif Oturumlar</h4>
+                                <p>Hesabınıza bağlı cihazları yönetin</p>
+                            </div>
+                            <button class="btn-action">Görüntüle</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications Tab -->
+                <div class="tab-pane fade" id="notifications" role="tabpanel">
+                    <div class="form-section">
+                        <h3 class="form-section-title">Bildirim Tercihleri</h3>
+
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h4>E-posta Bildirimleri</h4>
+                                <p>Önemli güncellemeler ve duyurular için</p>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                            </div>
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h4>Sistem Bildirimleri</h4>
+                                <p>Görev ve eylem hatırlatmaları</p>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" checked>
+                            </div>
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <h4>Haftalık Özet</h4>
+                                <p>Haftalık performans ve ilerleme raporu</p>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preferences Tab -->
+                <div class="tab-pane fade" id="preferences" role="tabpanel">
+                    <div class="form-section">
+                        <h3 class="form-section-title">Uygulama Tercihleri</h3>
+
+                        <div class="form-group">
+                            <label class="form-label">Dil</label>
+                            <select class="form-control">
+                                <option selected>Türkçe</option>
+                                <option>English</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Saat Dilimi</label>
+                            <select class="form-control">
+                                <option selected>İstanbul (GMT+3)</option>
+                                <option>Londra (GMT)</option>
+                                <option>New York (GMT-5)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Tarih Formatı</label>
+                            <select class="form-control">
+                                <option selected>GG/AA/YYYY</option>
+                                <option>AA/GG/YYYY</option>
+                                <option>YYYY-AA-GG</option>
+                            </select>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-cancel">İptal</button>
+                            <button type="submit" class="btn-save">
+                                <i class="fas fa-save me-2"></i>Tercihleri Kaydet
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </main>
     </div>
 </div>
 
 <script>
-// Profile photo preview
-function previewProfilePhoto(input) {
-    if (input.files && input.files[0]) {
-        const file = input.files[0];
-        
-        // Validate file size (5MB)
-        if (file.size > 5 * 1024 * 1024) {
-            alert('Dosya boyutu çok büyük! Maksimum 5MB olmalıdır.');
-            input.value = '';
-            return;
-        }
-        
-        // Validate file type
-        if (!file.type.match(/^image\/(jpeg|jpg|png)$/)) {
-            alert('Sadece JPG, JPEG ve PNG formatları desteklenir!');
-            input.value = '';
-            return;
-        }
-        
+// Avatar upload preview
+document.getElementById('avatar-upload').addEventListener('change', function(e) {
+    if (e.target.files && e.target.files[0]) {
         const reader = new FileReader();
         reader.onload = function(e) {
-            document.getElementById('profilePreview').src = e.target.result;
+            document.querySelector('.profile-avatar').src = e.target.result;
         }
-        reader.readAsDataURL(file);
-    }
-}
-
-// Password toggle
-function togglePassword() {
-    const passwordInput = document.getElementById('password');
-    const toggleIcon = document.getElementById('passwordToggleIcon');
-    
-    if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        toggleIcon.classList.remove('fa-eye');
-        toggleIcon.classList.add('fa-eye-slash');
-    } else {
-        passwordInput.type = 'password';
-        toggleIcon.classList.remove('fa-eye-slash');
-        toggleIcon.classList.add('fa-eye');
-    }
-}
-
-// Show/hide confirm password based on password input
-document.getElementById('password').addEventListener('input', function() {
-    const confirmGroup = document.getElementById('confirmPasswordGroup');
-    const confirmInput = document.getElementById('confirm_password');
-    
-    if (this.value.length > 0) {
-        confirmGroup.style.display = 'block';
-        confirmInput.required = true;
-    } else {
-        confirmGroup.style.display = 'none';
-        confirmInput.required = false;
-        confirmInput.value = '';
+        reader.readAsDataURL(e.target.files[0]);
     }
 });
 
-// Confirm password validation
-document.getElementById('confirm_password').addEventListener('input', function() {
-    const password = document.getElementById('password').value;
-    const confirmPassword = this.value;
-    
-    if (password !== confirmPassword) {
-        this.setCustomValidity('Parolalar eşleşmiyor');
-    } else {
-        this.setCustomValidity('');
-    }
+// Form validation
+document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Add your form submission logic here
+        alert('Değişiklikler kaydedildi!');
+    });
 });
 </script>
-
-<?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
-?>

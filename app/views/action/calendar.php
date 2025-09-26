@@ -3,8 +3,7 @@
 require_once __DIR__ . '/../../../includes/AssetManager.php';
 use App\Helpers\AssetManager;
 
-$title = 'Faaliyet Takvimi';
-$page_title = 'Faaliyet Takvimi';
+$pageTitle = 'Faaliyet Takvimi';
 $breadcrumb = [
     [
         'name' => 'Amaçlar',
@@ -12,7 +11,6 @@ $breadcrumb = [
     ],
 ];
 AssetManager::addBundle('fullcalendar');
-ob_start();
 ?>
 
 <div class="row">
@@ -117,8 +115,6 @@ ob_start();
 </div>
 
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 
 <!-- FullCalendar bundle scripts are injected via AssetManager in layout -->

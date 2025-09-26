@@ -273,13 +273,6 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                         <i class="fas fa-map-marked-alt me-2"></i>SMM Haritası
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php echo strpos($currentUrl, 'test/') === 0 ? 'active' : ''; ?> px-3 py-2 rounded-pill"
-                        href="<?php echo BASE_URL; ?>index.php?url=test/index"
-                        title="Semantic HTML5 Layout Test">
-                        <i class="fas fa-flask me-2"></i>Test
-                    </a>
-                </li>
 
                 <?php if ($isLoggedIn): ?>
                     <!-- Admin Panel for Logged-in Users -->

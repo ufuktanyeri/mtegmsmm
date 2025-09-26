@@ -1,8 +1,6 @@
 <?php
-$title = $title ?? 'Yardım ve Destek';
-$page_title = $page_title ?? 'Yardım Merkezi';
-$hidePageHeader = true; // Tekrarlı başlığı gizle
-ob_start();
+$pageTitle = $title ?? 'Yardım ve Destek';
+// Tekrarlı başlığı gizle
 ?>
 <div class="help-chat-wrapper">
   <div class="help-chat-layout">
@@ -51,8 +49,6 @@ ob_start();
   </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 <style>
 .help-chat-wrapper {padding:1.2rem 1rem 2.5rem;background:linear-gradient(180deg,#f5f9fc,#ffffff 70%);} 

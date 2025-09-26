@@ -1,14 +1,12 @@
 <?php
 // filepath: c:\xampp\htdocs\mtegmsmm\app\Views\action\taskList.php
 
-$title = $title ?? 'Görev Listesi';
-$page_title = $title;
+$pageTitle = $title ?? 'Görev Listesi';
 $breadcrumb = [
     ['name' => 'Ana Sayfa', 'url' => 'index.php?url=home'],
     ['name' => 'Faaliyet Takvimi', 'url' => 'index.php?url=action/calendar'],
     ['name' => $title, 'url' => '']
 ];
-ob_start();
 ?>
 
 <!-- Başlık ve Filtre Bilgisi -->
@@ -460,8 +458,6 @@ ob_start();
 <div style="height: 100px;"></div>
 
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 
 <style>

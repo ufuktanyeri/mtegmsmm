@@ -1,13 +1,11 @@
 <?php
-$title = 'Yeni İzin Ekle';
-$page_title = 'Yeni İzin Ekle';
+$pageTitle = 'Yeni İzin Ekle';
 $breadcrumb = [    
     [
         'url' => 'index.php?url=user/permissions',
         'title' => 'İzinler'
     ],
 ];
-ob_start();
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -47,6 +45,4 @@ ob_start();
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>

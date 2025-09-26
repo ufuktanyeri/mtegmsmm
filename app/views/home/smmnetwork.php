@@ -12,15 +12,41 @@ include __DIR__ . '/../components/header.php';
 
 <style>
     #map {
-        height: 500px;
+        height: 400px;
         border-radius: 12px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        position: relative;
+        z-index: 1;
     }
+
+    /* Prevent map from interfering with page scroll */
+    .leaflet-container {
+        cursor: grab;
+    }
+
+    .leaflet-container:active {
+        cursor: grabbing;
+    }
+
+    /* Make map controls more obvious */
+    .leaflet-control-zoom {
+        border: 2px solid rgba(0,0,0,0.2) !important;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+    }
+
     .center-card {
         transition: transform 0.2s ease;
     }
+
     .center-card:hover {
         transform: translateY(-2px);
+    }
+
+    /* Responsive map height */
+    @media (max-width: 768px) {
+        #map {
+            height: 300px;
+        }
     }
 </style>
 
@@ -264,10 +290,36 @@ include __DIR__ . '/../components/header.php';
     };
 
     document.addEventListener('DOMContentLoaded', function() {
-        const map = L.map('map').setView([39.92077, 32.85411], 6);
+        // Initialize map with scroll wheel zoom disabled by default
+        const map = L.map('map', {
+            scrollWheelZoom: false, // Disable scroll wheel zoom initially
+            center: [39.92077, 32.85411],
+            zoom: 6
+        });
+
+        // Enable scroll wheel zoom when map is clicked
+        map.on('click', function() {
+            if (!map.scrollWheelZoom.enabled()) {
+                map.scrollWheelZoom.enable();
+                // Show a small notification
+                L.popup()
+                    .setLatLng(map.getCenter())
+                    .setContent('Harita zoom etkin - Fare tekerleği ile yakınlaştırabilirsiniz')
+                    .openOn(map);
+
+                // Auto-close popup after 2 seconds
+                setTimeout(() => map.closePopup(), 2000);
+            }
+        });
+
+        // Disable scroll wheel zoom when mouse leaves the map
+        map.on('mouseout', function() {
+            map.scrollWheelZoom.disable();
+        });
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 18,
+            attribution: '© OpenStreetMap katılımcıları'
         }).addTo(map);
 
         const markers = {};

@@ -1,13 +1,11 @@
 <?php
-$title = 'Faaliyet Düzenle';
-$page_title = 'Faaliyet Düzenle';
+$pageTitle = 'Faaliyet Düzenle';
 $breadcrumb = [
     [
         'url' => 'index.php?url=action/index&aimid=' . $aimid,
         'title' => 'Faaliyetler'
     ],
 ];
-ob_start();
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -107,8 +105,6 @@ ob_start();
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 <script>
     document.getElementById('periodic').addEventListener('change', function() {

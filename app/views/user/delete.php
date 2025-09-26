@@ -1,7 +1,4 @@
 <?php
-$page_title = $title ?? 'Kullanıcı Sil';
-$hidePageHeader = true;
-ob_start();
 ?>
 
 <div class="page-header d-print-none">
@@ -90,6 +87,4 @@ ob_start();
 </div>
 
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>

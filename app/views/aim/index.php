@@ -1,15 +1,12 @@
 <?php
 require_once __DIR__ . "/../../../includes/AssetManager.php";
 use App\Helpers\AssetManager;
-$title = 'Amaçlar';
-$page_title = 'Amaçlar';
-$hidePageHeader = true;
+$pageTitle = 'Amaçlar';
+$pageDescription = 'Stratejik amaçlar yönetimi';
 AssetManager::addBundle('datatables');
 
 // Check if user is superadmin for CRUD operations
 $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 'superadmin';
-
-ob_start();
 ?>
 
 <!-- Page Actions -->
@@ -219,10 +216,6 @@ $additionalJs = '
         const modal = this;
         
         modal.querySelector("#deleteMessage").textContent = `"${fieldName}" amacını silmek istediğinizden emin misiniz?`;
-        modal.querySelector("#confirmDeleteButton").href = "' . BASE_URL . 'index.php?url=aim/delete&id=" + fieldId;
+        modal.querySelector("#confirmDeleteButton").href = "<?php echo BASE_URL; ?>index.php?url=aim/delete&id=" + fieldId;
     });
-';
-
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
-?>
+</script>

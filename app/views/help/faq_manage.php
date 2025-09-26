@@ -1,7 +1,6 @@
 <?php
 $title='SSS Yönetimi';
 $page_title='Sık Sorulan Sorular Yönetimi';
-ob_start();
 ?>
 <div class="gov-card" style="margin-bottom:1.5rem;">
   <form id="faqForm" class="form-inline" style="gap:.6rem;flex-wrap:wrap;">
@@ -33,7 +32,6 @@ ob_start();
   </div>
 </div>
 <?php
-$content = ob_get_clean();
 include __DIR__.'/../layouts/unified.php';
 ?>
 <script>

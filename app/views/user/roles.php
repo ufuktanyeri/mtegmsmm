@@ -1,7 +1,5 @@
 <?php
-$title = 'Roller';
-$page_title = 'Roller';
-ob_start();
+$pageTitle = 'Roller';
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -70,8 +68,6 @@ ob_start();
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 <script>
     // Ensure the modal is correctly targeting the button and fetching data attributes

@@ -1,14 +1,11 @@
 <?php
-$title = 'Yeni Kullanıcı Ekle';
-$page_title = 'Yeni Kullanıcı Ekle';
-$hidePageHeader = true;
+$pageTitle = 'Yeni Kullanıcı Ekle';
 $breadcrumb = [
     [
         'url' => 'index.php?url=user/manage',
         'title' => 'Kullanıcılar'
     ],
 ];
-ob_start();
 ?>
 
 <!-- Page Actions -->
@@ -149,8 +146,6 @@ ob_start();
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 <script>
 document.addEventListener('DOMContentLoaded', function() {

@@ -1,7 +1,5 @@
 <?php
-$title = 'Destek Oturumları';
-$page_title = 'Canlı Destek Oturumları';
-ob_start();
+$pageTitle = 'Destek Oturumları';
 ?>
 <div class="support-admin" id="supportAdminApp">
   <div class="row">
@@ -28,7 +26,6 @@ ob_start();
   </div>
 </div>
 <?php
-$content = ob_get_clean();
 include __DIR__.'/../layouts/unified.php';
 ?>
 <script>

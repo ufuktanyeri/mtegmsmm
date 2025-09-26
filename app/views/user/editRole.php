@@ -1,13 +1,11 @@
 <?php
-$title = 'Rol Güncelle';
-$page_title = 'Rol Güncelle';
+$pageTitle = 'Rol Güncelle';
 $breadcrumb = [    
     [
         'url' => 'index.php?url=user/roles',
         'title' => 'Roller'
     ],
 ];
-ob_start();
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -49,6 +47,4 @@ ob_start();
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>

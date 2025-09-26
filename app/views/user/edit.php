@@ -1,11 +1,8 @@
 <?php
-$title = 'Kullanıcı Güncelle';
-$page_title = 'Kullanıcı Güncelle';
-$hidePageHeader = true;
+$pageTitle = 'Kullanıcı Güncelle';
 $breadcrumb = [
     ['url' => 'index.php?url=user/manage', 'title' => 'Kullanıcılar'],
 ];
-ob_start();
 ?>
 <div class="row">
     <div class="col-md-6">
@@ -87,6 +84,4 @@ ob_start();
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>

@@ -1,17 +1,9 @@
 <?php
 require_once __DIR__ . "/../../../includes/AssetManager.php";
 use App\Helpers\AssetManager;
-$title = 'Göstergeler';
-$page_title = 'Göstergeler';
-$hidePageHeader = true;
-$breadcrumb = [
-    [
-        'url' => 'index.php?url=aim/index',
-        'title' => 'Amaçlar'
-    ],
-];
+$pageTitle = 'Göstergeler';
+$pageDescription = 'Performans göstergeleri yönetimi';
 AssetManager::addBundle('datatables');
-ob_start();
 ?>
 
 <!-- Page Header -->
@@ -238,10 +230,6 @@ ob_start();
     </div>
 </div>
 
-<?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
-?>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Delete modal handling

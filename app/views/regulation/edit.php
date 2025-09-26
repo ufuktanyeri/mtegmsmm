@@ -1,13 +1,11 @@
 <?php
-$title = 'Yasal Dayanak Düzenle';
-$page_title = 'Yasal Dayanak Düzenle';
+$pageTitle = 'Yasal Dayanak Düzenle';
 $breadcrumb = [    
     [
         'url' => 'index.php?url=regulation/index',
         'title' => 'Dayanaklar'
     ],
 ];
-ob_start();
 ?>
 <div class="row">
     <div class="col-md-6">
@@ -48,6 +46,4 @@ ob_start();
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>

@@ -1,13 +1,11 @@
 <?php
-$title = 'Hedef Düzenle';
-$page_title = 'Hedef Düzenle';
+$pageTitle = 'Hedef Düzenle';
 $breadcrumb = [
     [
         'url' => 'index.php?url=objective/list&aimid='.$objective->getaimId(),
         'title' => 'Hedefler'
     ],
 ];
-ob_start();
 ?>
 <!-- Bootstrap 5 Duallistbox -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-duallistbox@4.0.2/dist/bootstrap-duallistbox.min.css">
@@ -51,6 +49,4 @@ ob_start();
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>

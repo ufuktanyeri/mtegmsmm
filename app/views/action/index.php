@@ -7,9 +7,8 @@ $aimid = $aimid ?? 0;
 $objectives = $objectives ?? [];
 $actions = $actions ?? [];
 
-$title = 'Faaliyetler';
-$page_title = 'Faaliyetler';
-$hidePageHeader = true; // Sekmeli yapı kendi başlığını gösteriyor
+$pageTitle = 'Faaliyetler';
+// Sekmeli yapı kendi başlığını gösteriyor
 $breadcrumb = [
     [
         'url' => 'index.php?url=aim/index',
@@ -17,7 +16,6 @@ $breadcrumb = [
     ],
 ];
 AssetManager::addBundle('datatables');
-ob_start();
 ?>
 
 <div class="row">
@@ -129,8 +127,6 @@ ob_start();
 </div>
 
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 <script>
     // Delete modal handling and filtering (DataTable init handled globally)

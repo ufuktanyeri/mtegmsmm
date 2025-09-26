@@ -1,11 +1,9 @@
 <?php
 require_once __DIR__ . '/../../../includes/AssetManager.php';
 use App\Helpers\AssetManager;
-$title = 'Yasal Dayanaklar';
-$page_title = 'Yasal Dayanaklar';
-$hidePageHeader = true; // İçerikte başlık kartı ile gösteriliyor, duplication engelle
+$pageTitle = 'Yasal Dayanaklar';
+// İçerikte başlık kartı ile gösteriliyor, duplication engelle
 AssetManager::addBundle('datatables');
-ob_start();
 ?>
 
 <div class="row">
@@ -114,9 +112,6 @@ ob_start();
 </div>
 
 <?php
-$content = ob_get_clean();
-
-include __DIR__ . '/../layouts/unified.php';
 ?>
 <script>
 // Delete modal handling (DataTable handled globally)

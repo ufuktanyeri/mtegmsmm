@@ -1,7 +1,5 @@
 <?php 
-ob_start();
-$title = 'Admin Görev Listesi';
-$page_title = 'Tüm Merkezlerin Görevleri';
+$pageTitle = 'Admin Görev Listesi';
 $breadcrumb = [
     ['name' => 'Ana Sayfa', 'url' => 'index.php?url=home'],
     ['name' => 'Admin Panel', 'url' => 'index.php?url=admin'],
@@ -341,8 +339,6 @@ $currentFilter = $filterTitles[$filter] ?? $filterTitles['all'];
 <div style="height: 120px;"></div>
 
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 
 <style>

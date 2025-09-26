@@ -1,7 +1,5 @@
 <?php
-$title = 'Yeni Performans Göstergesi Ekle';
-$page_title = 'Yeni Performans Göstergesi Ekle';
-$hidePageHeader = true;
+$pageTitle = 'Yeni Performans Göstergesi Ekle';
 // Güvenli değişken varsayılanları
 $objectives = $objectives ?? [];
 $indicatorTypes = $indicatorTypes ?? [];
@@ -14,7 +12,6 @@ $breadcrumb = [
         'title' => 'Göstergeler'
     ],
 ];
-ob_start();
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -100,6 +97,4 @@ ob_start();
     </div>
 </div>
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>

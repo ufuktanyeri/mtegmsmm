@@ -46,7 +46,7 @@ class NavbarService
         // Oturum açmış kullanıcı için badge'leri hesapla
         if (isset($_SESSION['user_id'])) {
             try {
-                require_once dirname(__DIR__) . '/../config/config.php';
+                require_once dirname(__DIR__) . '/config/config.php';
                 $db = getDbConnection();
 
                 // Bekleyen görevler

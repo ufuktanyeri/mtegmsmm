@@ -1,8 +1,7 @@
 <?php
 require_once __DIR__ . "/../../../includes/AssetManager.php";
 use App\Helpers\AssetManager;
-$title = 'Hedefler';
-$page_title = 'Hedefler';
+$pageTitle = 'Hedefler';
 $breadcrumb = [
     [
         'url' => 'index.php?url=aim/index',
@@ -10,7 +9,6 @@ $breadcrumb = [
     ],
 ];
 AssetManager::addBundle('datatables');
-ob_start();
 ?>
 
 <div class="row">
@@ -92,8 +90,6 @@ ob_start();
 </div>
 
 <?php
-$content = ob_get_clean();
-include __DIR__ . '/../layouts/unified.php';
 ?>
 <script>
     // Delete modal handling (DataTable init handled globally)
