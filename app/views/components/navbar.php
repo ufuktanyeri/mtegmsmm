@@ -26,16 +26,222 @@ if (!function_exists('hasPermission')) {
 $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 'superadmin';
 ?>
 
+<style>
+    /* Modern Navigation Styles */
+    .navbar {
+        padding: 1rem 0;
+        min-height: 80px;
+        transition: all 0.3s ease;
+    }
+
+    /* Dark mode navbar adjustments */
+    [data-bs-theme="dark"] .navbar {
+        background: linear-gradient(135deg, #1a1d20 0%, #212529 100%) !important;
+    }
+
+    .navbar-brand {
+        transition: transform 0.3s ease;
+        padding: 0.5rem 0;
+    }
+
+    .navbar-brand:hover {
+        transform: scale(1.05);
+    }
+
+    .navbar-brand .meb-logo {
+        transition: filter 0.3s ease;
+    }
+
+    .navbar-brand:hover .meb-logo {
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    }
+
+    .nav-link {
+        font-weight: 500;
+        color: var(--bs-body-color) !important;
+        transition: all 0.3s ease;
+        margin: 0 0.1rem;
+        position: relative;
+        font-size: 0.85rem;
+        padding: 0.4rem 0.6rem !important;
+    }
+
+    .nav-link:hover {
+        color: var(--bs-primary) !important;
+        transform: translateY(-1px);
+    }
+
+    .nav-link.active {
+        color: var(--bs-primary) !important;
+        background-color: rgba(0, 60, 125, 0.1);
+        font-weight: 600;
+        border-radius: 20px;
+    }
+
+    [data-bs-theme="dark"] .nav-link.active {
+        background-color: rgba(0, 86, 179, 0.2);
+        color: #4da3ff !important;
+    }
+
+    .nav-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 2px;
+        background: var(--meb-primary);
+        border-radius: 1px;
+    }
+
+    .dropdown-menu {
+        border-radius: 12px;
+        border: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        padding: 0.5rem 0;
+        margin-top: 0.5rem;
+        background: var(--bs-body-bg);
+    }
+
+    [data-bs-theme="dark"] .dropdown-menu {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        border: 1px solid var(--bs-border-color);
+    }
+
+    .dropdown-item {
+        transition: all 0.2s ease;
+        border-radius: 8px;
+        margin: 0 0.5rem;
+        padding: 0.5rem 1rem;
+        color: var(--bs-body-color);
+    }
+
+    .dropdown-item:hover {
+        background-color: rgba(0, 60, 125, 0.1);
+        color: var(--bs-primary);
+        transform: translateX(5px);
+    }
+
+    [data-bs-theme="dark"] .dropdown-item:hover {
+        background-color: rgba(0, 86, 179, 0.2);
+    }
+
+    /* Navbar scrolled state */
+    .navbar.scrolled {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* User dropdown */
+    .user-dropdown {
+        display: flex;
+        align-items: center;
+        background: rgba(79, 70, 229, 0.1);
+        border-radius: 25px;
+        padding: 0.25rem 0.75rem;
+        transition: all 0.3s ease;
+        border: none;
+    }
+
+    .user-dropdown:hover {
+        background: rgba(79, 70, 229, 0.2);
+    }
+
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--meb-gradient);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        margin-right: 8px;
+        font-size: 0.85rem;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .user-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    /* Dropdown prevent cutoff */
+    .navbar-nav .dropdown-menu {
+        position: absolute !important;
+    }
+
+    @media (min-width: 992px) {
+        .navbar-nav .dropdown:hover .dropdown-menu {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 991.98px) {
+        .navbar-brand .meb-logo {
+            height: 40px !important;
+        }
+
+        .navbar-collapse {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 1rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 1040;
+        }
+
+        .nav-link {
+            padding: 0.75rem 1rem !important;
+            margin: 0.25rem 0;
+            border-radius: 8px;
+        }
+
+        .nav-link.active::after {
+            display: none;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: none;
+            background: #f8f9fa;
+            margin-left: 1rem;
+        }
+    }
+</style>
 
 <!-- Modern Navbar -->
-<nav class="navbar navbar-expand-xl navbar-light bg-white fixed-top shadow-sm border-bottom py-3">
-    <div class="container-fluid px-4">
+<nav class="navbar navbar-expand-xl fixed-top shadow-sm" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); backdrop-filter: blur(10px); border-bottom: 1px solid #e9ecef;">
+    <div class="container-fluid" style="max-width: 90%; margin: 0 auto;">
         <!-- Brand - MEB Logo Only -->
         <a href="https://www.meb.gov.tr" class="navbar-brand d-flex align-items-center me-3" target="_blank"
            title="T.C. Milli Eğitim Bakanlığı" rel="noopener noreferrer">
             <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg"
                  alt="T.C. Milli Eğitim Bakanlığı"
-                 height="45"
+                 style="height: 45px; width: auto;"
                  class="meb-logo">
         </a>
 
@@ -67,6 +273,13 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                         <i class="fas fa-map-marked-alt me-2"></i>SMM Haritası
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php echo strpos($currentUrl, 'test/') === 0 ? 'active' : ''; ?> px-3 py-2 rounded-pill"
+                        href="<?php echo BASE_URL; ?>index.php?url=test/index"
+                        title="Semantic HTML5 Layout Test">
+                        <i class="fas fa-flask me-2"></i>Test
+                    </a>
+                </li>
 
                 <?php if ($isLoggedIn): ?>
                     <!-- Admin Panel for Logged-in Users -->
@@ -82,7 +295,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                             <a class="nav-link dropdown-toggle rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-bullseye me-1"></i>Stratejik
                             </a>
-                            <ul class="dropdown-menu rounded-3 shadow-lg border-0 py-2">
+                            <ul class="dropdown-menu shadow border-0">
                                 <?php if ($isSuperAdmin || hasPermission('aims.manage')): ?>
                                     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=aim/index">
                                             <i class="fas fa-bullseye me-2 text-primary"></i>Amaçlar
@@ -115,7 +328,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                             <a class="nav-link dropdown-toggle px-3 py-2 rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-file-alt me-2"></i>İçerik
                             </a>
-                            <ul class="dropdown-menu rounded-3 shadow-lg border-0 py-2">
+                            <ul class="dropdown-menu shadow border-0">
                                 <?php if ($isSuperAdmin || hasPermission('news.manage')): ?>
                                     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=news/index">
                                             <i class="fas fa-newspaper me-2 text-primary"></i>Haberler
@@ -140,7 +353,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                             <a class="nav-link dropdown-toggle px-3 py-2 rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-cogs me-2"></i>Sistem
                             </a>
-                            <ul class="dropdown-menu rounded-3 shadow-lg border-0 py-2">
+                            <ul class="dropdown-menu shadow border-0">
                                 <?php if ($isSuperAdmin || hasPermission('users.manage')): ?>
                                     <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=user/manage">
                                             <i class="fas fa-users me-2 text-primary"></i>Kullanıcılar
@@ -187,7 +400,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                 </button>
 
                 <div class="me-3 d-none d-lg-block">
-                    <img src="<?php echo BASE_URL; ?>wwwroot/img/turkiye.svg" alt="Türkiye 100. Yıl" height="45" class="rounded shadow-sm">
+                    <img src="<?php echo BASE_URL; ?>wwwroot/img/turkiye.svg" alt="Türkiye 100. Yıl" style="height: 45px;" class="rounded shadow-sm">
                 </div>
 
                 <?php if (!$isLoggedIn): ?>
@@ -196,8 +409,8 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                     </a>
                 <?php else: ?>
                     <div class="dropdown">
-                        <button class="btn btn-light rounded-pill dropdown-toggle d-flex align-items-center px-2 py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
+                        <button class="btn btn-link text-decoration-none dropdown-toggle user-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="user-avatar">
                                 <?php if (!empty($_SESSION['profile_photo']) && file_exists(dirname(__DIR__) . '/../../wwwroot/uploads/profiles/' . $_SESSION['profile_photo'])): ?>
                                     <img src="<?php echo BASE_URL; ?>uploads/profiles/<?php echo htmlspecialchars($_SESSION['profile_photo']); ?>"
                                         alt="Profil Fotoğrafı">
@@ -209,7 +422,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                                 <div class="fw-semibold text-dark" style="font-size: 0.9rem;">
                                     Hoşgeldiniz, <?php echo htmlspecialchars($_SESSION['realname'] ?? $_SESSION['username']); ?>
                                 </div>
-                                <div class="small text-body-secondary"><?php echo htmlspecialchars($_SESSION['role'] ?? 'Kullanıcı'); ?></div>
+                                <div class="small text-muted"><?php echo htmlspecialchars($_SESSION['role'] ?? 'Kullanıcı'); ?></div>
                             </div>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end shadow border-0">
@@ -262,3 +475,21 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<style>
+    /* Theme Toggle Button Styles */
+    #themeToggle {
+        font-size: 1.2rem;
+        color: var(--bs-body-color);
+        opacity: 0.8;
+        transition: all 0.3s ease;
+    }
+
+    #themeToggle:hover {
+        opacity: 1;
+        transform: rotate(20deg);
+    }
+
+    [data-bs-theme="dark"] #themeToggle {
+        color: #ffc107;
+    }
+</style>
