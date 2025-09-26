@@ -21,20 +21,20 @@ class Database
     {
         // Use config constants instead of hardcoded values
         $this->host = defined('DB_HOST') ? DB_HOST : 'localhost';
-        $this->dbname = defined('DB_NAME') ? DB_NAME : '';
-        $this->user = defined('DB_USER') ? DB_USER : '';
-        $this->pass = defined('DB_PASS') ? DB_PASS : '';
+        $this->dbname = defined('DB_NAME') ? DB_NAME : 'fg5085Y3XU1aG48Qw';
+        $this->user = defined('DB_USER') ? DB_USER : 'fg508_5Y3XU1aGwa';
+        $this->pass = defined('DB_PASS') ? DB_PASS : 'Jk6C73Pf';
 
         // Initialize query cache if available
         if (file_exists(dirname(__FILE__) . '/QueryCache.php')) {
             require_once dirname(__FILE__) . '/QueryCache.php';
             $this->cache = QueryCache::getInstance();
         }
-        
+
         if (empty($this->dbname) || empty($this->user)) {
             throw new Exception("Database configuration is missing or incomplete");
         }
-        
+
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname . ';charset=utf8mb4';
         $options = array(
             PDO::ATTR_PERSISTENT => false, // Changed from true - prevents connection pool exhaustion
@@ -75,7 +75,7 @@ class Database
         if (!$this->dbh) {
             $error = "Database connection not established";
             error_log($error);
-            
+
             // Send to Sentry if available
             if (class_exists('\Sentry\SentrySdk')) {
                 \Sentry\withScope(function (\Sentry\State\Scope $scope) use ($error, $sql) {
@@ -90,7 +90,7 @@ class Database
                     \Sentry\captureMessage($error, \Sentry\Severity::fatal());
                 });
             }
-            
+
             throw new Exception($error);
         }
 
@@ -108,7 +108,7 @@ class Database
         } catch (PDOException $e) {
             $error = "Database query preparation failed: " . $e->getMessage();
             error_log($error);
-            
+
             // Send to Sentry if available
             if (class_exists('\Sentry\SentrySdk')) {
                 \Sentry\withScope(function (\Sentry\State\Scope $scope) use ($sql, $params, $e) {
@@ -124,7 +124,7 @@ class Database
                     \Sentry\captureException($e);
                 });
             }
-            
+
             throw new Exception($error);
         }
 

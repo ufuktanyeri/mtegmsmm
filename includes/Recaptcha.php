@@ -7,18 +7,28 @@ class Recaptcha
     private const MIN_SCORE = 0.5; // Minimum güvenlik skoru (0.0-1.0)
     
     /**
-     * Get reCAPTCHA secret key from environment
+     * Get reCAPTCHA secret key from config
      */
     private static function getSecretKey()
     {
+        // First try to get from config constant
+        if (defined('RECAPTCHA_SECRET_KEY')) {
+            return RECAPTCHA_SECRET_KEY;
+        }
+        // Fallback to environment variable
         return Environment::get('RECAPTCHA_SECRET_KEY', '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe');
     }
-    
+
     /**
-     * Get reCAPTCHA site key from environment
+     * Get reCAPTCHA site key from config
      */
     public static function getSiteKey()
     {
+        // First try to get from config constant
+        if (defined('RECAPTCHA_SITE_KEY')) {
+            return RECAPTCHA_SITE_KEY;
+        }
+        // Fallback to environment variable
         return Environment::get('RECAPTCHA_SITE_KEY', '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI');
     }
 

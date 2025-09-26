@@ -40,7 +40,10 @@
       "Bash(echo:*)",
       "Bash(mkdir:*)",
       "Bash(tree:*)",
-      "Bash(clear)"
+      "Bash(clear)",
+      "Bash(git checkout:*)",
+      "Bash(vendor\\bin\\phpstan.bat analyse:*)",
+      "Bash(findstr:*)"
     ],
     "deny": [],
     "ask": []

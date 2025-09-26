@@ -1,163 +1,208 @@
-# CLAUDE.md - AI Assistant Session Memory
-> Bu dosya Claude AI asistanı için kalıcı hafıza görevi görür. Her oturumda bu dosyayı okuyarak kaldığı yerden devam edebilir.
+# CLAUDE.md
 
-## 🔄 Son Güncelleme: 2024-09-25
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## 📌 Proje Durumu
+## Project Overview
 
-### Aktif Görevler
-- [ ] Task System Migration'ı test et ve production'a uygula
-- [ ] Dashboard.php'deki layout sorunları çözülüyor
-- [ ] Test menüsü production'dan kaldırılıp development-only yapılacak
-- [ ] Bootstrap 5.3 migration devam ediyor
+MTEGM SMM Portal - A multi-tenant strategic management system built with PHP MVC architecture for Turkish Ministry of Education. The system manages strategic planning, indicators, objectives, and actions across multiple educational institutions (COVE).
 
-### Tamamlanan Görevler
-- [x] SuperAdmin Task Management System database migration'ı hazırlandı
-- [x] admin_gazi (ID: 45) için özel migration versiyonu oluşturuldu
-- [x] Gerçek kullanıcı hesapları ve rolleri analiz edildi (12 SuperAdmin bulundu)
-- [x] Database debug araçları oluşturuldu (6 adet wwwroot/test dosyası)
-- [x] Task system migration konuşma geçmişi kaydedildi
-- [x] Test menüsü navbar'dan kaldırıldı ve dosyalar _dev/test-archive/'a taşındı
-- [x] Conversations dizini organize edildi ve dosyalara tarih eklendi
-- [x] Production'a gitmeyecek dosyalar _dev dizinine taşındı
-- [x] Bootstrap 5.3 enhancements CSS dosyası oluşturuldu
-- [x] Dashboard-offcanvas.php - Modern dashboard örneği (arşivlendi)
-- [x] Bootstrap-5.3-showcase.php - Özellik vitrin sayfası (arşivlendi)
+## Architecture
 
-## 🚨 Kritik Sorunlar
+### MVC Structure
+- **Router:** `app/router.php` handles URL routing with pattern `index.php?url=controller/method`
+- **Controllers:** Extend `BaseController` with unified view rendering through `UnifiedViewService`
+- **Views:** Located in `app/views/`, rendered with layout support (header, navbar, footer)
+- **Models:** Database models in `app/models/` using PDO with prepared statements
+- **Entry Point:** `wwwroot/index.php` → loads config → starts session → routes through `app/router.php`
 
-### 1. Dashboard Layout Sorunu
-**Sorun:** `app/views/test/dashboard.php` sayfasında:
-- Header fixed olduğu için içeriği kapatıyor
-- "Sistem Güncellendi" başlığı kesiliyor
-- 200+ satır gereksiz custom CSS var
-- Bootstrap utilities kullanılmıyor
+### Database Architecture
+- Multi-tenant system with `cove_id` for organization isolation
+- Role-based permissions: SuperAdmin, Admin, User roles
+- Entities: Users, Objectives, Indicators, Actions, Documents, Regulations
+- Unified view system for cross-COVE data aggregation
 
-**Denenen Çözümler:**
-- Body padding-top eklendi
-- Main margin-top ayarlandı
-- Z-index hiyerarşisi düzenlendi
-- Sidebar class'ı dashboard-sidebar olarak değiştirildi
+## Development Commands
 
-**Durum:** ❌ Hala çözülmedi
-
-### 2. Test Menüsü Görünürlüğü
-**Çözüm:** navbar.php'de localhost kontrolü eklendi
-```php
-$isDevelopment = (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'localhost') !== false);
-```
-
-## 📁 Önemli Dosyalar
-
-### Test Dosyaları
-```
-app/views/test/
-├── dashboard.php                 # ⚠️ Layout sorunu var
-├── dashboard-offcanvas.php       # ✅ Modern Offcanvas örneği
-├── dashboard-simple.php          # ✅ Basit çalışan versiyon
-├── bootstrap-5.3-showcase.php    # ✅ BS 5.3 özellikleri
-├── component_test.php            # ✅ Component testleri
-├── container_query_test.php      # ✅ Container query örnekleri
-└── index.php                     # ✅ Test ana sayfası
-
-wwwroot/assets/css/
-└── bootstrap-5.3-enhancements.css # ✅ Modern CSS özellikleri
-```
-
-### Controller
-```
-app/controllers/TestController.php
-- index()
-- dashboard()
-- dashboardSimple()
-- components()
-- container()
-```
-
-## 🎯 Öneriler ve Notlar
-
-### Dashboard İçin Öneriler
-1. **Custom CSS yerine Bootstrap kullan:**
-   - `position-fixed` class'ı
-   - `navbar` component'i
-   - `offcanvas` sidebar'ı
-   - Bootstrap grid system
-
-2. **Doğru HTML5 yapısı:**
-   ```html
-   <nav class="navbar">        <!-- Üst bar -->
-   <div class="container-fluid">
-       <aside>                 <!-- Sidebar -->
-       <main>                  <!-- İçerik -->
-   </div>
-   ```
-
-### Kullanıcı Geri Bildirimleri
-- "Token'lar boşa gidiyor" - Çözüm test edilmeden onay verilmemeli
-- "Cevap beklemeden işlem yapma" - Kullanıcı onayı beklenmeli
-- "Inspect element bilgisi istenmeli" - Browser'da görüneni anlamak için
-
-## 🔧 Yapılandırma Notları
-
-### Bootstrap Version
-- Bootstrap 5.3.6 kullanılıyor
-- CDN: `https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css`
-
-### Dark Mode
-- `data-bs-theme` attribute kullanılıyor
-- LocalStorage'da tema tercihi saklanıyor
-
-### MVC Yapısı
-- Controllers: BaseController extend ediliyor
-- Views: `$this->render()` ile render ediliyor
-- URL Pattern: `index.php?url=controller/method`
-
-## 🎯 Task System Migration Durumu
-
-### Migration Hazır ✅
-- **admin_gazi versiyonu:** `database/migrations/001_create_task_system_admin_gazi.sql`
-- **Gerçek kullanıcı ID'leri:** admin_gazi (45), test_admin (53), adindar_ankara (25)
-- **6 yeni tablo** + permissions + views + triggers hazır
-- **Debug araçları** wwwroot/ dizininde
-
-### Sonraki Adım: Migration Test
-1. phpMyAdmin → fg5085y3xu1ag48qw database
-2. SQL tab → migration dosyasını çalıştır
-3. http://localhost/mtegmsmm/db_test.php ile kontrol et
-
-## 💡 Bir Sonraki Oturumda
-
-**Claude'a şunu söyle:**
-```
-"Task system migration'ı test ettim, sonuçları paylaşayım"
-VEYA
-"Migration'da hata aldım, yardım et"
-VEYA
-"CLAUDE.md dosyasını oku, dashboard.php layout sorununu çözelim."
-```
-
-## 📝 Git Commit Mesajları
+### Running the Application
 ```bash
-# Son commitler
-43ab86a refactor: Apply Bootstrap 5.3 migration to test pages
-19c7ce9 refactor: Apply lowercase naming convention and enhance portal features
+# Start local development server
+php -S localhost:8000 -t wwwroot
+
+# Or using composer
+composer run start
 ```
 
-## ⚠️ Dikkat Edilecekler
+### Code Quality & Testing
+```bash
+# Run PHPStan static analysis (level 2)
+vendor\bin\phpstan.bat analyse
 
-1. **Test etmeden "tamam" deme** - Kullanıcı test edip onay vermeli
-2. **Browser inspect bilgisi iste** - Computed styles kontrol edilmeli
-3. **Bootstrap docs kontrol et** - Custom CSS yazmadan önce
-4. **Basit çözümler tercih et** - Karmaşık CSS yerine Bootstrap utilities
+# Run PHPStan with Pro features
+composer run phpstan:pro
 
----
+# Run PHPUnit tests
+composer test
 
-### Nasıl Kullanılır?
-1. Yeni oturum başladığında: `"CLAUDE.md dosyasını oku"`
-2. Önemli değişikliklerden sonra bu dosyayı güncelle
-3. Git'e commit'le: `git add CLAUDE.md && git commit -m "Update Claude session memory"`
+# Minify assets
+composer run minify
 
-### Son Güncelleme Yapan: Claude
-### Tarih: 2024-09-24
-### Kullanıcı Notu: Dashboard layout sorunu çözülemedi, token israfı var
-- to memorize
+# Force minify (rebuild all)
+composer run minify:force
+```
+
+### Windows-Specific Commands
+```bash
+# PHPStan on Windows
+vendor\bin\phpstan.bat analyse
+
+# Directory listing
+dir /B app
+
+# Copy files recursively
+xcopy /Y /I source\*.* destination\
+```
+
+## Environment Configuration
+
+### Environment Detection
+- Production: `mtegmsmm.meb.gov.tr`
+- Development: `localhost`
+- Config file: `app/config/config.php` (auto-detects environment)
+- Environment variables: `.env` file (loaded via `Environment::load()`)
+
+### Key Configuration Constants
+- `BASE_URL`: Application base URL
+- `APP_ENV`: 'production' or 'development'
+- `APP_DEBUG`: Boolean for debug mode
+- `DB_*`: Database connection parameters
+- `UPLOAD_PATH`: File upload directory
+- `MAX_FILE_SIZE`: Upload size limit
+
+## Critical Implementation Notes
+
+### Session Security
+- HTTP-only cookies enabled
+- Strict same-site policy
+- Session regeneration every 30 minutes
+- CSRF protection on forms
+
+### Error Handling
+- Custom error handler with Sentry integration
+- Local file logging in `logs/` directory
+- Development shows errors, production logs only
+
+### Bootstrap Integration
+- Version: 5.3.6 (CDN-based)
+- Dark mode support via `data-bs-theme`
+- Custom enhancements in `wwwroot/assets/css/bootstrap-5.3-enhancements.css`
+- Prefer Bootstrap utilities over custom CSS
+
+### Multi-Tenant Considerations
+- Always filter queries by `cove_id` for regular users
+- SuperAdmin can access all COVE data
+- Use `UnifiedViewService::checkPermission()` for access control
+- Session stores: `user_id`, `cove_id`, `role`, permissions
+
+### URL Routing Pattern
+```
+index.php?url=controller/method/param1/param2
+Examples:
+- index.php?url=user/edit/5
+- index.php?url=auth/login
+- index.php?url=objective/create
+```
+
+## Project-Specific Patterns
+
+### View Rendering
+```php
+// In controllers
+$this->render('module/page', [
+    'data' => $data
+], [
+    'title' => 'Page Title',
+    'layout' => 'default' // or 'minimal', 'admin'
+]);
+```
+
+### Database Queries
+```php
+// Always use prepared statements
+$stmt = $this->db->prepare("SELECT * FROM table WHERE cove_id = :cove_id");
+$stmt->execute(['cove_id' => $_SESSION['cove_id']]);
+```
+
+### Permission Checks
+```php
+if (!hasPermission('permission_name')) {
+    redirect('auth/unauthorized');
+}
+```
+
+## Active Development Tasks
+
+### Current Focus Areas
+- Task System Migration for admin_gazi (ID: 45)
+- Bootstrap 5.3 migration (replacing custom CSS)
+- Dashboard layout improvements
+- Production/development environment separation
+
+### Known Issues
+- Dashboard fixed header overlapping content
+- Test menu visibility in production
+- Custom CSS overuse (200+ lines in dashboard)
+
+### Migration Status
+- Database migrations in `database/migrations/`
+- Task system tables ready for deployment
+- User migration completed (12 SuperAdmins identified)
+
+## Testing & Debugging
+
+### Test Files Location
+```
+app/views/test/          # Test views (development only)
+wwwroot/test_*.php       # Server test scripts
+_dev/                    # Development-only files
+```
+
+### Debug Tools
+- `debug_500.php`: Detailed error debugging
+- `test_server.php`: Environment verification
+- `db_test.php`: Database connection testing
+
+### Common Issues & Solutions
+
+1. **Class not found errors**
+   - Check file naming (case-sensitive on Linux)
+   - Verify autoloader configuration
+   - Ensure proper namespace usage
+
+2. **Database connection issues**
+   - Verify credentials in config.php
+   - Check if PDO MySQL extension enabled
+   - Test with db_test.php
+
+3. **Permission errors**
+   - Set directories to 755
+   - Set PHP files to 644
+   - uploads/ and logs/ need 777
+
+## Deployment Checklist
+
+1. Update `app/config/config.php` with production database
+2. Rename `.htaccess.production` to `.htaccess`
+3. Set proper file permissions
+4. Import database schema from `database/schema.sql`
+5. Clear cache directory
+6. Disable debug mode in production
+7. Verify Sentry DSN for error tracking
+
+## Important Conventions
+
+- Controllers: PascalCase with "Controller" suffix
+- Views: lowercase with underscores
+- Database tables: lowercase with underscores
+- URL routes: lowercase, no underscores
+- Turkish language for UI, English for code
+- Follow existing code patterns in neighboring files

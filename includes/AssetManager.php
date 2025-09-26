@@ -33,7 +33,10 @@ class AssetManager
         ],
         'summernote' => [
             'css' => [ 'https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs5.min.css' ],
-            'js'  => [ 'https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs5.min.js' ]
+            'js'  => [
+                'https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs5.min.js',
+                'https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/lang/summernote-tr-TR.min.js'
+            ]
         ],
         'chartjs' => [
             'css' => [],

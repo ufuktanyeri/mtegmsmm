@@ -1,4 +1,5 @@
 <?php
+
 /**
  * MTEGM SMM Portal Configuration
  * Production-ready configuration with environment detection
@@ -20,7 +21,7 @@ $isProduction = ($_SERVER['HTTP_HOST'] ?? '') === 'mtegmsmm.meb.gov.tr';
 // ===========================
 if ($isProduction) {
     // PRODUCTION SETTINGS
-    define('BASE_URL', 'https://mtegmsmm.meb.gov.tr/');
+    define('BASE_URL', 'https://mtegmsmm.meb.gov.tr/wwwroot/');
     define('APP_ENV', 'production');
     define('APP_DEBUG', false);
 
@@ -107,8 +108,8 @@ define('LOG_MAX_FILES', 30);
 
 // Cache Settings (for future implementation)
 define('CACHE_ENABLED', $isProduction);
-define('CACHE_DRIVER', Environment::get('CACHE_DRIVER', 'file'));
-define('CACHE_PATH', ROOT_PATH . 'cache/');
+define('CACHE_DRIVER', Environment::get('CACHE_DRIVER', 'cache'));
+define('CACHE_PATH', ROOT_PATH . 'wwwroot/');
 define('CACHE_TTL', 3600);
 
 // ===========================
@@ -159,3 +160,11 @@ if ($isProduction && DB_NAME !== 'fg5085Y3XU1aG48Qw') {
     error_log("WARNING: Unexpected database name in production!");
     die("Production database configuration mismatch.");
 }
+
+// ===========================
+// GOOGLE RECAPTCHA CONFIGURATION
+// ===========================
+// Production Keys for mtegmsmm.meb.gov.tr
+define('RECAPTCHA_SITE_KEY', '6LdoHcErAAAAAKrvRRGqA-zrQkTBH_1TYa2wp7fx');
+define('RECAPTCHA_SECRET_KEY', '6LdoHcErAAAAAALrW3isqLf7HysqAN2yPFP-0zvn');
+define('RECAPTCHA_ENABLED', true);
