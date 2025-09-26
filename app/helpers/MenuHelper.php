@@ -20,7 +20,7 @@ class MenuHelper {
                 'id' => 'dashboard',
                 'title' => 'Ana Sayfa',
                 'icon' => 'bi-speedometer2',
-                'url' => '/home',
+                'url' => 'index.php?url=home',
                 'roles' => [1, 2, 3, 4], // All roles
                 'parent' => null
             ],
@@ -36,7 +36,7 @@ class MenuHelper {
                 'id' => 'objectives',
                 'title' => 'Amaçlar',
                 'icon' => 'bi-bullseye',
-                'url' => '/objective',
+                'url' => 'index.php?url=objective',
                 'roles' => [1, 2, 3, 4],
                 'parent' => 'strategic'
             ],
@@ -44,7 +44,7 @@ class MenuHelper {
                 'id' => 'actions',
                 'title' => 'Faaliyetler',
                 'icon' => 'bi-list-task',
-                'url' => '/action',
+                'url' => 'index.php?url=action',
                 'roles' => [1, 2, 3, 4],
                 'parent' => 'strategic'
             ],
@@ -52,7 +52,7 @@ class MenuHelper {
                 'id' => 'indicators',
                 'title' => 'Göstergeler',
                 'icon' => 'bi-graph-up',
-                'url' => '/indicator',
+                'url' => 'index.php?url=indicator',
                 'roles' => [1, 2, 3],
                 'parent' => 'strategic'
             ],
@@ -60,23 +60,23 @@ class MenuHelper {
                 'id' => 'aims',
                 'title' => 'Hedefler',
                 'icon' => 'bi-target',
-                'url' => '/aim',
+                'url' => 'index.php?url=aim',
                 'roles' => [1, 2, 3],
                 'parent' => 'strategic'
             ],
 
-            // Management Section
+            // Role based Management Section
             [
                 'id' => 'management',
                 'title' => 'Yönetim',
                 'type' => 'heading',
-                'roles' => [1, 2] // Admin and coordinator only
+                'roles' => [1, 2]
             ],
             [
                 'id' => 'users',
                 'title' => 'Kullanıcılar',
                 'icon' => 'bi-people',
-                'url' => '/user',
+                'url' => 'index.php?url=user',
                 'roles' => [1, 2],
                 'parent' => 'management',
                 'badge' => self::getUserCount() // Dynamic badge
@@ -85,7 +85,7 @@ class MenuHelper {
                 'id' => 'coves',
                 'title' => 'Birimler',
                 'icon' => 'bi-building',
-                'url' => '/cove',
+                'url' => 'index.php?url=cove',
                 'roles' => [1, 2],
                 'parent' => 'management'
             ],
@@ -93,7 +93,7 @@ class MenuHelper {
                 'id' => 'fields',
                 'title' => 'Alanlar',
                 'icon' => 'bi-tags',
-                'url' => '/field',
+                'url' => 'index.php?url=field',
                 'roles' => [1, 2, 3],
                 'parent' => 'management'
             ],
@@ -101,7 +101,7 @@ class MenuHelper {
                 'id' => 'roles',
                 'title' => 'Roller ve Yetkiler',
                 'icon' => 'bi-shield-lock',
-                'url' => '/role',
+                'url' => 'index.php?url=user/roles',
                 'roles' => [1], // Superadmin only
                 'parent' => 'management'
             ],
@@ -117,7 +117,7 @@ class MenuHelper {
                 'id' => 'reports',
                 'title' => 'Raporlar',
                 'icon' => 'bi-file-earmark-bar-graph',
-                'url' => '/report',
+                'url' => 'index.php?url=report',
                 'roles' => [1, 2, 3],
                 'parent' => 'reports_section'
             ],
@@ -125,7 +125,7 @@ class MenuHelper {
                 'id' => 'logs',
                 'title' => 'İşlem Kayıtları',
                 'icon' => 'bi-clock-history',
-                'url' => '/log',
+                'url' => 'index.php?url=log',
                 'roles' => [1, 2],
                 'parent' => 'reports_section'
             ],
@@ -133,7 +133,7 @@ class MenuHelper {
                 'id' => 'statistics',
                 'title' => 'İstatistikler',
                 'icon' => 'bi-bar-chart-line',
-                'url' => '/statistics',
+                'url' => 'index.php?url=statistics',
                 'roles' => [1, 2, 3],
                 'parent' => 'reports_section'
             ],
@@ -149,7 +149,7 @@ class MenuHelper {
                 'id' => 'news',
                 'title' => 'Haberler',
                 'icon' => 'bi-newspaper',
-                'url' => '/news',
+                'url' => 'index.php?url=user/haberler',
                 'roles' => [1, 2],
                 'parent' => 'content'
             ],
@@ -157,7 +157,7 @@ class MenuHelper {
                 'id' => 'documents',
                 'title' => 'Dokümanlar',
                 'icon' => 'bi-file-earmark-text',
-                'url' => '/document',
+                'url' => 'index.php?url=document',
                 'roles' => [1, 2, 3],
                 'parent' => 'content'
             ],
@@ -173,7 +173,7 @@ class MenuHelper {
                 'id' => 'settings',
                 'title' => 'Ayarlar',
                 'icon' => 'bi-gear',
-                'url' => '/settings',
+                'url' => 'index.php?url=settings',
                 'roles' => [1],
                 'parent' => 'system'
             ],
@@ -181,7 +181,7 @@ class MenuHelper {
                 'id' => 'backup',
                 'title' => 'Yedekleme',
                 'icon' => 'bi-cloud-download',
-                'url' => '/backup',
+                'url' => 'index.php?url=backup',
                 'roles' => [1],
                 'parent' => 'system'
             ],
@@ -189,7 +189,7 @@ class MenuHelper {
                 'id' => 'health',
                 'title' => 'Sistem Sağlığı',
                 'icon' => 'bi-heart-pulse',
-                'url' => '/health',
+                'url' => 'index.php?url=health',
                 'roles' => [1],
                 'parent' => 'system'
             ]
@@ -216,7 +216,7 @@ class MenuHelper {
         $id = $pathParts[2] ?? null;
 
         $breadcrumb = [
-            ['title' => 'Ana Sayfa', 'url' => '/home', 'icon' => 'bi-house']
+            ['title' => 'Ana Sayfa', 'url' => 'index.php?url=home', 'icon' => 'bi-house']
         ];
 
         // Map controllers to breadcrumb items
@@ -237,7 +237,7 @@ class MenuHelper {
             $breadcrumb[] = [
                 'title' => $controllerMap[$controller]['title'],
                 'icon' => $controllerMap[$controller]['icon'],
-                'url' => '/' . $controller
+                'url' => 'index.php?url=' . $controller
             ];
 
             // Add action breadcrumb
