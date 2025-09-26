@@ -1,0 +1,52 @@
+# MTEGM SMM Portal - wwwroot .htaccess
+# This file handles URL rewriting for the application
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Set RewriteBase for subdirectory installations
+    # If your app is in a subdirectory, adjust this
+    # RewriteBase /
+
+    # Prevent access to sensitive files
+    RewriteRule ^(\.env|composer\.(json|lock)|package\.(json|lock))$ - [F,L]
+
+    # Allow direct access to assets
+    RewriteCond %{REQUEST_URI} ^/(assets|css|js|img|uploads)/
+    RewriteRule ^(.*)$ $1 [L]
+
+    # Allow direct access to existing files
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # Allow direct access to existing directories
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Route all other requests through index.php
+    RewriteCond %{REQUEST_URI} !^/wwwroot/
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+    # For requests already in wwwroot
+    RewriteCond %{REQUEST_URI} ^/wwwroot/
+    RewriteRule ^wwwroot/(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>
+
+# Disable directory browsing
+Options -Indexes
+
+# Set default charset
+AddDefaultCharset UTF-8
+
+# PHP settings (if allowed)
+<IfModule mod_php7.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+    php_value error_log ../logs/php_error.log
+</IfModule>
+
+<IfModule mod_php8.c>
+    php_flag display_errors Off
+    php_flag log_errors On
+    php_value error_log ../logs/php_error.log
+</IfModule>

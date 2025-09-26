@@ -1,0 +1,18 @@
+parameters:
+    level: 2
+    paths:
+        - app
+        - includes
+    excludePaths:
+        - app/views/*
+        - app/tests/*
+        - _dev/*
+    ignoreErrors:
+        - '#Variable \$_SESSION#'
+        - '#Variable \$_GET#'
+        - '#Variable \$_POST#'
+        - '#Variable \$_FILES#'
+        - '#Undefined variable: \$content#'
+        - '#Function hasPermission not found#'
+        - '#Class.*not found#'
+    treatPhpDocTypesAsCertain: false

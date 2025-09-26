@@ -1,0 +1,35 @@
+# MTEGM SMM Portal - Localhost .htaccess
+# Use this for localhost development
+
+Options -Indexes
+DirectoryIndex index.php index.html
+
+# Enable Rewrite Engine
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Allow direct access to test files
+    RewriteCond %{REQUEST_URI} ^/mtegmsmm/(test_|debug_)
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^(.*)$ - [L]
+
+    # Allow direct access to uploads
+    RewriteCond %{REQUEST_URI} ^/mtegmsmm/uploads/
+    RewriteRule ^(.*)$ - [L]
+
+    # Allow direct access to wwwroot assets
+    RewriteCond %{REQUEST_URI} ^/mtegmsmm/wwwroot/(assets|css|js|img)/
+    RewriteRule ^(.*)$ - [L]
+
+    # For localhost, redirect everything to wwwroot/index.php
+    RewriteCond %{REQUEST_URI} !^/mtegmsmm/wwwroot/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ wwwroot/index.php?url=$1 [QSA,L]
+</IfModule>
+
+# Security Headers (optional for localhost)
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
