@@ -17,46 +17,22 @@ $currentUrl = $_GET['url'] ?? '';
 // Default body class
 $bodyClass = $bodyClass ?? 'hold-transition layout-fixed';
 
-// Page-specific styles for unified layout
+// Page-specific styles for unified layout (minimal CSS with Bootstrap utilities)
 $additionalCss = '
-    /* Main content area */
+    /* Main content area positioning */
     .main-content {
         margin-top: 95px;
         min-height: calc(100vh - 95px);
-        background-color: #f8f9fa;
     }
 
-    /* Page header for internal pages */
+    /* Page header gradient - cannot be done with utilities */
     .page-header-internal {
         background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-        color: white;
-        padding: 3rem 0;
-        margin-bottom: 2rem;
     }
 
-    .page-header-internal h1 {
-        color: white;
-        font-weight: 600;
-        margin: 0;
-    }
-
-    .breadcrumb {
-        background: transparent;
-        padding: 0;
-        margin: 0.5rem 0 0 0;
-    }
-
-    .breadcrumb-item {
-        color: rgba(255, 255, 255, 0.8);
-    }
-
-    .breadcrumb-item.active {
-        color: white;
-    }
-
+    /* Breadcrumb link colors for contrast on dark background */
     .breadcrumb-item a {
         color: rgba(255, 255, 255, 0.9);
-        text-decoration: none;
     }
 
     .breadcrumb-item a:hover {
@@ -79,16 +55,16 @@ include __DIR__ . '/../components/header.php';
         <?php include __DIR__ . '/../components/navbar.php'; ?>
 
         <!-- Main Content Area -->
-        <main class="main-content">
+        <main class="main-content bg-light">
             <?php if ($isLoggedIn && (!isset($hidePageHeader) || !$hidePageHeader)): ?>
                 <!-- Page Header for Internal Pages -->
-                <div class="page-header-internal">
-                    <div class="container-fluid" style="max-width: 90%; margin: 0 auto;">
-                        <h1><?php echo htmlspecialchars($safePageTitle); ?></h1>
+                <div class="page-header-internal text-white py-5 mb-4">
+                    <div class="container-fluid px-lg-5">
+                        <h1 class="text-white fw-semibold mb-0"><?php echo htmlspecialchars($safePageTitle); ?></h1>
                         <?php if (isset($breadcrumb) && is_array($breadcrumb)): ?>
                             <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>index.php">Ana Sayfa</a></li>
+                                <ol class="breadcrumb bg-transparent p-0 mt-2 mb-0">
+                                    <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>index.php" class="text-white-50 text-decoration-none">Ana Sayfa</a></li>
                                     <?php foreach ($breadcrumb as $index => $item): ?>
                                         <?php
                                         // Ensure item has required data
@@ -97,9 +73,9 @@ include __DIR__ . '/../components/header.php';
                                         }
                                         ?>
                                         <?php if ($index === count($breadcrumb) - 1): ?>
-                                            <li class="breadcrumb-item active" aria-current="page"><?php echo htmlspecialchars($item['title']); ?></li>
+                                            <li class="breadcrumb-item active text-white" aria-current="page"><?php echo htmlspecialchars($item['title']); ?></li>
                                         <?php else: ?>
-                                            <li class="breadcrumb-item">
+                                            <li class="breadcrumb-item text-white-50">
                                                 <?php if (isset($item['url']) && !empty($item['url'])): ?>
                                                     <a href="<?php echo htmlspecialchars($item['url']); ?>"><?php echo htmlspecialchars($item['title']); ?></a>
                                                 <?php else: ?>
@@ -116,7 +92,7 @@ include __DIR__ . '/../components/header.php';
             <?php endif; ?>
 
             <!-- Page Content -->
-            <div class="<?php echo $isLoggedIn ? 'py-4' : ''; ?>" style="max-width: 90%; margin: 0 auto;">
+            <div class="container-fluid <?php echo $isLoggedIn ? 'py-4' : ''; ?> px-lg-5">
                 <?php echo $content ?? ''; ?>
             </div>
         </main>

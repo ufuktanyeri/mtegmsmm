@@ -489,7 +489,19 @@ class AimController extends BaseController
         }
 
         $error = isset($params['error']) ? $params['error'] : "";
-        $this->render('aim/index', ['title' => 'Amaçlar', 'aims' => $aims, 'error' => $error]);
+
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Stratejik Yönetim', 'url' => ''],
+            ['title' => 'Amaçlar', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['title'] = 'Amaçlar';
+        $this->data['aims'] = $aims;
+        $this->data['error'] = $error;
+
+        $this->render('aim/index', $this->data);
     }
 
     // Amaç oluşturma

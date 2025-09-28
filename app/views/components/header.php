@@ -49,56 +49,31 @@ $currentUrl = $_GET['url'] ?? '';
     <?php echo TemplateService::getResponsiveCSS(); ?>
     </style>
 
-    <!-- Common Bootstrap 5 Styles -->
+    <!-- Essential Custom Styles (minimal CSS) -->
     <style>
         :root {
             --bs-primary: #003C7D;
-            --bs-secondary: #6c757d;
-            --bs-success: #198754;
-            --bs-info: #0dcaf0;
-            --bs-warning: #ffc107;
-            --bs-danger: #dc3545;
-            --bs-light: #f8f9fa;
-            --bs-dark: #212529;
-
             --meb-primary: #003C7D;
             --meb-secondary: #0056B3;
             --meb-gradient: linear-gradient(135deg, var(--meb-primary) 0%, var(--meb-secondary) 100%);
         }
 
-        [data-bs-theme="dark"] {
-            --bs-body-bg: #1a1d20;
-            --bs-body-color: #dee2e6;
-            --bs-dark: #1a1d20;
-            --bs-light: #dee2e6;
-            --bs-border-color: #495057;
-        }
-
-        /* Common component styles */
+        /* Card hover effect - cannot be done with utilities */
         .card {
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
         }
 
+        /* Button hover effect */
         .btn {
-            font-weight: 500;
-            border-radius: 8px;
             transition: all 0.3s ease;
         }
 
         .btn:hover {
             transform: translateY(-1px);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
         }
 
         /* Modern scrollbar */
@@ -121,20 +96,14 @@ $currentUrl = $_GET['url'] ?? '';
             background: #a1a1a1;
         }
 
-        /* Loading animation */
-        .loading-spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 2px solid var(--bs-primary);
-            animation: spin 1s linear infinite;
-        }
-
+        /* Loading spinner animation */
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        .spinner-border {
+            animation: spin 1s linear infinite;
         }
     </style>
 

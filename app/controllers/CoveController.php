@@ -46,7 +46,18 @@ class CoveController extends BaseController {
     public function index($params = null) {
         $this->checkControllerPermission();
         $coves = $this->coveModel->getAllCoves();
-        $this->render('cove/index', ['title' => 'Coves', 'coves' => $coves]);
+
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Sistem Yönetimi', 'url' => ''],
+            ['title' => 'SMM Merkezleri', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['title'] = 'Coves';
+        $this->data['coves'] = $coves;
+
+        $this->render('cove/index', $this->data);
     }
 
     /**
@@ -165,3 +176,4 @@ class CoveController extends BaseController {
     }
 }
 ?>
+

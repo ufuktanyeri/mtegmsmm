@@ -1,11 +1,9 @@
 <?php
-header('X-Frame-Options: SAMEORIGIN');
-header("Content-Security-Policy: frame-ancestors 'self'");
-
-// Page configuration
+// Page configuration for public layout
 $title = 'Sektörel Mükemmeliyet Merkezleri | Giriş';
 $description = 'SMM Portal Giriş - Milli Eğitim Bakanlığı Mesleki ve Teknik Eğitim Genel Müdürlüğü';
-$bodyClass = 'hold-transition layout-fixed login-page';
+$pageTitle = $title;
+$pageDescription = $description;
 
 // Additional page-specific styles
 $additionalCss = '
@@ -263,27 +261,44 @@ $additionalJs = '
     }
 ';
 
-// Load header component
-include __DIR__ . '/../components/header.php';
+// JavaScript for login page
+$additionalJs = '
+// Login form validation and handling
+document.addEventListener("DOMContentLoaded", function() {
+    const loginForm = document.querySelector(".login-form");
+    if (loginForm) {
+        loginForm.addEventListener("submit", function(e) {
+            if (typeof grecaptcha !== "undefined") {
+                const recaptchaResponse = grecaptcha.getResponse();
+                if (!recaptchaResponse) {
+                    e.preventDefault();
+                    alert("Lütfen robot olmadığınızı doğrulayın.");
+                    return false;
+                }
+            }
+        });
+    }
+});
+';
 ?>
 
 <!-- Google reCAPTCHA v2 -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-<div class="wrapper">
-    <?php include __DIR__ . '/../components/navbar.php'; ?>
+<!-- Main Content Start -->
 
-    <?php
-    // Hero section configuration for login page
-    $heroConfig = [
-        'title' => 'SMM Portal',
-        'subtitle' => 'Sektörel Mükemmeliyet Merkezi ile geleceği şekillendirin',
-        'icon' => 'fas fa-sign-in-alt',
-        'gradient' => true,
-        'type' => 'section'
-    ];
-    include __DIR__ . '/../components/hero.php';
-    ?>
+    <!-- Hero Section -->
+    <div class="hero-section bg-gradient text-white py-4 mb-0" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <i class="fas fa-sign-in-alt fa-3x mb-3 opacity-75"></i>
+                    <h1 class="h3 fw-bold mb-2">SMM Portal</h1>
+                    <p class="lead mb-0">Sektörel Mükemmeliyet Merkezi ile geleceği şekillendirin</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="login-container">
         <!-- Brand Section - Updated -->
@@ -373,7 +388,7 @@ include __DIR__ . '/../components/header.php';
                     <?php endif; ?>
 
                     <div class="g-recaptcha"
-                            data-sitekey="<?php echo htmlspecialchars(Recaptcha::getSiteKey()); ?>"
+                            data-sitekey="6LdJe10qAAAAAHhSZyA0hBMGTgh0TfPHwwTvWCbg"
                             data-theme="light"></div>
                     </div>
 
@@ -395,10 +410,4 @@ include __DIR__ . '/../components/header.php';
         </div>
     </div>
 
-    <?php include __DIR__ . '/../components/footer.php'; ?>
-</div>
-
-<?php
-// Load scripts component
-include __DIR__ . '/../components/scripts.php';
-?>
+<!-- Main Content End -->

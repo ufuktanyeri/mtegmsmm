@@ -40,6 +40,31 @@
 <!-- Include Regular Navbar for Public Pages -->
 <?php include __DIR__ . '/../components/navbar.php'; ?>
 
+<!-- Breadcrumb Navigation -->
+<?php if (!empty($breadcrumb) && is_array($breadcrumb)): ?>
+<nav aria-label="breadcrumb">
+    <div class="container mt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>index.php">Ana Sayfa</a></li>
+            <?php foreach ($breadcrumb as $index => $item): ?>
+                <?php if (!is_array($item) || !isset($item['title']) || empty($item['title'])) continue; ?>
+                <?php if ($index === count($breadcrumb) - 1): ?>
+                    <li class="breadcrumb-item active" aria-current="page"><?php echo htmlspecialchars($item['title']); ?></li>
+                <?php else: ?>
+                    <li class="breadcrumb-item">
+                        <?php if (!empty($item['url'])): ?>
+                            <a href="<?php echo htmlspecialchars($item['url']); ?>"><?php echo htmlspecialchars($item['title']); ?></a>
+                        <?php else: ?>
+                            <?php echo htmlspecialchars($item['title']); ?>
+                        <?php endif; ?>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </ol>
+    </div>
+</nav>
+<?php endif; ?>
+
 <!-- Main Content -->
 <div class="wrapper">
     <?php echo $content ?? ''; ?>

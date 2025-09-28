@@ -58,7 +58,7 @@ if (!function_exists('config')) {
         static $config = null;
 
         if ($config === null) {
-            $configFile = __DIR__ . '/../config/config.php';
+            $configFile = dirname(__DIR__) . '/config/config.php';
             if (file_exists($configFile)) {
                 $config = require $configFile;
             }

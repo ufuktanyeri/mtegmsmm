@@ -31,7 +31,18 @@ class NewsController extends BaseController
         $model = new NewsModel();
         $news = $model->getNewsAll();
         //var_dump($news);
-        $this->render('news/index', ['title' => 'Haberler', 'news' => $news]);
+
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'İçerik Yönetimi', 'url' => ''],
+            ['title' => 'Haber Yönetimi', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['title'] = 'Haberler';
+        $this->data['news'] = $news;
+
+        $this->render('news/index', $this->data);
     }
 
     public function details($params)

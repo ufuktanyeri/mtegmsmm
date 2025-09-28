@@ -36,7 +36,7 @@ class ActionController extends BaseController {
         
         // Login kontrol
         if (!isset($_SESSION['user_id'])) {
-            header('Location: index.php?url=auth/login');
+            header('Location: index.php?url=user/login');
             exit();
         }
         
@@ -64,16 +64,23 @@ class ActionController extends BaseController {
         $actions = $this->model->getActionsByCoveIdByAimId($aimId, $coveId, $objectiveId);
         $objectives = $this->objectiveModel->getObjectivesByAimIdAndCoveId($aimId, $coveId);
         $aim = $this->aimModel->getAimByIdAndCoveId($aimId, $coveId);
-        
-        $this->render('action/index', [
-            'actions' => $actions,
-            'aimid' => $aimId,
-            'aimId' => $aimId,
-            'objectiveId' => $objectiveId,
-            'objectives' => $objectives,
-            'aim' => $aim,
-            'error' => ''
-        ]);
+
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Stratejik Yönetim', 'url' => ''],
+            ['title' => 'Eylemler', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['actions'] = $actions;
+        $this->data['aimid'] = $aimId;
+        $this->data['aimId'] = $aimId;
+        $this->data['objectiveId'] = $objectiveId;
+        $this->data['objectives'] = $objectives;
+        $this->data['aim'] = $aim;
+        $this->data['error'] = '';
+
+        $this->render('action/index', $this->data);
     }
 
     public function create($params) {
@@ -110,13 +117,21 @@ class ActionController extends BaseController {
         
         $objectives = $this->objectiveModel->getObjectivesByAimIdAndCoveId($aimId, $coveId);
         $aim = $this->aimModel->getAimByIdAndCoveId($aimId, $coveId);
-        
-        $this->render('action/create', [
-            'aimId' => $aimId,
-            'objectiveId' => $objectiveId,
-            'objectives' => $objectives,
-            'aim' => $aim
-        ]);
+
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Stratejik Yönetim', 'url' => ''],
+            ['title' => 'Eylemler', 'url' => BASE_URL . 'index.php?url=action/index&aimid=' . $aimId],
+            ['title' => 'Yeni Eylem', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['aimId'] = $aimId;
+        $this->data['objectiveId'] = $objectiveId;
+        $this->data['objectives'] = $objectives;
+        $this->data['aim'] = $aim;
+
+        $this->render('action/create', $this->data);
     }
 
     public function edit($params) {
@@ -168,14 +183,22 @@ class ActionController extends BaseController {
         $aimId = $objective ? $objective->aimId : 1;
         $objectives = $this->objectiveModel->getObjectivesByAimIdAndCoveId($aimId, $coveId);
         $aim = $this->aimModel->getAimByIdAndCoveId($aimId, $coveId);
-        
-        $this->render('action/edit', [
-            'action' => $action,
-            'aimId' => $aimId,
-            'objectiveId' => $objectiveId,
-            'objectives' => $objectives,
-            'aim' => $aim
-        ]);
+
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Stratejik Yönetim', 'url' => ''],
+            ['title' => 'Eylemler', 'url' => BASE_URL . 'index.php?url=action/index&aimid=' . $aimId],
+            ['title' => 'Eylem Düzenle', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['action'] = $action;
+        $this->data['aimId'] = $aimId;
+        $this->data['objectiveId'] = $objectiveId;
+        $this->data['objectives'] = $objectives;
+        $this->data['aim'] = $aim;
+
+        $this->render('action/edit', $this->data);
     }
 
     public function delete($params) {
@@ -211,14 +234,21 @@ class ActionController extends BaseController {
             $upcomingCount = $this->model->getAllUpcomingTasksCount(7);
             $completedCount = $this->model->getAllCompletedTasksCount();
             
-            $this->render('action/calendar', [
-                'actions' => $actions,
-                'overdueCount' => $overdueCount,
-                'urgentCount' => $urgentCount,
-                'upcomingCount' => $upcomingCount,
-                'completedCount' => $completedCount,
-                'isAdmin' => true
-            ]);
+            // Breadcrumb data
+            $this->data['breadcrumb'] = [
+                ['title' => 'Stratejik Yönetim', 'url' => ''],
+                ['title' => 'Eylem Takvimi', 'url' => '']
+            ];
+
+            // Add other data to $this->data
+            $this->data['actions'] = $actions;
+            $this->data['overdueCount'] = $overdueCount;
+            $this->data['urgentCount'] = $urgentCount;
+            $this->data['upcomingCount'] = $upcomingCount;
+            $this->data['completedCount'] = $completedCount;
+            $this->data['isAdmin'] = true;
+
+            $this->render('action/calendar', $this->data);
             return;
         }
         
@@ -235,14 +265,21 @@ class ActionController extends BaseController {
         $upcomingCount = $this->model->getUpcomingTasksCount($coveId, 7);
         $completedCount = $this->model->getCompletedTasksCount($coveId);
         
-        $this->render('action/calendar', [
-            'actions' => $actions,
-            'overdueCount' => $overdueCount,
-            'urgentCount' => $urgentCount,
-            'upcomingCount' => $upcomingCount,
-            'completedCount' => $completedCount,
-            'isAdmin' => false
-        ]);
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Stratejik Yönetim', 'url' => ''],
+            ['title' => 'Eylem Takvimi', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['actions'] = $actions;
+        $this->data['overdueCount'] = $overdueCount;
+        $this->data['urgentCount'] = $urgentCount;
+        $this->data['upcomingCount'] = $upcomingCount;
+        $this->data['completedCount'] = $completedCount;
+        $this->data['isAdmin'] = false;
+
+        $this->render('action/calendar', $this->data);
     }
 
     public function calendarAdmin() {
@@ -306,15 +343,22 @@ class ActionController extends BaseController {
         
         $coves = $this->coveModel->getAllCoves();
         
-    $this->render('action/calendarAdmin', [
-            'actions' => $actions,
-            'coves' => $coves,
-            'selectedCoveId' => $selectedCoveId,
-            'overdueCount' => $overdueCount,
-            'urgentCount' => $urgentCount,
-            'upcomingCount' => $upcomingCount,
-            'completedCount' => $completedCount
-        ]);
+    // Breadcrumb data
+    $this->data['breadcrumb'] = [
+        ['title' => 'Stratejik Yönetim', 'url' => ''],
+        ['title' => 'Eylem Takvimi (Admin)', 'url' => '']
+    ];
+
+    // Add other data to $this->data
+    $this->data['actions'] = $actions;
+    $this->data['coves'] = $coves;
+    $this->data['selectedCoveId'] = $selectedCoveId;
+    $this->data['overdueCount'] = $overdueCount;
+    $this->data['urgentCount'] = $urgentCount;
+    $this->data['upcomingCount'] = $upcomingCount;
+    $this->data['completedCount'] = $completedCount;
+
+    $this->render('action/calendarAdmin', $this->data);
     }
 
     public function taskList($params = []) {
@@ -361,16 +405,23 @@ class ActionController extends BaseController {
                 $title = 'Tüm Görevler';
         }
         
-        $this->render('action/taskList', [
-            'actions' => $actions,
-            'title' => $title,
-            'type' => $type,
-            'completedCount' => $completedCount,
-            'overdueCount' => $overdueCount,
-            'urgentCount' => $urgentCount,
-            'upcomingCount' => $upcomingCount,
-            'allCount' => $allCount
-        ]);
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Stratejik Yönetim', 'url' => ''],
+            ['title' => 'Görev Listesi', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['actions'] = $actions;
+        $this->data['title'] = $title;
+        $this->data['type'] = $type;
+        $this->data['completedCount'] = $completedCount;
+        $this->data['overdueCount'] = $overdueCount;
+        $this->data['urgentCount'] = $urgentCount;
+        $this->data['upcomingCount'] = $upcomingCount;
+        $this->data['allCount'] = $allCount;
+
+        $this->render('action/taskList', $this->data);
     }
 
     public function adminTaskList($params = []) {
@@ -426,19 +477,26 @@ class ActionController extends BaseController {
         }
         
         $coves = $this->coveModel->getAllCoves();
-        
-        $this->render('action/adminTaskList', [
-            'actions' => $actions,
-            'title' => $title,
-            'filter' => $filter,
-            'coves' => $coves,
-            'selectedCoveId' => $coveId,
-            'allCount' => $allCount,
-            'overdueCount' => $overdueCount,
-            'urgentCount' => $urgentCount,
-            'upcomingCount' => $upcomingCount,
-            'completedCount' => $completedCount
-        ]);
+
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Stratejik Yönetim', 'url' => ''],
+            ['title' => 'Görev Listesi (Admin)', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['actions'] = $actions;
+        $this->data['title'] = $title;
+        $this->data['filter'] = $filter;
+        $this->data['coves'] = $coves;
+        $this->data['selectedCoveId'] = $coveId;
+        $this->data['allCount'] = $allCount;
+        $this->data['overdueCount'] = $overdueCount;
+        $this->data['urgentCount'] = $urgentCount;
+        $this->data['upcomingCount'] = $upcomingCount;
+        $this->data['completedCount'] = $completedCount;
+
+        $this->render('action/adminTaskList', $this->data);
     }
 
     public function getActionsByCoveId() {
@@ -564,13 +622,20 @@ class ActionController extends BaseController {
             $error = $result['error'];
         }
         
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Stratejik Yönetim', 'url' => ''],
+            ['title' => 'Dosya Yükleme', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['title'] = 'Dosya Yükleme';
+        $this->data['userCoveId'] = $userCoveId;
+        $this->data['success'] = $success;
+        $this->data['error'] = $error;
+
         // View'i render et
-        $this->render('action/upload', [
-            'title' => 'Dosya Yükleme',
-            'userCoveId' => $userCoveId,
-            'success' => $success,
-            'error' => $error
-        ]);
+        $this->render('action/upload', $this->data);
     }
     
     /**
@@ -772,7 +837,7 @@ class ActionController extends BaseController {
     private function saveFileToDatabase($originalName, $savedName, $fileSize, $coveId)
     {
         try {
-            require_once __DIR__ . '/../../config/config.php';
+            require_once dirname(__DIR__, 2) . '/app/config/config.php';
             
             // PDO kullan (daha güvenli)
             $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4";
@@ -846,7 +911,7 @@ class ActionController extends BaseController {
         $this->checkControllerPermission();
         
         try {
-            require_once __DIR__ . '/../../config/config.php';
+            require_once dirname(__DIR__, 2) . '/app/config/config.php';
             
             $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4";
             $pdo = new PDO($dsn, DB_USER, DB_PASS, [
@@ -897,11 +962,18 @@ class ActionController extends BaseController {
                 $file['formatted_size'] = $this->formatFileSize($file['file_size']);
                 $file['upload_date_formatted'] = date('d.m.Y H:i', strtotime($file['upload_date']));
             }
-            
-            $this->render('action/listUploads', [
-                'title' => 'Yüklenen Dosyalar',
-                'files' => $files
-            ]);
+
+            // Breadcrumb data
+            $this->data['breadcrumb'] = [
+                ['title' => 'Stratejik Yönetim', 'url' => ''],
+                ['title' => 'Yüklenen Dosyalar', 'url' => '']
+            ];
+
+            // Add other data to $this->data
+            $this->data['title'] = 'Yüklenen Dosyalar';
+            $this->data['files'] = $files;
+
+            $this->render('action/listUploads', $this->data);
             
         } catch (Exception $e) {
             header('Location: index.php?url=action/upload&error=' . urlencode($e->getMessage()));
@@ -995,7 +1067,7 @@ class ActionController extends BaseController {
     private function checkFileAccess($fileName, $userCoveId)
     {
         try {
-            require_once __DIR__ . '/../../config/config.php';
+            require_once dirname(__DIR__, 2) . '/app/config/config.php';
             
             $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4";
             $pdo = new PDO($dsn, DB_USER, DB_PASS, [
@@ -1022,7 +1094,7 @@ class ActionController extends BaseController {
     private function getOriginalFileName($savedName)
     {
         try {
-            require_once __DIR__ . '/../../config/config.php';
+            require_once dirname(__DIR__, 2) . '/app/config/config.php';
             
             $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4";
             $pdo = new PDO($dsn, DB_USER, DB_PASS, [

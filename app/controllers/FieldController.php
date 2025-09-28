@@ -28,7 +28,18 @@ class FieldController extends BaseController {
         $this->checkControllerPermission();
         $fieldModel = new FieldModel();
         $fields = $fieldModel->getAllFields();
-        $this->render('field/index', ['title' => 'Fields', 'fields' => $fields]);
+
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Sistem Yönetimi', 'url' => ''],
+            ['title' => 'SMM Alanları', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['title'] = 'Fields';
+        $this->data['fields'] = $fields;
+
+        $this->render('field/index', $this->data);
     }
 
     public function create() {

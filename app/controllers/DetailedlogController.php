@@ -28,7 +28,18 @@ class DetailedlogController extends BaseController {
         $this->checkControllerPermission();
         $detailedLogModel = new DetailedLogModel();
         $detailedLogs = $detailedLogModel->getAllDetailedLogs();
-        $this->render('detailedlog/index', ['title' => 'Detailed Logs', 'detailedLogs' => $detailedLogs]);
+
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Sistem', 'url' => ''],
+            ['title' => 'Detaylı Loglar', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['title'] = 'Detailed Logs';
+        $this->data['detailedLogs'] = $detailedLogs;
+
+        $this->render('detailedlog/index', $this->data);
     }
 }
 ?>

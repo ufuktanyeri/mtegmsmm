@@ -7,6 +7,8 @@ use App\Services\UnifiedViewService;
 
 class BaseController
 {
+    protected $data = [];
+
     protected function render(string $view, array $data = [], array $options = []): void
     {
         try {

@@ -27,155 +27,70 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
 ?>
 
 <style>
-    /* Modern Navigation Styles */
-    .navbar {
-        padding: 1rem 0;
-        min-height: 80px;
+    /* Minimal Custom CSS - Most styling moved to Bootstrap utilities */
+
+    /* Transitions and animations only */
+    .navbar-brand, .nav-link, .dropdown-item, .user-dropdown {
         transition: all 0.3s ease;
-    }
-
-    /* Dark mode navbar adjustments */
-    [data-bs-theme="dark"] .navbar {
-        background: linear-gradient(135deg, #1a1d20 0%, #212529 100%) !important;
-    }
-
-    .navbar-brand {
-        transition: transform 0.3s ease;
-        padding: 0.5rem 0;
     }
 
     .navbar-brand:hover {
         transform: scale(1.05);
     }
 
-    .navbar-brand .meb-logo {
-        transition: filter 0.3s ease;
-    }
-
-    .navbar-brand:hover .meb-logo {
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
-    }
-
-    .nav-link {
-        font-weight: 500;
-        color: var(--bs-body-color) !important;
-        transition: all 0.3s ease;
-        margin: 0 0.1rem;
-        position: relative;
-        font-size: 0.85rem;
-        padding: 0.4rem 0.6rem !important;
-    }
-
     .nav-link:hover {
-        color: var(--bs-primary) !important;
         transform: translateY(-1px);
     }
 
+    .dropdown-item:hover {
+        transform: translateX(5px);
+    }
+
+    /* Active nav link indicator */
     .nav-link.active {
-        color: var(--bs-primary) !important;
         background-color: rgba(0, 60, 125, 0.1);
-        font-weight: 600;
-        border-radius: 20px;
     }
 
     [data-bs-theme="dark"] .nav-link.active {
         background-color: rgba(0, 86, 179, 0.2);
-        color: #4da3ff !important;
     }
 
-    .nav-link.active::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60%;
-        height: 2px;
-        background: var(--meb-primary);
-        border-radius: 1px;
+    /* User avatar specific styles */
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+        background: var(--meb-gradient);
     }
 
-    .dropdown-menu {
-        border-radius: 12px;
-        border: none;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        padding: 0.5rem 0;
-        margin-top: 0.5rem;
-        background: var(--bs-body-bg);
+    .user-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
-    [data-bs-theme="dark"] .dropdown-menu {
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        border: 1px solid var(--bs-border-color);
-    }
-
-    .dropdown-item {
-        transition: all 0.2s ease;
-        border-radius: 8px;
-        margin: 0 0.5rem;
-        padding: 0.5rem 1rem;
-        color: var(--bs-body-color);
-    }
-
+    /* Hover effects */
     .dropdown-item:hover {
         background-color: rgba(0, 60, 125, 0.1);
-        color: var(--bs-primary);
-        transform: translateX(5px);
     }
 
     [data-bs-theme="dark"] .dropdown-item:hover {
         background-color: rgba(0, 86, 179, 0.2);
     }
 
-    /* Navbar scrolled state */
-    .navbar.scrolled {
-        background: rgba(255, 255, 255, 0.95) !important;
-        backdrop-filter: blur(15px);
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    /* User dropdown */
     .user-dropdown {
-        display: flex;
-        align-items: center;
         background: rgba(79, 70, 229, 0.1);
-        border-radius: 25px;
-        padding: 0.25rem 0.75rem;
-        transition: all 0.3s ease;
-        border: none;
     }
 
     .user-dropdown:hover {
         background: rgba(79, 70, 229, 0.2);
     }
 
-    .user-avatar {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: var(--meb-gradient);
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 600;
-        margin-right: 8px;
-        font-size: 0.85rem;
-        border: 2px solid rgba(255, 255, 255, 0.3);
+    /* Theme toggle animation */
+    #themeToggle:hover {
+        transform: rotate(20deg);
     }
 
-    .user-avatar img {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-
-    /* Dropdown prevent cutoff */
-    .navbar-nav .dropdown-menu {
-        position: absolute !important;
-    }
-
+    /* Dropdown animation */
     @media (min-width: 992px) {
         .navbar-nav .dropdown:hover .dropdown-menu {
             display: block;
@@ -188,25 +103,16 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
             opacity: 0;
             transform: translateY(-10px);
         }
-
         to {
             opacity: 1;
             transform: translateY(0);
         }
     }
 
-    /* Mobile responsive */
+    /* Mobile responsive collapse */
     @media (max-width: 991.98px) {
-        .navbar-brand .meb-logo {
-            height: 40px !important;
-        }
-
         .navbar-collapse {
             background: rgba(255, 255, 255, 0.98);
-            border-radius: 12px;
-            padding: 1rem;
-            margin-top: 1rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             position: absolute;
             top: 100%;
             left: 0;
@@ -214,34 +120,21 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
             z-index: 1040;
         }
 
-        .nav-link {
-            padding: 0.75rem 1rem !important;
-            margin: 0.25rem 0;
-            border-radius: 8px;
-        }
-
-        .nav-link.active::after {
-            display: none;
-        }
-
-        .dropdown-menu {
-            border: none;
-            box-shadow: none;
-            background: #f8f9fa;
-            margin-left: 1rem;
+        [data-bs-theme="dark"] .navbar-collapse {
+            background: rgba(33, 37, 41, 0.98);
         }
     }
 </style>
 
-<!-- Modern Navbar -->
-<nav class="navbar navbar-expand-xl fixed-top shadow-sm" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); backdrop-filter: blur(10px); border-bottom: 1px solid #e9ecef;">
-    <div class="container-fluid" style="max-width: 90%; margin: 0 auto;">
+<!-- Modern Navbar with Bootstrap Utilities -->
+<nav class="navbar navbar-expand-xl navbar-light fixed-top shadow-sm py-3 bg-gradient border-bottom">
+    <div class="container-fluid px-lg-5">
         <!-- Brand - MEB Logo Only -->
-        <a href="https://www.meb.gov.tr" class="navbar-brand d-flex align-items-center me-3" target="_blank"
+        <a href="https://www.meb.gov.tr" class="navbar-brand d-flex align-items-center me-3 py-2" target="_blank"
            title="T.C. Milli Eğitim Bakanlığı" rel="noopener noreferrer">
             <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg"
                  alt="T.C. Milli Eğitim Bakanlığı"
-                 style="height: 45px; width: auto;"
+                 height="45"
                  class="meb-logo">
         </a>
 
@@ -288,27 +181,27 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                             <a class="nav-link dropdown-toggle rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-bullseye me-1"></i>Stratejik
                             </a>
-                            <ul class="dropdown-menu shadow border-0">
+                            <ul class="dropdown-menu shadow border-0 rounded-3 py-2 mt-2">
                                 <?php if ($isSuperAdmin || hasPermission('aims.manage')): ?>
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=aim/index">
+                                    <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=aim/index">
                                             <i class="fas fa-bullseye me-2 text-primary"></i>Amaçlar
                                         </a></li>
                                 <?php endif; ?>
                                 <?php if ($isSuperAdmin || hasPermission('objectives.manage')): ?>
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=objective/index">
+                                    <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=objective/index">
                                             <i class="fas fa-flag me-2 text-success"></i>Hedefler
                                         </a></li>
                                 <?php endif; ?>
                                 <?php if ($isSuperAdmin || hasPermission('indicators.manage')): ?>
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=indicator/index">
+                                    <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=indicator/index">
                                             <i class="fas fa-chart-line me-2 text-info"></i>Göstergeler
                                         </a></li>
                                 <?php endif; ?>
                                 <?php if ($isSuperAdmin || hasPermission('actions.manage')): ?>
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=action/index">
+                                    <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=action/index">
                                             <i class="fas fa-tasks me-2 text-warning"></i>Eylemler
                                         </a></li>
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=action/calendar">
+                                    <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=action/calendar">
                                             <i class="fas fa-calendar me-2 text-danger"></i>Takvim
                                         </a></li>
                                 <?php endif; ?>
@@ -321,19 +214,19 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                             <a class="nav-link dropdown-toggle px-3 py-2 rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-file-alt me-2"></i>İçerik
                             </a>
-                            <ul class="dropdown-menu shadow border-0">
+                            <ul class="dropdown-menu shadow border-0 rounded-3 py-2 mt-2">
                                 <?php if ($isSuperAdmin || hasPermission('news.manage')): ?>
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=news/index">
+                                    <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=news/index">
                                             <i class="fas fa-newspaper me-2 text-primary"></i>Haberler
                                         </a></li>
                                 <?php endif; ?>
                                 <?php if ($isSuperAdmin || hasPermission('documentstrategies.manage')): ?>
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=documentstrategy/index">
+                                    <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=documentstrategy/index">
                                             <i class="fas fa-file-pdf me-2 text-danger"></i>Belgeler
                                         </a></li>
                                 <?php endif; ?>
                                 <?php if ($isSuperAdmin || hasPermission('regulations.manage')): ?>
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=regulation/index">
+                                    <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=regulation/index">
                                             <i class="fas fa-book me-2 text-success"></i>Mevzuat
                                         </a></li>
                                 <?php endif; ?>
@@ -346,22 +239,22 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                             <a class="nav-link dropdown-toggle px-3 py-2 rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-cogs me-2"></i>Sistem
                             </a>
-                            <ul class="dropdown-menu shadow border-0">
+                            <ul class="dropdown-menu shadow border-0 rounded-3 py-2 mt-2">
                                 <?php if ($isSuperAdmin || hasPermission('users.manage')): ?>
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=user/manage">
+                                    <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=user/manage">
                                             <i class="fas fa-users me-2 text-primary"></i>Kullanıcılar
                                         </a></li>
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=user/roles">
+                                    <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=user/roles">
                                             <i class="fas fa-shield-alt me-2 text-warning"></i>Roller
                                         </a></li>
                                 <?php endif; ?>
                                 <?php if ($isSuperAdmin || hasPermission('coves.manage')): ?>
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=cove/index">
+                                    <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=cove/index">
                                             <i class="fas fa-building me-2 text-info"></i>SMM Merkezleri
                                         </a></li>
                                 <?php endif; ?>
                                 <?php if ($isSuperAdmin || hasPermission('fields.manage')): ?>
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=field/index">
+                                    <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=field/index">
                                             <i class="fas fa-th me-2 text-success"></i>SMM Alanları
                                         </a></li>
                                 <?php endif; ?>
@@ -369,7 +262,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=log/index">
+                                    <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=log/index">
                                             <i class="fas fa-history me-2 text-secondary"></i>Sistem Logları
                                         </a></li>
                                 <?php endif; ?>
@@ -393,7 +286,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                 </button>
 
                 <div class="me-3 d-none d-lg-block">
-                    <img src="<?php echo BASE_URL; ?>wwwroot/img/turkiye.svg" alt="Türkiye 100. Yıl" style="height: 45px;" class="rounded shadow-sm">
+                    <img src="<?php echo BASE_URL; ?>wwwroot/img/turkiye.svg" alt="Türkiye 100. Yıl" height="45" class="rounded shadow-sm">
                 </div>
 
                 <?php if (!$isLoggedIn): ?>
@@ -419,7 +312,7 @@ $isSuperAdmin = isset($_SESSION['role']) && strtolower($_SESSION['role']) === 's
                             </div>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end shadow border-0">
-                            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=user/editprofile">
+                            <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=user/editprofile">
                                     <i class="fas fa-user-edit me-2"></i>Profil Düzenle
                                 </a></li>
                             <li>
@@ -468,21 +361,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<style>
-    /* Theme Toggle Button Styles */
-    #themeToggle {
-        font-size: 1.2rem;
-        color: var(--bs-body-color);
-        opacity: 0.8;
-        transition: all 0.3s ease;
-    }
-
-    #themeToggle:hover {
-        opacity: 1;
-        transform: rotate(20deg);
-    }
-
-    [data-bs-theme="dark"] #themeToggle {
-        color: #ffc107;
-    }
-</style>

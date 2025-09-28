@@ -6,18 +6,14 @@
 ?>
 
 <style>
-    /* Light mode footer */
+    /* Minimal footer styles - using Bootstrap utilities where possible */
     .footer {
         background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-        color: white;
         position: relative;
-        overflow: hidden;
     }
 
-    /* Dark mode footer - lighter background for contrast */
     [data-bs-theme="dark"] .footer {
         background: linear-gradient(135deg, #495057 0%, #6c757d 100%);
-        color: #f8f9fa;
     }
 
     .footer::before {
@@ -27,96 +23,42 @@
         left: 0;
         right: 0;
         height: 4px;
-        background: var(--meb-gradient, linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%));
+        background: var(--meb-gradient);
     }
 
     .footer .btn-link {
-        color: rgba(255, 255, 255, 0.9);
-        text-decoration: none;
         transition: all 0.3s ease;
-        font-weight: 500;
     }
 
     .footer .btn-link:hover {
-        color: white;
         transform: translateY(-1px);
     }
 
-    /* Better contrast in dark mode */
-    [data-bs-theme="dark"] .footer .btn-link {
-        color: rgba(248, 249, 250, 0.95);
-    }
-
-    [data-bs-theme="dark"] .footer .btn-link:hover {
-        color: white;
-    }
-
-    .footer .social-links a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+    .social-link {
         width: 40px;
         height: 40px;
         background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        color: rgba(255, 255, 255, 0.9);
         transition: all 0.3s ease;
-        margin: 0 0.25rem;
     }
 
-    [data-bs-theme="dark"] .footer .social-links a {
-        background: rgba(255, 255, 255, 0.15);
-        color: #f8f9fa;
-    }
-
-    .footer .social-links a:hover {
+    .social-link:hover {
         background: rgba(255, 255, 255, 0.2);
-        color: white;
         transform: translateY(-2px);
-    }
-
-    [data-bs-theme="dark"] .footer .social-links a:hover {
-        background: rgba(255, 255, 255, 0.25);
-    }
-
-    .footer-divider {
-        height: 1px;
-        background: rgba(255, 255, 255, 0.2);
-        margin: 2rem 0 1rem 0;
-    }
-
-    [data-bs-theme="dark"] .footer-divider {
-        background: rgba(255, 255, 255, 0.3);
     }
 
     .footer-logo {
         filter: brightness(0) invert(1);
-        opacity: 0.9;
-        transition: opacity 0.3s ease;
-    }
-
-    .footer-logo:hover {
-        opacity: 1;
-    }
-
-    /* Text visibility improvements */
-    .footer .opacity-75 {
-        opacity: 0.85 !important;
-    }
-
-    [data-bs-theme="dark"] .footer .opacity-75 {
-        opacity: 0.95 !important;
     }
 </style>
 
-<!-- Footer -->
-<footer class="footer py-5 mt-5">
+<!-- Footer with Bootstrap Utilities -->
+<footer class="footer text-white py-5 mt-5 overflow-hidden">
     <div class="container">
         <div class="row">
             <!-- Left Column - Info -->
             <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                 <div class="d-flex align-items-center mb-3">
-                    <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg" alt="MEB Logo" class="footer-logo me-3" style="height: 50px;">
+                    <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg" alt="MEB Logo" class="footer-logo me-3 opacity-75" height="50">
                     <div>
                         <h5 class="mb-1 fw-bold">MTEGM</h5>
                         <p class="mb-0 small">Sektörel Mükemmeliyet Merkezleri</p>
@@ -127,7 +69,7 @@
                     nitelikli iş gücü yetiştirmek amacıyla kurulmuş modern eğitim merkezleri.
                 </p>
                 <div class="social-links mt-3">
-                    <a href="https://twitter.com/mebgovtr" target="_blank" title="Twitter">
+                    <a href="https://twitter.com/mebgovtr" target="_blank" title="Twitter" class="social-link d-inline-flex align-items-center justify-content-center rounded-circle text-white text-opacity-75 me-1">
                         <i class="fab fa-twitter"></i>
                     </a>
                     <a href="https://www.instagram.com/mebgovtr" target="_blank" title="Instagram">
@@ -147,7 +89,7 @@
                 <h5 class="mb-3 fw-bold">Hızlı Erişim</h5>
                 <ul class="list-unstyled">
                     <li class="mb-2">
-                        <a href="<?php echo BASE_URL; ?>index.php?url=user/main" class="btn-link">
+                        <a href="<?php echo BASE_URL; ?>index.php?url=user/main" class="btn-link text-white text-opacity-75 text-decoration-none fw-medium">
                             <i class="fas fa-home me-2 small"></i>Ana Sayfa
                         </a>
                     </li>
@@ -242,18 +184,6 @@
     <i class="fas fa-arrow-up"></i>
 </button>
 
-<style>
-    /* Back to top button dark mode support */
-    [data-bs-theme="dark"] #backToTop {
-        background-color: var(--bs-primary) !important;
-        border-color: var(--bs-primary) !important;
-    }
-
-    #backToTop:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0, 60, 125, 0.3) !important;
-    }
-</style>
 
 <script>
 // Back to top functionality

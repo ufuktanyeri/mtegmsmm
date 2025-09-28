@@ -17,26 +17,28 @@ class UnifiedViewService
      * Layout türleri
      */
     const LAYOUT_NONE = 'none';           // Layout kullanmaz
-    const LAYOUT_UNIFIED = 'unified';      // unified.php layout
-    const LAYOUT_ADMIN_BS5 = 'admin_bs5';  // admin_bootstrap5.php layout
-    const LAYOUT_ADMIN_TABLER = 'tabler';  // admin_tabler.php layout
+    const LAYOUT_UNIFIED = 'unified';      // unified.php layout (default)
+    const LAYOUT_UNIFIED_MAIN = 'unified_main';  // unified_main.php layout (with sidebar)
+    const LAYOUT_PUBLIC = 'public';        // public.php layout (minimal)
 
     /**
      * View konfigürasyonları
      * Her view için hangi layout kullanılacağını belirtir
      */
     private static $viewConfigs = [
-        // Layout kullanmayan sayfalar
-        'user/login' => self::LAYOUT_NONE,
+        // Layout kullanmayan sayfalar (sadece authentication)
         'user/register' => self::LAYOUT_NONE,
         'user/captcha' => self::LAYOUT_NONE,
-        'user/main' => self::LAYOUT_NONE,
-        'user/haberler' => self::LAYOUT_NONE,
-        'user/haberlist' => self::LAYOUT_NONE,
-        'home/smmnetwork' => self::LAYOUT_NONE,
 
-        // Admin Bootstrap 5 layout kullanan sayfalar
-        'home/index' => self::LAYOUT_ADMIN_BS5,
+        // Public layout kullanan sayfalar
+        'user/login' => self::LAYOUT_PUBLIC,
+        'user/main' => self::LAYOUT_PUBLIC,
+        'user/haberler' => self::LAYOUT_PUBLIC,
+        'user/haberlist' => self::LAYOUT_PUBLIC,
+        'home/smmnetwork' => self::LAYOUT_PUBLIC,
+
+        // Unified layout kullanan sayfalar (default olarak zaten unified kullanılıyor)
+        // 'home/index' => self::LAYOUT_UNIFIED, // Artık default unified kullanıyor
 
         // Varsayılan olarak unified layout kullanacak yeni sistem
         // Diğer tüm sayfalar için default
@@ -47,8 +49,8 @@ class UnifiedViewService
      */
     private static $layoutPaths = [
         self::LAYOUT_UNIFIED => '/layouts/unified.php',
-        self::LAYOUT_ADMIN_BS5 => '/layouts/admin_bootstrap5.php',
-        self::LAYOUT_ADMIN_TABLER => '/layouts/admin_tabler.php'
+        self::LAYOUT_UNIFIED_MAIN => '/layouts/unified_main.php',
+        self::LAYOUT_PUBLIC => '/layouts/public.php'
     ];
 
     /**

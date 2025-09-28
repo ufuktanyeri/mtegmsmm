@@ -17,11 +17,10 @@ ini_set('display_errors', 0);
 // Define base paths
 define('ROOT_DIR', dirname(__DIR__));
 define('APP_DIR', ROOT_DIR . '/app');
-define('CONFIG_DIR', ROOT_DIR . '/_dev/config');
 define('PUBLIC_DIR', __DIR__);
 
 // Load configuration
-$configFile = CONFIG_DIR . '/config.php';
+$configFile = ROOT_DIR . '/app/config/config.php';
 if (!file_exists($configFile)) {
     die('Configuration file not found. Please check your installation.');
 }
@@ -63,22 +62,23 @@ function customErrorHandler($errno, $errstr, $errfile, $errline) {
 
 set_error_handler('customErrorHandler');
 
-// Configure session security
-ini_set('session.use_cookies', 1);
-ini_set('session.use_only_cookies', 1);
-ini_set('session.use_strict_mode', 1);
-ini_set('session.cookie_httponly', 1);
-ini_set('session.cookie_samesite', 'Strict');
-ini_set('session.gc_maxlifetime', SESSION_LIFETIME ?? 3600);
-
-// Set secure cookie flag in production
-if (defined('APP_ENV') && APP_ENV === 'production') {
-    ini_set('session.cookie_secure', 1);
-}
-
-// Start session
+// Start session with proper security settings
 if (session_status() === PHP_SESSION_NONE) {
-    session_name(SESSION_NAME ?? 'MTEGMSMM_SESSION');
+    // Configure session security BEFORE starting session
+    ini_set('session.use_cookies', 1);
+    ini_set('session.use_only_cookies', 1);
+    ini_set('session.use_strict_mode', 1);
+    ini_set('session.cookie_httponly', 1);
+    ini_set('session.cookie_samesite', 'Strict');
+    ini_set('session.gc_maxlifetime', defined('SESSION_LIFETIME') ? SESSION_LIFETIME : 3600);
+
+    // Set secure cookie flag in production
+    if (defined('APP_ENV') && APP_ENV === 'production') {
+        ini_set('session.cookie_secure', 1);
+    }
+
+    // Now start the session
+    session_name(defined('SESSION_NAME') ? SESSION_NAME : 'MTEGMSMM_SESSION');
     session_start();
 
     // Session security: regenerate ID periodically
@@ -112,8 +112,12 @@ if (!isset($_SESSION['csrf_token'])) {
 
 // Define public pages that don't require authentication
 $publicPages = [
-    '',                    // Home/landing page
-    'auth/login',         // Login page
+    '',                    // Home/landing page (redirects to user/main)
+    'user/main',          // Main user page (default home)
+    'user/haberlist',     // News list page (public)
+    'home',               // Home controller default
+    'home/index',         // Home controller index action
+    'user/login',         // Login page
     'auth/logout',        // Logout action
     'auth/register',      // Registration page (if enabled)
     'auth/forgot',        // Forgot password
@@ -127,6 +131,11 @@ $publicPages = [
 // Get current request URL
 $requestUrl = $_GET['url'] ?? '';
 $requestUrl = trim($requestUrl, '/');
+
+// Redirect empty URL to user/main (default home page)
+if (empty($requestUrl)) {
+    $requestUrl = 'user/main';
+}
 
 // Check if authentication is required
 $requiresAuth = true;
@@ -148,7 +157,7 @@ if ($requiresAuth && !isset($_SESSION['user_id'])) {
     $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI'];
 
     // Redirect to login page
-    header('Location: ' . (BASE_URL ?? '/') . 'index.php?url=auth/login');
+    header('Location: ' . (BASE_URL ?? '/') . 'index.php?url=user/login');
     exit;
 }
 
