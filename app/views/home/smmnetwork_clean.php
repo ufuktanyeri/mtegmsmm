@@ -5,7 +5,7 @@ $description = 'Türkiye genelindeki Sektörel Mükemmeliyet Merkezlerinin harit
 $pageTitle = $title;
 $pageDescription = $description;
 
-// Custom CSS for map
+// Additional CSS for the map page
 $additionalCss = '
     #map {
         height: 400px;
@@ -36,17 +36,11 @@ $additionalCss = '
 
     .center-card:hover {
         transform: translateY(-2px);
-    }
-
-    /* Responsive map height */
-    @media (max-width: 768px) {
-        #map {
-            height: 300px;
-        }
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
     }
 ';
 
-// JavaScript for SMM Map
+// JavaScript for the map
 $additionalJs = '
     const smmData = {
         "Ankara": [
@@ -232,9 +226,10 @@ $additionalJs = '
             markers[city] = L.marker(cityCoordinates[city]).addTo(map);
         }
 
-        $("#areaSelect").on("change", function () {
-            const selectedArea = $(this).val();
-            $("#centerList").empty();
+        document.getElementById("areaSelect").addEventListener("change", function () {
+            const selectedArea = this.value;
+            const centerList = document.getElementById("centerList");
+            centerList.innerHTML = "";
 
             for (const city in smmData) {
                 const centers = smmData[city].filter(center => center.fields.includes(selectedArea));
@@ -274,7 +269,7 @@ $additionalJs = '
                                     </div>
                                 </div>
                             </div>`;
-                        $("#centerList").append(cardHtml);
+                        centerList.innerHTML += cardHtml;
                     });
                 } else {
                     markers[city].setOpacity(0.3);
@@ -291,25 +286,25 @@ $additionalJs = '
 ';
 ?>
 
-<!-- Leaflet CSS and JS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css">
+<!-- Leaflet JS -->
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
 
-<!-- Hero Section -->
-<section class="hero-section bg-gradient text-white py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin-top: 76px;">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-3">
-                    <i class="fas fa-map-marked-alt me-3"></i>Türkiye SMM Haritası
-                </h1>
-                <p class="lead mb-0 opacity-90">
-                    Mesleki ve Teknik Eğitim Genel Müdürlüğü<br>Sektörel Mükemmeliyet Merkezleri
-                </p>
+<!-- Main Content Start -->
+
+    <!-- Hero Section -->
+    <div class="hero-section bg-gradient text-white py-4" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <i class="fas fa-map-marked-alt fa-3x mb-3 opacity-75"></i>
+                    <h1 class="h3 fw-bold mb-2">Türkiye Cumhuriyeti Milli Eğitim Bakanlığı</h1>
+                    <p class="lead mb-0">Mesleki ve Teknik Eğitim Genel Müdürlüğü<br>Sektörel Mükemmeliyet Merkezleri</p>
+                </div>
             </div>
         </div>
     </div>
-</section>
 
 <div class="container py-4">
 
@@ -322,20 +317,20 @@ $additionalJs = '
                         Alan Seçin:
                     </label>
                     <select id="areaSelect" class="form-select">
-                        <option value="">Tüm Alanlar</option>   
+                        <option value="">Tüm Alanlar</option>
                         <option value="Bilişim Teknolojileri">Bilişim Teknolojileri</option>
                         <option value="Çocuk Gelişimi ve Eğitimi">Çocuk Gelişimi ve Eğitimi</option>
-                        <option value="Denizcilik">Denizcilik</option>					  
+                        <option value="Denizcilik">Denizcilik</option>
                         <option value="Elektrik Elektronik Teknolojileri">Elektrik Elektronik Teknolojileri</option>
                         <option value="Endüstriyel Otomasyon Teknolojileri">Endüstriyel Otomasyon Teknolojileri</option>
                         <option value="Gemi Yapım">Gemi Yapım</option>
                         <option value="Gıda Teknolojileri">Gıda Teknolojileri</option>
-                        <option value="Güzellik Hizmetleri">Güzellik Hizmetleri</option>				   
-                        <option value="İnşaat Teknolojileri">İnşaat Teknolojileri</option>    
+                        <option value="Güzellik Hizmetleri">Güzellik Hizmetleri</option>
+                        <option value="İnşaat Teknolojileri">İnşaat Teknolojileri</option>
                         <option value="Konaklama ve Seyahat Hizmetleri">Konaklama ve Seyahat Hizmetleri</option>
                         <option value="Kimya Teknolojileri">Kimya Teknolojileri</option>
                         <option value="Makine ve Tasarım Teknolojileri">Makine ve Tasarım Teknolojileri</option>
-                        <option value="Matbaa Teknolojileri">Matbaa Teknolojileri</option>                 
+                        <option value="Matbaa Teknolojileri">Matbaa Teknolojileri</option>
                         <option value="Mesleki Yabancı Dil">Mesleki Yabancı Dil</option>
                         <option value="Mesleki Matematik">Mesleki Matematik</option>
                         <option value="Mesleki Fen Bilimleri">Mesleki Fen Bilimleri</option>
@@ -343,14 +338,14 @@ $additionalJs = '
                         <option value="Metalürji Teknolojileri">Metalürji Teknolojileri</option>
                         <option value="Mobilya ve İç Mekan Tasarımı">Mobilya ve İç Mekan Tasarımı</option>
                         <option value="Moda Tasarım Teknolojileri">Moda Tasarım Teknolojileri</option>
-                        <option value="Motorlu Araçlar Teknolojileri">Motorlu Araçlar Teknolojileri</option>    					
+                        <option value="Motorlu Araçlar Teknolojileri">Motorlu Araçlar Teknolojileri</option>
                         <option value="Plastik Teknolojileri">Plastik Teknolojileri</option>
                         <option value="Raylı Sistemler Teknolojileri">Raylı Sistemler Teknolojileri</option>
                         <option value="Tekstil Teknolojileri">Tekstil Teknolojileri</option>
-                        <option value="Tesisat Teknolojileri ve İklimlendirme">Tesisat Teknolojileri ve İklimlendirme</option>                  
-                        <option value="Uçak Bakım Alanı">Uçak Bakım Alanı</option>					 
+                        <option value="Tesisat Teknolojileri ve İklimlendirme">Tesisat Teknolojileri ve İklimlendirme</option>
+                        <option value="Uçak Bakım Alanı">Uçak Bakım Alanı</option>
                         <option value="Yenilenebilir Enerji Teknolojileri">Yenilenebilir Enerji Teknolojileri</option>
-                        <option value="Yiyecek İçecek Hizmetleri">Yiyecek İçecek Hizmetleri</option>   
+                        <option value="Yiyecek İçecek Hizmetleri">Yiyecek İçecek Hizmetleri</option>
                     </select>
                 </div>
             </div>
@@ -397,3 +392,5 @@ $additionalJs = '
         </div>
     </div>
 </div>
+
+<!-- Main Content End -->

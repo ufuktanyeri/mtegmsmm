@@ -1,0 +1,3885 @@
+{
+    "metadata": {
+        "timestamp": "2025-09-28 07:07:56",
+        "base_directory": "C:\\xampp\\htdocs\\mtegmsmm",
+        "app_directory": "C:\\xampp\\htdocs\\mtegmsmm/app",
+        "php_version": "8.2.12"
+    },
+    "statistics": {
+        "total_files": 704,
+        "files_with_includes": 90,
+        "files_without_includes": 614,
+        "total_includes": 256,
+        "average_includes": 2.84,
+        "max_includes": 22,
+        "max_includes_file": "app/controllers/UserController.php"
+    },
+    "files": [
+        {
+            "file": "app/config/config.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/controllers/ActionController.php",
+            "includes": [
+                "BaseController.php",
+                "../models/ActionModel.php",
+                "../models/CoveModel.php",
+                "../models/ObjectiveModel.php",
+                "../models/AimModel.php",
+                "../validators/ActionValidator.php",
+                "../entities/Permission.php",
+                "../models/DetailedLogModel.php",
+                "app/config/config.php"
+            ],
+            "include_count": 9
+        },
+        {
+            "file": "app/controllers/AimController.php",
+            "includes": [
+                "BaseController.php",
+                "../models/AimModel.php",
+                "../models/CoveModel.php",
+                "../models/IndicatorModel.php",
+                "../models/ActionModel.php",
+                "../models/RegulationModel.php",
+                "../models/UserModel.php",
+                "../validators/AimValidator.php",
+                "../entities/Permission.php",
+                "../models/DetailedLogModel.php",
+                "../lib/dompdf/vendor/autoload.php",
+                "../lib/PHPWord/src/PhpWord/Autoloader.php"
+            ],
+            "include_count": 12
+        },
+        {
+            "file": "app/controllers/AuthController.php",
+            "includes": [
+                "BaseController.php",
+                "../../includes/SessionManager.php",
+                "../../includes/PermissionHelper.php",
+                "../../includes/Database.php"
+            ],
+            "include_count": 4
+        },
+        {
+            "file": "app/controllers/BaseController.php",
+            "includes": [
+                "../services/UnifiedViewService.php",
+                "../../includes/SessionManager.php",
+                "../../includes/PermissionHelper.php"
+            ],
+            "include_count": 3
+        },
+        {
+            "file": "app/controllers/ContactController.php",
+            "includes": [
+                "BaseController.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/controllers/CoveController.php",
+            "includes": [
+                "BaseController.php",
+                "../models/CoveModel.php",
+                "../models/FieldModel.php",
+                "../entities/Cove.php",
+                "../validators/CoveValidator.php",
+                "../entities/Permission.php",
+                "../models/DetailedLogModel.php",
+                "../../includes/Sanitizer.php"
+            ],
+            "include_count": 8
+        },
+        {
+            "file": "app/controllers/DetailedlogController.php",
+            "includes": [
+                "BaseController.php",
+                "../models/DetailedLogModel.php",
+                "../entities/DetailedLog.php",
+                "../entities/Permission.php"
+            ],
+            "include_count": 4
+        },
+        {
+            "file": "app/controllers/DocumentStrategyController.php",
+            "includes": [
+                "BaseController.php",
+                "../models/DocumentStrategyModel.php",
+                "../validators/DocumentStrategyValidator.php",
+                "../entities/Permission.php"
+            ],
+            "include_count": 4
+        },
+        {
+            "file": "app/controllers/FieldController.php",
+            "includes": [
+                "BaseController.php",
+                "../models/FieldModel.php",
+                "../entities/Field.php",
+                "../validators/FieldValidator.php",
+                "../entities/Permission.php"
+            ],
+            "include_count": 5
+        },
+        {
+            "file": "app/controllers/HealthController.php",
+            "includes": [
+                "BaseController.php",
+                "app/config/config.php"
+            ],
+            "include_count": 2
+        },
+        {
+            "file": "app/controllers/HelpController.php",
+            "includes": [
+                "BaseController.php",
+                "../models/FaqModel.php",
+                "../models/SupportSessionModel.php",
+                "../models/SupportMessageModel.php"
+            ],
+            "include_count": 4
+        },
+        {
+            "file": "app/controllers/HomeController.php",
+            "includes": [
+                "BaseController.php",
+                "../models/UserModel.php",
+                "../entities/Permission.php",
+                "../entities/Role.php",
+                "../entities/User.php"
+            ],
+            "include_count": 5
+        },
+        {
+            "file": "app/controllers/IndicatorController.php",
+            "includes": [
+                "BaseController.php",
+                "../models/IndicatorModel.php",
+                "../models/CoveModel.php",
+                "../models/AimModel.php",
+                "../models/ObjectiveModel.php",
+                "../models/FieldModel.php",
+                "../models/IndicatorTypeModel.php",
+                "../entities/Indicator.php",
+                "config/config.php"
+            ],
+            "include_count": 9
+        },
+        {
+            "file": "app/controllers/LogController.php",
+            "includes": [
+                "BaseController.php",
+                "../models/LogModel.php",
+                "../entities/Log.php",
+                "../entities/Permission.php"
+            ],
+            "include_count": 4
+        },
+        {
+            "file": "app/controllers/NewsController.php",
+            "includes": [
+                "BaseController.php",
+                "../models/NewsModel.php",
+                "../models/GalleryModel.php",
+                "../entities/Permission.php",
+                "../validators/NewsValidator.php"
+            ],
+            "include_count": 5
+        },
+        {
+            "file": "app/controllers/ObjectiveController.php",
+            "includes": [
+                "BaseController.php",
+                "../models/ObjectiveModel.php",
+                "../models/AimModel.php",
+                "../models/CoveModel.php",
+                "../entities/Objective.php",
+                "../entities/Aim.php"
+            ],
+            "include_count": 6
+        },
+        {
+            "file": "app/controllers/RegulationController.php",
+            "includes": [
+                "BaseController.php",
+                "../models/RegulationModel.php",
+                "../validators/RegulationValidator.php",
+                "../entities/Permission.php"
+            ],
+            "include_count": 4
+        },
+        {
+            "file": "app/controllers/UserController.php",
+            "includes": [
+                "BaseController.php",
+                "../../includes/Pepper.php",
+                "../models/UserModel.php",
+                "../models/CoveModel.php",
+                "../models/RoleModel.php",
+                "../models/LogModel.php",
+                "../models/DetailedLogModel.php",
+                "../validators/LoginValidator.php",
+                "../validators/RegisterValidator.php",
+                "../validators/UserValidator.php",
+                "../validators/UserManageUpdateValidator.php",
+                "../validators/ProfileUpdateValidator.php",
+                "../entities/Permission.php",
+                "../models/PermissionModel.php",
+                "../models/NewsModel.php",
+                "../models/GalleryModel.php",
+                "../../includes/Recaptcha.php",
+                "../../includes/Security.php",
+                "../../includes/SecurityLogger.php",
+                "../../includes/AccountSecurity.php",
+                "../../includes/SessionManager.php",
+                "../../includes/PasswordPolicy.php"
+            ],
+            "include_count": 22
+        },
+        {
+            "file": "app/entities/Action.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/Aim.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/Cove.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/DetailedLog.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/DocumentStrategy.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/Field.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/Gallery.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/Indicator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/IndicatorType.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/Log.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/News.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/Objective.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/Permission.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/Regulation.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/Role.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/entities/User.php",
+            "includes": [
+                "Cove.php",
+                "Role.php",
+                "Permission.php"
+            ],
+            "include_count": 3
+        },
+        {
+            "file": "app/helpers/AssetLoader.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/helpers/Bootstrap5Migration.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/helpers/functions.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/helpers/MenuHelper.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/autoload.inc.php",
+            "includes": [
+                "vendor/autoload.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/lib/dompdf/vendor/autoload.php",
+            "includes": [
+                "composer/autoload_real.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/lib/dompdf/vendor/composer/autoload_classmap.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/composer/autoload_namespaces.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/composer/autoload_psr4.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/composer/autoload_real.php",
+            "includes": [
+                "ClassLoader.php",
+                "platform_check.php",
+                "autoload_static.php",
+                "autoload_namespaces.php",
+                "autoload_psr4.php",
+                "autoload_classmap.php"
+            ],
+            "include_count": 6
+        },
+        {
+            "file": "app/lib/dompdf/vendor/composer/autoload_static.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/composer/ClassLoader.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/composer/installed.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/composer/InstalledVersions.php",
+            "includes": [
+                "installed.php",
+                "composer/installed.php"
+            ],
+            "include_count": 2
+        },
+        {
+            "file": "app/lib/dompdf/vendor/composer/platform_check.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/lib/Cpdf.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Adapter/CPDF.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Adapter/GD.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Adapter/PDFLib.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Canvas.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/CanvasFactory.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Cellmap.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/AttributeTranslator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/Color.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/Content/Attr.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/Content/CloseQuote.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/Content/ContentPart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/Content/Counter.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/Content/Counters.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/Content/NoCloseQuote.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/Content/NoOpenQuote.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/Content/OpenQuote.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/Content/StringPart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/Content/Url.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/Style.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Css/Stylesheet.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Dompdf.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Exception/ImageException.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Exception.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FontMetrics.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Frame/Factory.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Frame/FrameListIterator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Frame/FrameTree.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Frame/FrameTreeIterator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Frame.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameDecorator/AbstractFrameDecorator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameDecorator/Block.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameDecorator/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameDecorator/Inline.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameDecorator/ListBullet.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameDecorator/ListBulletImage.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameDecorator/NullFrameDecorator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameDecorator/Page.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameDecorator/Table.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameDecorator/TableCell.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameDecorator/TableRow.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameDecorator/TableRowGroup.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameDecorator/Text.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameReflower/AbstractFrameReflower.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameReflower/Block.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameReflower/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameReflower/Inline.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameReflower/ListBullet.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameReflower/NullFrameReflower.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameReflower/Page.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameReflower/Table.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameReflower/TableCell.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameReflower/TableRow.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameReflower/TableRowGroup.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/FrameReflower/Text.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Helpers.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Image/Cache.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/JavascriptEmbedder.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/LineBox.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Options.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/PhpEvaluator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Positioner/Absolute.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Positioner/AbstractPositioner.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Positioner/Block.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Positioner/Fixed.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Positioner/Inline.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Positioner/ListBullet.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Positioner/NullPositioner.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Positioner/TableCell.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Positioner/TableRow.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Renderer/AbstractRenderer.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Renderer/Block.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Renderer/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Renderer/Inline.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Renderer/ListBullet.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Renderer/TableCell.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Renderer/TableRow.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Renderer/TableRowGroup.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Renderer/Text.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/dompdf/src/Renderer.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/AdobeFontMetrics.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/BinaryStream.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/EncodingMap.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/EOT/File.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/EOT/Header.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Exception/FontNotFoundException.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Font.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Glyph/Outline.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Glyph/OutlineComponent.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Glyph/OutlineComposite.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Glyph/OutlineSimple.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Header.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/OpenType/File.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/OpenType/TableDirectoryEntry.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/DirectoryEntry.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Table.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/cmap.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/cvt.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/fpgm.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/glyf.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/head.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/hhea.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/hmtx.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/kern.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/loca.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/maxp.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/name.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/nameRecord.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/os2.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/post.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/Table/Type/prep.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/TrueType/Collection.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/TrueType/File.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/TrueType/Header.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/TrueType/TableDirectoryEntry.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/WOFF/File.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/WOFF/Header.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-font-lib/src/FontLib/WOFF/TableDirectoryEntry.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/CssLength.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/DefaultStyle.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Document.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Gradient/Stop.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Style.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Surface/CPdf.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Surface/SurfaceCpdf.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Surface/SurfaceInterface.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Surface/SurfacePDFLib.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/AbstractTag.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Anchor.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Circle.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/ClipPath.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Ellipse.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Group.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Line.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/LinearGradient.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Path.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Polygon.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Polyline.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/RadialGradient.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Rect.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Shape.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Stop.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/StyleTag.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Symbol.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/Text.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/dompdf/php-svg-lib/src/Svg/Tag/UseTag.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/bin/entities.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Elements.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Entities.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Exception.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/InstructionProcessor.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Parser/CharacterReference.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Parser/DOMTreeBuilder.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Parser/EventHandler.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Parser/FileInputStream.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Parser/InputStream.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Parser/ParseError.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Parser/Scanner.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Parser/StringInputStream.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Parser/Tokenizer.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Parser/TreeBuildingRules.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Parser/UTF8Utils.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Serializer/HTML5Entities.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Serializer/OutputRules.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Serializer/RulesInterface.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5/Serializer/Traverser.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/masterminds/html5/src/HTML5.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Comment/Comment.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Comment/Commentable.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/CSSList/AtRuleBlockList.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/CSSList/CSSBlockList.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/CSSList/CSSList.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/CSSList/Document.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/CSSList/KeyFrame.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/OutputFormat.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/OutputFormatter.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Parser.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Parsing/Anchor.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Parsing/OutputException.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Parsing/ParserState.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Parsing/SourceException.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Parsing/UnexpectedEOFException.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Parsing/UnexpectedTokenException.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Property/AtRule.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Property/Charset.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Property/CSSNamespace.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Property/Import.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Property/KeyframeSelector.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Property/Selector.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Renderable.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Rule/Rule.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/RuleSet/AtRuleSet.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/RuleSet/DeclarationBlock.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/RuleSet/RuleSet.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Settings.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Value/CalcFunction.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Value/CalcRuleValueList.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Value/Color.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Value/CSSFunction.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Value/CSSString.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Value/LineName.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Value/PrimitiveValue.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Value/RuleValueList.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Value/Size.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Value/URL.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Value/Value.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/dompdf/vendor/sabberworm/php-css-parser/src/Value/ValueList.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/.php-cs-fixer.dist.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Autoloader.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Collection/AbstractCollection.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Collection/Bookmarks.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Collection/Charts.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Collection/Comments.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Collection/Endnotes.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Collection/Footnotes.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Collection/Titles.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/ComplexType/FootnoteProperties.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/ComplexType/ProofState.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/ComplexType/RubyProperties.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/ComplexType/TblWidth.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/ComplexType/TrackChangesView.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/AbstractContainer.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/AbstractElement.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Bookmark.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Cell.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Chart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/CheckBox.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Comment.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Endnote.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Field.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Footer.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Footnote.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/FormField.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Formula.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Header.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Line.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Link.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/ListItem.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/ListItemRun.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/OLEObject.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/PageBreak.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/PreserveText.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Row.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Ruby.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/SDT.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Section.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Shape.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Table.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Text.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/TextBox.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/TextBreak.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/TextRun.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/Title.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/TOC.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Element/TrackChange.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Escaper/AbstractEscaper.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Escaper/EscaperInterface.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Escaper/RegExp.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Escaper/Rtf.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Escaper/Xml.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Exception/CopyFileException.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Exception/CreateTemporaryFileException.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Exception/Exception.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Exception/InvalidImageException.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Exception/InvalidObjectException.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Exception/InvalidStyleException.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Exception/UnsupportedImageTypeException.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/IOFactory.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Media.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Metadata/Compatibility.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Metadata/DocInfo.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Metadata/Protection.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Metadata/Settings.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/PhpWord.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/AbstractReader.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/HTML.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/MsDoc.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/ODText/AbstractPart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/ODText/Content.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/ODText/Meta.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/ODText.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/ReaderInterface.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/RTF/Document.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/RTF.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/Word2007/AbstractPart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/Word2007/Comments.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/Word2007/DocPropsApp.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/Word2007/DocPropsCore.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/Word2007/DocPropsCustom.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/Word2007/Document.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/Word2007/Endnotes.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/Word2007/Footnotes.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/Word2007/Numbering.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/Word2007/Settings.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/Word2007/Styles.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Reader/Word2007.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Settings.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Shared/AbstractEnum.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Shared/Converter.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Shared/Css.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Shared/Drawing.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Shared/Html.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Shared/Microsoft/PasswordEncoder.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Shared/OLERead.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Shared/PCLZip/pclzip.lib.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Shared/Text.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Shared/Validate.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Shared/XMLReader.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Shared/XMLWriter.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Shared/ZipArchive.php",
+            "includes": [
+                "PCLZip/pclzip.lib.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/SimpleType/Border.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/SimpleType/DocProtect.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/SimpleType/Jc.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/SimpleType/JcTable.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/SimpleType/LineSpacingRule.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/SimpleType/NumberFormat.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/SimpleType/TblWidth.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/SimpleType/TextAlignment.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/SimpleType/VerticalJc.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/SimpleType/Zoom.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/AbstractStyle.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Border.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Cell.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Chart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Extrusion.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Fill.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Font.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Frame.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Indentation.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Language.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Line.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/LineNumbering.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/ListItem.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Numbering.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/NumberingLevel.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Outline.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Paper.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Paragraph.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Row.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Section.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Shading.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Shadow.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Shape.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Spacing.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Tab.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/Table.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/TablePosition.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/TextBox.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style/TOC.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Style.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/TemplateProcessor.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/AbstractWriter.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Element/AbstractElement.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Element/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Element/Text.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Part/AbstractPart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Part/Content.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Part/ContentXhtml.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Part/Manifest.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Part/Meta.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Part/Mimetype.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Part/Nav.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Part.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Style/AbstractStyle.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Style/Font.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Style/Paragraph.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3/Style/Table.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/EPub3.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/AbstractElement.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/Bookmark.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/Container.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/Endnote.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/Footnote.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/Link.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/ListItem.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/ListItemRun.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/PageBreak.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/Ruby.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/Table.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/Text.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/TextBreak.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/TextRun.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Element/Title.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Part/AbstractPart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Part/Body.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Part/Head.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Style/AbstractStyle.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Style/Font.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Style/Generic.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Style/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Style/Paragraph.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML/Style/Table.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/HTML.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/AbstractElement.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/Container.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/Field.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/Formula.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/Link.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/ListItemRun.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/PageBreak.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/Ruby.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/Table.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/Text.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/TextBreak.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/TextRun.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Element/Title.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Part/AbstractPart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Part/Content.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Part/Manifest.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Part/Meta.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Part/Mimetype.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Part/Styles.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Style/AbstractStyle.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Style/Font.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Style/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Style/Numbering.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Style/Paragraph.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Style/Section.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText/Style/Table.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/ODText.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/PDF/AbstractRenderer.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/PDF/DomPDF.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/PDF/MPDF.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/PDF/TCPDF.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/PDF.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Element/AbstractElement.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Element/Container.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Element/Field.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Element/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Element/Link.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Element/ListItem.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Element/PageBreak.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Element/Ruby.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Element/Table.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Element/Text.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Element/TextBreak.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Element/TextRun.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Element/Title.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Part/AbstractPart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Part/Document.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Part/Header.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Style/AbstractStyle.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Style/Border.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Style/Font.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Style/Indentation.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Style/Paragraph.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Style/Section.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF/Style/Tab.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/RTF.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/AbstractElement.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Bookmark.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Chart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/CheckBox.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Container.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Endnote.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Field.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Footnote.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/FormField.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Formula.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Line.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Link.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/ListItem.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/ListItemRun.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/OLEObject.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/PageBreak.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/ParagraphAlignment.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/PreserveText.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Ruby.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/SDT.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Shape.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Table.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/TableAlignment.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Text.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/TextBox.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/TextBreak.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/TextRun.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/Title.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Element/TOC.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/AbstractPart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/Chart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/Comments.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/ContentTypes.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/DocPropsApp.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/DocPropsCore.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/DocPropsCustom.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/Document.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/Endnotes.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/FontTable.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/Footer.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/Footnotes.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/Header.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/Numbering.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/Rels.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/RelsDocument.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/RelsPart.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/Settings.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/Styles.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/Theme.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Part/WebSettings.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/AbstractStyle.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Cell.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Extrusion.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Fill.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Font.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Frame.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Image.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Indentation.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Line.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/LineNumbering.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/MarginBorder.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Outline.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Paragraph.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Row.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Section.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Shading.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Shadow.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Shape.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Spacing.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Tab.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/Table.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/TablePosition.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007/Style/TextBox.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/Word2007.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/WriterInterface.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/lib/PHPWord/src/PhpWord/Writer/WriterPartInterface.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/models/ActionModel.php",
+            "includes": [
+                "../../includes/Database.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/models/AimModel.php",
+            "includes": [
+                "BaseModel.php",
+                "ObjectiveModel.php",
+                "../../includes/Database.php",
+                "../entities/Aim.php"
+            ],
+            "include_count": 4
+        },
+        {
+            "file": "app/models/BaseModel.php",
+            "includes": [
+                "../../includes/Database.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/models/CoveModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../../includes/Database.php",
+                "../entities/Cove.php",
+                "FieldModel.php"
+            ],
+            "include_count": 4
+        },
+        {
+            "file": "app/models/DetailedLogModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../../includes/Database.php",
+                "../entities/DetailedLog.php"
+            ],
+            "include_count": 3
+        },
+        {
+            "file": "app/models/DocumentStrategyModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../../includes/Database.php",
+                "../entities/DocumentStrategy.php"
+            ],
+            "include_count": 3
+        },
+        {
+            "file": "app/models/FaqModel.php",
+            "includes": [
+                "BaseModel.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/models/FieldModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../../includes/Database.php",
+                "../entities/Field.php"
+            ],
+            "include_count": 3
+        },
+        {
+            "file": "app/models/GalleryModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../../includes/Database.php",
+                "../entities/Gallery.php"
+            ],
+            "include_count": 3
+        },
+        {
+            "file": "app/models/IndicatorModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../entities/Indicator.php"
+            ],
+            "include_count": 2
+        },
+        {
+            "file": "app/models/IndicatorTypeModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../../includes/Database.php",
+                "../entities/IndicatorType.php"
+            ],
+            "include_count": 3
+        },
+        {
+            "file": "app/models/LogModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../../includes/Database.php",
+                "../entities/Log.php"
+            ],
+            "include_count": 3
+        },
+        {
+            "file": "app/models/NewsModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../../includes/Database.php",
+                "../entities/News.php"
+            ],
+            "include_count": 3
+        },
+        {
+            "file": "app/models/ObjectiveModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../../includes/Database.php",
+                "../entities/Objective.php"
+            ],
+            "include_count": 3
+        },
+        {
+            "file": "app/models/PermissionModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../../includes/Database.php",
+                "../entities/Permission.php"
+            ],
+            "include_count": 3
+        },
+        {
+            "file": "app/models/RegulationModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../../includes/Database.php",
+                "../entities/Regulation.php"
+            ],
+            "include_count": 3
+        },
+        {
+            "file": "app/models/RoleModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../../includes/Database.php",
+                "../entities/Role.php",
+                "../entities/Permission.php"
+            ],
+            "include_count": 4
+        },
+        {
+            "file": "app/models/SupportMessageModel.php",
+            "includes": [
+                "BaseModel.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/models/SupportSessionModel.php",
+            "includes": [
+                "BaseModel.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/models/UserModel.php",
+            "includes": [
+                "BaseModel.php",
+                "../../includes/Database.php",
+                "../entities/User.php",
+                "../entities/Role.php",
+                "../entities/Permission.php",
+                "../entities/Cove.php"
+            ],
+            "include_count": 6
+        },
+        {
+            "file": "app/router.php",
+            "includes": [
+                "views/home/error.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/services/NavbarService.php",
+            "includes": [
+                "config/config.php",
+                "../includes/PermissionHelper.php"
+            ],
+            "include_count": 2
+        },
+        {
+            "file": "app/services/ReportService.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/services/TemplateService.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/services/UIComponentService.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/services/UnifiedViewService.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/ActionValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/AimValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/CoveValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/DocumentStrategyValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/FieldValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/IndicatorValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/LoginValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/NewsValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/ObjectiveValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/ProfileUpdateValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/RegisterValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/RegulationValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/UserManageUpdateValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/validators/UserValidator.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/action/adminTaskList.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/action/calendar.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/action/calendarAdmin.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/action/create.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/action/edit.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/action/index.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/action/taskList.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/action/upload.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/aim/create.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/aim/edit.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/aim/getRegulations.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/aim/index.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/BaseView.php",
+            "includes": [
+                "../services/UnifiedViewService.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/components/footer.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/components/header.php",
+            "includes": [
+                "../../services/TemplateService.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/components/hero.php",
+            "includes": [
+                "components/hero.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/components/navbar.php",
+            "includes": [
+                "../../../includes/PermissionHelper.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/components/navbar_enhanced.php",
+            "includes": [
+                "../../services/NavbarService.php",
+                "../../../includes/PermissionHelper.php"
+            ],
+            "include_count": 2
+        },
+        {
+            "file": "app/views/components/navbar_with_sidebar.php",
+            "includes": [
+                "../../../includes/PermissionHelper.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/components/scripts.php",
+            "includes": [
+                "../../services/TemplateService.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/components/sidebar.php",
+            "includes": [
+                "../../services/UIComponentService.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/components/sidebar_menu.php",
+            "includes": [
+                "../../../includes/PermissionHelper.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/contact/index.php",
+            "includes": [
+                "../layouts/unified.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/cove/create.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/cove/edit.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/cove/index.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/detailedlog/index.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/documentStrategy/create.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/documentStrategy/delete.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/documentStrategy/edit.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/documentStrategy/index.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/field/create.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/field/delete.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/field/edit.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/field/index.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/help/faq_manage.php",
+            "includes": [
+                "../layouts/unified.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/help/index.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/help/sessions.php",
+            "includes": [
+                "../layouts/unified.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/home/error.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/home/index.php",
+            "includes": [
+                "../../../includes/AssetManager.php",
+                "../../../includes/PermissionHelper.php"
+            ],
+            "include_count": 2
+        },
+        {
+            "file": "app/views/home/smmnetwork.php",
+            "includes": [
+                "../components/header.php",
+                "../components/navbar.php",
+                "../components/hero.php",
+                "../components/footer.php",
+                "../components/scripts.php"
+            ],
+            "include_count": 5
+        },
+        {
+            "file": "app/views/indicator/adminReport.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/indicator/create.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/indicator/edit.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/indicator/index.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/layouts/admin.php",
+            "includes": [
+                "unified.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/layouts/admin_bootstrap5.php",
+            "includes": [
+                "unified.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/layouts/admin_sidebar.php",
+            "includes": [
+                "../components/navbar_with_sidebar.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/layouts/admin_tabler.php",
+            "includes": [
+                "unified.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/layouts/main.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/layouts/main_v2.php",
+            "includes": [
+                "helpers/MenuHelper.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/layouts/public.php",
+            "includes": [
+                "../components/navbar.php",
+                "../components/footer.php"
+            ],
+            "include_count": 2
+        },
+        {
+            "file": "app/views/layouts/unified.php",
+            "includes": [
+                "../../../includes/PermissionHelper.php",
+                "../components/header.php",
+                "../components/navbar.php",
+                "../components/footer.php",
+                "../components/scripts.php"
+            ],
+            "include_count": 5
+        },
+        {
+            "file": "app/views/layouts/unified_main.php",
+            "includes": [
+                "../components/navbar_with_sidebar.php",
+                "../components/navbar.php",
+                "../components/sidebar_menu.php",
+                "../components/footer.php"
+            ],
+            "include_count": 4
+        },
+        {
+            "file": "app/views/log/index.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/news/create.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/news/details.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/news/edit.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/news/index.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/objective/create.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/objective/edit.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/objective/index.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/objective/list.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/regulation/create.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/regulation/edit.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/regulation/index.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/user/captcha.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/user/create.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/user/createPermission.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/user/createRole.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/user/delete.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/user/edit.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/user/editPermission.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/user/editProfile.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/user/editRole.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/user/haberler.php",
+            "includes": [
+                "../components/header.php",
+                "../components/navbar.php",
+                "../components/footer.php",
+                "../components/scripts.php"
+            ],
+            "include_count": 4
+        },
+        {
+            "file": "app/views/user/haberlist.php",
+            "includes": [
+                "../components/header.php",
+                "../components/navbar.php",
+                "../components/footer.php",
+                "../components/scripts.php"
+            ],
+            "include_count": 4
+        },
+        {
+            "file": "app/views/user/login.php",
+            "includes": [
+                "../components/header.php",
+                "../components/navbar.php",
+                "../components/hero.php",
+                "../components/footer.php",
+                "../components/scripts.php"
+            ],
+            "include_count": 5
+        },
+        {
+            "file": "app/views/user/main.php",
+            "includes": [
+                "../components/header.php",
+                "../components/navbar.php",
+                "../components/hero.php",
+                "../components/footer.php",
+                "../components/scripts.php"
+            ],
+            "include_count": 5
+        },
+        {
+            "file": "app/views/user/manage.php",
+            "includes": [
+                "../../../includes/AssetManager.php",
+                "../../../includes/PermissionHelper.php"
+            ],
+            "include_count": 2
+        },
+        {
+            "file": "app/views/user/permissions.php",
+            "includes": [
+                "../../../includes/AssetManager.php"
+            ],
+            "include_count": 1
+        },
+        {
+            "file": "app/views/user/register.php",
+            "includes": [],
+            "include_count": 0
+        },
+        {
+            "file": "app/views/user/roles.php",
+            "includes": [],
+            "include_count": 0
+        }
+    ]
+}

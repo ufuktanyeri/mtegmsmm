@@ -38,7 +38,7 @@ class IndicatorController extends BaseController
 
         // Login kontrol
         if (!isset($_SESSION['user_id'])) {
-            header('Location: index.php?url=auth/login');
+            header('Location: index.php?url=user/login');
             exit();
         }
 
@@ -58,7 +58,7 @@ class IndicatorController extends BaseController
         }
 
         if (!isset($_SESSION['user_id'])) {
-            header('Location: index.php?url=auth/login');
+            header('Location: index.php?url=user/login');
             exit();
         }
 
@@ -95,16 +95,23 @@ class IndicatorController extends BaseController
             $coves       = $this->coveModel->getAllCoves();
             $objectives  = method_exists($this->objectiveModel, 'getAllObjectives') ? $this->objectiveModel->getAllObjectives() : [];
 
-            $this->render('indicator/index', [
-                'indicators' => $indicators,
-                'coves' => $coves,
-                'objectives' => $objectives,
-                'isAdmin' => true,
-                'isSuperAdmin' => $isSuperAdmin,
-                'aimid' => $aimIdParam,
-                'title' => 'Performans Göstergeleri' . ($isSuperAdmin ? ' (SuperAdmin)' : ' (Admin)'),
-                'error' => ''
-            ]);
+            // Breadcrumb data
+            $this->data['breadcrumb'] = [
+                ['title' => 'Stratejik Yönetim', 'url' => ''],
+                ['title' => 'Performans Göstergeleri', 'url' => '']
+            ];
+
+            // Add other data to $this->data
+            $this->data['indicators'] = $indicators;
+            $this->data['coves'] = $coves;
+            $this->data['objectives'] = $objectives;
+            $this->data['isAdmin'] = true;
+            $this->data['isSuperAdmin'] = $isSuperAdmin;
+            $this->data['aimid'] = $aimIdParam;
+            $this->data['title'] = 'Performans Göstergeleri' . ($isSuperAdmin ? ' (SuperAdmin)' : ' (Admin)');
+            $this->data['error'] = '';
+
+            $this->render('indicator/index', $this->data);
             return;
         }
 
@@ -113,29 +120,43 @@ class IndicatorController extends BaseController
 
         if (!$coveId) {
             // ✅ DÜZELTME: Yetki hatası yerine boş liste göster
-            $this->render('indicator/index', [
-                'indicators' => [],
-                'coves' => [],
-                'objectives' => [],
-                'isAdmin' => false,
-                'aimid' => $aimIdParam,
-                'title' => 'Performans Göstergeleri',
-                'error' => 'Henüz bir merkeze atanmamışsınız. Lütfen yöneticinizle iletişime geçin.'
-            ]);
+            // Breadcrumb data
+            $this->data['breadcrumb'] = [
+                ['title' => 'Stratejik Yönetim', 'url' => ''],
+                ['title' => 'Performans Göstergeleri', 'url' => '']
+            ];
+
+            // Add other data to $this->data
+            $this->data['indicators'] = [];
+            $this->data['coves'] = [];
+            $this->data['objectives'] = [];
+            $this->data['isAdmin'] = false;
+            $this->data['aimid'] = $aimIdParam;
+            $this->data['title'] = 'Performans Göstergeleri';
+            $this->data['error'] = 'Henüz bir merkeze atanmamışsınız. Lütfen yöneticinizle iletişime geçin.';
+
+            $this->render('indicator/index', $this->data);
             return;
         }
 
         $indicators = $this->model->getIndicatorsByCoveId($coveId);
         $objectives = method_exists($this->objectiveModel, 'getObjectivesByCoveId') ? $this->objectiveModel->getObjectivesByCoveId($coveId) : [];
 
-        $this->render('indicator/index', [
-            'indicators' => $indicators,
-            'coveId' => $coveId,
-            'objectives' => $objectives,
-            'isAdmin' => false,
-            'aimid' => $aimIdParam,
-            'title' => 'Performans Göstergeleri'
-        ]);
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Stratejik Yönetim', 'url' => ''],
+            ['title' => 'Performans Göstergeleri', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['indicators'] = $indicators;
+        $this->data['coveId'] = $coveId;
+        $this->data['objectives'] = $objectives;
+        $this->data['isAdmin'] = false;
+        $this->data['aimid'] = $aimIdParam;
+        $this->data['title'] = 'Performans Göstergeleri';
+
+        $this->render('indicator/index', $this->data);
     }
 
     /**
@@ -591,7 +612,7 @@ class IndicatorController extends BaseController
             }
 
             // Yoksa direkt DB'den çek
-            require_once __DIR__ . '/../../config/config.php';
+            require_once dirname(__DIR__) . '/config/config.php';
 
             $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4";
             $pdo = new PDO($dsn, DB_USER, DB_PASS, [

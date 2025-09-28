@@ -43,7 +43,19 @@
       "Bash(clear)",
       "Bash(git checkout:*)",
       "Bash(vendor\\bin\\phpstan.bat analyse:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Read(//c/Users/proje-bap/**)",
+      "Bash(del nul)",
+      "Bash(for:*)",
+      "Bash(then rmdir _dev/$dir)",
+      "Bash(else echo \"Not empty: $dir\")",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(do mkdir -p _dev/backup/$dir)",
+      "Bash(xargs:*)",
+      "Bash(cat:*)",
+      "Bash(del update_field_breadcrumb.php)",
+      "Bash(test:*)"
     ],
     "deny": [],
     "ask": []

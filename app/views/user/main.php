@@ -1,11 +1,9 @@
 <?php
-header('X-Frame-Options: SAMEORIGIN');
-header("Content-Security-Policy: frame-ancestors 'self'");
-
-// Page configuration
+// Page configuration for public layout
 $title = 'Ana Sayfa';
 $description = 'Milli Eğitim Bakanlığı Sektörel Mükemmeliyet Merkezleri - Nitelikli iş gücü yetiştiriyoruz.';
-$bodyClass = 'hold-transition layout-fixed home-page';
+$pageTitle = $title;
+$pageDescription = $description;
 
 // Check if user is logged in
 $isLoggedIn = isset($_SESSION['username']);
@@ -185,25 +183,21 @@ $additionalJs = '
     });
 ';
 
-// Load header component
-include __DIR__ . '/../components/header.php';
 ?>
 
-<div class="wrapper">
-    <?php include __DIR__ . '/../components/navbar.php'; ?>
+<!-- Main Content Start -->
 
-    <?php
-    // Hero section configuration
-    $heroConfig = [
-        'title' => 'Milli Eğitim Bakanlığı<br>Mesleki ve Teknik Eğitim Genel Müdürlüğü',
-        'subtitle' => 'Sektörel Mükemmeliyet Merkezleri ile nitelikli iş gücü yetiştiriyoruz.<br>Modern eğitim anlayışı ve sektör işbirliği ile geleceği şekillendiriyoruz.',
-        'icon' => '',  // No icon for main page
-        'gradient' => true,
-        'type' => 'section',
-        'classes' => 'main-hero'
-    ];
-    include __DIR__ . '/../components/hero.php';
-    ?>
+    <!-- Hero Section -->
+    <section class="hero-section bg-gradient text-white py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding-top: 100px !important; padding-bottom: 100px !important;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-3">Milli Eğitim Bakanlığı<br>Mesleki ve Teknik Eğitim Genel Müdürlüğü</h1>
+                    <p class="lead mb-4">Sektörel Mükemmeliyet Merkezleri ile nitelikli iş gücü yetiştiriyoruz.<br>Modern eğitim anlayışı ve sektör işbirliği ile geleceği şekillendiriyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Action Buttons Section -->
     <section class="action-buttons-section" style="margin-top: -50px; position: relative; z-index: 10;">
@@ -419,12 +413,4 @@ include __DIR__ . '/../components/header.php';
         </div>
     </section>
 
-    <!-- Footer included by unified layout -->
-</div>
-<!-- ./wrapper -->
-
-<?php
-// Load footer and scripts components
-include __DIR__ . '/../components/footer.php';
-include __DIR__ . '/../components/scripts.php';
-?>
+<!-- Main Content End -->

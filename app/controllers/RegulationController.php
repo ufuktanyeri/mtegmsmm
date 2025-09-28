@@ -45,7 +45,21 @@ class RegulationController extends BaseController {
         $userCoveId = $model->getCoveIdByUserId($_SESSION['user_id']);
         $regulations = $isAdmin ? $model->getAllRegulations() : $model->getRegulationsByCoveId($userCoveId);
         $error = isset($params['error']) ? $params['error'] : "";
-        $this->render('regulation/index', ['title' => 'Regülasyonlar', 'regulations' => $regulations, 'error'=>$error, 'userCoveId'=>$userCoveId, 'isAdmin'=>$isAdmin] );
+
+        // Breadcrumb data
+        $this->data["breadcrumb"] = [
+            ["title" => "İçerik Yönetimi", "url" => ""],
+            ["title" => "Mevzuat", "url" => ""]
+        ];
+
+        // Add other data to $this->data
+        $this->data["title"] = "Regülasyonlar";
+        $this->data["regulations"] = $regulations;
+        $this->data["error"] = $error;
+        $this->data["userCoveId"] = $userCoveId;
+        $this->data["isAdmin"] = $isAdmin;
+
+        $this->render("regulation/index", $this->data);
     }
 
     public function create() {

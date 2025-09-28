@@ -29,7 +29,18 @@ class LogController extends BaseController {
         $this->checkControllerPermission();
         $logModel = new LogModel();
         $logs = $logModel->getAllLogs();
-        $this->render('log/index', ['title' => 'Logs', 'logs' => $logs]);
+
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Sistem', 'url' => ''],
+            ['title' => 'Sistem Logları', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['title'] = 'Logs';
+        $this->data['logs'] = $logs;
+
+        $this->render('log/index', $this->data);
     }
    
 }

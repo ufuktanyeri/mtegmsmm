@@ -28,7 +28,18 @@ class DocumentStrategyController extends BaseController {
         $this->checkControllerPermission();
         $model = new DocumentStrategyModel();
         $strategies = $model->getAllDocumentStrategies();
-        $this->render('documentStrategy/index', ['title' => 'Document Strategies', 'strategies' => $strategies]);
+
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'İçerik Yönetimi', 'url' => ''],
+            ['title' => 'Strateji Belgeleri', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['title'] = 'Document Strategies';
+        $this->data['strategies'] = $strategies;
+
+        $this->render('documentStrategy/index', $this->data);
     }
 
     public function create() {

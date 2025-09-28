@@ -158,6 +158,9 @@ class UserController extends BaseController
 
     public function login()
     {
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [['title' => 'Giriş', 'url' => '']];
+
         // Check if user is already logged in
         if (isset($_SESSION['user_id'])) {
             header('Location: index.php?url=home');
@@ -855,9 +858,13 @@ class UserController extends BaseController
 
     public function main()
     {
-       
+
 $newsModel = new NewsModel();
 $headlineNews = $newsModel->getHeadlineNewsOrderedLimited(5);
+
+// Breadcrumb data
+$this->data['breadcrumb'] = [];
+
 $this->render('user/main', [
     // ...existing data...
     'headlineNews' => $headlineNews
@@ -1139,6 +1146,12 @@ $this->render('user/main', [
             }
         }
 
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Haberler', 'url' => BASE_URL.'index.php?url=user/haberlist'],
+            ['title' => 'Detay', 'url' => '']
+        ];
+
         $this->render('user/haberler', [
             'title' => $title,
             'page_title' => $page_title,
@@ -1158,6 +1171,9 @@ $this->render('user/main', [
         $totalNews = $newsModel->countAllActiveNews();
         // Sadece aktif haberleri ve sıralamaya göre getir (limitli)
         $pagedNews = $newsModel->getAllActiveNewsOrderedPaged($perPage, $offset);
+
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [['title' => 'Haberler', 'url' => '']];
 
         $this->render('user/haberlist', [
             'title' => 'Haberler',

@@ -28,7 +28,7 @@ class ObjectiveController extends BaseController
         }
 
         if (!isset($_SESSION['user_id'])) {
-            header('Location: index.php?url=auth/login');
+            header('Location: index.php?url=user/login');
             exit();
         }
 
@@ -47,7 +47,7 @@ class ObjectiveController extends BaseController
         }
 
         if (!isset($_SESSION['user_id'])) {
-            header('Location: index.php?url=auth/login');
+            header('Location: index.php?url=user/login');
             exit();
         }
 
@@ -265,15 +265,22 @@ class ObjectiveController extends BaseController
             }
         }
 
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [
+            ['title' => 'Stratejik Yönetim', 'url' => ''],
+            ['title' => 'Hedefler', 'url' => '']
+        ];
+
+        // Add other data to $this->data
+        $this->data['objectives'] = $objectives;
+        $this->data['aims'] = $aims;
+        $this->data['currentAimId'] = $aimId;
+        $this->data['currentAim'] = $currentAim;
+        $this->data['coveId'] = $coveId;
+        $this->data['filtered'] = true;
+
         // Ayrı view yoksa index view yeniden kullanılır
-        $this->render('objective/index', [
-            'objectives' => $objectives,
-            'aims' => $aims,
-            'currentAimId' => $aimId,
-            'currentAim' => $currentAim,
-            'coveId' => $coveId,
-            'filtered' => true
-        ]);
+        $this->render('objective/index', $this->data);
     }
 
     // Route: objective/list -> bu method çağrılacak

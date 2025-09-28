@@ -46,6 +46,9 @@ class HomeController extends BaseController {
         }
 
         if ($hasAimsManage||$hasUsersManage) {
+            // Breadcrumb data
+            $this->data['breadcrumb'] = [['title' => 'Dashboard', 'url' => '']];
+
             $this->render('home/index', ['permissions' => $permissions,"hasAimsManage"=>$hasAimsManage, 'hasUsersManage'=>$hasUsersManage]);
         } else {
             header('Location: index.php?url=home/error');
@@ -62,6 +65,9 @@ class HomeController extends BaseController {
 
     public function smmnetwork() {
         // SMM network page can be viewed by anyone
+        // Breadcrumb data
+        $this->data['breadcrumb'] = [['title' => 'SMM Haritası', 'url' => '']];
+
         $this->render('home/smmnetwork', ['title' => 'SMM Haritası']);
     }
 }

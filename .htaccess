@@ -1,35 +1,38 @@
-# MTEGM SMM Portal - Localhost .htaccess
-# Use this for localhost development
+# Apache Configuration for MTEGM SMM Portal
+# This file redirects all requests to the wwwroot directory
+# and prevents directory listing for security
 
+# Disable directory browsing
 Options -Indexes
-DirectoryIndex index.php index.html
 
-# Enable Rewrite Engine
-<IfModule mod_rewrite.c>
-    RewriteEngine On
+# Enable URL rewriting
+RewriteEngine On
 
-    # Allow direct access to test files
-    RewriteCond %{REQUEST_URI} ^/mtegmsmm/(test_|debug_)
-    RewriteCond %{REQUEST_FILENAME} -f
-    RewriteRule ^(.*)$ - [L]
+# Redirect all requests to wwwroot directory
+# except those already targeting wwwroot
+RewriteCond %{REQUEST_URI} !^/wwwroot/
+RewriteRule ^(.*)$ wwwroot/$1 [L]
 
-    # Allow direct access to uploads
-    RewriteCond %{REQUEST_URI} ^/mtegmsmm/uploads/
-    RewriteRule ^(.*)$ - [L]
-
-    # Allow direct access to wwwroot assets
-    RewriteCond %{REQUEST_URI} ^/mtegmsmm/wwwroot/(assets|css|js|img)/
-    RewriteRule ^(.*)$ - [L]
-
-    # For localhost, redirect everything to wwwroot/index.php
-    RewriteCond %{REQUEST_URI} !^/mtegmsmm/wwwroot/
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ wwwroot/index.php?url=$1 [QSA,L]
-</IfModule>
-
-# Security Headers (optional for localhost)
+# Additional security headers (optional but recommended)
 <IfModule mod_headers.c>
+    # Prevent clickjacking
     Header set X-Frame-Options "SAMEORIGIN"
+
+    # Prevent MIME type sniffing
     Header set X-Content-Type-Options "nosniff"
+
+    # Enable XSS protection
+    Header set X-XSS-Protection "1; mode=block"
 </IfModule>
+
+# Deny access to sensitive files
+<FilesMatch "\.(env|json|lock|md|yml|yaml|ini|log|sh|bat|ps1)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Deny access to hidden files (except .htaccess)
+<FilesMatch "^\.(?!htaccess)">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
