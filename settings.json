@@ -1,0 +1,8 @@
+{
+    "terminal.integrated.profiles.windows": {
+        "PowerShell Core": {
+            "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+            "icon": "terminal-powershell"
+        }
+    }
+}
