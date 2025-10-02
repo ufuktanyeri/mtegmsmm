@@ -2,13 +2,13 @@
 // filepath: c:\xampp\htdocs\mtegmsmm\app\Controllers\IndicatorController.php
 
 require_once 'BaseController.php';
-require_once __DIR__ . '/../models/IndicatorModel.php';
-require_once __DIR__ . '/../models/CoveModel.php';
-require_once __DIR__ . '/../models/AimModel.php';
-require_once __DIR__ . '/../models/ObjectiveModel.php';
-require_once __DIR__ . '/../models/FieldModel.php';
-require_once __DIR__ . '/../models/IndicatorTypeModel.php';
-require_once __DIR__ . '/../entities/Indicator.php';
+require_once APP_PATH . 'models/IndicatorModel.php';
+require_once APP_PATH . 'models/CoveModel.php';
+require_once APP_PATH . 'models/AimModel.php';
+require_once APP_PATH . 'models/ObjectiveModel.php';
+require_once APP_PATH . 'models/FieldModel.php';
+require_once APP_PATH . 'models/IndicatorTypeModel.php';
+require_once APP_PATH . 'entities/Indicator.php';
 
 class IndicatorController extends BaseController
 {

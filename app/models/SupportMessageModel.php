@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/BaseModel.php';
+require_once APP_PATH . 'models/BaseModel.php';
 
 class SupportMessageModel extends BaseModel {
     public function addMessage($sessionId, $sender, $message){

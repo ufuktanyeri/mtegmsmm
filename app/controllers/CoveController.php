@@ -1,12 +1,12 @@
 <?php
 
 require_once 'BaseController.php';
-require_once __DIR__ . '/../models/CoveModel.php';
-require_once __DIR__ . '/../models/FieldModel.php';
-require_once __DIR__ . '/../entities/Cove.php';
-require_once __DIR__ . '/../validators/CoveValidator.php';
-require_once __DIR__ . '/../entities/Permission.php';
-require_once __DIR__ . '/../models/DetailedLogModel.php'; // Include DetailedLogModel
+require_once APP_PATH . 'models/CoveModel.php';
+require_once APP_PATH . 'models/FieldModel.php';
+require_once APP_PATH . 'entities/Cove.php';
+require_once APP_PATH . 'validators/CoveValidator.php';
+require_once APP_PATH . 'entities/Permission.php';
+require_once APP_PATH . 'models/DetailedLogModel.php'; // Include DetailedLogModel
 
 class CoveController extends BaseController {
     /** @var CoveModel */
@@ -86,7 +86,7 @@ class CoveController extends BaseController {
                 return;
             }
 
-            require_once __DIR__ . '/../../includes/Sanitizer.php';
+            require_once INCLUDES_PATH . 'Sanitizer.php';
             $name = Sanitizer::text('name', 150);
             $city = Sanitizer::text('city', 100);
             $district = Sanitizer::text('district', 100);
@@ -136,7 +136,7 @@ class CoveController extends BaseController {
                 return;
             }
 
-            require_once __DIR__ . '/../../includes/Sanitizer.php';
+            require_once INCLUDES_PATH . 'Sanitizer.php';
             $name = Sanitizer::text('name', 150);
             $city = Sanitizer::text('city', 100);
             $district = Sanitizer::text('district', 100);

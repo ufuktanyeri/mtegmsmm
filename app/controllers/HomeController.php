@@ -1,10 +1,10 @@
 <?php
 
 require_once 'BaseController.php';
-require_once __DIR__ . '/../models/UserModel.php';
-require_once __DIR__ . '/../entities/Permission.php';
-require_once __DIR__ . '/../entities/Role.php';
-require_once __DIR__ . '/../entities/User.php';
+require_once APP_PATH . 'models/UserModel.php';
+require_once APP_PATH . 'entities/Permission.php';
+require_once APP_PATH . 'entities/Role.php';
+require_once APP_PATH . 'entities/User.php';
 
 class HomeController extends BaseController {
     public function index() {
@@ -16,7 +16,7 @@ class HomeController extends BaseController {
 
         // Tema belirleme: session -> kullanıcı kaydı -> sistem algısı
         if (!isset($_SESSION['ui_theme'])) {
-            require_once __DIR__ . '/../models/UserModel.php';
+            require_once APP_PATH . 'models/UserModel.php';
             $um = new UserModel();
             $stored = $um->getUserTheme($_SESSION['user_id']);
             if ($stored) {

@@ -1,9 +1,9 @@
 <?php
 
 require_once 'BaseController.php';
-require_once __DIR__ . '/../models/RegulationModel.php';
-require_once __DIR__ . '/../validators/RegulationValidator.php';
-require_once __DIR__ . '/../entities/Permission.php';
+require_once APP_PATH . 'models/RegulationModel.php';
+require_once APP_PATH . 'validators/RegulationValidator.php';
+require_once APP_PATH . 'entities/Permission.php';
 
 class RegulationController extends BaseController {
     protected function checkControllerPermission() {

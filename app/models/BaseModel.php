@@ -1,7 +1,7 @@
 <?php
 // filepath: app/Models/BaseModel.php
 
-require_once __DIR__ . '/../../includes/Database.php'; // PDO wrapper yok; doğrudan PDO kullanacağız
+require_once INCLUDES_PATH . 'Database.php'; // PDO wrapper yok; doğrudan PDO kullanacağız
 
 class BaseModel {
     /** @var PDO */

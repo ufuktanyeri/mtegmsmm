@@ -2,7 +2,7 @@
 // filepath: c:\xampp\htdocs\mtegmsmm\app\Models\IndicatorModel.php
 
 require_once 'BaseModel.php';
-require_once __DIR__ . '/../entities/Indicator.php';
+require_once APP_PATH . 'entities/Indicator.php';
 
 class IndicatorModel extends BaseModel {
     

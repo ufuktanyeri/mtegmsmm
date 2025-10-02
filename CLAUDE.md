@@ -7,13 +7,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 MTEGM SMM Portal - A multi-tenant strategic management system built with PHP MVC architecture for Turkish Ministry of Education. The system manages strategic planning, indicators, objectives, and actions across multiple educational institutions (COVE).
 
 **Key Features:**
-
--   Multi-tenant architecture with organization isolation via `cove_id`
--   Role-based access control (SuperAdmin, Coordinator, Admin, User)
--   Strategic planning tools (objectives, indicators, actions)
--   Document and regulation management
--   Task management system (currently being migrated)
--   PHP 5.5+ compatibility maintained alongside PHP 8.2 support
+- Multi-tenant architecture with organization isolation via `cove_id`
+- Role-based access control (SuperAdmin, Coordinator, Admin, User)
+- Strategic planning tools (objectives, indicators, actions)
+- Document and regulation management
+- Task management system (currently being migrated)
+- PHP 5.5+ compatibility maintained alongside PHP 8.2 support
 
 ## Architecture
 
@@ -118,20 +117,18 @@ xcopy /Y /I source\*.* destination\
 ## Critical Implementation Notes
 
 ### Session Security
-
--   HTTP-only cookies enabled
--   Strict same-site policy
--   Session regeneration every 30 minutes (automatic in index.php:100)
--   Session timeout after 1 hour of inactivity
--   CSRF token validation on all POST requests
--   CSRF tokens expire after 30 minutes
+- HTTP-only cookies enabled
+- Strict same-site policy
+- Session regeneration every 30 minutes (automatic in index.php:100)
+- Session timeout after 1 hour of inactivity
+- CSRF token validation on all POST requests
+- CSRF tokens expire after 30 minutes
 
 ### Error Handling
-
--   Custom error handler with Sentry integration (BaseController:26-50)
--   Local file logging in `logs/` directory
--   Development shows errors (APP_DEBUG=true), production logs only
--   Performance tracking via `trackPerformance()` method in BaseController
+- Custom error handler with Sentry integration (BaseController:26-50)
+- Local file logging in `logs/` directory
+- Development shows errors (APP_DEBUG=true), production logs only
+- Performance tracking via `trackPerformance()` method in BaseController
 
 ### Bootstrap Integration
 
@@ -141,13 +138,12 @@ xcopy /Y /I source\*.* destination\
 -   Prefer Bootstrap utilities over custom CSS
 
 ### Multi-Tenant Considerations
-
--   Always filter queries by `cove_id` for regular users (except SuperAdmin)
--   SuperAdmin and Coordinator can access all COVE data
--   Use `UnifiedViewService::checkPermission()` for access control
--   Use `hasPermission()` helper function for quick permission checks
--   Use `hasPermissionForCove()` for COVE-specific permission checks
--   Session stores: `user_id`, `cove_id`, `role`, `role_name`, permissions array
+- Always filter queries by `cove_id` for regular users (except SuperAdmin)
+- SuperAdmin and Coordinator can access all COVE data
+- Use `UnifiedViewService::checkPermission()` for access control
+- Use `hasPermission()` helper function for quick permission checks
+- Use `hasPermissionForCove()` for COVE-specific permission checks
+- Session stores: `user_id`, `cove_id`, `role`, `role_name`, permissions array
 
 ### URL Routing Pattern
 
@@ -199,7 +195,6 @@ if (!hasPermission('objectives', 'insert')) {
 ```
 
 ### CSRF Protection
-
 ```php
 // Generate token in controller
 $token = $this->getCSRFToken();
@@ -247,7 +242,6 @@ database/migrations/     # Database migration scripts
 ```
 
 ### Debug Tools
-
 ```bash
 # Test server configuration
 php wwwroot/test.php
@@ -283,57 +277,75 @@ php database/migrations/test_migration.php
 ## Deployment Checklist
 
 1. **Pre-deployment:**
-
-    - Run `php _dev/scripts/pre_deploy_check.php`
-    - Verify PHP version >= 7.4 (or 5.5 for legacy support)
-    - Check required extensions: PDO, mbstring, json, session
+   - Run `php _dev/scripts/pre_deploy_check.php`
+   - Verify PHP version >= 7.4 (or 5.5 for legacy support)
+   - Check required extensions: PDO, mbstring, json, session
 
 2. **Configuration:**
-
-    - Update `app/config/config.php` with production credentials
-    - Rename `.htaccess.production` to `.htaccess`
-    - Set APP_ENV to 'production' and APP_DEBUG to false
+   - Update `app/config/config.php` with production credentials
+   - Rename `.htaccess.production` to `.htaccess`
+   - Set APP_ENV to 'production' and APP_DEBUG to false
 
 3. **File Permissions:**
-
-    - Set directories to 755: `logs/`, `uploads/`, `cache/`
-    - Set PHP files to 644
-    - Ensure write permissions for session storage
+   - Set directories to 755: `logs/`, `uploads/`, `cache/`
+   - Set PHP files to 644
+   - Ensure write permissions for session storage
 
 4. **Database:**
-
-    - Import schema from `database/schema.sql`
-    - Run migrations from `database/migrations/`
-    - Verify database host: `mebmysql.meb.gov.tr` (production)
+   - Import schema from `database/schema.sql`
+   - Run migrations from `database/migrations/`
+   - Verify database host: `mebmysql.meb.gov.tr` (production)
 
 5. **Post-deployment:**
-    - Clear cache directory
-    - Test authentication flow
-    - Verify Sentry error tracking integration
-    - Check maintenance mode settings if needed
+   - Clear cache directory
+   - Test authentication flow
+   - Verify Sentry error tracking integration
+   - Check maintenance mode settings if needed
 
 ## Important Conventions
 
 ### Naming Conventions
-
--   **Controllers:** PascalCase with "Controller" suffix (e.g., `ObjectiveController`)
--   **Views:** lowercase with underscores (e.g., `user_list.php`)
--   **Database tables:** lowercase with underscores (e.g., `user_permissions`)
--   **URL routes:** lowercase, no underscores (e.g., `user/login`)
--   **Helper functions:** snake_case (e.g., `has_permission()`)
+- **Controllers:** PascalCase with "Controller" suffix (e.g., `ObjectiveController`)
+- **Views:** lowercase with underscores (e.g., `user_list.php`)
+- **Database tables:** lowercase with underscores (e.g., `user_permissions`)
+- **URL routes:** lowercase, no underscores (e.g., `user/login`)
+- **Helper functions:** snake_case (e.g., `has_permission()`)
 
 ### Code Style
-
--   **Language:** Turkish for UI text, English for code/comments
--   **PHP compatibility:** Maintain PHP 5.5+ compatibility where possible
--   **Security:** Always use prepared statements for database queries
--   **Error handling:** Use BaseController's `handleError()` method
--   **View data:** Always escape output with `htmlspecialchars()` or `<?= ?>`
+- **Language:** Turkish for UI text, English for code/comments
+- **PHP compatibility:** Maintain PHP 5.5+ compatibility where possible
+- **Security:** Always use prepared statements for database queries
+- **Error handling:** Use BaseController's `handleError()` method
+- **View data:** Always escape output with `htmlspecialchars()` or `<?= ?>`
 
 ### Development Workflow
+- Always check existing patterns in neighboring files before implementing new features
+- Use Bootstrap 5.3 utilities instead of writing custom CSS
+- Prefer editing existing files over creating new ones
+- Test with both development and production configurations
 
--   Always check existing patterns in neighboring files before implementing new features
--   Use Bootstrap 5.3 utilities instead of writing custom CSS
--   Prefer editing existing files over creating new ones
--   Test with both development and production configurations
--
+
+### Path Definition Conventions
+- **Always use path constants** instead of `__DIR__` or `dirname()` traversals
+- **File system paths:** Use `APP_PATH`, `INCLUDES_PATH`, `WWWROOT_PATH`, `LOGS_PATH`
+- **Asset URLs:** Use `asset_url('path/to/asset')` helper function
+- **Upload paths:** Use `upload_path('file.jpg')` for filesystem, `upload_url('file.jpg')` for URLs
+- **Never use:** `__DIR__ . '/../..'` or `dirname(dirname(__FILE__))`
+
+**Example:**
+```php
+// ✅ CORRECT:
+require_once APP_PATH . 'models/UserModel.php';
+require_once INCLUDES_PATH . 'Database.php';
+$uploadPath = upload_path('profiles/' . $filename);
+<img src="<?= asset_url('img/logo.png') ?>" />
+
+// ❌ WRONG:
+require_once __DIR__ . '/../models/UserModel.php';
+require_once dirname(__DIR__) . '/../includes/Database.php';
+$uploadPath = __DIR__ . '/../../wwwroot/uploads/profiles/' . $filename;
+<img src="<?= BASE_URL ?>wwwroot/img/logo.png" />
+```
+
+See `_dev/PATH_FIXES_SUMMARY.md` for detailed migration guide.
+- to memorize

@@ -1,9 +1,9 @@
 <?php
 
 require_once 'BaseModel.php';
-require_once __DIR__ . '/../../includes/Database.php';
-require_once __DIR__ . '/../entities/Cove.php';
-require_once __DIR__ . '/FieldModel.php';
+require_once INCLUDES_PATH . 'Database.php';
+require_once APP_PATH . 'entities/Cove.php';
+require_once APP_PATH . 'models/FieldModel.php';
 
 class CoveModel extends BaseModel {
     private $db;

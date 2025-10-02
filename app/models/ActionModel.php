@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../../includes/Database.php';
+require_once INCLUDES_PATH . 'Database.php';
 
 class ActionModel {
     private $db;

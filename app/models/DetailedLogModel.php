@@ -1,8 +1,8 @@
 <?php
 
 require_once 'BaseModel.php';
-require_once __DIR__ . '/../../includes/Database.php';
-require_once __DIR__ . '/../entities/DetailedLog.php';
+require_once INCLUDES_PATH . 'Database.php';
+require_once APP_PATH . 'entities/DetailedLog.php';
 
 class DetailedLogModel extends BaseModel {
     private $db;

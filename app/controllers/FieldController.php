@@ -1,10 +1,10 @@
 <?php
 
 require_once 'BaseController.php';
-require_once __DIR__ . '/../models/FieldModel.php';
-require_once __DIR__ . '/../entities/Field.php';
-require_once __DIR__ . '/../validators/FieldValidator.php';
-require_once __DIR__ . '/../entities/Permission.php';
+require_once APP_PATH . 'models/FieldModel.php';
+require_once APP_PATH . 'entities/Field.php';
+require_once APP_PATH . 'validators/FieldValidator.php';
+require_once APP_PATH . 'entities/Permission.php';
 
 class FieldController extends BaseController {
     protected function checkControllerPermission() {

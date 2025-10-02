@@ -1,0 +1,2533 @@
+# Query: grep -r -i -E "require|include|__DIR__|BASE_URL|href|src" .
+# Flags: RegExp
+# ContextLines: 1
+
+1010 results - 166 files
+
+CLAUDE.md:
+  112  
+  113: -   `BASE_URL`: Application base URL
+  114  -   `APP_ENV`: 'production' or 'development'
+
+  204  
+  205: // Include in forms
+  206  <input type="hidden" name="csrf_token" value="<?= $token ?>">
+
+phpstan.neon:
+  4          - app
+  5:         - includes
+  6      excludePaths:
+
+web.config:
+  88                      <add segment="database" />
+  89:                     <add segment="includes" />
+  90                      <add segment="vendor" />
+
+.claude\agents\project-template-fixer.md:
+  2  name: project-template-fixer
+  3: description: Use this agent when you need help fixing, improving, or correcting project templates, boilerplate code, or project structure issues. This includes fixing configuration files, correcting folder structures, resolving template inconsistencies, updating outdated patterns, and ensuring project templates follow best practices. Examples:\n\n<example>\nContext: User needs help fixing issues in their project template.\nuser: "bana proje şablonunu düzeltmem için yardım et"\nassistant: "I'll use the project-template-fixer agent to help you fix your project template."\n<commentary>\nThe user is asking for help fixing their project template in Turkish. Use the project-template-fixer agent to analyze and fix template issues.\n</commentary>\n</example>\n\n<example>\nContext: User has template configuration problems.\nuser: "My project template has broken configurations and outdated dependencies"\nassistant: "Let me launch the project-template-fixer agent to identify and fix the template issues."\n<commentary>\nThe user needs help with template configuration problems. Use the project-template-fixer agent to diagnose and fix the issues.\
+  4  model: opus
+
+app\router.php:
+  33  
+  34:             $controllerFile = __DIR__ . "/controllers/{$controllerName}.php";
+  35  
+
+  70          // Error sayfasına yönlendir
+  71:         if (file_exists(__DIR__ . '/views/home/error.php')) {
+  72              $_SESSION['error_message'] = $message;
+  73:             require_once __DIR__ . '/views/home/error.php';
+  74          } else {
+
+  76              echo "<p>{$message}</p>";
+  77:             echo "<a href='" . BASE_URL . "'>Ana Sayfaya Dön</a>";
+  78          }
+
+app\controllers\ActionController.php:
+     4  require_once 'BaseController.php';
+     5: require_once __DIR__ . '/../models/ActionModel.php';
+     6: require_once __DIR__ . '/../models/CoveModel.php';
+     7: require_once __DIR__ . '/../models/ObjectiveModel.php';
+     8: require_once __DIR__ . '/../models/AimModel.php';
+     9: require_once __DIR__ . '/../validators/ActionValidator.php';
+    10: require_once __DIR__ . '/../entities/Permission.php';
+    11: require_once __DIR__ . '/../models/DetailedLogModel.php';
+    12  
+
+    27          extract($data);
+    28:         include __DIR__ . "/../views/{$view}.php";
+    29      }
+
+   123              ['title' => 'Stratejik Yönetim', 'url' => ''],
+   124:             ['title' => 'Eylemler', 'url' => BASE_URL . 'index.php?url=action/index&aimid=' . $aimId],
+   125              ['title' => 'Yeni Eylem', 'url' => '']
+
+   189              ['title' => 'Stratejik Yönetim', 'url' => ''],
+   190:             ['title' => 'Eylemler', 'url' => BASE_URL . 'index.php?url=action/index&aimid=' . $aimId],
+   191              ['title' => 'Eylem Düzenle', 'url' => '']
+
+   322              if(($overdueCount+$urgentCount+$upcomingCount+$completedCount) === 0) {
+   323:                 if(!isset($this->coveModel)) { require_once __DIR__.'/../models/CoveModel.php'; $this->coveModel = new \CoveModel(); }
+   324                  $debugCoves = $this->coveModel->getAllCoves();
+
+   696              // ✅ HEDEF (geri alındı): wwwroot/uploads/tasks klasörü
+   697:             $wwwrootDir = realpath(__DIR__ . '/../../wwwroot');
+   698              if (!$wwwrootDir || !is_dir($wwwrootDir)) {
+   699:                 throw new Exception('wwwroot bulunamadı: ' . __DIR__ . '/../../wwwroot');
+   700              }
+
+   839          try {
+   840:             require_once dirname(__DIR__, 2) . '/app/config/config.php';
+   841              
+
+   913          try {
+   914:             require_once dirname(__DIR__, 2) . '/app/config/config.php';
+   915              
+
+   995          $fileName = basename($params['file']); // Güvenlik için
+   996:         $uploadBaseDir = realpath(__DIR__ . '/../../wwwroot');
+   997          if (!$uploadBaseDir) {
+   998:             $uploadBaseDir = realpath(__DIR__ . '/../..');
+   999          }
+
+  1069          try {
+  1070:             require_once dirname(__DIR__, 2) . '/app/config/config.php';
+  1071              
+
+  1096          try {
+  1097:             require_once dirname(__DIR__, 2) . '/app/config/config.php';
+  1098              
+
+app\controllers\AimController.php:
+   7  require_once 'BaseController.php';
+   8: require_once __DIR__ . '/../models/AimModel.php';
+   9: require_once __DIR__ . '/../models/CoveModel.php';
+  10: require_once __DIR__ . '/../models/IndicatorModel.php';
+  11: require_once __DIR__ . '/../models/ActionModel.php';
+  12: require_once __DIR__ . '/../models/RegulationModel.php';
+  13: require_once __DIR__ . '/../models/UserModel.php';
+  14: require_once __DIR__ . '/../validators/AimValidator.php';
+  15: require_once __DIR__ . '/../entities/Permission.php';
+  16: require_once __DIR__ . '/../models/DetailedLogModel.php';
+  17  
+  18  // DomPDF ve PHPWord için autoloader
+  19: require_once __DIR__ . '/../lib/dompdf/vendor/autoload.php';
+  20: require_once __DIR__ . '/../lib/PHPWord/src/PhpWord/Autoloader.php';
+  21  \PhpOffice\PhpWord\Autoloader::register();
+
+app\controllers\AuthController.php:
+   6  
+   7: require_once __DIR__ . '/BaseController.php';
+   8: require_once __DIR__ . '/../../includes/SessionManager.php';
+   9: require_once __DIR__ . '/../../includes/PermissionHelper.php';
+  10  
+
+  20          // Initialize database connection
+  21:         require_once __DIR__ . '/../../includes/Database.php';
+  22          $this->db = Database::getInstance();
+
+  29          // Redirect to the actual login page in UserController
+  30:         header('Location: ' . BASE_URL . 'index.php?url=user/login');
+  31          exit();
+
+app\controllers\BaseController.php:
+    2  // app/Controllers/BaseController.php
+    3: require_once __DIR__ . '/../services/UnifiedViewService.php';
+    4: require_once __DIR__ . '/../../includes/SessionManager.php';
+    5  
+
+   64              $_SESSION['error'] = $message;
+   65:             header('Location: ' . BASE_URL . 'home/error');
+   66          }
+
+   77      {
+   78:         header('Location: ' . BASE_URL . $url);
+   79          exit;
+
+  104      {
+  105:         require_once __DIR__ . '/../../includes/PermissionHelper.php';
+  106          
+
+  120      {
+  121:         require_once __DIR__ . '/../../includes/PermissionHelper.php';
+  122          
+
+app\controllers\CoveController.php:
+    3  require_once 'BaseController.php';
+    4: require_once __DIR__ . '/../models/CoveModel.php';
+    5: require_once __DIR__ . '/../models/FieldModel.php';
+    6: require_once __DIR__ . '/../entities/Cove.php';
+    7: require_once __DIR__ . '/../validators/CoveValidator.php';
+    8: require_once __DIR__ . '/../entities/Permission.php';
+    9: require_once __DIR__ . '/../models/DetailedLogModel.php'; // Include DetailedLogModel
+   10  
+
+   88  
+   89:             require_once __DIR__ . '/../../includes/Sanitizer.php';
+   90              $name = Sanitizer::text('name', 150);
+
+  138  
+  139:             require_once __DIR__ . '/../../includes/Sanitizer.php';
+  140              $name = Sanitizer::text('name', 150);
+
+app\controllers\DetailedlogController.php:
+  3  require_once 'BaseController.php';
+  4: require_once __DIR__ . '/../models/DetailedLogModel.php';
+  5: require_once __DIR__ . '/../entities/DetailedLog.php';
+  6: require_once __DIR__ . '/../entities/Permission.php';
+  7  
+
+app\controllers\DocumentStrategyController.php:
+  3  require_once 'BaseController.php';
+  4: require_once __DIR__ . '/../models/DocumentStrategyModel.php';
+  5: require_once __DIR__ . '/../validators/DocumentStrategyValidator.php';
+  6: require_once __DIR__ . '/../entities/Permission.php';
+  7  
+
+app\controllers\FieldController.php:
+  3  require_once 'BaseController.php';
+  4: require_once __DIR__ . '/../models/FieldModel.php';
+  5: require_once __DIR__ . '/../entities/Field.php';
+  6: require_once __DIR__ . '/../validators/FieldValidator.php';
+  7: require_once __DIR__ . '/../entities/Permission.php';
+  8  
+
+app\controllers\HealthController.php:
+   25          try {
+   26:             require_once dirname(__DIR__, 2) . '/app/config/config.php';
+   27              $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8mb4';
+
+   54          $importantDirs = [
+   55:             realpath(__DIR__ . '/../../wwwroot/uploads/tasks'), // aktif kullanılan
+   56:             realpath(__DIR__ . '/../../wwwroot/distribution of tasks'), // eski/legacy
+   57              realpath(sys_get_temp_dir()),
+
+   84          // Disk alanı (root path)
+   85:         $rootPath = dirname(__DIR__, 2); // app/Controllers/ -> project root approx.
+   86          $free = @disk_free_space($rootPath);
+
+  100          // Controller metodları
+  101:         $controllerDir = __DIR__;
+  102          $controllerFiles = glob($controllerDir.'/*Controller.php');
+
+app\controllers\HelpController.php:
+    1  <?php
+    2: require_once __DIR__ . '/BaseController.php';
+    3  
+
+   15          try {
+   16:             require_once __DIR__.'/../models/FaqModel.php';
+   17              $faqModel = new FaqModel();
+
+   46          try {
+   47:             require_once __DIR__.'/../models/FaqModel.php';
+   48              $faqModel = new FaqModel();
+
+   72          try {
+   73:             require_once __DIR__.'/../models/FaqModel.php';
+   74              $faqModel = new FaqModel();
+
+   86          if(!isset($_SESSION['user_id'])) { echo json_encode(['success'=>false,'error'=>'login_required']); return; }
+   87:         require_once __DIR__.'/../models/SupportSessionModel.php';
+   88          $sessionModel = new SupportSessionModel();
+
+  118          if(strlen($text)>1000) $text = substr($text,0,1000);
+  119:         require_once __DIR__.'/../models/SupportSessionModel.php';
+  120:         require_once __DIR__.'/../models/SupportMessageModel.php';
+  121          $sessionModel = new SupportSessionModel();
+
+  136          if($sessionId<=0){ echo json_encode(['success'=>false,'error'=>'invalid']); return; }
+  137:         require_once __DIR__.'/../models/SupportSessionModel.php';
+  138:         require_once __DIR__.'/../models/SupportMessageModel.php';
+  139          $sessionModel = new SupportSessionModel();
+
+  156          if($sessionId<=0){ echo json_encode(['success'=>false,'error'=>'invalid']); return; }
+  157:         require_once __DIR__.'/../models/SupportSessionModel.php';
+  158          $sessionModel = new SupportSessionModel();
+
+  167          if($sessionId<=0){ echo json_encode(['success'=>false,'error'=>'invalid']); return; }
+  168:         require_once __DIR__.'/../models/SupportSessionModel.php';
+  169          $sessionModel = new SupportSessionModel();
+
+  176          if(!$this->isAgent()){ echo json_encode(['success'=>false,'error'=>'forbidden']); return; }
+  177:         require_once __DIR__.'/../models/SupportSessionModel.php';
+  178          $sessionModel = new SupportSessionModel();
+
+  211          if(!$this->canManageFaq()){ echo json_encode(['success'=>false,'error'=>'forbidden']); return; }
+  212:         require_once __DIR__.'/../models/FaqModel.php';
+  213          $m = new FaqModel();
+
+  220          if($id<=0){ echo json_encode(['success'=>false,'error'=>'invalid']); return; }
+  221:         require_once __DIR__.'/../models/FaqModel.php';
+  222          $m = new FaqModel();
+
+  235          if(strlen($q)>255){ echo json_encode(['success'=>false,'error'=>'question_too_long']); return; }
+  236:         require_once __DIR__.'/../models/FaqModel.php';
+  237          $m = new FaqModel();
+
+  250          if($id<=0){ echo json_encode(['success'=>false,'error'=>'invalid']); return; }
+  251:         require_once __DIR__.'/../models/FaqModel.php';
+  252          $m = new FaqModel();
+
+app\controllers\HomeController.php:
+   3  require_once 'BaseController.php';
+   4: require_once __DIR__ . '/../models/UserModel.php';
+   5: require_once __DIR__ . '/../entities/Permission.php';
+   6: require_once __DIR__ . '/../entities/Role.php';
+   7: require_once __DIR__ . '/../entities/User.php';
+   8  
+
+  18          if (!isset($_SESSION['ui_theme'])) {
+  19:             require_once __DIR__ . '/../models/UserModel.php';
+  20              $um = new UserModel();
+
+app\controllers\IndicatorController.php:
+    4  require_once 'BaseController.php';
+    5: require_once __DIR__ . '/../models/IndicatorModel.php';
+    6: require_once __DIR__ . '/../models/CoveModel.php';
+    7: require_once __DIR__ . '/../models/AimModel.php';
+    8: require_once __DIR__ . '/../models/ObjectiveModel.php';
+    9: require_once __DIR__ . '/../models/FieldModel.php';
+   10: require_once __DIR__ . '/../models/IndicatorTypeModel.php';
+   11: require_once __DIR__ . '/../entities/Indicator.php';
+   12  
+
+  614              // Yoksa direkt DB'den çek
+  615:             require_once dirname(__DIR__) . '/config/config.php';
+  616  
+
+app\controllers\LogController.php:
+  3  require_once 'BaseController.php';
+  4: require_once __DIR__ . '/../models/LogModel.php';
+  5: require_once __DIR__ . '/../entities/Log.php';
+  6: require_once __DIR__ . '/../entities/Permission.php';
+  7  
+
+app\controllers\NewsController.php:
+  3  require_once 'BaseController.php';
+  4: require_once __DIR__ . '/../models/NewsModel.php';
+  5: require_once __DIR__ . '/../models/GalleryModel.php';
+  6: require_once __DIR__ . '/../entities/Permission.php';
+  7: require_once __DIR__ . '/../validators/NewsValidator.php';
+  8  
+
+app\controllers\ObjectiveController.php:
+  4  require_once 'BaseController.php';
+  5: require_once __DIR__ . '/../models/ObjectiveModel.php';
+  6: require_once __DIR__ . '/../models/AimModel.php';
+  7: require_once __DIR__ . '/../models/CoveModel.php';
+  8: require_once __DIR__ . '/../entities/Objective.php';
+  9: require_once __DIR__ . '/../entities/Aim.php';
+  10  
+
+app\controllers\RegulationController.php:
+  3  require_once 'BaseController.php';
+  4: require_once __DIR__ . '/../models/RegulationModel.php';
+  5: require_once __DIR__ . '/../validators/RegulationValidator.php';
+  6: require_once __DIR__ . '/../entities/Permission.php';
+  7  
+
+app\controllers\UserController.php:
+     3  require_once 'BaseController.php';
+     4: require_once __DIR__ . '/../../includes/Pepper.php';
+     5: require_once __DIR__ . '/../models/UserModel.php'; // Model for user-related database operations
+     6: require_once __DIR__ . '/../models/CoveModel.php';
+     7: require_once __DIR__ . '/../models/RoleModel.php';
+     8: require_once __DIR__ . '/../models/LogModel.php'; // Include LogModel
+     9: require_once __DIR__ . '/../models/DetailedLogModel.php'; // Include DetailedLogModel
+    10: require_once __DIR__ . '/../validators/LoginValidator.php';
+    11: require_once __DIR__ . '/../validators/RegisterValidator.php';
+    12: require_once __DIR__ . '/../validators/UserValidator.php';
+    13: require_once __DIR__ . '/../validators/UserManageUpdateValidator.php';
+    14: require_once __DIR__ . '/../validators/ProfileUpdateValidator.php';
+    15: require_once __DIR__ . '/../entities/Permission.php';
+    16: require_once __DIR__ . '/../models/PermissionModel.php';
+    17: require_once __DIR__ . '/../models/NewsModel.php';
+    18: require_once __DIR__ . '/../models/GalleryModel.php';
+    19: require_once __DIR__ . '/../../includes/Recaptcha.php';
+    20: require_once __DIR__ . '/../../includes/Security.php';
+    21  // New security classes
+    22: require_once __DIR__ . '/../../includes/SecurityLogger.php';
+    23: require_once __DIR__ . '/../../includes/AccountSecurity.php';
+    24: require_once __DIR__ . '/../../includes/SessionManager.php';
+    25: require_once __DIR__ . '/../../includes/PasswordPolicy.php';
+    26  
+
+   397          // Yazıyı ekleyelim
+   398:         $font = __DIR__ . '/../fonts/arial.ttf'; // Arial.ttf dosyasını aynı klasöre koymalısınız!
+   399          imagettftext($image, 22, rand(-10, 10), 30, 35, $textColor, $font, $captchaCode);
+
+   797                  $filename = 'profile_' . $user->getId() . '_' . time() . '.' . $extension;
+   798:                 $uploadPath = __DIR__ . '/../../wwwroot/uploads/profiles/' . $filename;
+   799                  
+
+   808                      // Delete old profile photo if exists
+   809:                     if ($user->getProfilePhoto() && file_exists(__DIR__ . '/../../wwwroot/uploads/profiles/' . $user->getProfilePhoto())) {
+   810:                         unlink(__DIR__ . '/../../wwwroot/uploads/profiles/' . $user->getProfilePhoto());
+   811                      }
+
+  1150          $this->data['breadcrumb'] = [
+  1151:             ['title' => 'Haberler', 'url' => BASE_URL.'index.php?url=user/haberlist'],
+  1152              ['title' => 'Detay', 'url' => '']
+
+app\entities\News.php:
+  46      public function getFrontpageImage() {
+  47:         // BASE_URL'i kullan (production ve development için otomatik uyum)
+  48:         $baseUrl = defined('BASE_URL') ? rtrim(BASE_URL, '/') . '/' : '/mtegmsmm/';
+  49  
+
+app\entities\User.php:
+  2  
+  3: require_once __DIR__ . '/Cove.php';
+  4: require_once __DIR__ . '/Role.php';
+  5: require_once __DIR__ . '/Permission.php';
+  6  
+
+app\helpers\AssetLoader.php:
+   20          $isProduction = defined('APP_ENV') && APP_ENV === 'production';
+   21:         $baseUrl = defined('BASE_URL') ? BASE_URL : '/';
+   22  
+
+   63          $isProduction = defined('APP_ENV') && APP_ENV === 'production';
+   64:         $baseUrl = defined('BASE_URL') ? BASE_URL : '/';
+   65  
+
+  105      public static function img($filename, $folder = '') {
+  106:         $baseUrl = defined('BASE_URL') ? BASE_URL : '/';
+  107  
+
+  140              if (strpos($bundleUrl, 'app.min.css') !== false) {
+  141:                 return '<link rel="stylesheet" href="' . htmlspecialchars($bundleUrl) . '">' . "\n";
+  142              }
+
+  147              $url = self::css($file);
+  148:             $html .= '<link rel="stylesheet" href="' . htmlspecialchars($url) . '">' . "\n";
+  149          }
+
+  205                      $url = self::css($file);
+  206:                     $html .= '<link rel="preload" href="' . htmlspecialchars($url) . '" as="style">' . "\n";
+  207                      break;
+
+  211                      $url = self::js($file);
+  212:                     $html .= '<link rel="preload" href="' . htmlspecialchars($url) . '" as="script">' . "\n";
+  213                      break;
+
+  215                  case 'font':
+  216:                     $url = BASE_URL . 'assets/fonts/' . $file;
+  217:                     $html .= '<link rel="preload" href="' . htmlspecialchars($url) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+  218                      break;
+
+  222                      $url = self::img($file, $folder);
+  223:                     $html .= '<link rel="preload" href="' . htmlspecialchars($url) . '" as="image">' . "\n";
+  224                      break;
+
+app\helpers\functions.php:
+   60          if ($config === null) {
+   61:             $configFile = dirname(__DIR__) . '/config/config.php';
+   62              if (file_exists($configFile)) {
+
+   89      {
+   90:         $basePath = realpath(__DIR__ . '/../..');
+   91          return $path ? $basePath . DIRECTORY_SEPARATOR . ltrim($path, '/\\') : $basePath;
+
+  363          if (file_exists($errorView)) {
+  364:             include $errorView;
+  365          } else {
+
+app\helpers\MenuHelper.php:
+  331              $html .= '<li class="nav-item">';
+  332:             $html .= '<a class="nav-link ' . $isActive . '" href="' . $item['url'] . '">';
+  333              $html .= '<i class="bi ' . $item['icon'] . ' me-2"></i>';
+
+  364                  $html .= '<li class="breadcrumb-item">';
+  365:                 $html .= '<a href="' . $item['url'] . '">' . $icon . $item['title'] . '</a>';
+  366                  $html .= '</li>';
+
+app\lib\dompdf\autoload.inc.php:
+  1: <?php require (__DIR__ . '/vendor/autoload.php');
+
+app\lib\dompdf\LICENSE.LGPL:
+  133  straightforwardly into another language.  (Hereinafter, translation is
+  134: included without limitation in the term "modification".)
+  135  
+
+  280  this License.  You must supply a copy of this License.  If the work
+  281: during execution displays copyright notices, you must include the
+  282  copyright notice for the Library among them, as well as a reference
+
+  318    For an executable, the required form of the "work that uses the
+  319: Library" must include any data and utility programs needed for
+  320  reproducing the executable from it.  However, as a special exception,
+  321: the materials to be distributed need not include anything that is
+  322  normally distributed (in either source or binary form) with the major
+
+app\lib\dompdf\README.md:
+  117  ```php
+  118: // include autoloader
+  119  require_once 'dompdf/autoload.inc.php';
+
+  124  release would be dompdf_1-0-0.zip. This is the only download
+  125: that includes the autoloader for Dompdf and all its dependencies.
+  126  
+
+app\lib\PHPWord\.php-cs-fixer.dist.php:
+  13      ->setFinder($finder)
+  14:     ->setCacheFile(sys_get_temp_dir() . '/php-cs-fixer' . preg_replace('~\W~', '-', __DIR__))
+  15      ->setRules([
+
+  65          'implode_call' => true,
+  66:         'include' => true,
+  67          'increment_style' => true,
+
+app\lib\PHPWord\COPYING:
+   94  infringement under applicable copyright law, except executing it on a
+   95: computer or modifying a private copy.  Propagation includes copying,
+   96  distribution (with or without modification), making available to the
+
+  103    An interactive user interface displays "Appropriate Legal Notices"
+  104: to the extent that it includes a convenient and prominently visible
+  105  feature that (1) displays an appropriate copyright notice, and (2)
+
+  122  
+  123:   The "System Libraries" of an executable work include anything, other
+  124: than the work as a whole, that (a) is included in the normal form of
+  125  packaging a Major Component, but which is not part of that Major
+
+  136  work) run the object code and to modify the work, including scripts to
+  137: control those activities.  However, it does not include the work's
+  138  System Libraries, or general-purpose tools or generally available free
+
+  140  which are not part of the work.  For example, Corresponding Source
+  141: includes interface definition files associated with source files for
+  142  the work, and the source code for shared libraries and dynamically
+
+  146  
+  147:   The Corresponding Source need not include anything that users
+  148  can regenerate automatically from other parts of the Corresponding
+
+  294  from the Corresponding Source as a System Library, need not be
+  295: included in conveying the object code work.
+  296  
+
+  328  
+  329:   The requirement to provide Installation Information does not include a
+  330  requirement to continue to provide support service, warranty, or updates
+
+  347  Additional permissions that are applicable to the entire Program shall
+  348: be treated as though they were included in this License, to the extent
+  349  that they are valid under applicable law.  If additional permissions
+
+  480  by this License, of making, using, or selling its contributor version,
+  481: but do not include claims that would be infringed only as a
+  482  consequence of further modification of the contributor version.  For
+  483: purposes of this definition, "control" includes the right to grant
+  484  patent sublicenses in a manner consistent with the requirements of
+
+  520  
+  521:   A patent license is "discriminatory" if it does not include within
+  522  the scope of its coverage, prohibits the exercise of, or is
+
+app\lib\PHPWord\COPYING.LESSER:
+  94     c) For a Combined Work that displays copyright notices during
+  95:    execution, include the copyright notice for the Library among
+  96     these notices, as well as a reference directing the user to the
+
+app\lib\PHPWord\phpstan.neon.dist:
+  1: includes:
+  2      - phpstan-baseline.neon
+
+app\lib\PHPWord\src\PhpWord\Autoloader.php:
+  36              $file = str_replace('\\', DIRECTORY_SEPARATOR, substr($class, $prefixLength));
+  37:             $file = realpath(__DIR__ . (empty($file) ? '' : DIRECTORY_SEPARATOR) . $file . '.php');
+  38              if (!$file) {
+
+  41              if (file_exists($file)) {
+  42:                 /** @noinspection PhpIncludeInspection Dynamic includes */
+  43                  require_once $file;
+
+app\lib\PHPWord\src\PhpWord\Settings.php:
+  469          $configFile = null;
+  470:         $configPath = __DIR__ . '/../../';
+  471          if ($filename !== null) {
+
+app\lib\PHPWord\src\PhpWord\Element\OLEObject.php:
+  82              $this->style = $this->setNewStyle(new ImageStyle(), $style, true);
+  83:             $this->icon = realpath(__DIR__ . "/../resources/{$ext}.png");
+  84  
+
+app\lib\PHPWord\src\PhpWord\Reader\ODText\Content.php:
+  74                          if ($element) {
+  75:                             $mathFile = str_replace('./', '', $element->getAttribute('xlink:href')) . '/content.xml';
+  76  
+
+app\lib\PHPWord\src\PhpWord\Shared\Html.php:
+  1201              switch ($attribute->name) {
+  1202:                 case 'href':
+  1203                      $target = $attribute->value;
+
+app\lib\PHPWord\src\PhpWord\Shared\Microsoft\PasswordEncoder.php:
+  141          //   Word requires that the initial hash of the password with the salt not be considered in the count.
+  142:         //   The initial hash of salt + key is not included in the iteration count.
+  143          $algorithm = self::getAlgorithm($algorithmName);
+
+app\lib\PHPWord\src\PhpWord\Shared\PCLZip\pclzip.lib.php:
+   49  // 1 : PclError external library error handling. By enabling this
+   50: //     you must ensure that you have included PclError library.
+   51  // [2,...] : reserved for futur use
+
+  811      //   Note that if the index identify a folder, only the folder entry is
+  812:     //   extracted, not all the files included in the archive.
+  813      // Parameters :
+
+app\lib\PHPWord\src\PhpWord\Writer\PDF.php:
+  50  
+  51:         $includePath = str_replace('\\', '/', get_include_path());
+  52          $rendererPath = str_replace('\\', '/', $pdfLibraryPath);
+  53:         if (strpos($rendererPath, $includePath) === false) {
+  54:             set_include_path(get_include_path() . PATH_SEPARATOR . $pdfLibraryPath);
+  55          }
+
+app\lib\PHPWord\src\PhpWord\Writer\EPub3\Part\Content.php:
+  104          $xmlWriter->writeAttribute('id', 'nav');
+  105:         $xmlWriter->writeAttribute('href', 'nav.xhtml');
+  106          $xmlWriter->writeAttribute('media-type', 'application/xhtml+xml');
+
+  112          $xmlWriter->writeAttribute('id', 'content');
+  113:         $xmlWriter->writeAttribute('href', 'content.xhtml');
+  114          $xmlWriter->writeAttribute('media-type', 'application/xhtml+xml');
+
+app\lib\PHPWord\src\PhpWord\Writer\EPub3\Part\Nav.php:
+  40          $xmlWriter->startElement('a');
+  41:         $xmlWriter->writeAttribute('href', 'content.xhtml');
+  42          $xmlWriter->text('Content');
+
+app\lib\PHPWord\src\PhpWord\Writer\HTML\Element\Footnote.php:
+  49          $noteMark = $this->noteType . '-' . $this->element->getRelationId();
+  50:         $content = "<a name=\"{$noteMark}\"><a href=\"#note-{$noteId}\" class=\"NoteRef\"><sup>{$noteId}</sup></a>";
+  51  
+
+app\lib\PHPWord\src\PhpWord\Writer\HTML\Element\Link.php:
+  42          $content = $this->writeOpening();
+  43:         $content .= "<a href=\"{$prefix}"
+  44              . $this->parentWriter->escapeHTML($this->element->getSource())
+
+app\lib\PHPWord\src\PhpWord\Writer\HTML\Part\Body.php:
+  88                      $noteAnchor = "<a name=\"note-{$noteId}\" />";
+  89:                     $noteAnchor .= "<a href=\"#{$noteMark}\" class=\"NoteRef\"><sup>{$noteId}</sup></a>";
+  90  
+
+app\lib\PHPWord\src\PhpWord\Writer\ODText\Element\Formula.php:
+  64          $xmlWriter->startElement('draw:object');
+  65:         $xmlWriter->writeAttribute('xlink:href', 'Formula' . $objectIdx);
+  66          $xmlWriter->writeAttribute('xlink:type', 'simple');
+
+app\lib\PHPWord\src\PhpWord\Writer\ODText\Element\Image.php:
+  63          $xmlWriter->startElement('draw:image');
+  64:         $xmlWriter->writeAttribute('xlink:href', $target);
+  65          $xmlWriter->writeAttribute('xlink:type', 'simple');
+
+app\lib\PHPWord\src\PhpWord\Writer\ODText\Element\Link.php:
+  44          $xmlWriter->writeAttribute('xlink:type', 'simple');
+  45:         $xmlWriter->writeAttribute('xlink:href', ($element->isInternal() ? '#' : '') . $element->getSource());
+  46          $this->writeText($element->getText());
+
+app\lib\PHPWord\src\PhpWord\Writer\PDF\AbstractRenderer.php:
+  33      /**
+  34:      * Name of renderer include file.
+  35       *
+
+  37       */
+  38:     protected $includeFile;
+  39  
+
+  85          $this->isPdf = true;
+  86:         if ($this->includeFile != null) {
+  87:             $includeFile = Settings::getPdfRendererPath() . '/' . $this->includeFile;
+  88:             if (file_exists($includeFile)) {
+  89:                 /** @noinspection PhpIncludeInspection Dynamic includes */
+  90:                 require_once $includeFile;
+  91              } else {
+
+app\lib\PHPWord\src\PhpWord\Writer\PDF\DomPDF.php:
+  33      /**
+  34:      * Name of renderer include file.
+  35       *
+
+  37       */
+  38:     protected $includeFile;
+  39  
+
+app\lib\PHPWord\src\PhpWord\Writer\PDF\MPDF.php:
+   36      /**
+   37:      * Overridden to set the correct includefile, only needed for MPDF 5.
+   38       *
+
+   43          if (file_exists(Settings::getPdfRendererPath() . '/mpdf.php')) {
+   44:             // MPDF version 5.* needs this file to be included, later versions not
+   45:             $this->includeFile = 'mpdf.php';
+   46          }
+
+   99          }
+  100:         // Make sure first data presented to Mpdf includes body tag
+  101          //   (and any htmlpageheader/htmlpagefooter tags)
+
+  125      {
+  126:         if ($this->includeFile != null) {
+  127              // MPDF version 5.*
+
+app\lib\PHPWord\src\PhpWord\Writer\PDF\TCPDF.php:
+  36      /**
+  37:      * Name of renderer include file.
+  38       *
+
+  40       */
+  41:     protected $includeFile = 'tcpdf.php';
+  42  
+
+app\lib\PHPWord\src\PhpWord\Writer\Word2007\Element\Field.php:
+  320                  return '\\n';
+  321:             case 'IncludeAboveOrBelow':
+  322                  return '\\p';
+
+app\lib\PHPWord\src\PhpWord\Writer\Word2007\Style\Spacing.php:
+  47          $line = $style->getLine();
+  48:         //if linerule is auto, the spacing is supposed to include the height of the line itself, which is 240 twips
+  49          if (null !== $line && 'auto' === $style->getLineRule()) {
+
+app\models\ActionModel.php:
+  2  
+  3: require_once __DIR__ . '/../../includes/Database.php';
+  4  
+
+app\models\AimModel.php:
+  4  require_once 'ObjectiveModel.php';
+  5: require_once __DIR__ . '/../../includes/Database.php';
+  6: require_once __DIR__ . '/../entities/Aim.php';
+  7  
+
+app\models\BaseModel.php:
+  3  
+  4: require_once __DIR__ . '/../../includes/Database.php'; // PDO wrapper yok; doğrudan PDO kullanacağız
+  5  
+
+app\models\CoveModel.php:
+  3  require_once 'BaseModel.php';
+  4: require_once __DIR__ . '/../../includes/Database.php';
+  5: require_once __DIR__ . '/../entities/Cove.php';
+  6: require_once __DIR__ . '/FieldModel.php';
+  7  
+
+app\models\DetailedLogModel.php:
+  3  require_once 'BaseModel.php';
+  4: require_once __DIR__ . '/../../includes/Database.php';
+  5: require_once __DIR__ . '/../entities/DetailedLog.php';
+  6  
+
+app\models\DocumentStrategyModel.php:
+  3  require_once 'BaseModel.php';
+  4: require_once __DIR__ . '/../../includes/Database.php';
+  5: require_once __DIR__ . '/../entities/DocumentStrategy.php';
+  6  
+
+app\models\FaqModel.php:
+  1  <?php
+  2: require_once __DIR__.'/BaseModel.php';
+  3  
+
+app\models\FieldModel.php:
+  3  require_once 'BaseModel.php';
+  4: require_once __DIR__ . '/../../includes/Database.php';
+  5: require_once __DIR__ . '/../entities/Field.php';
+  6  
+
+app\models\GalleryModel.php:
+  2  require_once 'BaseModel.php';
+  3: require_once __DIR__ . '/../../includes/Database.php';
+  4: require_once __DIR__ . '/../entities/Gallery.php';
+  5  
+
+app\models\IndicatorModel.php:
+  4  require_once 'BaseModel.php';
+  5: require_once __DIR__ . '/../entities/Indicator.php';
+  6  
+
+app\models\IndicatorTypeModel.php:
+  3  require_once 'BaseModel.php';
+  4: require_once __DIR__ . '/../../includes/Database.php';
+  5: require_once __DIR__ . '/../entities/IndicatorType.php';
+  6  
+
+app\models\LogModel.php:
+  3  require_once 'BaseModel.php';
+  4: require_once __DIR__ . '/../../includes/Database.php';
+  5: require_once __DIR__ . '/../entities/Log.php';
+  6  
+
+app\models\NewsModel.php:
+  2  require_once 'BaseModel.php';
+  3: require_once __DIR__ . '/../../includes/Database.php';
+  4: require_once __DIR__ . '/../entities/News.php';
+  5  
+
+app\models\ObjectiveModel.php:
+  3  require_once 'BaseModel.php';
+  4: require_once __DIR__ . '/../../includes/Database.php';
+  5: require_once __DIR__ . '/../entities/Objective.php';
+  6  
+
+app\models\PermissionModel.php:
+  2  require_once 'BaseModel.php';
+  3: require_once __DIR__ . '/../../includes/Database.php';
+  4: require_once __DIR__ . '/../entities/Permission.php';
+  5  
+
+app\models\RegulationModel.php:
+  3  require_once 'BaseModel.php';
+  4: require_once __DIR__ . '/../../includes/Database.php';
+  5: require_once __DIR__ . '/../entities/Regulation.php';
+  6  
+
+app\models\RoleModel.php:
+  3  require_once 'BaseModel.php';
+  4: require_once __DIR__ . '/../../includes/Database.php';
+  5: require_once __DIR__ . '/../entities/Role.php';
+  6: require_once __DIR__ . '/../entities/Permission.php';
+  7  
+
+app\models\SupportMessageModel.php:
+  1  <?php
+  2: require_once __DIR__ . '/BaseModel.php';
+  3  
+
+app\models\SupportSessionModel.php:
+  1  <?php
+  2: require_once __DIR__ . '/BaseModel.php';
+  3  
+
+app\models\UserModel.php:
+  2  
+  3: require_once __DIR__.'/BaseModel.php';
+  4: require_once __DIR__ . '/../../includes/Database.php'; // Class for database operations
+  5: require_once __DIR__ . '/../entities/User.php'; // Include the User entity
+  6: require_once __DIR__ . '/../entities/Role.php'; // Include the Role entity
+  7: require_once __DIR__ . '/../entities/Permission.php'; // Include the Permission entity
+  8: require_once __DIR__ . '/../entities/Cove.php'; // Include the Cove entity
+  9  
+
+app\services\NavbarService.php:
+   48              try {
+   49:                 require_once dirname(__DIR__) . '/config/config.php';
+   50                  $db = getDbConnection();
+
+  404          if (isset($widget['permission'])) {
+  405:             require_once dirname(__DIR__) . '/../includes/PermissionHelper.php';
+  406              return hasPermission($widget['permission']);
+
+app\services\UnifiedViewService.php:
+   70          // View dosyasının yolunu oluştur
+   71:         $viewFile = dirname(__DIR__) . "/views/{$view}.php";
+   72  
+
+   91  
+   92:         // Eğer view kendi içinde unified layout include ediyorsa
+   93          // (eski sistem uyumluluğu için)
+
+  149          // Tam dosya yolu
+  150:         $layoutFile = dirname(__DIR__) . '/views' . $layoutPath;
+  151  
+
+  170      {
+  171:         $viewFile = dirname(__DIR__) . "/views/{$view}.php";
+  172          return file_exists($viewFile);
+
+  219      {
+  220:         // BASE_URL tanımlı mı kontrol et
+  221:         $baseUrl = defined('BASE_URL') ? BASE_URL : '/';
+  222  
+
+  242  
+  243:         $partialFile = dirname(__DIR__) . "/views/components/{$partial}.php";
+  244  
+
+app\views\BaseView.php:
+  5  
+  6: require_once __DIR__ . '/../services/UnifiedViewService.php';
+  7  
+
+app\views\action\adminTaskList.php:
+   52                      <div class="btn-group" role="group">
+   53:                         <a href="?url=action/adminTaskList&filter=all" 
+   54                             class="btn btn-<?= $filter === 'all' ? 'primary' : 'outline-primary' ?>">
+
+   60                          
+   61:                         <a href="?url=action/adminTaskList&filter=overdue" 
+   62                             class="btn btn-<?= $filter === 'overdue' ? 'danger' : 'outline-danger' ?>">
+
+   68                          
+   69:                         <a href="?url=action/adminTaskList&filter=urgent" 
+   70                             class="btn btn-<?= $filter === 'urgent' ? 'warning' : 'outline-warning' ?>">
+
+   76                          
+   77:                         <a href="?url=action/adminTaskList&filter=upcoming" 
+   78                             class="btn btn-<?= $filter === 'upcoming' ? 'info' : 'outline-info' ?>">
+
+   84                          
+   85:                         <a href="?url=action/adminTaskList&filter=completed" 
+   86                             class="btn btn-<?= $filter === 'completed' ? 'success' : 'outline-success' ?>">
+
+  307                      <?php if($filter !== 'all'): ?>
+  308:                         <a href="?url=action/adminTaskList&filter=all" class="btn btn-outline-primary">
+  309                              <i class="fas fa-list me-2"></i>
+
+app\views\action\calendar.php:
+    2  // filepath: c:\xampp\htdocs\mtegmsmm\app\Views\action\calendar.php
+    3: require_once __DIR__ . '/../../../includes/AssetManager.php';
+    4  use App\Helpers\AssetManager;
+
+   29                      </div>
+   30:                     <a href="<?php echo (isset($isAdmin) && $isAdmin) ? 'index.php?url=action/adminTaskList&filter=overdue' : 'index.php?url=action/taskList&type=overdue'; ?>" class="small-box-footer">
+   31                          Detayları Gör <i class="fas fa-arrow-circle-right"></i>
+
+   45                      </div>
+   46:                     <a href="<?php echo (isset($isAdmin) && $isAdmin) ? 'index.php?url=action/adminTaskList&filter=urgent' : 'index.php?url=action/taskList&type=urgent'; ?>" class="small-box-footer">
+   47                          Detayları Gör <i class="fas fa-arrow-circle-right"></i>
+
+   61                      </div>
+   62:                     <a href="<?php echo (isset($isAdmin) && $isAdmin) ? 'index.php?url=action/adminTaskList&filter=upcoming' : 'index.php?url=action/taskList&type=upcoming'; ?>" class="small-box-footer">
+   63                          Detayları Gör <i class="fas fa-arrow-circle-right"></i>
+
+   77                      </div>
+   78:                     <a href="<?php echo (isset($isAdmin) && $isAdmin) ? 'index.php?url=action/adminTaskList&filter=completed' : 'index.php?url=action/taskList&type=completed'; ?>" class="small-box-footer">
+   79                          Detayları Gör <i class="fas fa-arrow-circle-right"></i>
+
+  246              if (info.event.url) {
+  247:                 window.location.href = info.event.url;
+  248              }
+
+app\views\action\calendarAdmin.php:
+    2  // filepath: c:\xampp\htdocs\mtegmsmm\app\Views\action\calendarAdmin.php
+    3: require_once __DIR__ . '/../../../includes/AssetManager.php';
+    4  
+
+   41                          <?php if(($selectedCoveId ?? 0) > 0): ?>
+   42:                             <a href="index.php?url=action/calendarAdmin" class="btn btn-outline-secondary btn-sm" style="padding:.45rem .9rem;display:inline-flex;gap:.4rem;align-items:center;">
+   43                                  <i class="fas fa-times"></i> Temizle
+
+   67          <div class="col-sm-6 col-md-3 mb-2">
+   68:             <a href="<?= $link ?>" class="stat-link" title="<?= htmlspecialchars($s['label']) ?> görevleri listele">
+   69                  <div class="gov-card stat-card-click" style="padding:.85rem .9rem;display:flex;flex-direction:column;gap:.4rem;position:relative;overflow:hidden;">
+
+  148                  <div class="card-footer py-1 text-end bg-white">
+  149:                     <a class="btn btn-xs btn-outline-primary" style="font-size:.55rem;padding:.2rem .4rem;" href="index.php?url=action/edit&id=<?= $actionId ?>&objectiveId=<?= $objectiveId ?>"><i class="fas fa-edit"></i> Düzenle</a>
+  150                  </div>
+
+app\views\action\index.php:
+    1  <?php
+    2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+    3  use App\Helpers\AssetManager;
+
+   26                    <li class="nav-item">
+   27:                     <a class="nav-link " href="index.php?url=aim/edit&id=<?php echo $aimid; ?>" role="tab" aria-controls="custom-tabs-one-home" aria-selected="false">Amaç Düzenle</a>
+   28                    </li>
+   29                    <li class="nav-item">
+   30:                     <a class="nav-link" href="index.php?url=objective/list&aimid=<?php echo $aimid; ?>"  role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Hedefler</a>
+   31                    </li>
+   32                    <li class="nav-item">
+   33:                     <a class="nav-link active" href="#"  role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Faaliyetler</a>
+   34                    </li>
+   35                    <li class="nav-item">
+   36:                     <a class="nav-link" href="index.php?url=indicator/index&aimid=<?php echo $aimid; ?>"  role="tab" aria-controls="custom-tabs-one-profile" aria-selected="true">Performans Göstergeleri</a>
+   37                    </li>
+
+   51                          <div class="col-md-6 text-end">
+   52:                             <h3 class="card-title"><a href="index.php?url=action/create&aimid=<?php echo $aimid; ?>">Yeni Faaliyet  Ekle</a></h3>
+   53                          </div>
+
+   93                                  <td>
+   94:                                     <a href="index.php?url=action/edit&id=<?php echo $action->getId(); ?>&objectiveId=<?php echo $action->getobjectiveId(); ?>&aimid=<?php echo $aimid; ?>" class="btn btn-warning">Düzenle</a>
+   95:                                     <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" data-aimid="<?php echo $aimid; ?>" data-id="<?php echo $action->getId(); ?>" data-title="<?php echo htmlspecialchars($action->getActionTitle()); ?>" class="btn btn-danger">Sil</a>
+   96                                  </td>
+
+  122                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+  123:                 <a href="#" id="confirmDeleteButton" class="btn btn-danger">Sil</a>
+  124              </div>
+
+  139          modal.find('#deleteMessage').text('"' + actionTitle + '" başlıklı faaliyeti silmek istediğinizden emin misiniz?');
+  140:         modal.find('#confirmDeleteButton').attr('href', 'index.php?url=action/delete&id=' + actionId + '&aimid=' + aimId);
+  141      });
+
+app\views\action\taskList.php:
+   21                      <div class="card-tools">
+   22:                         <a href="index.php?url=action/calendar" class="btn btn-sm btn-light">
+   23                              <i class="fas fa-calendar-alt"></i> Takvime Dön
+
+  121              ?>
+  122:                 <a href="index.php?url=action/taskList&type=<?= $key ?>" class="btn btn-<?= $active ?> m-1">
+  123                      <i class="fas fa-<?= $key==='all'?'list':($key==='overdue'?'exclamation-triangle':($key==='urgent'?'fire':($key==='upcoming'?'clock':'check-circle'))) ?> me-1"></i>
+
+  171                          <div class="empty-actions">
+  172:                             <a href="index.php?url=action/calendar" class="btn btn-primary">
+  173                                  <i class="fas fa-calendar-alt"></i> Takvime Dön
+
+  175                              <?php if(($type ?? 'all') !== 'all'): ?>
+  176:                                 <a href="index.php?url=action/taskList&type=all" class="btn btn-outline-secondary ms-2">
+  177                                      <i class="fas fa-list"></i> Tüm Görevler
+
+  417                                  <div class="btn-group" role="group">
+  418:                                     <a href="index.php?url=action/edit&id=<?= $actionId ?>&objectiveId=<?= $objectiveId ?>" 
+  419                                         class="btn btn-sm btn-outline-primary" 
+
+app\views\action\upload.php:
+  34              <button type="submit" class="btn btn-primary"><i class="fas fa-cloud-upload-alt"></i> Yükle</button>
+  35:             <a href="index.php?url=action/listUploads" class="btn btn-outline-secondary"><i class="fas fa-list"></i> Yüklenenleri Gör</a>
+  36          </div>
+
+  63      dropZone.addEventListener('drop',e=>{e.preventDefault();dropZone.classList.remove('dragover'); if(e.dataTransfer.files.length){ fileInput.files=e.dataTransfer.files; }});
+  64:     form.addEventListener('submit',e=>{e.preventDefault(); if(!fileInput.files.length){showMessage('warning','Lütfen bir dosya seçin');return;} const fd=new FormData(form); fd.append('file',fileInput.files[0]); progWrap.classList.remove('d-none'); prog.style.width='0%'; showMessage('info','Yükleme başlatılıyor...'); fetch(window.location.href,{method:'POST',body:fd,headers:{'X-Requested-With':'XMLHttpRequest'}}).then(r=>r.json()).then(data=>{ if(data.success){ showMessage('success',data.message); form.reset(); prog.style.width='100%'; } else { showMessage('danger', data.error||'Yükleme başarısız'); }}).catch(err=>{ showMessage('danger','İstek hatası: '+err); }); });
+  65      // Progress simulation (XHR olmadan gerçek ilerleme alınamaz; istenirse XHR ile değiştirilebilir)
+
+app\views\aim\create.php:
+  10  <!-- Bootstrap 5 Duallistbox -->
+  11: <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-duallistbox@4.0.2/dist/bootstrap-duallistbox.min.css">
+  12  
+
+app\views\aim\edit.php:
+  10  <!-- Bootstrap 5 Duallistbox -->
+  11: <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-duallistbox@4.0.2/dist/bootstrap-duallistbox.min.css">
+  12  
+
+  18                    <li class="nav-item">
+  19:                     <a class="nav-link active" href="#" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">Amaç Düzenle</a>
+  20                    </li>
+  21                    <li class="nav-item">
+  22:                     <a class="nav-link" href="index.php?url=objective/list&aimid=<?php echo $aim->getId(); ?>"  role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Hedefler</a>
+  23                    </li>
+  24                     <li class="nav-item">
+  25:                     <a class="nav-link" href="index.php?url=action/index&aimid=<?php echo $aim->getId(); ?>"  role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Faaliyetler</a>
+  26                    </li>
+  27                    <li class="nav-item">
+  28:                     <a class="nav-link" href="index.php?url=indicator/index&aimid=<?php echo $aim->getId(); ?>"   role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Performans Göstergeleri</a>
+  29                    </li>
+
+app\views\aim\index.php:
+    1  <?php
+    2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+    3  use App\Helpers\AssetManager;
+
+   25                  <div class="btn-list">
+   26:                     <a href="<?php echo BASE_URL; ?>index.php?url=aim/create" class="btn btn-primary">
+   27                          <i class="ti ti-plus me-1"></i>
+
+   57                  <div class="card-actions">
+   58:                     <a href="#" class="btn btn-outline-secondary btn-sm" onclick="window.print()">
+   59                          <i class="ti ti-printer me-1"></i>
+
+  101                                                      <?php if ($isSuperAdmin): ?>
+  102:                                                     <a href="<?php echo BASE_URL; ?>index.php?url=aim/edit&id=<?php echo $aim->getId(); ?>" class="btn btn-warning">Düzenle</a>
+  103:                                                     <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" class="btn btn-danger" data-id="<?php echo $aim->getId(); ?>" data-name="<?php echo htmlspecialchars($aim->getAimTitle()); ?>">Sil</a>
+  104                                                      <?php endif; ?>
+
+  143                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+  144:                 <a href="#" id="confirmDeleteButton" class="btn btn-danger">Sil</a>
+  145              </div>
+
+  189          // Fetch regulations
+  190:         fetch("' . BASE_URL . 'index.php?url=aim/getRegulations&aimId=" + aimId)
+  191              .then(response => response.json())
+
+  218          modal.querySelector("#deleteMessage").textContent = `"${fieldName}" amacını silmek istediğinizden emin misiniz?`;
+  219:         modal.querySelector("#confirmDeleteButton").href = "<?php echo BASE_URL; ?>index.php?url=aim/delete&id=" + fieldId;
+  220      });
+
+app\views\components\footer.php:
+   60                  <div class="d-flex align-items-center mb-3">
+   61:                     <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg" alt="MEB Logo" class="footer-logo me-3 opacity-75" height="50">
+   62                      <div>
+
+   71                  <div class="social-links mt-3">
+   72:                     <a href="https://twitter.com/mebgovtr" target="_blank" title="Twitter" class="social-link d-inline-flex align-items-center justify-content-center rounded-circle text-white text-opacity-75 me-1">
+   73                          <i class="fab fa-twitter"></i>
+   74                      </a>
+   75:                     <a href="https://www.instagram.com/mebgovtr" target="_blank" title="Instagram">
+   76                          <i class="fab fa-instagram"></i>
+   77                      </a>
+   78:                     <a href="https://www.youtube.com/c/MilliEğitimBakanlığı" target="_blank" title="YouTube">
+   79                          <i class="fab fa-youtube"></i>
+   80                      </a>
+   81:                     <a href="https://www.linkedin.com/company/mebgovtr" target="_blank" title="LinkedIn">
+   82                          <i class="fab fa-linkedin"></i>
+
+   91                      <li class="mb-2">
+   92:                         <a href="<?php echo BASE_URL; ?>index.php?url=user/main" class="btn-link text-white text-opacity-75 text-decoration-none fw-medium">
+   93                              <i class="fas fa-home me-2 small"></i>Ana Sayfa
+
+   96                      <li class="mb-2">
+   97:                         <a href="<?php echo BASE_URL; ?>index.php?url=user/haberlist" class="btn-link">
+   98                              <i class="fas fa-newspaper me-2 small"></i>Haberler
+
+  101                      <li class="mb-2">
+  102:                         <a href="<?php echo BASE_URL; ?>index.php?url=home/smmnetwork" class="btn-link">
+  103                              <i class="fas fa-map-marked-alt me-2 small"></i>SMM Haritası
+
+  106                      <li class="mb-2">
+  107:                         <a href="<?php echo BASE_URL; ?>index.php?url=user/login" class="btn-link">
+  108                              <i class="fas fa-sign-in-alt me-2 small"></i>SMM Portal
+
+  112                      <li class="mb-2">
+  113:                         <a href="<?php echo BASE_URL; ?>index.php?url=help/index" class="btn-link">
+  114                              <i class="fas fa-question-circle me-2 small"></i>Yardım
+
+  125                      <li class="mb-2">
+  126:                         <a href="https://meb.gov.tr" target="_blank" class="btn-link">
+  127                              <i class="fas fa-external-link-alt me-2 small"></i>Milli Eğitim Bakanlığı
+
+  130                      <li class="mb-2">
+  131:                         <a href="https://mtegm.meb.gov.tr" target="_blank" class="btn-link">
+  132                              <i class="fas fa-external-link-alt me-2 small"></i>MTEGM Ana Sayfası
+
+  135                      <li class="mb-2">
+  136:                         <a href="https://mevzuat.meb.gov.tr" target="_blank" class="btn-link">
+  137                              <i class="fas fa-book me-2 small"></i>Mevzuat
+
+  140                      <li class="mb-2">
+  141:                         <a href="https://www.turkiye.gov.tr" target="_blank" class="btn-link">
+  142                              <i class="fas fa-flag me-2 small"></i>e-Devlet Kapısı
+
+  155                          <i class="fas fa-phone me-2"></i>
+  156:                         <a href="tel:+903124133000" class="btn-link">+90 312 413 30 00</a>
+  157                      </p>
+
+  171                  <div class="d-flex justify-content-md-end justify-content-start mt-2 mt-md-0">
+  172:                     <a href="#" class="btn-link me-3 small">Gizlilik Politikası</a>
+  173:                     <a href="#" class="btn-link me-3 small">Kullanım Şartları</a>
+  174:                     <a href="#" class="btn-link small">Erişebilirlik</a>
+  175                  </div>
+
+app\views\components\header.php:
+   23      <meta property="og:type" content="website">
+   24:     <meta property="og:url" content="<?php echo BASE_URL . ($_SERVER['REQUEST_URI'] ?? ''); ?>">
+   25      
+
+   28      <!-- Favicons -->
+   29:     <link rel="icon" type="image/svg+xml" href="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg">
+   30:     <link rel="alternate icon" href="<?php echo BASE_URL; ?>favicon.ico">
+   31      
+   32      <!-- Font Awesome -->
+   33:     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   34      <!-- Bootstrap 5.3.8 CSS -->
+   35:     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+   36      <!-- Swiper CSS for Carousel -->
+   37:     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css?v=<?php echo time(); ?>">
+   38      
+   39      <!-- Custom Theme CSS -->
+   40:     <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/admin-bootstrap5.css">
+   41  
+
+   44      // Load TemplateService for responsive CSS
+   45:     require_once __DIR__ . '/../../services/TemplateService.php';
+   46      use App\Services\TemplateService;
+
+  112      if (class_exists('App\Helpers\AssetManager')) {
+  113:         echo \App\Helpers\AssetManager::renderCss(BASE_URL);
+  114      }
+
+app\views\components\hero.php:
+  14   * ];
+  15:  * include __DIR__ . '/components/hero.php';
+  16   * ?>
+
+app\views\components\navbar_with_sidebar.php:
+   12  if ($isLoggedIn) {
+   13:     require_once __DIR__ . '/../../../includes/PermissionHelper.php';
+   14  }
+
+  432          <div class="sidebar-header">
+  433:             <a href="<?php echo BASE_URL; ?>" class="sidebar-logo">
+  434:                 <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg" alt="MEB">
+  435                  <span class="fw-bold">SMM Portal</span>
+
+  451                              <div class="sidebar-item">
+  452:                                 <a href="<?php echo BASE_URL; ?>index.php?url=<?php echo $child['url']; ?>"
+  453                                     class="sidebar-link <?php echo $currentUrl === $child['url'] ? 'active' : ''; ?>"
+
+  465                      <div class="sidebar-item">
+  466:                         <a href="<?php echo BASE_URL; ?>index.php?url=<?php echo $item['url']; ?>"
+  467                             class="sidebar-link <?php echo $currentUrl === $item['url'] ? 'active' : ''; ?>"
+
+  527                          <ul class="dropdown-menu dropdown-menu-end shadow">
+  528:                             <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=user/editprofile">
+  529                                  <i class="fas fa-user me-2"></i>Profil
+  530                              </a></li>
+  531:                             <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=user/settings">
+  532                                  <i class="fas fa-cog me-2"></i>Ayarlar
+
+  534                              <li><hr class="dropdown-divider"></li>
+  535:                             <li><a class="dropdown-item text-danger" href="<?php echo BASE_URL; ?>index.php?url=user/logout">
+  536                                  <i class="fas fa-sign-out-alt me-2"></i>Çıkış Yap
+
+  540                  <?php else: ?>
+  541:                     <a href="<?php echo BASE_URL; ?>index.php?url=user/login" class="btn btn-primary btn-sm">
+  542                          <i class="fas fa-sign-in-alt me-2"></i>Giriş Yap
+
+app\views\components\navbar.php:
+   12  if ($isLoggedIn) {
+   13:     require_once __DIR__ . '/../../../includes/PermissionHelper.php';
+   14  }
+
+  132          <!-- Brand - MEB Logo Only -->
+  133:         <a href="https://www.meb.gov.tr" class="navbar-brand d-flex align-items-center me-3 py-2" target="_blank"
+  134             title="T.C. Milli Eğitim Bakanlığı" rel="noopener noreferrer">
+  135:             <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg"
+  136                   alt="T.C. Milli Eğitim Bakanlığı"
+
+  152                      <a class="nav-link <?php echo $currentUrl === 'user/main' ? 'active' : ''; ?> rounded-pill"
+  153:                         href="<?php echo BASE_URL; ?>index.php?url=user/main">
+  154                          <i class="fas fa-home me-1"></i>Ana Sayfa
+
+  158                      <a class="nav-link <?php echo $currentUrl === 'user/haberlist' ? 'active' : ''; ?> rounded-pill"
+  159:                         href="<?php echo BASE_URL; ?>index.php?url=user/haberlist">
+  160                          <i class="fas fa-newspaper me-1"></i>Haberler
+
+  164                      <a class="nav-link <?php echo $currentUrl === 'home/smmnetwork' ? 'active' : ''; ?> px-3 py-2 rounded-pill"
+  165:                         href="<?php echo BASE_URL; ?>index.php?url=home/smmnetwork">
+  166                          <i class="fas fa-map-marked-alt me-2"></i>SMM Haritası
+
+  173                          <a class="nav-link <?php echo empty($currentUrl) || $currentUrl === 'home/index' ? 'active' : ''; ?> px-3 py-2 rounded-pill"
+  174:                             href="<?php echo BASE_URL; ?>index.php">
+  175                              <i class="fas fa-tachometer-alt me-2"></i>Yönetim Paneli
+
+  180                          <li class="nav-item dropdown">
+  181:                             <a class="nav-link dropdown-toggle rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  182                                  <i class="fas fa-bullseye me-1"></i>Stratejik
+
+  185                                  <?php if ($isSuperAdmin || hasPermission('aims.manage')): ?>
+  186:                                     <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=aim/index">
+  187                                              <i class="fas fa-bullseye me-2 text-primary"></i>Amaçlar
+
+  190                                  <?php if ($isSuperAdmin || hasPermission('objectives.manage')): ?>
+  191:                                     <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=objective/index">
+  192                                              <i class="fas fa-flag me-2 text-success"></i>Hedefler
+
+  195                                  <?php if ($isSuperAdmin || hasPermission('indicators.manage')): ?>
+  196:                                     <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=indicator/index">
+  197                                              <i class="fas fa-chart-line me-2 text-info"></i>Göstergeler
+
+  200                                  <?php if ($isSuperAdmin || hasPermission('actions.manage')): ?>
+  201:                                     <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=action/index">
+  202                                              <i class="fas fa-tasks me-2 text-warning"></i>Eylemler
+  203                                          </a></li>
+  204:                                     <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=action/calendar">
+  205                                              <i class="fas fa-calendar me-2 text-danger"></i>Takvim
+
+  213                          <li class="nav-item dropdown">
+  214:                             <a class="nav-link dropdown-toggle px-3 py-2 rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  215                                  <i class="fas fa-file-alt me-2"></i>İçerik
+
+  218                                  <?php if ($isSuperAdmin || hasPermission('news.manage')): ?>
+  219:                                     <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=news/index">
+  220                                              <i class="fas fa-newspaper me-2 text-primary"></i>Haberler
+
+  223                                  <?php if ($isSuperAdmin || hasPermission('documentstrategies.manage')): ?>
+  224:                                     <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=documentstrategy/index">
+  225                                              <i class="fas fa-file-pdf me-2 text-danger"></i>Belgeler
+
+  228                                  <?php if ($isSuperAdmin || hasPermission('regulations.manage')): ?>
+  229:                                     <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=regulation/index">
+  230                                              <i class="fas fa-book me-2 text-success"></i>Mevzuat
+
+  238                          <li class="nav-item dropdown">
+  239:                             <a class="nav-link dropdown-toggle px-3 py-2 rounded-pill" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  240                                  <i class="fas fa-cogs me-2"></i>Sistem
+
+  243                                  <?php if ($isSuperAdmin || hasPermission('users.manage')): ?>
+  244:                                     <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=user/manage">
+  245                                              <i class="fas fa-users me-2 text-primary"></i>Kullanıcılar
+  246                                          </a></li>
+  247:                                     <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=user/roles">
+  248                                              <i class="fas fa-shield-alt me-2 text-warning"></i>Roller
+
+  251                                  <?php if ($isSuperAdmin || hasPermission('coves.manage')): ?>
+  252:                                     <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=cove/index">
+  253                                              <i class="fas fa-building me-2 text-info"></i>SMM Merkezleri
+
+  256                                  <?php if ($isSuperAdmin || hasPermission('fields.manage')): ?>
+  257:                                     <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=field/index">
+  258                                              <i class="fas fa-th me-2 text-success"></i>SMM Alanları
+
+  264                                      </li>
+  265:                                     <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=log/index">
+  266                                              <i class="fas fa-history me-2 text-secondary"></i>Sistem Logları
+
+  273                      <li class="nav-item">
+  274:                         <a class="nav-link px-3 py-2 rounded-pill" href="<?php echo BASE_URL; ?>index.php?url=help/index">
+  275                              <i class="fas fa-question-circle me-2"></i>Yardım
+
+  288                  <div class="me-3 d-none d-lg-block">
+  289:                     <img src="<?php echo BASE_URL; ?>wwwroot/img/turkiye.svg" alt="Türkiye 100. Yıl" height="45" class="rounded shadow-sm">
+  290                  </div>
+
+  292                  <?php if (!$isLoggedIn): ?>
+  293:                     <a href="<?php echo BASE_URL; ?>index.php?url=user/login" class="btn btn-primary btn-sm rounded-pill px-4">
+  294                          <i class="fas fa-sign-in-alt me-2"></i>SMM Portal
+
+  299                              <div class="user-avatar">
+  300:                                 <?php if (!empty($_SESSION['profile_photo']) && file_exists(dirname(__DIR__) . '/../../wwwroot/uploads/profiles/' . $_SESSION['profile_photo'])): ?>
+  301:                                     <img src="<?php echo BASE_URL; ?>uploads/profiles/<?php echo htmlspecialchars($_SESSION['profile_photo']); ?>"
+  302                                          alt="Profil Fotoğrafı">
+  303                                  <?php else: ?>
+  304:                                     <img src="<?php echo BASE_URL; ?>wwwroot/img/default-avatar.svg" alt="Varsayılan Profil">
+  305                                  <?php endif; ?>
+
+  314                          <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+  315:                             <li><a class="dropdown-item rounded mx-2 px-3 py-2" href="<?php echo BASE_URL; ?>index.php?url=user/editprofile">
+  316                                      <i class="fas fa-user-edit me-2"></i>Profil Düzenle
+
+  320                              </li>
+  321:                             <li><a class="dropdown-item text-danger" href="<?php echo BASE_URL; ?>index.php?url=user/logout">
+  322                                      <i class="fas fa-sign-out-alt me-2"></i>Çıkış Yap
+
+app\views\components\scripts.php:
+   6  // Load TemplateService
+   7: require_once __DIR__ . '/../../services/TemplateService.php';
+   8  use App\Services\TemplateService;
+
+  18  if (class_exists('App\Helpers\AssetManager')) {
+  19:     echo \App\Helpers\AssetManager::renderJs(BASE_URL);
+  20  }
+
+app\views\components\sidebar_menu.php:
+   10  // Permission helper
+   11: require_once __DIR__ . '/../../../includes/PermissionHelper.php';
+   12  
+
+  206  <div class="sidebar-header">
+  207:     <a href="<?php echo BASE_URL; ?>" class="sidebar-logo">
+  208:         <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg" alt="MEB">
+  209          <span>SMM Portal</span>
+
+  225                          <div class="sidebar-item">
+  226:                             <a href="<?php echo BASE_URL; ?>index.php?url=<?php echo $child['url']; ?>"
+  227                                 class="sidebar-link <?php echo $currentUrl === $child['url'] ? 'active' : ''; ?>">
+
+  240              <div class="sidebar-item">
+  241:                 <a href="<?php echo BASE_URL; ?>index.php?url=<?php echo $item['url']; ?>"
+  242                     class="sidebar-link <?php echo $currentUrl === $item['url'] ? 'active' : ''; ?>">
+
+  256      <div class="sidebar-item">
+  257:         <a href="<?php echo BASE_URL; ?>index.php?url=user/editProfile" class="sidebar-link">
+  258              <i class="fas fa-user-circle"></i>
+
+  262      <div class="sidebar-item">
+  263:         <a href="<?php echo BASE_URL; ?>index.php?url=help/index" class="sidebar-link">
+  264              <i class="fas fa-question-circle"></i>
+
+  268      <div class="sidebar-item">
+  269:         <a href="<?php echo BASE_URL; ?>index.php?url=user/logout" class="sidebar-link">
+  270              <i class="fas fa-sign-out-alt"></i>
+
+app\views\components\sidebar.php:
+    6  
+    7: require_once __DIR__ . '/../../services/UIComponentService.php';
+    8  use App\Services\UIComponentService;
+
+  388      <div class="sidebar-header">
+  389:         <a href="<?php echo BASE_URL; ?>" class="sidebar-brand">
+  390              <i class="fas fa-layer-group sidebar-menu-icon"></i>
+
+  404                      <li class="sidebar-menu-item has-submenu">
+  405:                         <a href="#" class="sidebar-menu-link" data-tooltip="<?php echo htmlspecialchars($item['title']); ?>">
+  406                              <i class="<?php echo $item['icon']; ?> sidebar-menu-icon"></i>
+
+  415                                  <li class="sidebar-submenu-item">
+  416:                                     <a href="<?php echo BASE_URL; ?>index.php?url=<?php echo $child['url']; ?>"
+  417                                         class="sidebar-submenu-link <?php echo $currentUrl === $child['url'] ? 'active' : ''; ?>">
+
+  427                      <li class="sidebar-menu-item">
+  428:                         <a href="<?php echo BASE_URL; ?>index.php?url=<?php echo $item['url']; ?>"
+  429                             class="sidebar-menu-link <?php echo $currentUrl === $item['url'] ? 'active' : ''; ?>"
+
+  449                  <li class="sidebar-menu-item">
+  450:                     <a href="<?php echo BASE_URL; ?>index.php?url=<?php echo $item['url']; ?>"
+  451                         class="sidebar-menu-link <?php echo $item['class'] ?? ''; ?>"
+
+  486              // Update session via AJAX
+  487:             fetch('<?php echo BASE_URL; ?>index.php?url=user/saveSidebarState', {
+  488                  method: 'POST',
+
+app\views\components\_backup\navbar_enhanced.php:
+    4   * Enhanced Navbar Component with Dynamic Features
+    5:  * Includes: Dynamic badges, contextual menus, widgets, mobile optimization
+    6   */
+
+    8  // NavbarService'i yükle
+    9: require_once __DIR__ . '/../../services/NavbarService.php';
+   10  
+
+   17  if ($isLoggedIn) {
+   18:     require_once __DIR__ . '/../../../includes/PermissionHelper.php';
+   19  }
+
+  396          <!-- Brand -->
+  397:         <a href="<?php echo BASE_URL; ?>" class="navbar-brand d-flex align-items-center">
+  398:             <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg" alt="MEB" style="height: 40px;" class="me-2">
+  399              <div class="brand-text">
+
+  421                          <li class="nav-item dropdown">
+  422:                             <a class="nav-link dropdown-toggle position-relative" href="#" role="button"
+  423                                  data-bs-toggle="dropdown" aria-expanded="false">
+
+  433                                          <a class="dropdown-item contextual-menu-item <?php echo ($subItem['badge'] ?? 0) > 0 ? 'has-badge' : ''; ?>"
+  434:                                             href="<?php echo BASE_URL; ?>index.php?url=<?php echo $subItem['url']; ?>"
+  435                                              <?php if (($subItem['badge'] ?? 0) > 0): ?>data-badge="<?php echo $subItem['badge']; ?>" <?php endif; ?>>
+
+  445                              <a class="nav-link position-relative <?php echo $currentUrl === $item['url'] ? 'active' : ''; ?>"
+  446:                                 href="<?php echo BASE_URL; ?>index.php?url=<?php echo $item['url']; ?>">
+  447                                  <i class="<?php echo $item['icon']; ?> me-1"></i>
+
+  481                                          <h6 class="mb-0">Bildirimler</h6>
+  482:                                         <small><a href="#" class="text-primary">Tümünü Gör</a></small>
+  483                                      </div>
+
+  507                                  <div class="p-2 border-top">
+  508:                                     <a href="<?php echo BASE_URL; ?>index.php?url=notifications/all"
+  509                                          class="btn btn-sm btn-primary w-100">
+
+  520                      <div class="quick-actions d-none d-lg-flex">
+  521:                         <button class="quick-action-btn" onclick="window.location.href='<?php echo BASE_URL; ?>index.php?url=action/create'">
+  522                              <i class="fas fa-plus"></i> Yeni
+  523                          </button>
+  524:                         <button class="quick-action-btn" onclick="window.location.href='<?php echo BASE_URL; ?>index.php?url=action/calendar'">
+  525                              <i class="fas fa-calendar"></i> Takvim
+
+  538                                  if (!empty($_SESSION['profile_photo'])): ?>
+  539:                                     <img src="<?php echo BASE_URL; ?>uploads/profiles/<?php echo htmlspecialchars($_SESSION['profile_photo']); ?>"
+  540                                          alt="Profil">
+
+  554                          <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+  555:                             <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=user/editprofile">
+  556                                      <i class="fas fa-user-edit me-2"></i>Profil
+  557                                  </a></li>
+  558:                             <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>index.php?url=user/settings">
+  559                                      <i class="fas fa-cog me-2"></i>Ayarlar
+
+  563                              </li>
+  564:                             <li><a class="dropdown-item text-danger" href="<?php echo BASE_URL; ?>index.php?url=user/logout">
+  565                                      <i class="fas fa-sign-out-alt me-2"></i>Çıkış
+
+  569                  <?php else: ?>
+  570:                     <a href="<?php echo BASE_URL; ?>index.php?url=user/login"
+  571                          class="btn btn-primary btn-sm rounded-pill px-4">
+
+  589              <?php endif; ?>
+  590:             <a href="<?php echo BASE_URL; ?>index.php?url=<?php echo $item['url']; ?>"
+  591                  class="mobile-menu-item text-decoration-none text-dark">
+
+app\views\contact\index.php:
+  32        <div class="social-deck">
+  33:         <a href="https://www.facebook.com/meslegimhayatim" class="social-tile facebook" target="_blank" rel="noopener" aria-label="Facebook">
+  34            <div class="ring"></div><i class="fab fa-facebook-f"></i><span>Facebook</span>
+  35          </a>
+  36:         <a href="https://x.com/tcmeb_mtegm" class="social-tile twitter" target="_blank" rel="noopener" aria-label="X (Twitter)">
+  37            <div class="ring"></div><i class="fab fa-x-twitter"></i><span>X</span>
+  38          </a>
+  39:         <a href="https://www.instagram.com/meslegimhayatim/" class="social-tile instagram" target="_blank" rel="noopener" aria-label="Instagram">
+  40            <div class="ring"></div><i class="fab fa-instagram"></i><span>Instagram</span>
+
+  43        <div class="contact-footer-links">
+  44:         <a href="mailto:info@meb.gov.tr" class="link-inline"><i class="fas fa-paper-plane"></i> E-posta Gönder</a>
+  45:         <a href="#harita" class="link-inline"><i class="fas fa-map-marker-alt"></i> Haritada Gör</a>
+  46        </div>
+
+  54        <div class="map-actions">
+  55:         <a target="_blank" rel="noopener" href="https://maps.google.com/?q=Milli+Egitim+Bakanligi+Ankara" class="btn btn-outline-primary btn-sm"><i class="fas fa-external-link-alt"></i> Google Haritalar'da Aç</a>
+  56        </div>
+
+  59    <div class="contact-bottom-actions">
+  60:     <a class="btn btn-primary" href="index.php"><i class="fas fa-home"></i> Ana Sayfa</a>
+  61    </div>
+
+  64  $content=ob_get_clean();
+  65: include __DIR__.'/../layouts/unified.php';
+  66  ?>
+
+app\views\cove\index.php:
+    1  <?php
+    2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+    3  use App\Helpers\AssetManager;
+
+   10          <div class="card-header">
+   11:             <h3 class="card-title"><a href="index.php?url=cove/create">Yeni Merkez Ekle</a></h3>
+   12          </div>
+
+   34                              <td><?php echo htmlspecialchars($cove->getAddress()); ?></td>
+   35:                             <td><a class="btn btn-primary" href="index.php?url=aim/getcoveadminreport&id=<?php echo $cove->getId(); ?>">Rapor Al | PDF</a><br>
+   36                              <?php if (preg_match('/Mobile|Android|iP(hone|od|ad)/i', $_SERVER['HTTP_USER_AGENT'])): ?>
+   37:                                 <a class="btn btn-success mt-2" href="index.php?url=aim/getcoveadminreportwordx&id=<?php echo $cove->getId(); ?>">Rapor Al | WORD</a>
+   38                              <?php else: ?>
+   39:                                 <a class="btn btn-success mt-2" href="index.php?url=aim/getcoveadminreportword&id=<?php echo $cove->getId(); ?>">Rapor Al | WORD</a>
+   40                              <?php endif; ?>
+
+   42                              <td>
+   43:                                 <a href="index.php?url=cove/edit&id=<?php echo $cove->getId(); ?>">Düzenle</a>
+   44                                  |
+   45:                                 <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?php echo $cove->getId(); ?>" data-name="<?php echo htmlspecialchars($cove->getName()); ?>">Sil</a>
+   46                              </td>
+
+   83                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+   84:                 <a href="#" id="confirmDeleteButton" class="btn btn-danger">Sil</a>
+   85              </div>
+
+   99      modal.find('#deleteMessage').text('"' + fieldName + '" alanını silmek istediğinizden emin misiniz?');
+  100:     modal.find('#confirmDeleteButton').attr('href', 'index.php?url=cove/delete&id=' + coveId);
+  101    });
+
+app\views\detailedlog\index.php:
+  1  <?php
+  2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+  3  use App\Helpers\AssetManager;
+
+app\views\documentStrategy\delete.php:
+  15                  <div class="btn-list">
+  16:                     <a href="<?php echo BASE_URL; ?>index.php?url=documentstrategy/index" class="btn btn-outline-secondary">
+  17                          <i class="ti ti-arrow-left me-1"></i>
+
+  82                              </button>
+  83:                             <a href="<?php echo BASE_URL; ?>index.php?url=documentstrategy/index" class="btn btn-secondary flex-fill">
+  84                                  <i class="ti ti-x me-1"></i>
+
+  88                          <?php else: ?>
+  89:                         <a href="<?php echo BASE_URL; ?>index.php?url=documentstrategy/index" class="btn btn-secondary w-100">
+  90                              <i class="ti ti-arrow-left me-1"></i>
+
+app\views\documentStrategy\index.php:
+   1  <?php
+   2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+   3  use App\Helpers\AssetManager;
+
+  10          <div class="card-header">
+  11:             <h3 class="card-title"><a href="index.php?url=documentStrategy/create">Yeni Strateji Ekle</a></h3>
+  12          </div>
+
+  32                              <td>
+  33:                             <a href="index.php?url=documentStrategy/edit&id=<?php echo $strategy->getId(); ?>" >Düzenle</a>
+  34                                  |
+  35:                                 <a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<?php echo $strategy->getId(); ?>" data-name="<?php echo htmlspecialchars($strategy->getStrategyNo()); ?>">Sil</a>
+  36                              </td>
+
+  71                  <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+  72:                 <a href="#" id="confirmDeleteButton" class="btn btn-danger">Sil</a>
+  73              </div>
+
+  87      modal.find('#deleteMessage').text('"' + fieldName + '" stratejisini silmek istediğinizden emin misiniz?');
+  88:     modal.find('#confirmDeleteButton').attr('href', 'index.php?url=documentStrategy/delete&id=' + fieldId);
+  89    });
+
+app\views\field\delete.php:
+  15                  <div class="btn-list">
+  16:                     <a href="<?php echo BASE_URL; ?>index.php?url=field/index" class="btn btn-outline-secondary">
+  17                          <i class="ti ti-arrow-left me-1"></i>
+
+  82                              </button>
+  83:                             <a href="<?php echo BASE_URL; ?>index.php?url=field/index" class="btn btn-secondary flex-fill">
+  84                                  <i class="ti ti-x me-1"></i>
+
+  88                          <?php else: ?>
+  89:                         <a href="<?php echo BASE_URL; ?>index.php?url=field/index" class="btn btn-secondary w-100">
+  90                              <i class="ti ti-arrow-left me-1"></i>
+
+app\views\field\index.php:
+   1  <?php
+   2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+   3  use App\Helpers\AssetManager;
+
+  10          <div class="card-header">
+  11:             <h3 class="card-title"><a href="index.php?url=field/create">Yeni Alan Ekle</a></h3>
+  12          </div>
+
+  30                              <td>
+  31:                                 <a href="index.php?url=field/edit&id=<?php echo $field->getId(); ?>">Düzenle</a>
+  32                                  |
+  33:                                 <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?php echo $field->getId(); ?>" data-name="<?php echo htmlspecialchars($field->getFieldName()); ?>">Sil</a>
+  34                              </td>
+
+  68                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+  69:                 <a href="#" id="confirmDeleteButton" class="btn btn-danger">Sil</a>
+  70              </div>
+
+  84      modal.find('#deleteMessage').text('"' + fieldName + '" alanını silmek istediğinizden emin misiniz?');
+  85:     modal.find('#confirmDeleteButton').attr('href', 'index.php?url=field/delete&id=' + fieldId);
+  86  });
+
+app\views\help\faq_manage.php:
+  34  <?php
+  35: include __DIR__.'/../layouts/unified.php';
+  36  ?>
+
+app\views\help\index.php:
+  12          <ul>
+  13:           <li><a href="index.php?url=action/calendar"><i class="fas fa-calendar-alt"></i> Takvim</a></li>
+  14:           <li><a href="index.php?url=action/taskList&type=all"><i class="fas fa-tasks"></i> Görevler</a></li>
+  15:           <li><a href="index.php?url=indicator/index&aimid=1"><i class="fas fa-chart-line"></i> İndikatörler</a></li>
+  16:           <li><a href="index.php?url=action/upload"><i class="fas fa-upload"></i> Dosya Yükleme</a></li>
+  17          </ul>
+
+app\views\help\sessions.php:
+  28  <?php
+  29: include __DIR__.'/../layouts/unified.php';
+  30  ?>
+
+app\views\home\index.php:
+    1  <?php
+    2: require_once __DIR__ . '/../../../includes/AssetManager.php';
+    3: require_once __DIR__ . '/../../../includes/PermissionHelper.php';
+    4  
+
+  116                  <div class="col-md-2 col-6">
+  117:                     <a href="index.php?url=cove/index" class="btn btn-primary w-100">
+  118                          <i class="fas fa-building me-2"></i>
+
+  125                  <div class="col-md-2 col-6">
+  126:                     <a href="index.php?url=indicator/index" class="btn btn-outline-primary w-100">
+  127                          <i class="fas fa-chart-bar me-2"></i>
+
+  134                  <div class="col-md-2 col-6">
+  135:                     <a href="index.php?url=aim/index" class="btn btn-outline-primary w-100">
+  136                          <i class="fas fa-bullseye me-2"></i>
+
+  143                  <div class="col-md-2 col-6">
+  144:                     <a href="index.php?url=action/taskList" class="btn btn-outline-primary w-100">
+  145                          <i class="fas fa-tasks me-2"></i>
+
+  149                  <div class="col-md-2 col-6">
+  150:                     <a href="index.php?url=action/calendar" class="btn btn-outline-primary w-100">
+  151                          <i class="fas fa-calendar me-2"></i>
+
+  157                  <div class="col-md-2 col-6">
+  158:                     <a href="index.php?url=help/index" class="btn btn-outline-secondary w-100">
+  159                          <i class="fas fa-question-circle me-2"></i>
+
+  181                          <?php if ($hasAimsManage): ?>
+  182:                         <a href="index.php?url=aim/index" class="list-group-item list-group-item-action border-0">
+  183                              <i class="fas fa-bullseye me-2 text-primary"></i>
+
+  187                          <?php if ($hasIndicatorsManage): ?>
+  188:                         <a href="index.php?url=indicator/index" class="list-group-item list-group-item-action border-0">
+  189                              <i class="fas fa-chart-line me-2 text-success"></i>
+
+  193                          <?php if ($hasActionsManage): ?>
+  194:                         <a href="index.php?url=action/index" class="list-group-item list-group-item-action border-0">
+  195                              <i class="fas fa-tasks me-2 text-warning"></i>
+
+  216                          <?php if ($hasIndicatorsManage): ?>
+  217:                         <a href="index.php?url=indicator/adminReport" class="list-group-item list-group-item-action border-0">
+  218                              <i class="fas fa-chart-pie me-2 text-info"></i>
+
+  222                          <?php if (hasPermission('documentstrategies.manage')): ?>
+  223:                         <a href="index.php?url=documentstrategy/index" class="list-group-item list-group-item-action border-0">
+  224                              <i class="fas fa-file-pdf me-2 text-danger"></i>
+
+  228                          <?php if (hasPermission('regulations.manage')): ?>
+  229:                         <a href="index.php?url=regulation/index" class="list-group-item list-group-item-action border-0">
+  230                              <i class="fas fa-gavel me-2 text-secondary"></i>
+
+  250                      <div class="list-group list-group-flush">
+  251:                         <a href="index.php?url=user/manage" class="list-group-item list-group-item-action border-0">
+  252                              <i class="fas fa-users me-2 text-primary"></i>
+
+  254                          </a>
+  255:                         <a href="index.php?url=user/roles" class="list-group-item list-group-item-action border-0">
+  256                              <i class="fas fa-shield-alt me-2 text-warning"></i>
+
+  258                          </a>
+  259:                         <a href="index.php?url=log/index" class="list-group-item list-group-item-action border-0">
+  260                              <i class="fas fa-history me-2 text-secondary"></i>
+
+app\views\home\smmnetwork_clean.php:
+  234              for (const city in smmData) {
+  235:                 const centers = smmData[city].filter(center => center.fields.includes(selectedArea));
+  236                  if (centers.length > 0) {
+
+  249                                              <i class="fas fa-phone text-primary me-2"></i>
+  250:                                             <a href="tel:${center.phone}" class="text-decoration-none">${center.phone}</a>
+  251                                          </p>
+
+  257                                              <i class="fas fa-globe text-info me-2"></i>
+  258:                                             <a href="${center.web}" target="_blank" class="text-decoration-none">Web Sitesi</a>
+  259                                          </p>
+
+  261                                              <i class="fab fa-instagram text-danger me-2"></i>
+  262:                                             <a href="${center.instagram}" target="_blank" class="text-decoration-none">Instagram</a>
+  263                                          </p>
+
+  266                                              <i class="fab fa-linkedin text-primary me-2"></i>
+  267:                                             <a href="${center.linked}" target="_blank" class="text-decoration-none">LinkedIn</a>
+  268                                          </p>` : ""}
+
+  289  <!-- Leaflet CSS -->
+  290: <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css">
+  291  <!-- Leaflet JS -->
+
+app\views\home\smmnetwork.php:
+  239              for (const city in smmData) {
+  240:                 const centers = smmData[city].filter(center => center.fields.includes(selectedArea));
+  241                  if (centers.length > 0) {
+
+  254                                              <i class="fas fa-phone text-primary me-2"></i>
+  255:                                             <a href="tel:${center.phone}" class="text-decoration-none">${center.phone}</a>
+  256                                          </p>
+
+  262                                              <i class="fas fa-globe text-info me-2"></i>
+  263:                                             <a href="${center.web}" target="_blank" class="text-decoration-none">Web Sitesi</a>
+  264                                          </p>
+
+  266                                              <i class="fab fa-instagram text-danger me-2"></i>
+  267:                                             <a href="${center.instagram}" target="_blank" class="text-decoration-none">Instagram</a>
+  268                                          </p>
+
+  271                                              <i class="fab fa-linkedin text-primary me-2"></i>
+  272:                                             <a href="${center.linked}" target="_blank" class="text-decoration-none">LinkedIn</a>
+  273                                          </p>` : ""}
+
+  294  <!-- Leaflet CSS and JS -->
+  295: <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
+  296  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+
+app\views\indicator\adminReport.php:
+    1  <?php
+    2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+    3  use App\Helpers\AssetManager;
+
+   21                  <div class="btn-list">
+   22:                     <a href="index.php?url=indicator/index" class="btn btn-outline-secondary">
+   23                          <i class="ti ti-arrow-left me-1"></i>
+
+  148                          <div class="card-actions">
+  149:                             <a href="#" class="btn btn-outline-secondary btn-sm" onclick="window.print()">
+  150                                  <i class="ti ti-printer me-1"></i>
+
+app\views\indicator\index.php:
+    1  <?php
+    2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+    3  use App\Helpers\AssetManager;
+
+   19                      <ol class="breadcrumb mb-0">
+   20:                         <li class="breadcrumb-item"><a href="index.php" class="text-white-50">Ana Sayfa</a></li>
+   21:                         <li class="breadcrumb-item"><a href="index.php?url=aim/index" class="text-white-50">Amaçlar</a></li>
+   22                          <li class="breadcrumb-item active text-white" aria-current="page">Göstergeler</li>
+
+   26              <div>
+   27:                 <a href="index.php?url=indicator/create&aimid=<?php echo $aimid; ?>" class="btn btn-light btn-lg rounded-pill px-4">
+   28                      <i class="fas fa-plus me-2"></i>
+
+   43                      <li class="nav-item">
+   44:                         <a class="nav-link rounded-pill" href="index.php?url=aim/edit&id=<?php echo (int)$aimid; ?>" role="tab">
+   45                              <i class="fas fa-edit me-2"></i>
+
+   49                      <li class="nav-item">
+   50:                         <a class="nav-link rounded-pill" href="index.php?url=objective/list&aimid=<?php echo (int)$aimid; ?>" role="tab">
+   51                              <i class="fas fa-bullseye me-2"></i>
+
+   55                      <li class="nav-item">
+   56:                         <a class="nav-link rounded-pill" href="index.php?url=action/index&aimid=<?php echo (int)$aimid; ?>" role="tab">
+   57                              <i class="fas fa-tasks me-2"></i>
+
+   61                      <li class="nav-item">
+   62:                         <a class="nav-link active rounded-pill" href="#" role="tab">
+   63                              <i class="fas fa-chart-line me-2"></i>
+
+  179                              <div class="btn-group" role="group">
+  180:                                 <a href="index.php?url=indicator/edit&aimid=<?php echo $aimid;?>&id=<?php echo $indicator->getId(); ?>" 
+  181                                     class="btn btn-sm btn-outline-primary rounded-pill" title="Düzenle">
+
+  183                                  </a>
+  184:                                 <a href="#" class="btn btn-sm btn-outline-danger rounded-pill ms-1" data-bs-toggle="modal" data-bs-target="#deleteModal" 
+  185                                     data-aimid="<?php echo $aimid; ?>" data-id="<?php echo $indicator->getId(); ?>" 
+
+  224                  </button>
+  225:                 <a href="#" id="confirmDeleteButton" class="btn btn-danger rounded-pill px-4">
+  226                      <i class="fas fa-trash me-2"></i>Sil
+
+  248              deleteMessage.textContent = '"' + fieldTitle + '" başlıklı göstergeyi silmek istediğinizden emin misiniz?';
+  249:             confirmDeleteButton.setAttribute('href', 'index.php?url=indicator/delete&id=' + fieldId + '&aimid=' + aimId);
+  250          });
+
+app\views\layouts\public.php:
+  11      <!-- Favicons -->
+  12:     <link rel="icon" type="image/svg+xml" href="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg">
+  13:     <link rel="alternate icon" href="<?php echo BASE_URL; ?>favicon.ico">
+  14  
+  15      <!-- Font Awesome -->
+  16:     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  17      <!-- Bootstrap 5.3.8 CSS -->
+  18:     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  19  
+
+  39  
+  40: <!-- Include Regular Navbar for Public Pages -->
+  41: <?php include __DIR__ . '/../components/navbar.php'; ?>
+  42  
+
+  47          <ol class="breadcrumb">
+  48:             <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>index.php">Ana Sayfa</a></li>
+  49              <?php foreach ($breadcrumb as $index => $item): ?>
+
+  55                          <?php if (!empty($item['url'])): ?>
+  56:                             <a href="<?php echo htmlspecialchars($item['url']); ?>"><?php echo htmlspecialchars($item['title']); ?></a>
+  57                          <?php else: ?>
+
+  73  <!-- Footer -->
+  74: <?php include __DIR__ . '/../components/footer.php'; ?>
+  75  
+
+app\views\layouts\unified_main.php:
+   11      <!-- Favicons -->
+   12:     <link rel="icon" type="image/svg+xml" href="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg">
+   13:     <link rel="alternate icon" href="<?php echo BASE_URL; ?>favicon.ico">
+   14  
+   15      <!-- Font Awesome -->
+   16:     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   17  
+   18      <!-- Bootstrap 5.3.8 CSS -->
+   19:     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+   20  
+
+  110      // Use navbar with sidebar for logged in users
+  111:     include __DIR__ . '/../components/navbar_with_sidebar.php';
+  112  } else {
+  113      // Use regular navbar for public pages
+  114:     include __DIR__ . '/../components/navbar.php';
+  115  }
+
+  122          <aside class="sidebar" id="sidebar">
+  123:             <?php include __DIR__ . '/../components/sidebar_menu.php'; ?>
+  124          </aside>
+
+  135  <!-- Footer -->
+  136: <?php include __DIR__ . '/../components/footer.php'; ?>
+  137  
+
+  151      // Update server-side session
+  152:     fetch('<?php echo BASE_URL; ?>index.php?url=user/toggleTheme', {
+  153          method: 'POST',
+
+app\views\layouts\unified.php:
+    9  // Import permission helper
+   10: require_once __DIR__ . '/../../../includes/PermissionHelper.php';
+   11  
+
+   48  
+   49: // Load header component (includes <head> tag and all necessary CSS/meta tags)
+   50: include __DIR__ . '/../components/header.php';
+   51  ?>
+
+   54      <div class="wrapper">
+   55:         <?php include __DIR__ . '/../components/navbar.php'; ?>
+   56  
+
+   66                                  <ol class="breadcrumb bg-transparent p-0 mt-2 mb-0">
+   67:                                     <li class="breadcrumb-item"><a href="<?php echo BASE_URL; ?>index.php" class="text-white-50 text-decoration-none">Ana Sayfa</a></li>
+   68                                      <?php foreach ($breadcrumb as $index => $item): ?>
+
+   79                                                  <?php if (isset($item['url']) && !empty($item['url'])): ?>
+   80:                                                     <a href="<?php echo htmlspecialchars($item['url']); ?>"><?php echo htmlspecialchars($item['title']); ?></a>
+   81                                                  <?php else: ?>
+
+   99  
+  100:         <?php include __DIR__ . '/../components/footer.php'; ?>
+  101      </div>
+  102  
+  103:     <?php include __DIR__ . '/../components/scripts.php'; ?>
+  104  
+  105      <!-- Template Fix Script for Dropdowns -->
+  106:     <script src="<?php echo BASE_URL; ?>js/template-fix.js"></script>
+  107  </body>
+
+app\views\layouts\_backup\admin_bootstrap5.php:
+  6  
+  7: // Include the unified layout
+  8: include __DIR__ . '/unified.php';
+
+app\views\layouts\_backup\admin_sidebar.php:
+   9      <!-- Favicons -->
+  10:     <link rel="icon" type="image/svg+xml" href="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg">
+  11:     <link rel="alternate icon" href="<?php echo BASE_URL; ?>favicon.ico">
+  12  
+  13      <!-- Font Awesome -->
+  14:     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  15      <!-- Bootstrap 5.3.8 CSS -->
+  16:     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  17  
+
+  35  if (!isset($_SESSION['username'])) {
+  36:     header('Location: ' . BASE_URL . 'index.php?url=user/login');
+  37      exit;
+
+  39  
+  40: // Include the navbar with sidebar
+  41: include __DIR__ . '/../components/navbar_with_sidebar.php';
+  42  ?>
+
+app\views\layouts\_backup\admin_tabler.php:
+  6  
+  7: // Include the unified layout
+  8: include __DIR__ . '/unified.php';
+
+app\views\layouts\_backup\admin.php:
+  6  
+  7: // Include the unified layout
+  8: include __DIR__ . '/unified.php';
+
+app\views\layouts\_backup\main_v2.php:
+   10      <!-- Bootstrap CSS -->
+   11:     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   12      <!-- Bootstrap Icons -->
+   13:     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+   14  
+
+  231      // Load MenuHelper
+  232:     require_once dirname(__DIR__, 2) . '/helpers/MenuHelper.php';
+  233  
+
+  245  
+  246:             <a class="navbar-brand d-flex align-items-center" href="/home">
+  247                  <i class="bi bi-mortarboard-fill me-2"></i>
+
+  252                  <div class="dropdown">
+  253:                     <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#"
+  254                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+  273                          <li>
+  274:                             <a class="dropdown-item" href="/profile">
+  275                                  <i class="bi bi-person me-2"></i>Profilim
+
+  278                          <li>
+  279:                             <a class="dropdown-item" href="/auth/changePassword">
+  280                                  <i class="bi bi-key me-2"></i>Şifre Değiştir
+
+  284                          <li>
+  285:                             <a class="dropdown-item" href="/settings">
+  286                                  <i class="bi bi-gear me-2"></i>Ayarlar
+
+  291                          <li>
+  292:                             <a class="dropdown-item text-danger" href="/auth/logout">
+  293                                  <i class="bi bi-box-arrow-right me-2"></i>Çıkış Yap
+
+app\views\layouts\_backup\main.php:
+   10      <!-- Bootstrap CSS -->
+   11:     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+   12  
+   13      <!-- Bootstrap Icons -->
+   14:     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+   15  
+
+   24          <div class="container-fluid">
+   25:             <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white fw-semibold" href="/home">
+   26                  <i class="bi bi-mortarboard-fill me-2"></i>
+
+   42                  <div class="nav-item text-nowrap">
+   43:                     <a class="nav-link px-3 text-white" href="/auth/logout">
+   44                          <i class="bi bi-box-arrow-right"></i> Çıkış
+
+   57                          <li class="nav-item">
+   58:                             <a class="nav-link fw-medium text-dark py-2 px-3 <?php echo $activeMenu == 'dashboard' ? 'active bg-primary-subtle text-primary border-start border-primary border-3' : ''; ?>" href="/home">
+   59                                  <i class="bi bi-speedometer2 me-2"></i>
+
+   68                          <li class="nav-item">
+   69:                             <a class="nav-link <?php echo $activeMenu == 'objectives' ? 'active' : ''; ?>" href="/objective">
+   70                                  <i class="bi bi-bullseye me-2"></i>
+
+   74                          <li class="nav-item">
+   75:                             <a class="nav-link <?php echo $activeMenu == 'actions' ? 'active' : ''; ?>" href="/action">
+   76                                  <i class="bi bi-list-task me-2"></i>
+
+   80                          <li class="nav-item">
+   81:                             <a class="nav-link <?php echo $activeMenu == 'indicators' ? 'active' : ''; ?>" href="/indicator">
+   82                                  <i class="bi bi-graph-up me-2"></i>
+
+   91                          <li class="nav-item">
+   92:                             <a class="nav-link <?php echo $activeMenu == 'users' ? 'active' : ''; ?>" href="/user">
+   93                                  <i class="bi bi-people me-2"></i>
+
+   97                          <li class="nav-item">
+   98:                             <a class="nav-link <?php echo $activeMenu == 'coves' ? 'active' : ''; ?>" href="/cove">
+   99                                  <i class="bi bi-building me-2"></i>
+
+  103                          <li class="nav-item">
+  104:                             <a class="nav-link <?php echo $activeMenu == 'fields' ? 'active' : ''; ?>" href="/field">
+  105                                  <i class="bi bi-tags me-2"></i>
+
+  114                          <li class="nav-item">
+  115:                             <a class="nav-link <?php echo $activeMenu == 'reports' ? 'active' : ''; ?>" href="/report">
+  116                                  <i class="bi bi-file-earmark-bar-graph me-2"></i>
+
+  120                          <li class="nav-item">
+  121:                             <a class="nav-link <?php echo $activeMenu == 'logs' ? 'active' : ''; ?>" href="/log">
+  122                                  <i class="bi bi-clock-history me-2"></i>
+
+  176          document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+  177:             if (link.getAttribute('href') === currentPath) {
+  178                  link.classList.add('active');
+
+app\views\log\index.php:
+  1  <?php
+  2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+  3  use App\Helpers\AssetManager;
+
+app\views\news\create.php:
+  1  <?php
+  2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+  3  use App\Helpers\AssetManager;
+
+app\views\news\details.php:
+  46              <div class="card-footer">
+  47:                 <a href="index.php?url=news/edit&id=<?php echo $news->getId(); ?>" class="btn btn-warning">Düzenle</a>
+  48:                 <a href="index.php?url=news/index" class="btn btn-secondary">Geri Dön</a>
+  49              </div>
+
+app\views\news\edit.php:
+  1  <?php
+  2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+  3  use App\Helpers\AssetManager;
+
+app\views\news\index.php:
+   1  <?php
+   2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+   3  use App\Helpers\AssetManager;
+
+  13                  <h3 class="card-title">
+  14:                     <a href="index.php?url=news/create" class="btn btn-primary">Yeni Haber Ekle</a>
+  15                  </h3>
+
+  48                                  <td>                                  
+  49:                                     <a href="index.php?url=news/edit&id=<?php echo $item->getId(); ?>" class="btn btn-warning btn-sm">Düzenle</a>
+  50                                      <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" 
+
+  76                  <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+  77:                 <a href="#" id="confirmDelete" class="btn btn-danger">Sil</a>
+  78              </div>
+
+  92          modal.find('#deleteMessage').text('"' + title + '" haberini silmek istediğinizden emin misiniz?');
+  93:         modal.find('#confirmDelete').attr('href', 'index.php?url=news/delete&id=' + id + '&csrf_token=<?php echo htmlspecialchars($_SESSION["csrf_token"], ENT_QUOTES, 'UTF-8'); ?>');
+  94      });
+
+app\views\objective\create.php:
+  10  <!-- Bootstrap 5 Duallistbox -->
+  11: <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-duallistbox@4.0.2/dist/bootstrap-duallistbox.min.css">
+  12  
+
+app\views\objective\edit.php:
+  10  <!-- Bootstrap 5 Duallistbox -->
+  11: <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-duallistbox@4.0.2/dist/bootstrap-duallistbox.min.css">
+  12  
+
+app\views\objective\index.php:
+  22          <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+  23:             <a href="index.php?url=objective/create" class="btn btn-sm btn-primary focus-ring" style="background:var(--gov-primary);border:none;display:inline-flex;align-items:center;gap:.4rem;">
+  24                  <i class="fas fa-plus"></i> Yeni Hedef
+
+  46              <p style="font-size:.8rem;margin:0;color:#4d6278;">Stratejik planlamaya başlamak için ilk hedefi ekleyin.</p>
+  47:             <a href="index.php?url=objective/create" class="primary-link" style="margin-top:.6rem;">Hedef Oluştur <i class="fas fa-arrow-right"></i></a>
+  48          </div>
+
+  68                      <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:auto;">
+  69:                         <a href="index.php?url=action/index&aimid=<?= (int)$objective->aimId ?>&objectiveId=<?= (int)$objective->id ?>" class="primary-link" style="font-size:.6rem;">Faaliyetler <i class="fas fa-tasks"></i></a>
+  70:                         <a href="index.php?url=objective/edit&id=<?= (int)$objective->id ?>" class="primary-link" style="background:var(--gov-accent);font-size:.6rem;">Düzenle <i class="fas fa-edit"></i></a>
+  71:                         <a href="index.php?url=objective/delete&id=<?= (int)$objective->id ?>" class="primary-link" onclick="return confirm('Bu hedefi silmek istediğinizden emin misiniz?')" style="background:#444; font-size:.6rem;">Sil <i class="fas fa-trash"></i></a>
+  72                      </div>
+
+app\views\objective\list.php:
+    1  <?php
+    2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+    3  use App\Helpers\AssetManager;
+
+   19                    <li class="nav-item">
+   20:                     <a class="nav-link " href="index.php?url=aim/edit&id=<?php echo $aimid; ?>" role="tab" aria-controls="custom-tabs-one-home" aria-selected="false">Amaç Düzenle</a>
+   21                    </li>
+   22                    <li class="nav-item">
+   23:                     <a class="nav-link active" href="#"  role="tab" aria-controls="custom-tabs-one-profile" aria-selected="true">Hedefler</a>
+   24                    </li>
+   25                       <li class="nav-item">
+   26:                     <a class="nav-link" href="index.php?url=action/index&aimid=<?php echo $aimid; ?>" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Faaliyetler</a>
+   27                    </li>
+   28                    <li class="nav-item">
+   29:                     <a class="nav-link" href="index.php?url=indicator/index&aimid=<?php echo $aimid; ?>"  role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Performans Göstergeleri</a>
+   30                    </li>
+
+   34              <div class="card-body">
+   35:            <div class="row mb-3"> <h3 class="card-title"><a href="index.php?url=objective/create&aimid=<?php echo $aimid?>">Yeni Hedef Ekle</a></h3>
+   36  </div>
+
+   56                                  <td>
+   57:                                     <a href="index.php?url=objective/edit&id=<?php echo $objective->getId(); ?>" class="btn btn-warning">Düzenle</a>
+   58:                                     <a href="#" data-toggle="modal" data-target="#deleteModal" data-id="<?php echo $objective->getId(); ?>" data-title="<?php echo htmlspecialchars($objective->getObjectiveTitle()); ?>" class="btn btn-danger">Sil</a>
+   59                                 </td>
+
+   85                  <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+   86:                 <a href="#" id="confirmDeleteButton" class="btn btn-danger">Sil</a>
+   87              </div>
+
+  101          modal.find('#deleteMessage').text('"' + fieldTitle + '" başlıklı amacı silmek istediğinizden emin misiniz?');
+  102:         modal.find('#confirmDeleteButton').attr('href', 'index.php?url=objective/delete&id=' + fieldId);
+  103      });
+
+app\views\regulation\index.php:
+    1  <?php
+    2: require_once __DIR__ . '/../../../includes/AssetManager.php';
+    3  use App\Helpers\AssetManager;
+
+   11          <div class="card-header">
+   12:             <h3 class="card-title"><a href="index.php?url=regulation/create">Yeni Regülasyon Ekle</a></h3>
+   13          </div>
+
+   52                                  ?>
+   53:                                     <a href="index.php?url=regulation/edit&id=<?php echo $regulation->getId(); ?>" class="btn btn-warning">Düzenle</a>
+   54                                      
+   55:                                     <a href="#" data-toggle="modal" data-target="#deleteModal" class="btn btn-danger" data-id="<?php echo $regulation->getId(); ?>" data-name="<?php echo htmlspecialchars($regulation->getRegulationSourceNo()); ?>">Sil</a>
+   56                                                           
+
+   60                                  if ($userCoveId == $regulation->getOwnerCoveId()){ ?>
+   61:                                     <a href="index.php?url=regulation/edit&id=<?php echo $regulation->getId(); ?>" class="btn btn-warning">Düzenle</a>
+   62                                      
+   63:                                     <a href="#" data-toggle="modal" data-target="#deleteModal" class="btn btn-danger" data-id="<?php echo $regulation->getId(); ?>" data-name="<?php echo htmlspecialchars($regulation->getRegulationSourceNo()); ?>">Sil</a>
+   64                                                           
+
+  107                  <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+  108:                 <a href="#" id="confirmDeleteButton" class="btn btn-danger">Sil</a>
+  109              </div>
+
+  123      modal.find('#deleteMessage').text('"' + fieldName + '" regülasyonunu silmek istediğinizden emin misiniz?');
+  124:     modal.find('#confirmDeleteButton').attr('href', 'index.php?url=regulation/delete&id=' + fieldId);
+  125  });
+
+app\views\user\create.php:
+   17                      <ol class="breadcrumb breadcrumb-arrows" aria-label="breadcrumbs">
+   18:                         <li class="breadcrumb-item"><a href="index.php">Ana Sayfa</a></li>
+   19:                         <li class="breadcrumb-item"><a href="index.php?url=user/manage">Kullanıcılar</a></li>
+   20                          <li class="breadcrumb-item active" aria-current="page">Yeni Kullanıcı</li>
+
+   29                  <div class="btn-list">
+   30:                     <a href="index.php?url=user/manage" class="btn btn-outline-secondary">
+   31                          <i class="ti ti-arrow-left me-1"></i>
+
+   90                                      <span class="input-group-text">
+   91:                                         <a href="#" class="link-secondary" id="togglePassword" 
+   92                                             title="Parolayı göster / gizle" data-bs-toggle="tooltip">
+
+  134                              <div class="d-flex">
+  135:                                 <a href="index.php?url=user/manage" class="btn btn-link me-auto">İptal</a>
+  136                                  <button type="submit" class="btn btn-primary">
+
+app\views\user\delete.php:
+  15                  <div class="btn-list">
+  16:                     <a href="index.php?url=user/manage" class="btn btn-outline-secondary">
+  17                          <i class="ti ti-arrow-left me-1"></i>
+
+app\views\user\editProfile.php:
+  460                  <div class="tab-pane fade show active" id="profile" role="tabpanel">
+  461:                     <form method="POST" action="<?php echo BASE_URL; ?>index.php?url=user/updateProfile" enctype="multipart/form-data">
+  462                          <!-- Profile Header -->
+
+  464                              <div class="profile-avatar-section">
+  465:                                 <img src="<?php echo BASE_URL; ?>wwwroot/img/default-avatar.svg" alt="Profile" class="profile-avatar">
+  466                                  <label for="avatar-upload" class="avatar-upload-btn">
+
+app\views\user\haberler.php:
+   63  function shareOnTwitter() {
+   64:     const url = encodeURIComponent(window.location.href);
+   65      const text = encodeURIComponent(document.title);
+
+   69  function shareOnFacebook() {
+   70:     const url = encodeURIComponent(window.location.href);
+   71      window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, "_blank");
+
+   74  function shareOnLinkedIn() {
+   75:     const url = encodeURIComponent(window.location.href);
+   76      const title = encodeURIComponent(document.title);
+
+   80  function copyLink() {
+   81:     navigator.clipboard.writeText(window.location.href).then(function() {
+   82          // Show success message
+
+  118                      <li class="breadcrumb-item">
+  119:                         <a href="<?php echo BASE_URL; ?>" class="text-white text-decoration-none">
+  120                              <i class="fas fa-home"></i>
+
+  123                      <li class="breadcrumb-item">
+  124:                         <a href="<?php echo BASE_URL; ?>index.php?url=user/haberlist" class="text-white text-decoration-none">
+  125                              Haberler
+
+  210                                      <div class="gallery-item position-relative overflow-hidden rounded-3 ratio ratio-1x1">
+  211:                                         <img src="<?php echo BASE_URL; ?>uploads/news/<?php echo htmlspecialchars($galleryItem->getPhoto()); ?>"
+  212                                               class="object-fit-cover cursor-pointer"
+
+  255                      <div class="list-group list-group-flush">
+  256:                         <a href="#" class="list-group-item list-group-item-action border-0 px-0 py-3">
+  257                              <h6 class="mb-1">Eğitimde Dijital Dönüşüm Hızlanıyor</h6>
+
+  259                          </a>
+  260:                         <a href="#" class="list-group-item list-group-item-action border-0 px-0 py-3">
+  261                              <h6 class="mb-1">Yeni Müfredat Çalışmaları Başladı</h6>
+
+  263                          </a>
+  264:                         <a href="#" class="list-group-item list-group-item-action border-0 px-0 py-3">
+  265                              <h6 class="mb-1">Öğretmen Eğitimi Programları Güncellendi</h6>
+
+  286                                  <div class="carousel-item <?php echo $index === 0 ? 'active' : ''; ?>">
+  287:                                     <img src="<?php echo BASE_URL; ?>uploads/news/<?php echo htmlspecialchars($galleryItem->getPhoto()); ?>"
+  288                                           class="d-block w-100 rounded-3"
+
+  321                          </p>
+  322:                         <a href="<?php echo BASE_URL; ?>index.php?url=user/haberlist"
+  323                             class="btn btn-primary btn-lg rounded-pill px-4">
+
+app\views\user\haberlist.php:
+   64  
+   65:                 if (title.includes(searchTerm) || text.includes(searchTerm)) {
+   66                      item.style.display = "";
+
+  230                                  <h5 class="card-title fw-bold mb-3">
+  231:                                     <a href="<?php echo BASE_URL; ?>index.php?url=user/haberler&id=<?php echo $news->getId(); ?>"
+  232                                         class="text-dark text-decoration-none stretched-link">
+
+  247                                      <div class="d-flex align-items-center">
+  248:                                         <img src="<?php echo BASE_URL; ?>wwwroot/img/user-avatar.svg"
+  249                                               alt="Yazar"
+
+  254                                      </div>
+  255:                                     <a href="#" class="text-primary text-decoration-none small fw-semibold">
+  256                                          Devamını Oku
+
+  274                          </p>
+  275:                         <a href="<?php echo BASE_URL; ?>" class="btn btn-primary rounded-pill px-4">
+  276                              <i class="fas fa-home me-2"></i>Ana Sayfaya Dön
+
+  303                          <a class="page-link rounded-start-pill"
+  304:                            href="<?php echo $currentPage > 1 ? BASE_URL . 'index.php?url=user/haberlist&page=' . ($currentPage - 1) : '#'; ?>">
+  305                              <i class="fas fa-chevron-left"></i>
+
+  312                              <a class="page-link"
+  313:                                href="<?php echo BASE_URL; ?>index.php?url=user/haberlist&page=<?php echo $i; ?>">
+  314                                  <?php echo $i; ?>
+
+  321                          <a class="page-link rounded-end-pill"
+  322:                            href="<?php echo $currentPage < $totalPages ? BASE_URL . 'index.php?url=user/haberlist&page=' . ($currentPage + 1) : '#'; ?>">
+  323                              <i class="fas fa-chevron-right"></i>
+
+app\views\user\login.php:
+  306              <div class="d-flex align-items-center mb-3">
+  307:                 <img src="<?php echo BASE_URL; ?>wwwroot/img/MEB_Logo.svg" alt="MEB Logo" class="brand-logo me-3">
+  308                  <div>
+
+app\views\user\main.php:
+  205              <div class="d-flex flex-wrap justify-content-center gap-3">
+  206:                 <a href="#haberSlayt" class="btn btn-light btn-lg px-4 rounded-pill shadow">
+  207                      <i class="fas fa-newspaper me-2"></i>Haberler
+
+  209                  <?php if ($isLoggedIn): ?>
+  210:                     <a href="<?php echo BASE_URL; ?>index.php" class="btn btn-primary btn-lg px-4 rounded-pill shadow">
+  211                          <i class="fas fa-tachometer-alt me-2"></i>Yönetim Paneli
+
+  213                  <?php else: ?>
+  214:                     <a href="<?php echo BASE_URL; ?>index.php?url=user/login" class="btn btn-primary btn-lg px-4 rounded-pill shadow">
+  215                          <i class="fas fa-sign-in-alt me-2"></i>SMM Portal
+
+  264                                              <a class="btn btn-primary btn-lg rounded-pill"
+  265:                                                 href="<?php echo BASE_URL; ?>index.php?url=user/haberler&id=<?php echo $haber->getId(); ?>"
+  266                                                  role="button">
+
+  323                              <a class="btn btn-primary rounded-pill" target="_blank"
+  324:                                 href="https://mevzuat.meb.gov.tr/dosyalar/2208.pdf" role="button">
+  325                                  <i class="fas fa-download me-2"></i>Yönergeyi İndir
+
+  346                              <a class="btn btn-success rounded-pill" target="_blank"
+  347:                                 href="https://mtegm.meb.gov.tr/meb_iys_dosyalar/2024_09/18170207_16_09_2024_mtgmpolitikabelgesi.pdf" role="button">
+  348                                  <i class="fas fa-download me-2"></i>Belgeyi İndir
+
+app\views\user\manage.php:
+    1  <?php
+    2: require_once __DIR__ . "/../../../includes/AssetManager.php";
+    3: require_once __DIR__ . "/../../../includes/PermissionHelper.php";
+    4  use App\Helpers\AssetManager;
+
+   92                                  <?php if (canCreate('users.manage')): ?>
+   93:                                 <a href="index.php?url=user/create" class="btn btn-sm btn-primary">
+   94                                      <i class="ti ti-plus me-1"></i>
+
+  108                  <div class="card-actions">
+  109:                     <a href="#" class="btn btn-outline-secondary btn-sm" onclick="window.print()">
+  110                          <i class="ti ti-printer me-1"></i>
+
+  151                              <td class="align-middle">
+  152:                                 <a href="mailto:<?php echo htmlspecialchars($user->getEmail()); ?>" class="text-decoration-none">
+  153                                      <?php echo htmlspecialchars($user->getEmail()); ?>
+
+  164                                      <?php if (canUpdate('users.manage')): ?>
+  165:                                     <a href="index.php?url=user/edit&id=<?php echo $user->getId(); ?>" class="btn btn-sm btn-warning">
+  166                                          <i class="ti ti-edit"></i>
+
+  170                                      <?php if (canDelete('users.manage')): ?>
+  171:                                     <a href="#" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" 
+  172                                         data-id="<?php echo $user->getId(); ?>" data-name="<?php echo htmlspecialchars($user->getUsername()); ?>" 
+
+  213                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+  214:                 <a href="#" id="confirmDeleteButton" class="btn btn-danger">Sil</a>
+  215              </div>
+
+  237              deleteMessage.textContent = '"' + fieldName + '" kullanıcısını silmek istediğinizden emin misiniz?';
+  238:             confirmDeleteButton.setAttribute('href', 'index.php?url=user/delete&id=' + userId + '&csrf_token=' + csrfToken);
+  239          });
+
+app\views\user\permissions.php:
+   1  <?php
+   2: require_once __DIR__ . '/../../../includes/AssetManager.php';
+   3  use App\Helpers\AssetManager;
+
+  11              <div class="card-header">
+  12:                 <h3 class="card-title"><a href="index.php?url=user/createPermission">Yeni İzin Ekle</a></h3>
+  13              </div>
+
+  34                                  <td>
+  35:                                     <a href="index.php?url=user/editPermission&id=<?php echo $permission->getId(); ?>" class="btn btn-warning">Düzenle</a>
+  36                                      <button class="btn btn-danger" 
+
+  67                  <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+  68:                 <a href="#" id="confirmDeleteButton" class="btn btn-danger">Sil</a>
+  69              </div>
+
+  82          modal.find('#deleteMessage').text('"' + permissionName + '" adlı izni silmek istediğinizden emin misiniz?');
+  83:         modal.find('#confirmDeleteButton').attr('href', 'index.php?url=user/deletePermission&id=' + permissionId + '&csrf_token=<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>');
+  84      });
+
+app\views\user\register.php:
+   8    <!-- Google Font: Source Sans Pro -->
+   9:   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  10    <!-- Bootstrap 5 CSS -->
+  11:   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  12    <!-- Font Awesome -->
+  13:   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  14    <!-- Custom Admin Theme -->
+  15:   <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/admin-bootstrap5.css">
+  16  </head>
+
+  20      <div class="card-header text-center">
+  21:       <a href="<?php echo BASE_URL; ?>" class="h1"><b>SMM Faaliyet Takip</b></a>
+  22      </div>
+
+  72                <label for="agreeTerms">
+  73:                 I agree to the <a href="#">terms</a>
+  74                </label>
+
+  84  
+  85:       <a href="login.php" class="text-center">I already have a membership</a>
+  86      </div>
+
+  97  <!-- Custom Admin JS -->
+  98: <script src="<?php echo BASE_URL; ?>js/admin-bootstrap5.js"></script>
+  99  </body>
+
+app\views\user\roles.php:
+   7              <div class="card-header">
+   8:                 <h3 class="card-title"><a href="index.php?url=user/createRole">Yeni Rol Ekle</a></h3>
+   9              </div>
+
+  30                                  <td>
+  31:                                     <a href="index.php?url=user/editRole&id=<?php echo $role->getId(); ?>" class="btn btn-warning">Düzenle</a>
+  32                                      <button class="btn btn-danger" 
+
+  64                  <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+  65:                 <a href="#" id="confirmDeleteButton" class="btn btn-danger">Sil</a>
+  66              </div>
+
+  82          modal.find('#deleteMessage').text('"' + roleName + '" adlı rolü silmek istediğinizden emin misiniz?');
+  83:         modal.find('#confirmDeleteButton').attr('href', 'index.php?url=user/deleteRole&id=' + roleId + '&csrf_token=' + csrfToken);
+  84      });
+
+includes\AccountSecurity.php:
+   8  
+   9: require_once __DIR__ . '/Database.php';
+  10: require_once __DIR__ . '/SecurityLogger.php';
+  11  
+
+includes\AssetManager.php:
+  74              $url = (strpos($c, 'http') === 0) ? $c : $baseUrl . $c;
+  75:             $out[]="<link rel=\"stylesheet\" href=\"{$url}\" />";
+  76          }
+
+includes\Environment.php:
+  18          if ($path === null) {
+  19:             $path = dirname(__DIR__) . '/.env';
+  20          }
+
+includes\PasswordPolicy.php:
+   8  
+   9: require_once __DIR__ . '/Database.php';
+  10: require_once __DIR__ . '/SecurityLogger.php';
+  11  
+
+includes\QueryCache.php:
+  13      private function __construct() {
+  14:         $this->cacheDir = dirname(__DIR__) . '/cache/queries/';
+  15  
+
+includes\Security.php:
+  170          if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+  171:             header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
+  172          }
+
+includes\SecurityLogger.php:
+  8  
+  9: require_once __DIR__ . '/Database.php';
+  10  
+
+includes\SessionManager.php:
+   8  
+   9: require_once __DIR__ . '/Database.php';
+  10: require_once __DIR__ . '/SecurityLogger.php';
+  11  
+
+wwwroot\error_check.php:
+  10  // Config yüklenebiliyor mu?
+  11: $configPath = dirname(__DIR__) . '/app/config/config.php';
+  12  if(file_exists($configPath)) {
+
+  15      echo "Config yüklendi<br>";
+  16:     echo "BASE_URL: " . BASE_URL . "<br>";
+  17      echo "DB_NAME: " . DB_NAME . "<br>";
+
+wwwroot\index.php:
+   17  // Define base paths
+   18: define('ROOT_DIR', dirname(__DIR__));
+   19  define('APP_DIR', ROOT_DIR . '/app');
+   20: define('PUBLIC_DIR', __DIR__);
+   21  
+
+  159      // Redirect to login page
+  160:     header('Location: ' . (BASE_URL ?? '/') . 'index.php?url=user/login');
+  161      exit;
+
+  171  if (defined('APP_ENV') && APP_ENV === 'production') {
+  172:     header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
+  173      header('Content-Security-Policy: default-src \'self\'; script-src \'self\' \'unsafe-inline\' \'unsafe-eval\' https://cdn.jsdelivr.net https://code.jquery.com https://www.google.com https://www.gstatic.com; style-src \'self\' \'unsafe-inline\' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src \'self\' https://fonts.gstatic.com data:; img-src \'self\' data: https:; frame-src https://www.google.com;');
+
+  236      <title>Bakım Modu - MTEGM SMM Portal</title>
+  237:     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  238  </head>
+
+  303      <title>Hata - MTEGM SMM Portal</title>
+  304:     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  305  </head>
+
+  325      <title>Hata - MTEGM SMM Portal</title>
+  326:     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  327  </head>
+
+  332              <p>Sistem yöneticisi bilgilendirildi. Lütfen daha sonra tekrar deneyiniz.</p>
+  333:             <p><a href="' . (BASE_URL ?? '/') . '" class="btn btn-primary">Ana Sayfaya Dön</a></p>
+  334          </div>
+
+wwwroot\assets\app.min.css:
+  12   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  13: ⟪ 2070 characters skipped ⟫:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#007bff;text-decoration:none;background-color:transparent;-webkit-text-decoration-skip:objects}a:hover{color:#0056b3;text-decoration:underline}a:not([href]):not([tabindex]){color:inherit;text-decoration:none}a:not([href]):not([tabindex]):focus,a:not([href]):not([tabindex]):hover{color:inherit;text-decoration:none}a:not([href]):not([tabindex]):focus{outline:0}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em}pre{margin-top:0;margin-bottom:1rem;overflow:auto;-ms-overflow-style:scrollbar}figure{margin:0 0 1rem}img{vertical-align:middle;border-style:none}svg{overflow:hidden;vertical-align:middle}table{border-collapse:collapse}caption{padding-top:.75rem;padding-bottom:.75rem;color:#6c757d;text-align:left;caption-side:bottom}th{text-align:inherit}label{display:inline-block;margin-bottom:.5rem}button{border-radius:0}button:focus{outline:1px dotted;outline:5px auto -webkit-focus-ring-color}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-mo⟪ 75480 characters skipped ⟫.badge:empty{display:none}.btn .badge{position:relative;top:-1px}.badge-pill{padding-right:.6em;padding-left:.6em;border-radius:10rem}.badge-primary{color:#fff;background-color:#007bff}.badge-primary[href]:focus,.badge-primary[href]:hover{color:#fff;text-decoration:none;background-color:#0062cc}.badge-secondary{color:#fff;background-color:#6c757d}.badge-secondary[href]:focus,.badge-secondary[href]:hover{color:#fff;text-decoration:none;background-color:#545b62}.badge-success{color:#fff;background-color:#28a745}.badge-success[href]:focus,.badge-success[href]:hover{color:#fff;text-decoration:none;background-color:#1e7e34}.badge-info{color:#fff;background-color:#17a2b8}.badge-info[href]:focus,.badge-info[href]:hover{color:#fff;text-decoration:none;background-color:#117a8b}.badge-warning{color:#212529;background-color:#ffc107}.badge-warning[href]:focus,.badge-warning[href]:hover{color:#212529;text-decoration:none;background-color:#d39e00}.badge-danger{color:#fff;background-color:#dc3545}.badge-danger[href]:focus,.badge-danger[href]:hover{color:#fff;text-decoration:none;background-color:#bd2130}.badge-light{color:#212529;background-color:#f8f9fa}.badge-light[href]:focus,.badge-light[href]:hover{color:#212529;text-decoration:none;background-color:#dae0e5}.badge-dark{color:#fff;background-color:#343a40}.badge-dark[href]:focus,.badge-dark[href]:hover{color:#fff;text-decoration:none;background-color:#1d2124}.jumbotron{padding:2rem 1rem;margin-bottom:2rem;background-color:#e9ecef;border-radius:.3rem}@media (min-width:576px){.jumbotron{padding:4rem 2rem}}.jumbotron-fluid{padding-right:0;padding-left:0;border-radius:0}.alert{position:relative;padding:.75rem 1.25rem;margin-bottom:1rem;border:1px solid transparent;border-radius:.25rem}.alert-heading{color:inherit}.alert-link{font-weight:700}.alert-dismissible{padding-right:4rem}.alert-dismissible .close{position:absolute;top:0;right:0;padding:.75rem 1.25rem;color:inherit}.alert-primary{color:#004085;background-color:#cce5ff;border-color:#b8daff}.alert-primary hr{border-top-color:#9fcdff}.alert-primary .alert-link{color:#002752}.alert-secondary{color:#383d41;background-color:#e2e3e5;border-color:#d6d8db}.alert-secondary hr{border-top-color:#c8cbcf}.alert-secondary .alert-link{color:#202326}.alert-success{color:#155724;background-color:#d4edda;border-color:#c3e6cb}.alert-succes
+  14  /*# sourceMappingURL=bootstrap.min.css.map */
+
+  19   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  20: ⟪ 2168 characters skipped ⟫t{*,:before,:after{color:#000!important;text-shadow:none!important;background:transparent!important;-webkit-box-shadow:none!important;box-shadow:none!important}a,a:visited{text-decoration:underline}a[href]:after{content:" (" attr(href) ")"}abbr[title]:after{content:" (" attr(title) ")"}a[href^="#"]:after,a[href^="javascript:"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100%!important}p,h2,h3{orphans:3;widows:3}h2,h3{page-break-after:avoid}select{background:#fff!important}.navbar{display:none}.btn>.caret,.dropup>.btn>.caret{border-top-color:#000!important}.label{border:1px solid #000}.table{border-collapse:collapse!important}.table td,.table th{background-color:#fff!important}.table-bordered th,.table-bordered td{border:1px solid #ddd!important}}@font-face{font-family:'Glyphicons Halflings';src:url(../fonts/glyphicons-halflings-regular.eot);src:url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),url(../fonts/glyphicons-halflings-regular.woff) format('woff'),url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'),url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')}.glyphicon{position:relative;top:1px;di⟪ 72454 characters skipped ⟫s:.25em}a.label:hover,a.label:focus{color:#fff;text-decoration:none;cursor:pointer}.label:empty{display:none}.btn .label{position:relative;top:-1px}.label-default{background-color:#777}.label-default[href]:hover,.label-default[href]:focus{background-color:#5e5e5e}.label-primary{background-color:#428bca}.label-primary[href]:hover,.label-primary[href]:focus{background-color:#3071a9}.label-success{background-color:#5cb85c}.label-success[href]:hover,.label-success[href]:focus{background-color:#449d44}.label-info{background-color:#5bc0de}.label-info[href]:hover,.label-info[href]:focus{background-color:#31b0d5}.label-warning{background-color:#f0ad4e}.label-warning[href]:hover,.label-warning[href]:focus{background-color:#ec971f}.label-danger{background-color:#d9534f}.label-danger[href]:hover,.label-danger[href]:focus{background-color:#c9302c}.badge{display:inline-block;min-width:10px;padding:3px 7px;font-size:12px;font-weight:700;line-height:1;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline;background-color:#777;border-radius:10px}.badge:empty{display:none}.btn .badge{position:relative;top:-1px}.btn-xs .badge{top:0;padding:1px 5px}a.badge:hover,a.badge:focus{color:#fff;text-decoration:none;cursor:pointer}a.list-group-item.active>.badge,.nav-pills>.active>a>.badge{color:#428bca;background-color:#fff}.nav-pills>li>a>.badge{margin-left:3px}.jumbotron{padding:30px 15px;margin-bottom:30px;color:inherit;background-color:#eee}.jumbotron h1,.jumbotron .h1{color:inherit}.jumbotron p{margin-bottom:15px;font-size:21px;font-weight:200}.jumbotron>hr{border-top-color:#d5d5d5}.container .jumbotron,.container-fluid .jumbotron{border-radius:6px}.jumbotron .container{max-width:100%}@media screen and (min-width:768px){.jumbotron{padding:48px 0}.container .jumbotron{padding-right:60
+  21  /* Source: custom.min.css */
+
+wwwroot\assets\app.min.js:
+   3  /* Source: admin-bootstrap5.min.js */
+   4: ⟪ 2037 characters skipped ⟫left');if(siblingSubmenu){siblingSubmenu.style.display='none';item.classList.remove('menu-open');if(siblingIcon)siblingIcon.style.transform='rotate(0deg)';}}});}});});const currentUrl=window.location.href;const allNavLinks=document.querySelectorAll('.nav-sidebar .nav-link');allNavLinks.forEach(link=>{if(link.href&&currentUrl.includes(link.getAttribute('href'))){link.classList.add('active');const parentTreeview=link.closest('.nav-treeview');if(parentTreeview){parentTreeview.style.display='block';const parentLi=parentTreeview.closest('.nav-item');parentLi.classList.add('menu-open');const parentIcon=parentLi.querySelector('.fa-angle-left');if(parentIcon)parentIcon.style.transform='rotate(-90deg)';}}});}function showModal(modalId){const modalElement=document.getElementById(modalId);if(modalElement){const modal=new bootstrap.Modal(modalElement);modal.show();}}function hideModal(modalId){const modalElement=document.getElementById(modalId);if(modalElement){const modal=bootstrap.Modal.getInstance(modalElement);if(modal){modal.hide();}}}function showToast(message,type='info',duration=5000){toastElement.addEventListener('hidden.bs.toast',function(){this.remove();});}if(typeof $.fn.dataTable!=='undefined'){$.extend(true,$.fn.dataTable.defaults,{"dom":"<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>"+"<'row'<'col-sm-12'tr>>"+"<'row'<'col-s
+   5  /* Source: app.min.js */
+
+   7  /* Source: backbone-min.min.js */
+   8: ⟪ 11335 characters skipped ⟫=e}this.trigger.apply(this,arguments)}});var y=["forEach","each","map","collect","reduce","foldl","inject","reduceRight","foldr","find","detect","filter","select","reject","every","all","some","any","include","contains","invoke","max","min","toArray","size","first","head","take","initial","rest","tail","drop","last","without","difference","indexOf","shuffle","lastIndexOf","isEmpty","chain"];h.each(y,function(t){v.prototype[t]=function(){var e=s.call(arguments);e.unshift(this.models);return h[t].apply(h,e)}});var _=["groupBy","countBy","sortBy"];h.each(_,function(t){v.prototype[t]=function(e,i){var r=h.isFunction(e)?e:function(t){return t.get(e)};return h[t](this.models,r,i)}});var w=a.View=function(t){this.cid=h.uniqueId("view");t||(t={});h.extend(this,h.pick(t,x));this._ensureElement();this.initialize.apply(this,arguments);this.delegateEvents()};var b=/^(\S+)\s*(.*)$/;var x=["model","collection","el","id","attributes","className","tagName","events"];h.extend(w.prototype,o,{tagName:"div",$:function(t){return this.$el.find(t)},initialize:function(){},render:function(){return this},remove:function(){this.$el.remove();this.stopListening();return this},setElement:function(t,e){if(this.⟪ 3208 characters skipped ⟫ndow.history}};var N=/^[#\/]|\s+$/g;var O=/^\/+|\/+$/g;var P=/msie [\w.]+/;var C=/\/$/;var j=/[?#].*$/;I.started=false;h.extend(I.prototype,o,{interval:50,getHash:function(t){var e=(t||this).location.href.match(/#(.*)$/);return e?e[1]:""},getFragment:function(t,e){if(t==null){if(this._hasPushState||!this._wantsHashChange||e){t=this.location.pathname;var i=this.root.replace(C,"");if(!t.indexOf(i))t=t.slice(i.length)}else{t=this.getHash()}}return t.replace(N,"")},start:function(t){if(I.started)throw new Error("Backbone.history has already been started");I.started=true;this.options=h.extend({root:"/"},this.options,t);this.root=this.options.root;this._wantsHashChange=this.options.hashChange!==false;this._wantsPushState=!!this.options.pushState;this._hasPushState=!!(this.options.pushState&&this.history&&this.history.pushState);var e=this.getFragment();var i=document.documentMode;var r=P.exec(navigator.userAgent.toLowerCase())&&(!i||i<=7);this.root=("/"+this.root+"/").replace(O,"/");if(r&&this._wantsHashChange){this.iframe=a.$('<iframe src="javascript:0" tabindex="-1" />').hide().appendTo("body")[0].contentWindow;this.navigate(e)}if(this._hasPushState){a.$(window).on("popstate",this.chec⟪ 1742 characters skipped ⟫s.iframe.document.open().close();this._updateHash(this.iframe.location,t,e.replace)}}else{return this.location.assign(i)}if(e.trigger)return this.loadUrl(t)},_updateHash:function(t,e,i){if(i){var r=t.href.replace(/(javascript:|#).*$/,"");t.replace(r+"#"+e)}else{t.hash="#"+e}}});a.history=new I;var R=function(t,e){var i=this;var r;if(t&&h.has(t,"constructor")){r=t.constructor}else{r=function(){return i.apply(this,arguments)}}h.extend(r,i,e);var s=function(){this.constructor=r};s.prototype=i.prototype;r.prototype=new s;if(t)h.extend(r.prototype,t);r.__super__=i.prototype;return r};d.extend=v.extend=k.extend=w.extend=I.extend=R;var U=function(){throw new Error('A "url" property or function must be specified')};var M=function(t,e){var i=e.error;e.error=function(r){if(i)i(t,r,e);t.trigger("error",t,r,e)}}}).call(this);
+   9  /* Source: jquery-2.0.3.min.js */
+
+  12  */
+  13: ⟪ 18370 characters skipped ⟫arget:function(t){var n=e.location&&e.location.hash;return n&&n.slice(1)===t.id},root:function(e){return e===f},focus:function(e){return e===p.activeElement&&(!p.hasFocus||p.hasFocus())&&!!(e.type||e.href||~e.tabIndex)},enabled:function(e){return e.disabled===!1},disabled:function(e){return e.disabled===!0},checked:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&!!e.checked||"option"===t&&!!e.selected},selected:function(e){return e.parentNode&&e.parentNode.selectedIndex,e.selected===!0},empty:function(e){for(e=e.firstChild;e;e=e.nextSibling)if(e.nodeName>"@"||3===e.nodeType||4===e.nodeType)return!1;return!0},parent:function(e){return!i.pseudos.empty(e)},header:function(e){return et.test(e.nodeName)},input:function(e){return Z.test(e.nodeName)},button:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&"button"===e.type||"button"===t},text:function(e){var t;return"input"===e.nodeName.toLowerCase()&&"text"===e.type&&(null==(t=e.getAttribute("type"))||t.toLowerCase()===e.type)},first:ht(function(){return[0]}),last:ht(function(e,t){return[t-1]}),eq:ht(function(e,t,n){return[0>n?n+t:n]}),even:ht(function(e,t){var n=0;for(;t>n;n+=2)e.push(n);return e}),odd:ht(func⟪ 4092 characters skipped ⟫n.sortStable=v.split("").sort(S).join("")===v,n.detectDuplicates=E,c(),n.sortDetached=ut(function(e){return 1&e.compareDocumentPosition(p.createElement("div"))}),ut(function(e){return e.innerHTML="<a href='#'></a>","#"===e.firstChild.getAttribute("href")})||lt("type|href|height|width",function(e,t,n){return n?undefined:e.getAttribute(t,"type"===t.toLowerCase()?1:2)}),n.attributes&&ut(function(e){return e.innerHTML="<input/>",e.firstChild.setAttribute("value",""),""===e.firstChild.getAttribute("value")})||lt("value",function(e,t,n){return n||"input"!==e.nodeName.toLowerCase()?undefined:e.defaultValue}),ut(function(e){return null==e.getAttribute("disabled")})||lt(R,function(e,t,n){var r;return n?undefined:(r=e.getAttributeNode(t))&&r.specified?r.value:e[t]===!0?t.toLowerCase():null}),x.find=ot,x.expr=ot.selectors,x.expr[":"]=x.expr.pseudos,x.unique=ot.uniqueSort,x.text=ot.getText,x.isXMLDoc=ot.isXML,x.contains=ot.contains}(e);var D={};function A(e){var t=D[e]={};return x.each(e.match(w)||[],function(e,n){t[n]=!0}),t}x.Callbacks=function(e){e="string"==typeof e?D[e]||A(e):x.extend({},e);var t,n,r,i,o,s,a=[],u=!e.once&&[],l=function(p){for(t=e.memory&&p,n=!0,s=i||0,i=0,o=a.length,r=!0;a&&o>s;s++)if(a[s].apply(p[0],p[1])===!1&&e.stopOnFalse){t=!1;break
+  14: ⟪ 5134 characters skipped ⟫undefined?i&&"set"in i&&(r=i.set(e,n,t))!==undefined?r:e[t]=n:i&&"get"in i&&null!==(r=i.get(e,t))?r:e[t]},propHooks:{tabIndex:{get:function(e){return e.hasAttribute("tabindex")||B.test(e.nodeName)||e.href?e.tabIndex:-1}}}}),M={set:function(e,t,n){return t===!1?x.removeAttr(e,n):e.setAttribute(n,n),n}},x.each(x.expr.match.bool.source.match(/\w+/g),function(e,t){var n=x.expr.attrHandle[t]||x.find.attr;x.expr.attrHandle[t]=function(e,t,r){var i=x.expr.attrHandle[t],o=r?undefined:(x.expr.attrHandle[t]=undefined)!=n(e,t,r)?t.toLowerCase():null;return x.expr.attrHandle[t]=i,o}}),x.support.optSelected||(x.propHooks.selected={get:function(e){var t=e.parentNode;return t&&t.parentNode&&t.parentNode.selectedIndex,null}}),x.each(["tabIndex","readOnly","maxLength","cellSpacing","cellPadding","rowSpan","colSpan","useMap","frameBorder","contentEditable"],function(){x.propFix[this.toLowerCase()]=this}),x.each(["radio","checkbox"],function(){x.valHooks[this]={set:function(e,t){return x.isArray(t)?e.checked=x.inArray(x(e).val(),t)>=0:undefined}},x.support.checkOn||(x.valHooks[this].get=function(e){return null===e.getAttribute("value")?"on":e.value})});var I=/^key/,z=/^(?:mouse|contextmenu)|click/,_=
+  15: },delegate:function(e,t,n,r){return this.on(t,e,n,r)},undelegate:function(e,t,n){return 1===arguments.length?this.off(e,"**"):this.off(t,e||"**",n)}});var Xt,Ut,Yt=x.now(),Vt=/\?/,Gt=/#.*$/,Jt=/([?&])_=[^&]*/,Qt=/^(.*?):[ \t]*([^\r\n]*)$/gm,Kt=/^(?:about|app|app-storage|.+-extension|file|res|widget):$/,Zt=/^(?:GET|HEAD)$/,en=/^\/\//,tn=/^([\w.+-]+:)(?:\/\/([^\/?#:]*)(?::(\d+)|)|)/,nn=x.fn.load,rn={},on={},sn="*/".concat("*");try{Ut=i.href}catch(an){Ut=o.createElement("a"),Ut.href="",Ut=Ut.href}Xt=tn.exec(Ut.toLowerCase())||[];function un(e){return function(t,n){"string"!=typeof t&&(n=t,t="*");var r,i=0,o=t.toLowerCase().match(w)||[];if(x.isFunction(n))while(r=o[i++])"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).unshift(n)):(e[r]=e[r]||[]).push(n)}}function ln(e,t,n,r){var i={},o=e===on;function s(a){var u;return i[a]=!0,x.each(e[a]||[],function(e,a){var l=a(t,n,r);return"string"!=typeof l||o||i[l]?o?!(u=l):undefined:(t.dataTypes.unshift(l),s(l),!1)}),u}return s(t.dataTypes[0])||!i["*"]&&s("*")}function cn(e,t){var n,r,i=x.ajaxSettings.flatOptions||{};for(n in t)t[n]!==undefined&&((i[n]?e:r||(r={}))[n]=t[n]);return r&&x.extend(!0,e,r),e}x.fn.load=function(e,t,n){if("string"!=typeof e&&nn)return nn.apply(this,arguments);var r,i,o,s=this,a=e.indexOf(" ");return a>=0&&(r=e.slice(a),e=e.slice(0,a)),x.isFunction(t)?(n=t,t=undefined):t&&"object"==typeof t&&(i="POST"),s.length>0&&x.ajax({url:e,type:i,dataType:"html",data:t}).done(function(e){o=arguments,s.html(r?x("<div>").appe
+  16  
+
+  19  /* Source: tabler-custom.min.js */
+  20: ⟪ 682 characters skipped ⟫tAttribute('data-message')||'Bu işlem geri alınamaz. Emin misiniz?';const title=this.getAttribute('data-title')||'Silme Onayı';if(confirm(title+'\n\n'+message)){if(this.tagName==='A'){window.location.href=this.href;}else if(this.tagName==='BUTTON'&&this.form){this.form.submit();}}});});}function initializeFormEnhancements(){const forms=document.querySelectorAll('form[data-auto-save]');forms.forEach(form=>{const formId=form.getAttribute('data-auto-save');loadFormData(form,formId);form.addEventListener('input',function(){saveFormData(form,formId);});form.addEventListener('submit',function(){setTimeout(()=>{clearFormData(formId);},1000);});});const textareas=document.querySelectorAll('textarea[maxlength]');textareas.forEach(textarea=>{const maxLength=textarea.getAttribute('maxlength');const counter=document.createElement('div');counter.className='text-muted small mt-1';counter.textContent=`0 / ${maxLength}`;textarea.parentNode.appendChild(counter);textarea.addEventListener('input',function(){const currentLength=this.value.length;counter.textContent=`${currentLength} / ${maxLength}`;if(currentLength>maxLength*0.9){counter.className='text-warning small mt-1';}else if(currentLength===parseInt(maxL⟪ 298 characters skipped ⟫r=document.createElement('div');wrapper.className='table-responsive';table.parentNode.insertBefore(wrapper,table);wrapper.appendChild(table);}});const clickableRows=document.querySelectorAll('tr[data-href]');clickableRows.forEach(row=>{row.style.cursor='pointer';row.addEventListener('click',function(e){if(e.target.tagName!=='BUTTON'&&e.target.tagName!=='A'){window.location.href=this.getAttribute('data-href');}});});const sortableHeaders=document.querySelectorAll('th[data-sort]');sortableHeaders.forEach(header=>{header.style.cursor='pointer';header.addEventListener('click',function(){const table=this.closest('table');const column=this.getAttribute('data-sort');sortTable(table,column);});});}function initializeNotifications(){const alerts=document.querySelectorAll('.alert:not(.alert-permanent)');alerts.forEach(alert=>{if(!alert.querySelector('.btn-close')){setTimeout(()=>{alert.style.opacity='0';setTimeout(()=>{alert.remove();},300);},5000);}});const urlParams=new URLSearchParams(window.location.search);if(urlParams.get('success')){showNotification('İşlem başarıyla tamamlandı!','success');}if(urlParams.get('error')){showNotification('İşlem sırasında bir hata oluştu.','error');}}function showNotification(message,type='info',duration=3000){const alertClass=type==='error'?'alert-danger':`alert-${type}`;const icon=type==='success'?'ti-check':type==='error'?'ti-alert-circle':'ti-info-circl
+  21          <div class="d-flex align-items-center">
+
+  33  /* Source: underscore-min.min.js */
+  34: ⟪ 2092 characters skipped ⟫d 0:r}),!!u)};var O=j.some=j.any=function(n,t,e){t||(t=j.identity);var u=!1;return null==n?u:m&&n.some===m?n.some(t,e):(A(n,function(n,i,a){return u||(u=t.call(e,n,i,a))?r:void 0}),!!u)};j.contains=j.include=function(n,t){return null==n?!1:y&&n.indexOf===y?n.indexOf(t)!=-1:O(n,function(n){return n===t})},j.invoke=function(n,t){var r=o.call(arguments,2),e=j.isFunction(t);return j.map(n,function(n){return(e?t:n[t]).apply(n,r)})},j.pluck=function(n,t){return j.map(n,function(n){return n[t]})},j.where=function(n,t,r){return j.isEmpty(t)?r?void 0:[]:j[r?"find":"filter"](n,function(n){for(var r in t)if(t[r]!==n[r])return!1;return!0})},j.findWhere=function(n,t){return j.where(n,t,!0)},j.max=function(n,t,r){if(!t&&j.isArray(n)&&n[0]===+n[0]&&n.length<65535)return Math.max.apply(Math,n);if(!t&&j.isEmpty(n))return-1/0;var e={computed:-1/0,value:-1/0};return A(n,function(n,u,i){var a=t?t.call(r,n,u,i):n;a>e.computed&&(e={value:n,computed:a})}),e.value},j.min=function(n,t,r){if(!t&&j.isArray(n)&&n[0]===+n[0]&&n.length<65535)return Math.min.apply(Math,n);if(!t&&j.isEmpty(n))return 1/0;var e={computed:1/0,value:1/0};return A(n,function(n,u,i){var a=t?t.call(r,n,u,i):n;a<e.computed&&(e={value:n,c
+  35  /* Source: zoom.min.js */
+
+wwwroot\assets\css\bootstrap.min.css:
+  5   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  6: ⟪ 2070 characters skipped ⟫:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#007bff;text-decoration:none;background-color:transparent;-webkit-text-decoration-skip:objects}a:hover{color:#0056b3;text-decoration:underline}a:not([href]):not([tabindex]){color:inherit;text-decoration:none}a:not([href]):not([tabindex]):focus,a:not([href]):not([tabindex]):hover{color:inherit;text-decoration:none}a:not([href]):not([tabindex]):focus{outline:0}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em}pre{margin-top:0;margin-bottom:1rem;overflow:auto;-ms-overflow-style:scrollbar}figure{margin:0 0 1rem}img{vertical-align:middle;border-style:none}svg{overflow:hidden;vertical-align:middle}table{border-collapse:collapse}caption{padding-top:.75rem;padding-bottom:.75rem;color:#6c757d;text-align:left;caption-side:bottom}th{text-align:inherit}label{display:inline-block;margin-bottom:.5rem}button{border-radius:0}button:focus{outline:1px dotted;outline:5px auto -webkit-focus-ring-color}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-mo⟪ 75480 characters skipped ⟫.badge:empty{display:none}.btn .badge{position:relative;top:-1px}.badge-pill{padding-right:.6em;padding-left:.6em;border-radius:10rem}.badge-primary{color:#fff;background-color:#007bff}.badge-primary[href]:focus,.badge-primary[href]:hover{color:#fff;text-decoration:none;background-color:#0062cc}.badge-secondary{color:#fff;background-color:#6c757d}.badge-secondary[href]:focus,.badge-secondary[href]:hover{color:#fff;text-decoration:none;background-color:#545b62}.badge-success{color:#fff;background-color:#28a745}.badge-success[href]:focus,.badge-success[href]:hover{color:#fff;text-decoration:none;background-color:#1e7e34}.badge-info{color:#fff;background-color:#17a2b8}.badge-info[href]:focus,.badge-info[href]:hover{color:#fff;text-decoration:none;background-color:#117a8b}.badge-warning{color:#212529;background-color:#ffc107}.badge-warning[href]:focus,.badge-warning[href]:hover{color:#212529;text-decoration:none;background-color:#d39e00}.badge-danger{color:#fff;background-color:#dc3545}.badge-danger[href]:focus,.badge-danger[href]:hover{color:#fff;text-decoration:none;background-color:#bd2130}.badge-light{color:#212529;background-color:#f8f9fa}.badge-light[href]:focus,.badge-light[href]:hover{color:#212529;text-decoration:none;background-color:#dae0e5}.badge-dark{color:#fff;background-color:#343a40}.badge-dark[href]:focus,.badge-dark[href]:hover{color:#fff;text-decoration:none;background-color:#1d2124}.jumbotron{padding:2rem 1rem;margin-bottom:2rem;background-color:#e9ecef;border-radius:.3rem}@media (min-width:576px){.jumbotron{padding:4rem 2rem}}.jumbotron-fluid{padding-right:0;padding-left:0;border-radius:0}.alert{position:relative;padding:.75rem 1.25rem;margin-bottom:1rem;border:1px solid transparent;border-radius:.25rem}.alert-heading{color:inherit}.alert-link{font-weight:700}.alert-dismissible{padding-right:4rem}.alert-dismissible .close{position:absolute;top:0;right:0;padding:.75rem 1.25rem;color:inherit}.alert-primary{color:#004085;background-color:#cce5ff;border-color:#b8daff}.alert-primary hr{border-top-color:#9fcdff}.alert-primary .alert-link{color:#002752}.alert-secondary{color:#383d41;background-color:#e2e3e5;border-color:#d6d8db}.alert-secondary hr{border-top-color:#c8cbcf}.alert-secondary .alert-link{color:#202326}.alert-success{color:#155724;background-color:#d4edda;border-color:#c3e6cb}.alert-succes
+  7  /*# sourceMappingURL=bootstrap.min.css.map */
+
+wwwroot\assets\css\bootstrap3.min.css:
+  4   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  5: ⟪ 2168 characters skipped ⟫t{*,:before,:after{color:#000!important;text-shadow:none!important;background:transparent!important;-webkit-box-shadow:none!important;box-shadow:none!important}a,a:visited{text-decoration:underline}a[href]:after{content:" (" attr(href) ")"}abbr[title]:after{content:" (" attr(title) ")"}a[href^="#"]:after,a[href^="javascript:"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100%!important}p,h2,h3{orphans:3;widows:3}h2,h3{page-break-after:avoid}select{background:#fff!important}.navbar{display:none}.btn>.caret,.dropup>.btn>.caret{border-top-color:#000!important}.label{border:1px solid #000}.table{border-collapse:collapse!important}.table td,.table th{background-color:#fff!important}.table-bordered th,.table-bordered td{border:1px solid #ddd!important}}@font-face{font-family:'Glyphicons Halflings';src:url(../fonts/glyphicons-halflings-regular.eot);src:url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),url(../fonts/glyphicons-halflings-regular.woff) format('woff'),url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'),url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')}.glyphicon{position:relative;top:1px;di⟪ 72454 characters skipped ⟫s:.25em}a.label:hover,a.label:focus{color:#fff;text-decoration:none;cursor:pointer}.label:empty{display:none}.btn .label{position:relative;top:-1px}.label-default{background-color:#777}.label-default[href]:hover,.label-default[href]:focus{background-color:#5e5e5e}.label-primary{background-color:#428bca}.label-primary[href]:hover,.label-primary[href]:focus{background-color:#3071a9}.label-success{background-color:#5cb85c}.label-success[href]:hover,.label-success[href]:focus{background-color:#449d44}.label-info{background-color:#5bc0de}.label-info[href]:hover,.label-info[href]:focus{background-color:#31b0d5}.label-warning{background-color:#f0ad4e}.label-warning[href]:hover,.label-warning[href]:focus{background-color:#ec971f}.label-danger{background-color:#d9534f}.label-danger[href]:hover,.label-danger[href]:focus{background-color:#c9302c}.badge{display:inline-block;min-width:10px;padding:3px 7px;font-size:12px;font-weight:700;line-height:1;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline;background-color:#777;border-radius:10px}.badge:empty{display:none}.btn .badge{position:relative;top:-1px}.btn-xs .badge{top:0;padding:1px 5px}a.badge:hover,a.badge:focus{color:#fff;text-decoration:none;cursor:pointer}a.list-group-item.active>.badge,.nav-pills>.active>a>.badge{color:#428bca;background-color:#fff}.nav-pills>li>a>.badge{margin-left:3px}.jumbotron{padding:30px 15px;margin-bottom:30px;color:inherit;background-color:#eee}.jumbotron h1,.jumbotron .h1{color:inherit}.jumbotron p{margin-bottom:15px;font-size:21px;font-weight:200}.jumbotron>hr{border-top-color:#d5d5d5}.container .jumbotron,.container-fluid .jumbotron{border-radius:6px}.jumbotron .container{max-width:100%}@media screen and (min-width:768px){.jumbotron{padding:48px 0}.container .jumbotron{padding-right:60
+
+wwwroot\assets\js\admin-bootstrap5.js:
+  117      // Set active menu items
+  118:     const currentUrl = window.location.href;
+  119      const allNavLinks = document.querySelectorAll('.nav-sidebar .nav-link');
+
+  121      allNavLinks.forEach(link => {
+  122:         if (link.href && currentUrl.includes(link.getAttribute('href'))) {
+  123              link.classList.add('active');
+
+wwwroot\assets\js\admin-bootstrap5.min.js:
+  1: ⟪ 2037 characters skipped ⟫left');if(siblingSubmenu){siblingSubmenu.style.display='none';item.classList.remove('menu-open');if(siblingIcon)siblingIcon.style.transform='rotate(0deg)';}}});}});});const currentUrl=window.location.href;const allNavLinks=document.querySelectorAll('.nav-sidebar .nav-link');allNavLinks.forEach(link=>{if(link.href&&currentUrl.includes(link.getAttribute('href'))){link.classList.add('active');const parentTreeview=link.closest('.nav-treeview');if(parentTreeview){parentTreeview.style.display='block';const parentLi=parentTreeview.closest('.nav-item');parentLi.classList.add('menu-open');const parentIcon=parentLi.querySelector('.fa-angle-left');if(parentIcon)parentIcon.style.transform='rotate(-90deg)';}}});}function showModal(modalId){const modalElement=document.getElementById(modalId);if(modalElement){const modal=new bootstrap.Modal(modalElement);modal.show();}}function hideModal(modalId){const modalElement=document.getElementById(modalId);if(modalElement){const modal=bootstrap.Modal.getInstance(modalElement);if(modal){modal.hide();}}}function showToast(message,type='info',duration=5000){toastElement.addEventListener('hidden.bs.toast',function(){this.remove();});}if(typeof $.fn.dataTable!=='undefined'){$.extend(true,$.fn.dataTable.defaults,{"dom":"<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>"+"<'row'<'col-sm-12'tr>>"+"<'row'<'col-s
+
+wwwroot\assets\js\app.js:
+  834          html +='<div class="ui-share-options">';
+  835:           html +='<a href="https://www.facebook.com/MTTBilisimLisesi/" target="_blank" title="Facebook" class="ui-icon show-hint"><i class="bi bi-facebook"></i></a>';
+  836:           html +='<a href="https://twitter.com/bilisimlisesi" target="_blank" title="Twitter" class="ui-icon show-hint"><i class="bi bi-twitter"></i></a>';
+  837:           html +='<a href="https://www.instagram.com/bilisimprojelisesi/" target="_blank" title="Instagram" class="ui-icon show-hint"><i class="bi bi-instagram"></i></a>';
+  838:           html +='<a href="https://www.linkedin.com/company/mehmet-tu%C4%9Frul-tekbulut-mesleki-ve-teknik-anadolu-lisesi/" target="_blank" title="Linkedin" class="ui-icon show-hint"><i class="bi bi-linkedin"></i></a>';
+  839          html +='</div>';
+
+  854          var $target = $(event.currentTarget),
+  855:         currentUrl = encodeURIComponent(window.location.href),
+  856          title = $target.attr('title') || $target.attr('v-title'),
+
+  873            case 'Email':
+  874:           window.location.href='mailto:?body='+text+' '+currentUrl;
+  875            break;
+
+wwwroot\assets\js\backbone-min.js:
+  1: ⟪ 11335 characters skipped ⟫=e}this.trigger.apply(this,arguments)}});var y=["forEach","each","map","collect","reduce","foldl","inject","reduceRight","foldr","find","detect","filter","select","reject","every","all","some","any","include","contains","invoke","max","min","toArray","size","first","head","take","initial","rest","tail","drop","last","without","difference","indexOf","shuffle","lastIndexOf","isEmpty","chain"];h.each(y,function(t){v.prototype[t]=function(){var e=s.call(arguments);e.unshift(this.models);return h[t].apply(h,e)}});var _=["groupBy","countBy","sortBy"];h.each(_,function(t){v.prototype[t]=function(e,i){var r=h.isFunction(e)?e:function(t){return t.get(e)};return h[t](this.models,r,i)}});var w=a.View=function(t){this.cid=h.uniqueId("view");t||(t={});h.extend(this,h.pick(t,x));this._ensureElement();this.initialize.apply(this,arguments);this.delegateEvents()};var b=/^(\S+)\s*(.*)$/;var x=["model","collection","el","id","attributes","className","tagName","events"];h.extend(w.prototype,o,{tagName:"div",$:function(t){return this.$el.find(t)},initialize:function(){},render:function(){return this},remove:function(){this.$el.remove();this.stopListening();return this},setElement:function(t,e){if(this.⟪ 3208 characters skipped ⟫ndow.history}};var N=/^[#\/]|\s+$/g;var O=/^\/+|\/+$/g;var P=/msie [\w.]+/;var C=/\/$/;var j=/[?#].*$/;I.started=false;h.extend(I.prototype,o,{interval:50,getHash:function(t){var e=(t||this).location.href.match(/#(.*)$/);return e?e[1]:""},getFragment:function(t,e){if(t==null){if(this._hasPushState||!this._wantsHashChange||e){t=this.location.pathname;var i=this.root.replace(C,"");if(!t.indexOf(i))t=t.slice(i.length)}else{t=this.getHash()}}return t.replace(N,"")},start:function(t){if(I.started)throw new Error("Backbone.history has already been started");I.started=true;this.options=h.extend({root:"/"},this.options,t);this.root=this.options.root;this._wantsHashChange=this.options.hashChange!==false;this._wantsPushState=!!this.options.pushState;this._hasPushState=!!(this.options.pushState&&this.history&&this.history.pushState);var e=this.getFragment();var i=document.documentMode;var r=P.exec(navigator.userAgent.toLowerCase())&&(!i||i<=7);this.root=("/"+this.root+"/").replace(O,"/");if(r&&this._wantsHashChange){this.iframe=a.$('<iframe src="javascript:0" tabindex="-1" />').hide().appendTo("body")[0].contentWindow;this.navigate(e)}if(this._hasPushState){a.$(window).on("popstate",this.chec⟪ 1742 characters skipped ⟫s.iframe.document.open().close();this._updateHash(this.iframe.location,t,e.replace)}}else{return this.location.assign(i)}if(e.trigger)return this.loadUrl(t)},_updateHash:function(t,e,i){if(i){var r=t.href.replace(/(javascript:|#).*$/,"");t.replace(r+"#"+e)}else{t.hash="#"+e}}});a.history=new I;var R=function(t,e){var i=this;var r;if(t&&h.has(t,"constructor")){r=t.constructor}else{r=function(){return i.apply(this,arguments)}}h.extend(r,i,e);var s=function(){this.constructor=r};s.prototype=i.prototype;r.prototype=new s;if(t)h.extend(r.prototype,t);r.__super__=i.prototype;return r};d.extend=v.extend=k.extend=w.extend=I.extend=R;var U=function(){throw new Error('A "url" property or function must be specified')};var M=function(t,e){var i=e.error;e.error=function(r){if(i)i(t,r,e);t.trigger("error",t,r,e)}}}).call(this);
+  2  //# sourceMappingURL=backbone-min.map
+
+wwwroot\assets\js\backbone-min.min.js:
+  1: ⟪ 11335 characters skipped ⟫=e}this.trigger.apply(this,arguments)}});var y=["forEach","each","map","collect","reduce","foldl","inject","reduceRight","foldr","find","detect","filter","select","reject","every","all","some","any","include","contains","invoke","max","min","toArray","size","first","head","take","initial","rest","tail","drop","last","without","difference","indexOf","shuffle","lastIndexOf","isEmpty","chain"];h.each(y,function(t){v.prototype[t]=function(){var e=s.call(arguments);e.unshift(this.models);return h[t].apply(h,e)}});var _=["groupBy","countBy","sortBy"];h.each(_,function(t){v.prototype[t]=function(e,i){var r=h.isFunction(e)?e:function(t){return t.get(e)};return h[t](this.models,r,i)}});var w=a.View=function(t){this.cid=h.uniqueId("view");t||(t={});h.extend(this,h.pick(t,x));this._ensureElement();this.initialize.apply(this,arguments);this.delegateEvents()};var b=/^(\S+)\s*(.*)$/;var x=["model","collection","el","id","attributes","className","tagName","events"];h.extend(w.prototype,o,{tagName:"div",$:function(t){return this.$el.find(t)},initialize:function(){},render:function(){return this},remove:function(){this.$el.remove();this.stopListening();return this},setElement:function(t,e){if(this.⟪ 3208 characters skipped ⟫ndow.history}};var N=/^[#\/]|\s+$/g;var O=/^\/+|\/+$/g;var P=/msie [\w.]+/;var C=/\/$/;var j=/[?#].*$/;I.started=false;h.extend(I.prototype,o,{interval:50,getHash:function(t){var e=(t||this).location.href.match(/#(.*)$/);return e?e[1]:""},getFragment:function(t,e){if(t==null){if(this._hasPushState||!this._wantsHashChange||e){t=this.location.pathname;var i=this.root.replace(C,"");if(!t.indexOf(i))t=t.slice(i.length)}else{t=this.getHash()}}return t.replace(N,"")},start:function(t){if(I.started)throw new Error("Backbone.history has already been started");I.started=true;this.options=h.extend({root:"/"},this.options,t);this.root=this.options.root;this._wantsHashChange=this.options.hashChange!==false;this._wantsPushState=!!this.options.pushState;this._hasPushState=!!(this.options.pushState&&this.history&&this.history.pushState);var e=this.getFragment();var i=document.documentMode;var r=P.exec(navigator.userAgent.toLowerCase())&&(!i||i<=7);this.root=("/"+this.root+"/").replace(O,"/");if(r&&this._wantsHashChange){this.iframe=a.$('<iframe src="javascript:0" tabindex="-1" />').hide().appendTo("body")[0].contentWindow;this.navigate(e)}if(this._hasPushState){a.$(window).on("popstate",this.chec⟪ 1742 characters skipped ⟫s.iframe.document.open().close();this._updateHash(this.iframe.location,t,e.replace)}}else{return this.location.assign(i)}if(e.trigger)return this.loadUrl(t)},_updateHash:function(t,e,i){if(i){var r=t.href.replace(/(javascript:|#).*$/,"");t.replace(r+"#"+e)}else{t.hash="#"+e}}});a.history=new I;var R=function(t,e){var i=this;var r;if(t&&h.has(t,"constructor")){r=t.constructor}else{r=function(){return i.apply(this,arguments)}}h.extend(r,i,e);var s=function(){this.constructor=r};s.prototype=i.prototype;r.prototype=new s;if(t)h.extend(r.prototype,t);r.__super__=i.prototype;return r};d.extend=v.extend=k.extend=w.extend=I.extend=R;var U=function(){throw new Error('A "url" property or function must be specified')};var M=function(t,e){var i=e.error;e.error=function(r){if(i)i(t,r,e);t.trigger("error",t,r,e)}}}).call(this);
+
+wwwroot\assets\js\jquery-2.0.3.min.js:
+  3  */
+  4: ⟪ 18370 characters skipped ⟫arget:function(t){var n=e.location&&e.location.hash;return n&&n.slice(1)===t.id},root:function(e){return e===f},focus:function(e){return e===p.activeElement&&(!p.hasFocus||p.hasFocus())&&!!(e.type||e.href||~e.tabIndex)},enabled:function(e){return e.disabled===!1},disabled:function(e){return e.disabled===!0},checked:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&!!e.checked||"option"===t&&!!e.selected},selected:function(e){return e.parentNode&&e.parentNode.selectedIndex,e.selected===!0},empty:function(e){for(e=e.firstChild;e;e=e.nextSibling)if(e.nodeName>"@"||3===e.nodeType||4===e.nodeType)return!1;return!0},parent:function(e){return!i.pseudos.empty(e)},header:function(e){return et.test(e.nodeName)},input:function(e){return Z.test(e.nodeName)},button:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&"button"===e.type||"button"===t},text:function(e){var t;return"input"===e.nodeName.toLowerCase()&&"text"===e.type&&(null==(t=e.getAttribute("type"))||t.toLowerCase()===e.type)},first:ht(function(){return[0]}),last:ht(function(e,t){return[t-1]}),eq:ht(function(e,t,n){return[0>n?n+t:n]}),even:ht(function(e,t){var n=0;for(;t>n;n+=2)e.push(n);return e}),odd:ht(func⟪ 4092 characters skipped ⟫n.sortStable=v.split("").sort(S).join("")===v,n.detectDuplicates=E,c(),n.sortDetached=ut(function(e){return 1&e.compareDocumentPosition(p.createElement("div"))}),ut(function(e){return e.innerHTML="<a href='#'></a>","#"===e.firstChild.getAttribute("href")})||lt("type|href|height|width",function(e,t,n){return n?undefined:e.getAttribute(t,"type"===t.toLowerCase()?1:2)}),n.attributes&&ut(function(e){return e.innerHTML="<input/>",e.firstChild.setAttribute("value",""),""===e.firstChild.getAttribute("value")})||lt("value",function(e,t,n){return n||"input"!==e.nodeName.toLowerCase()?undefined:e.defaultValue}),ut(function(e){return null==e.getAttribute("disabled")})||lt(R,function(e,t,n){var r;return n?undefined:(r=e.getAttributeNode(t))&&r.specified?r.value:e[t]===!0?t.toLowerCase():null}),x.find=ot,x.expr=ot.selectors,x.expr[":"]=x.expr.pseudos,x.unique=ot.uniqueSort,x.text=ot.getText,x.isXMLDoc=ot.isXML,x.contains=ot.contains}(e);var D={};function A(e){var t=D[e]={};return x.each(e.match(w)||[],function(e,n){t[n]=!0}),t}x.Callbacks=function(e){e="string"==typeof e?D[e]||A(e):x.extend({},e);var t,n,r,i,o,s,a=[],u=!e.once&&[],l=function(p){for(t=e.memory&&p,n=!0,s=i||0,i=0,o=a.length,r=!0;a&&o>s;s++)if(a[s].apply(p[0],p[1])===!1&&e.stopOnFalse){t=!1;break
+  5: ⟪ 5134 characters skipped ⟫undefined?i&&"set"in i&&(r=i.set(e,n,t))!==undefined?r:e[t]=n:i&&"get"in i&&null!==(r=i.get(e,t))?r:e[t]},propHooks:{tabIndex:{get:function(e){return e.hasAttribute("tabindex")||B.test(e.nodeName)||e.href?e.tabIndex:-1}}}}),M={set:function(e,t,n){return t===!1?x.removeAttr(e,n):e.setAttribute(n,n),n}},x.each(x.expr.match.bool.source.match(/\w+/g),function(e,t){var n=x.expr.attrHandle[t]||x.find.attr;x.expr.attrHandle[t]=function(e,t,r){var i=x.expr.attrHandle[t],o=r?undefined:(x.expr.attrHandle[t]=undefined)!=n(e,t,r)?t.toLowerCase():null;return x.expr.attrHandle[t]=i,o}}),x.support.optSelected||(x.propHooks.selected={get:function(e){var t=e.parentNode;return t&&t.parentNode&&t.parentNode.selectedIndex,null}}),x.each(["tabIndex","readOnly","maxLength","cellSpacing","cellPadding","rowSpan","colSpan","useMap","frameBorder","contentEditable"],function(){x.propFix[this.toLowerCase()]=this}),x.each(["radio","checkbox"],function(){x.valHooks[this]={set:function(e,t){return x.isArray(t)?e.checked=x.inArray(x(e).val(),t)>=0:undefined}},x.support.checkOn||(x.valHooks[this].get=function(e){return null===e.getAttribute("value")?"on":e.value})});var I=/^key/,z=/^(?:mouse|contextmenu)|click/,_=
+  6: },delegate:function(e,t,n,r){return this.on(t,e,n,r)},undelegate:function(e,t,n){return 1===arguments.length?this.off(e,"**"):this.off(t,e||"**",n)}});var Xt,Ut,Yt=x.now(),Vt=/\?/,Gt=/#.*$/,Jt=/([?&])_=[^&]*/,Qt=/^(.*?):[ \t]*([^\r\n]*)$/gm,Kt=/^(?:about|app|app-storage|.+-extension|file|res|widget):$/,Zt=/^(?:GET|HEAD)$/,en=/^\/\//,tn=/^([\w.+-]+:)(?:\/\/([^\/?#:]*)(?::(\d+)|)|)/,nn=x.fn.load,rn={},on={},sn="*/".concat("*");try{Ut=i.href}catch(an){Ut=o.createElement("a"),Ut.href="",Ut=Ut.href}Xt=tn.exec(Ut.toLowerCase())||[];function un(e){return function(t,n){"string"!=typeof t&&(n=t,t="*");var r,i=0,o=t.toLowerCase().match(w)||[];if(x.isFunction(n))while(r=o[i++])"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).unshift(n)):(e[r]=e[r]||[]).push(n)}}function ln(e,t,n,r){var i={},o=e===on;function s(a){var u;return i[a]=!0,x.each(e[a]||[],function(e,a){var l=a(t,n,r);return"string"!=typeof l||o||i[l]?o?!(u=l):undefined:(t.dataTypes.unshift(l),s(l),!1)}),u}return s(t.dataTypes[0])||!i["*"]&&s("*")}function cn(e,t){var n,r,i=x.ajaxSettings.flatOptions||{};for(n in t)t[n]!==undefined&&((i[n]?e:r||(r={}))[n]=t[n]);return r&&x.extend(!0,e,r),e}x.fn.load=function(e,t,n){if("string"!=typeof e&&nn)return nn.apply(this,arguments);var r,i,o,s=this,a=e.indexOf(" ");return a>=0&&(r=e.slice(a),e=e.slice(0,a)),x.isFunction(t)?(n=t,t=undefined):t&&"object"==typeof t&&(i="POST"),s.length>0&&x.ajax({url:e,type:i,dataType:"html",data:t}).done(function(e){o=arguments,s.html(r?x("<div>").appe
+
+wwwroot\assets\js\tabler-custom.js:
+   50                  if (this.tagName === 'A') {
+   51:                     window.location.href = this.href;
+   52                  } else if (this.tagName === 'BUTTON' && this.form) {
+
+  123      // Row click handlers
+  124:     const clickableRows = document.querySelectorAll('tr[data-href]');
+  125      clickableRows.forEach(row => {
+
+  128              if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'A') {
+  129:                 window.location.href = this.getAttribute('data-href');
+  130              }
+
+wwwroot\assets\js\tabler-custom.min.js:
+  1: ⟪ 682 characters skipped ⟫tAttribute('data-message')||'Bu işlem geri alınamaz. Emin misiniz?';const title=this.getAttribute('data-title')||'Silme Onayı';if(confirm(title+'\n\n'+message)){if(this.tagName==='A'){window.location.href=this.href;}else if(this.tagName==='BUTTON'&&this.form){this.form.submit();}}});});}function initializeFormEnhancements(){const forms=document.querySelectorAll('form[data-auto-save]');forms.forEach(form=>{const formId=form.getAttribute('data-auto-save');loadFormData(form,formId);form.addEventListener('input',function(){saveFormData(form,formId);});form.addEventListener('submit',function(){setTimeout(()=>{clearFormData(formId);},1000);});});const textareas=document.querySelectorAll('textarea[maxlength]');textareas.forEach(textarea=>{const maxLength=textarea.getAttribute('maxlength');const counter=document.createElement('div');counter.className='text-muted small mt-1';counter.textContent=`0 / ${maxLength}`;textarea.parentNode.appendChild(counter);textarea.addEventListener('input',function(){const currentLength=this.value.length;counter.textContent=`${currentLength} / ${maxLength}`;if(currentLength>maxLength*0.9){counter.className='text-warning small mt-1';}else if(currentLength===parseInt(maxL⟪ 298 characters skipped ⟫r=document.createElement('div');wrapper.className='table-responsive';table.parentNode.insertBefore(wrapper,table);wrapper.appendChild(table);}});const clickableRows=document.querySelectorAll('tr[data-href]');clickableRows.forEach(row=>{row.style.cursor='pointer';row.addEventListener('click',function(e){if(e.target.tagName!=='BUTTON'&&e.target.tagName!=='A'){window.location.href=this.getAttribute('data-href');}});});const sortableHeaders=document.querySelectorAll('th[data-sort]');sortableHeaders.forEach(header=>{header.style.cursor='pointer';header.addEventListener('click',function(){const table=this.closest('table');const column=this.getAttribute('data-sort');sortTable(table,column);});});}function initializeNotifications(){const alerts=document.querySelectorAll('.alert:not(.alert-permanent)');alerts.forEach(alert=>{if(!alert.querySelector('.btn-close')){setTimeout(()=>{alert.style.opacity='0';setTimeout(()=>{alert.remove();},300);},5000);}});const urlParams=new URLSearchParams(window.location.search);if(urlParams.get('success')){showNotification('İşlem başarıyla tamamlandı!','success');}if(urlParams.get('error')){showNotification('İşlem sırasında bir hata oluştu.','error');}}function showNotification(message,type='info',duration=3000){const alertClass=type==='error'?'alert-danger':`alert-${type}`;const icon=type==='success'?'ti-check':type==='error'?'ti-alert-circle':'ti-info-circl
+  2          <div class="d-flex align-items-center">
+
+wwwroot\assets\js\underscore-min.js:
+  4  //     Underscore may be freely distributed under the MIT license.
+  5: ⟪ 2062 characters skipped ⟫d 0:r}),!!u)};var O=j.some=j.any=function(n,t,e){t||(t=j.identity);var u=!1;return null==n?u:m&&n.some===m?n.some(t,e):(A(n,function(n,i,a){return u||(u=t.call(e,n,i,a))?r:void 0}),!!u)};j.contains=j.include=function(n,t){return null==n?!1:y&&n.indexOf===y?n.indexOf(t)!=-1:O(n,function(n){return n===t})},j.invoke=function(n,t){var r=o.call(arguments,2),e=j.isFunction(t);return j.map(n,function(n){return(e?t:n[t]).apply(n,r)})},j.pluck=function(n,t){return j.map(n,function(n){return n[t]})},j.where=function(n,t,r){return j.isEmpty(t)?r?void 0:[]:j[r?"find":"filter"](n,function(n){for(var r in t)if(t[r]!==n[r])return!1;return!0})},j.findWhere=function(n,t){return j.where(n,t,!0)},j.max=function(n,t,r){if(!t&&j.isArray(n)&&n[0]===+n[0]&&n.length<65535)return Math.max.apply(Math,n);if(!t&&j.isEmpty(n))return-1/0;var e={computed:-1/0,value:-1/0};return A(n,function(n,u,i){var a=t?t.call(r,n,u,i):n;a>e.computed&&(e={value:n,computed:a})}),e.value},j.min=function(n,t,r){if(!t&&j.isArray(n)&&n[0]===+n[0]&&n.length<65535)return Math.min.apply(Math,n);if(!t&&j.isEmpty(n))return 1/0;var e={computed:1/0,value:1/0};return A(n,function(n,u,i){var a=t?t.call(r,n,u,i):n;a<e.computed&&(e={value:n,c
+  6  //# sourceMappingURL=underscore-min.map
+
+wwwroot\assets\js\underscore-min.min.js:
+  1: ⟪ 2092 characters skipped ⟫d 0:r}),!!u)};var O=j.some=j.any=function(n,t,e){t||(t=j.identity);var u=!1;return null==n?u:m&&n.some===m?n.some(t,e):(A(n,function(n,i,a){return u||(u=t.call(e,n,i,a))?r:void 0}),!!u)};j.contains=j.include=function(n,t){return null==n?!1:y&&n.indexOf===y?n.indexOf(t)!=-1:O(n,function(n){return n===t})},j.invoke=function(n,t){var r=o.call(arguments,2),e=j.isFunction(t);return j.map(n,function(n){return(e?t:n[t]).apply(n,r)})},j.pluck=function(n,t){return j.map(n,function(n){return n[t]})},j.where=function(n,t,r){return j.isEmpty(t)?r?void 0:[]:j[r?"find":"filter"](n,function(n){for(var r in t)if(t[r]!==n[r])return!1;return!0})},j.findWhere=function(n,t){return j.where(n,t,!0)},j.max=function(n,t,r){if(!t&&j.isArray(n)&&n[0]===+n[0]&&n.length<65535)return Math.max.apply(Math,n);if(!t&&j.isEmpty(n))return-1/0;var e={computed:-1/0,value:-1/0};return A(n,function(n,u,i){var a=t?t.call(r,n,u,i):n;a>e.computed&&(e={value:n,computed:a})}),e.value},j.min=function(n,t,r){if(!t&&j.isArray(n)&&n[0]===+n[0]&&n.length<65535)return Math.min.apply(Math,n);if(!t&&j.isEmpty(n))return 1/0;var e={computed:1/0,value:1/0};return A(n,function(n,u,i){var a=t?t.call(r,n,u,i):n;a<e.computed&&(e={value:n,c

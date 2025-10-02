@@ -31,13 +31,14 @@ class Router
             $this->action = $action;
             $this->params = $params;
 
-            $controllerFile = __DIR__ . "/controllers/{$controllerName}.php";
+            // Use APP_PATH constant instead of __DIR__ for consistency
+            $controllerFile = (defined('APP_PATH') ? APP_PATH : __DIR__ . '/') . "controllers/{$controllerName}.php";
 
             // Controller dosyası var mı?
             if (!file_exists($controllerFile)) {
                 throw new Exception("Controller dosyası bulunamadı: {$controllerName}");
             }
-            
+
             require_once $controllerFile;
 
             // Controller sınıfı var mı?
@@ -68,13 +69,14 @@ class Router
     private function handleError($message)
     {
         // Error sayfasına yönlendir
-        if (file_exists(__DIR__ . '/views/home/error.php')) {
+        $errorViewPath = (defined('APP_PATH') ? APP_PATH : __DIR__ . '/') . 'views/home/error.php';
+        if (file_exists($errorViewPath)) {
             $_SESSION['error_message'] = $message;
-            require_once __DIR__ . '/views/home/error.php';
+            require_once $errorViewPath;
         } else {
             echo "<h1>Hata</h1>";
             echo "<p>{$message}</p>";
-            echo "<a href='" . BASE_URL . "'>Ana Sayfaya Dön</a>";
+            echo "<a href='" . (defined('BASE_URL') ? BASE_URL : '/') . "'>Ana Sayfaya Dön</a>";
         }
     }
 

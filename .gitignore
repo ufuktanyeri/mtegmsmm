@@ -103,3 +103,26 @@ production_config.php
 # Empty or temporary config directories
 config/
 /config/
+
+# Analysis and temporary scripts
+analyze_*.php
+analyze_*.json
+update_field_*.php
+
+# Empty debug files
+data[*]
+set
+
+# Sensitive files
+github-recovery-codes.txt
+*.api.key
+*.api
+
+# Tool installation instructions
+*_installation_instructions.md
+
+# Nested repository directories
+/mtegmsmm/
+
+# Archive directories
+/_dev/archive/

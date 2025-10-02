@@ -2,13 +2,13 @@
 // filepath: c:\xampp\htdocs\mtegmsmm\app\Controllers\ActionController.php
 
 require_once 'BaseController.php';
-require_once __DIR__ . '/../models/ActionModel.php';
-require_once __DIR__ . '/../models/CoveModel.php';
-require_once __DIR__ . '/../models/ObjectiveModel.php';
-require_once __DIR__ . '/../models/AimModel.php';
-require_once __DIR__ . '/../validators/ActionValidator.php';
-require_once __DIR__ . '/../entities/Permission.php';
-require_once __DIR__ . '/../models/DetailedLogModel.php';
+require_once APP_PATH . 'models/ActionModel.php';
+require_once APP_PATH . 'models/CoveModel.php';
+require_once APP_PATH . 'models/ObjectiveModel.php';
+require_once APP_PATH . 'models/AimModel.php';
+require_once APP_PATH . 'validators/ActionValidator.php';
+require_once APP_PATH . 'entities/Permission.php';
+require_once APP_PATH . 'models/DetailedLogModel.php';
 
 class ActionController extends BaseController {
     private $model;

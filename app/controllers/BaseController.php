@@ -1,7 +1,7 @@
 <?php
 // app/Controllers/BaseController.php
-require_once __DIR__ . '/../services/UnifiedViewService.php';
-require_once __DIR__ . '/../../includes/SessionManager.php';
+require_once APP_PATH . 'services/UnifiedViewService.php';
+require_once INCLUDES_PATH . 'SessionManager.php';
 
 use App\Services\UnifiedViewService;
 
@@ -102,8 +102,8 @@ class BaseController
      */
     protected function checkPermission(string $permissionName, string $operation = 'select'): void
     {
-        require_once __DIR__ . '/../../includes/PermissionHelper.php';
-        
+        require_once INCLUDES_PATH . 'PermissionHelper.php';
+
         if (!hasPermission($permissionName, $operation)) {
             $this->handleError('Bu işlem için yetkiniz bulunmamaktadır.', 403);
         }
@@ -118,8 +118,8 @@ class BaseController
      */
     protected function checkCovePermission(string $permissionName, ?int $coveId, string $operation = 'select'): void
     {
-        require_once __DIR__ . '/../../includes/PermissionHelper.php';
-        
+        require_once INCLUDES_PATH . 'PermissionHelper.php';
+
         if (!hasPermissionForCove($permissionName, $coveId, $operation)) {
             $this->handleError('Bu merkez için yetkiniz bulunmamaktadır.', 403);
         }

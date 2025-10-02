@@ -1,28 +1,29 @@
 <?php
 
 require_once 'BaseController.php';
-require_once __DIR__ . '/../../includes/Pepper.php';
-require_once __DIR__ . '/../models/UserModel.php'; // Model for user-related database operations
-require_once __DIR__ . '/../models/CoveModel.php';
-require_once __DIR__ . '/../models/RoleModel.php';
-require_once __DIR__ . '/../models/LogModel.php'; // Include LogModel
-require_once __DIR__ . '/../models/DetailedLogModel.php'; // Include DetailedLogModel
-require_once __DIR__ . '/../validators/LoginValidator.php';
-require_once __DIR__ . '/../validators/RegisterValidator.php';
-require_once __DIR__ . '/../validators/UserValidator.php';
-require_once __DIR__ . '/../validators/UserManageUpdateValidator.php';
-require_once __DIR__ . '/../validators/ProfileUpdateValidator.php';
-require_once __DIR__ . '/../entities/Permission.php';
-require_once __DIR__ . '/../models/PermissionModel.php';
-require_once __DIR__ . '/../models/NewsModel.php';
-require_once __DIR__ . '/../models/GalleryModel.php';
-require_once __DIR__ . '/../../includes/Recaptcha.php';
-require_once __DIR__ . '/../../includes/Security.php';
-// New security classes
-require_once __DIR__ . '/../../includes/SecurityLogger.php';
-require_once __DIR__ . '/../../includes/AccountSecurity.php';
-require_once __DIR__ . '/../../includes/SessionManager.php';
-require_once __DIR__ . '/../../includes/PasswordPolicy.php';
+
+// Use path constants instead of __DIR__ traversals for better maintainability
+require_once INCLUDES_PATH . 'Pepper.php';
+require_once APP_PATH . 'models/UserModel.php';
+require_once APP_PATH . 'models/CoveModel.php';
+require_once APP_PATH . 'models/RoleModel.php';
+require_once APP_PATH . 'models/LogModel.php';
+require_once APP_PATH . 'models/DetailedLogModel.php';
+require_once APP_PATH . 'validators/LoginValidator.php';
+require_once APP_PATH . 'validators/RegisterValidator.php';
+require_once APP_PATH . 'validators/UserValidator.php';
+require_once APP_PATH . 'validators/UserManageUpdateValidator.php';
+require_once APP_PATH . 'validators/ProfileUpdateValidator.php';
+require_once APP_PATH . 'entities/Permission.php';
+require_once APP_PATH . 'models/PermissionModel.php';
+require_once APP_PATH . 'models/NewsModel.php';
+require_once APP_PATH . 'models/GalleryModel.php';
+require_once INCLUDES_PATH . 'Recaptcha.php';
+require_once INCLUDES_PATH . 'Security.php';
+require_once INCLUDES_PATH . 'SecurityLogger.php';
+require_once INCLUDES_PATH . 'AccountSecurity.php';
+require_once INCLUDES_PATH . 'SessionManager.php';
+require_once INCLUDES_PATH . 'PasswordPolicy.php';
 
 class UserController extends BaseController
 {
@@ -395,7 +396,7 @@ class UserController extends BaseController
         }
 
         // Yazıyı ekleyelim
-        $font = __DIR__ . '/../fonts/arial.ttf'; // Arial.ttf dosyasını aynı klasöre koymalısınız!
+        $font = APP_PATH . 'fonts/arial.ttf'; // Arial.ttf font file
         imagettftext($image, 22, rand(-10, 10), 30, 35, $textColor, $font, $captchaCode);
 
         // Görseli çıktı al ve hafızayı temizle
@@ -795,19 +796,20 @@ class UserController extends BaseController
                 // Generate unique filename
                 $extension = pathinfo($uploadedFile['name'], PATHINFO_EXTENSION);
                 $filename = 'profile_' . $user->getId() . '_' . time() . '.' . $extension;
-                $uploadPath = __DIR__ . '/../../wwwroot/uploads/profiles/' . $filename;
-                
+                $uploadPath = upload_path('profiles/' . $filename);
+
                 // Create directory if it doesn't exist
                 $uploadDir = dirname($uploadPath);
                 if (!is_dir($uploadDir)) {
                     mkdir($uploadDir, 0755, true);
                 }
-                
+
                 // Move uploaded file
                 if (move_uploaded_file($uploadedFile['tmp_name'], $uploadPath)) {
                     // Delete old profile photo if exists
-                    if ($user->getProfilePhoto() && file_exists(__DIR__ . '/../../wwwroot/uploads/profiles/' . $user->getProfilePhoto())) {
-                        unlink(__DIR__ . '/../../wwwroot/uploads/profiles/' . $user->getProfilePhoto());
+                    $oldPhotoPath = upload_path('profiles/' . $user->getProfilePhoto());
+                    if ($user->getProfilePhoto() && file_exists($oldPhotoPath)) {
+                        unlink($oldPhotoPath);
                     }
                     $profilePhoto = $filename;
                 } else {

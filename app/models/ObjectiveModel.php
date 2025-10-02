@@ -1,8 +1,8 @@
 <?php
 
 require_once 'BaseModel.php';
-require_once __DIR__ . '/../../includes/Database.php';
-require_once __DIR__ . '/../entities/Objective.php';
+require_once INCLUDES_PATH . 'Database.php';
+require_once APP_PATH . 'entities/Objective.php';
 
 class ObjectiveModel extends BaseModel {
     private $db;

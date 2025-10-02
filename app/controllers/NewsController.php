@@ -1,10 +1,10 @@
 <?php
 
 require_once 'BaseController.php';
-require_once __DIR__ . '/../models/NewsModel.php';
-require_once __DIR__ . '/../models/GalleryModel.php';
-require_once __DIR__ . '/../entities/Permission.php';
-require_once __DIR__ . '/../validators/NewsValidator.php';
+require_once APP_PATH . 'models/NewsModel.php';
+require_once APP_PATH . 'models/GalleryModel.php';
+require_once APP_PATH . 'entities/Permission.php';
+require_once APP_PATH . 'validators/NewsValidator.php';
 
 class NewsController extends BaseController
 {

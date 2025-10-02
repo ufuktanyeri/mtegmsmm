@@ -1,9 +1,9 @@
 <?php
 
 require_once 'BaseController.php';
-require_once __DIR__ . '/../models/LogModel.php';
-require_once __DIR__ . '/../entities/Log.php';
-require_once __DIR__ . '/../entities/Permission.php';
+require_once APP_PATH . 'models/LogModel.php';
+require_once APP_PATH . 'entities/Log.php';
+require_once APP_PATH . 'entities/Permission.php';
 
 class LogController extends BaseController {
     protected function checkControllerPermission() {

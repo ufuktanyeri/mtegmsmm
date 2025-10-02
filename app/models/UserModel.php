@@ -1,11 +1,11 @@
 <?php
 
-require_once __DIR__.'/BaseModel.php';
-require_once __DIR__ . '/../../includes/Database.php'; // Class for database operations
-require_once __DIR__ . '/../entities/User.php'; // Include the User entity
-require_once __DIR__ . '/../entities/Role.php'; // Include the Role entity
-require_once __DIR__ . '/../entities/Permission.php'; // Include the Permission entity
-require_once __DIR__ . '/../entities/Cove.php'; // Include the Cove entity
+require_once APP_PATH . 'models/BaseModel.php';
+require_once INCLUDES_PATH . 'Database.php'; // Class for database operations
+require_once APP_PATH . 'entities/User.php'; // Include the User entity
+require_once APP_PATH . 'entities/Role.php'; // Include the Role entity
+require_once APP_PATH . 'entities/Permission.php'; // Include the Permission entity
+require_once APP_PATH . 'entities/Cove.php'; // Include the Cove entity
 
 class UserModel extends BaseModel {
     private $db;

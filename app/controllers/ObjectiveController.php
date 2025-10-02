@@ -2,11 +2,11 @@
 // filepath: c:\xampp\htdocs\mtegmsmm\app\Controllers\ObjectiveController.php
 
 require_once 'BaseController.php';
-require_once __DIR__ . '/../models/ObjectiveModel.php';
-require_once __DIR__ . '/../models/AimModel.php';
-require_once __DIR__ . '/../models/CoveModel.php';
-require_once __DIR__ . '/../entities/Objective.php';
-require_once __DIR__ . '/../entities/Aim.php';
+require_once APP_PATH . 'models/ObjectiveModel.php';
+require_once APP_PATH . 'models/AimModel.php';
+require_once APP_PATH . 'models/CoveModel.php';
+require_once APP_PATH . 'entities/Objective.php';
+require_once APP_PATH . 'entities/Aim.php';
 
 class ObjectiveController extends BaseController
 {

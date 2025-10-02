@@ -5,8 +5,8 @@
  */
 
 require_once __DIR__ . '/BaseController.php';
-require_once __DIR__ . '/../../includes/SessionManager.php';
-require_once __DIR__ . '/../../includes/PermissionHelper.php';
+require_once INCLUDES_PATH . 'SessionManager.php';
+require_once INCLUDES_PATH . 'PermissionHelper.php';
 
 class AuthController extends BaseController {
 
@@ -18,7 +18,7 @@ class AuthController extends BaseController {
         $this->sessionManager = new SessionManager();
 
         // Initialize database connection
-        require_once __DIR__ . '/../../includes/Database.php';
+        require_once INCLUDES_PATH . 'Database.php';
         $this->db = Database::getInstance();
     }
 

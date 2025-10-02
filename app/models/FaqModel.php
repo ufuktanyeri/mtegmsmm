@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/BaseModel.php';
+require_once APP_PATH . 'models/BaseModel.php';
 
 class FaqModel extends BaseModel {
     public function getActiveAll(){

@@ -1,8 +1,8 @@
 <?php
 
 require_once 'BaseModel.php';
-require_once __DIR__ . '/../../includes/Database.php';
-require_once __DIR__ . '/../entities/Field.php';
+require_once INCLUDES_PATH . 'Database.php';
+require_once APP_PATH . 'entities/Field.php';
 
 class FieldModel extends BaseModel {
     private $db;

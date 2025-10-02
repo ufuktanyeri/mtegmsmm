@@ -1,7 +1,7 @@
 <?php
 require_once 'BaseModel.php';
-require_once __DIR__ . '/../../includes/Database.php';
-require_once __DIR__ . '/../entities/Permission.php';
+require_once INCLUDES_PATH . 'Database.php';
+require_once APP_PATH . 'entities/Permission.php';
 
 class PermissionModel extends BaseModel {
     private $db;

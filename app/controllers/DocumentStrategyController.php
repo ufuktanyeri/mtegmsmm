@@ -1,9 +1,9 @@
 <?php
 
 require_once 'BaseController.php';
-require_once __DIR__ . '/../models/DocumentStrategyModel.php';
-require_once __DIR__ . '/../validators/DocumentStrategyValidator.php';
-require_once __DIR__ . '/../entities/Permission.php';
+require_once APP_PATH . 'models/DocumentStrategyModel.php';
+require_once APP_PATH . 'validators/DocumentStrategyValidator.php';
+require_once APP_PATH . 'entities/Permission.php';
 
 class DocumentStrategyController extends BaseController {
     protected function checkControllerPermission() {

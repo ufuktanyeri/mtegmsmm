@@ -5,15 +5,15 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 
 require_once 'BaseController.php';
-require_once __DIR__ . '/../models/AimModel.php';
-require_once __DIR__ . '/../models/CoveModel.php';
-require_once __DIR__ . '/../models/IndicatorModel.php';
-require_once __DIR__ . '/../models/ActionModel.php';
-require_once __DIR__ . '/../models/RegulationModel.php';
-require_once __DIR__ . '/../models/UserModel.php';
-require_once __DIR__ . '/../validators/AimValidator.php';
-require_once __DIR__ . '/../entities/Permission.php';
-require_once __DIR__ . '/../models/DetailedLogModel.php';
+require_once APP_PATH . 'models/AimModel.php';
+require_once APP_PATH . 'models/CoveModel.php';
+require_once APP_PATH . 'models/IndicatorModel.php';
+require_once APP_PATH . 'models/ActionModel.php';
+require_once APP_PATH . 'models/RegulationModel.php';
+require_once APP_PATH . 'models/UserModel.php';
+require_once APP_PATH . 'validators/AimValidator.php';
+require_once APP_PATH . 'entities/Permission.php';
+require_once APP_PATH . 'models/DetailedLogModel.php';
 
 // DomPDF ve PHPWord için autoloader
 require_once __DIR__ . '/../lib/dompdf/vendor/autoload.php';

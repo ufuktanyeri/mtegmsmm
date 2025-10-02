@@ -4,13 +4,23 @@
  * PHP 5.5 ve PHP 8.2 uyumlu
  */
 
+// CRITICAL: Define path constants FIRST before using them
+// This ensures paths are available for all subsequent code
+$rootPath = realpath(dirname(dirname(dirname(__FILE__)))) . DIRECTORY_SEPARATOR;
+define('ROOT_PATH', $rootPath);
+define('APP_PATH', ROOT_PATH . 'app' . DIRECTORY_SEPARATOR);
+define('INCLUDES_PATH', ROOT_PATH . 'includes' . DIRECTORY_SEPARATOR);
+define('WWWROOT_PATH', ROOT_PATH . 'wwwroot' . DIRECTORY_SEPARATOR);
+define('LOGS_PATH', ROOT_PATH . 'logs' . DIRECTORY_SEPARATOR);
+
 // PHP version kontrolü
 $phpVersion = phpversion();
 $isOldPHP = version_compare($phpVersion, '5.6.0', '<');
 
 // Environment.php - sadece PHP 5.6+ için
-if (!$isOldPHP && file_exists(dirname(dirname(dirname(__FILE__))) . '/includes/Environment.php')) {
-    require_once dirname(dirname(dirname(__FILE__))) . '/includes/Environment.php';
+// Now we can use INCLUDES_PATH constant safely
+if (!$isOldPHP && file_exists(INCLUDES_PATH . 'Environment.php')) {
+    require_once INCLUDES_PATH . 'Environment.php';
     Environment::load();
 }
 
@@ -22,7 +32,7 @@ if ($isProduction) {
     define('BASE_URL', 'https://mtegmsmm.meb.gov.tr/');
     define('APP_ENV', 'production');
     define('APP_DEBUG', false);
-    
+
     define('DB_HOST', 'localhost');
     define('DB_NAME', 'fg5085Y3XU1aG48Qw');
     define('DB_USER', 'fg508_5Y3XU1aGwa');
@@ -31,7 +41,7 @@ if ($isProduction) {
     define('BASE_URL', 'http://localhost/mtegmsmm/');
     define('APP_ENV', 'development');
     define('APP_DEBUG', true);
-    
+
     define('DB_HOST', 'localhost');
     define('DB_NAME', 'fg5085Y3XU1aG48Qw');
     define('DB_USER', 'fg508_5Y3XU1aGwa');
@@ -39,14 +49,6 @@ if ($isProduction) {
 }
 
 define('DB_CHARSET', 'utf8mb4');
-
-// Paths - PHP 5.5 uyumlu (dirname yerine realpath)
-$rootPath = realpath(dirname(dirname(dirname(__FILE__)))) . DIRECTORY_SEPARATOR;
-define('ROOT_PATH', $rootPath);
-define('APP_PATH', ROOT_PATH . 'app' . DIRECTORY_SEPARATOR);
-define('INCLUDES_PATH', ROOT_PATH . 'includes' . DIRECTORY_SEPARATOR);
-define('WWWROOT_PATH', ROOT_PATH . 'wwwroot' . DIRECTORY_SEPARATOR);
-define('LOGS_PATH', ROOT_PATH . 'logs' . DIRECTORY_SEPARATOR);
 
 // Session
 if (!defined('SESSION_NAME')) {

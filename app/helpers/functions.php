@@ -58,7 +58,8 @@ if (!function_exists('config')) {
         static $config = null;
 
         if ($config === null) {
-            $configFile = dirname(__DIR__) . '/config/config.php';
+            // Use APP_PATH constant if defined
+            $configFile = defined('APP_PATH') ? APP_PATH . 'config/config.php' : dirname(__DIR__) . '/config/config.php';
             if (file_exists($configFile)) {
                 $config = require $configFile;
             }
@@ -87,7 +88,8 @@ if (!function_exists('base_path')) {
      */
     function base_path($path = '')
     {
-        $basePath = realpath(__DIR__ . '/../..');
+        // Use ROOT_PATH constant if defined, otherwise calculate it
+        $basePath = defined('ROOT_PATH') ? rtrim(ROOT_PATH, DIRECTORY_SEPARATOR) : realpath(__DIR__ . '/../..');
         return $path ? $basePath . DIRECTORY_SEPARATOR . ltrim($path, '/\\') : $basePath;
     }
 }
@@ -478,5 +480,73 @@ if (!function_exists('trans')) {
         }
 
         return $translation;
+    }
+}
+
+if (!function_exists('asset_url')) {
+    /**
+     * Generate URL for assets (CSS, JS, images, etc.)
+     * Automatically handles BASE_URL and removes duplicate slashes
+     *
+     * Usage:
+     *   asset_url('css/style.css') => 'http://localhost/mtegmsmm/css/style.css'
+     *   asset_url('img/logo.png') => 'http://localhost/mtegmsmm/img/logo.png'
+     *
+     * @param string $path Path to asset (relative to wwwroot)
+     * @return string Full URL to asset
+     */
+    function asset_url($path)
+    {
+        // Get BASE_URL, default to '/' if not defined
+        $baseUrl = defined('BASE_URL') ? BASE_URL : '/';
+
+        // Remove leading slash from path
+        $path = ltrim($path, '/');
+
+        // Remove 'wwwroot/' prefix if present (since BASE_URL points to public root)
+        if (strpos($path, 'wwwroot/') === 0) {
+            $path = substr($path, 8); // Remove 'wwwroot/'
+        }
+
+        // Combine and remove duplicate slashes
+        $url = rtrim($baseUrl, '/') . '/' . $path;
+
+        return $url;
+    }
+}
+
+if (!function_exists('upload_path')) {
+    /**
+     * Get full file system path for uploads
+     *
+     * Usage:
+     *   upload_path('profiles/avatar.jpg') => 'C:\xampp\htdocs\mtegmsmm\wwwroot\uploads\profiles\avatar.jpg'
+     *
+     * @param string $path Path relative to uploads directory
+     * @return string Full file system path
+     */
+    function upload_path($path = '')
+    {
+        $uploadsPath = defined('WWWROOT_PATH')
+            ? WWWROOT_PATH . 'uploads' . DIRECTORY_SEPARATOR
+            : base_path('wwwroot' . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR);
+
+        return $path ? $uploadsPath . ltrim($path, '/\\') : $uploadsPath;
+    }
+}
+
+if (!function_exists('upload_url')) {
+    /**
+     * Generate URL for uploaded files
+     *
+     * Usage:
+     *   upload_url('profiles/avatar.jpg') => 'http://localhost/mtegmsmm/uploads/profiles/avatar.jpg'
+     *
+     * @param string $path Path relative to uploads directory
+     * @return string Full URL to uploaded file
+     */
+    function upload_url($path)
+    {
+        return asset_url('uploads/' . ltrim($path, '/'));
     }
 }
