@@ -188,7 +188,7 @@ $additionalJs = '
 <!-- Main Content Start -->
 
     <!-- Hero Section -->
-    <section class="hero-section bg-gradient text-white py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding-top: 100px !important; padding-bottom: 100px !important;">
+    <section class="hero-section bg-gradient text-white py-5" style="background-color: #667eea; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding-top: 100px !important; padding-bottom: 100px !important;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-10 mx-auto text-center">
